@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <style>
+            *{
+                font-family: sans-serif;
+                font-weight: 900;
+            }
+            a{
+                display: inline-block;
+                color: black;
+                text-decoration: none;
+            }
+        /* 以下header */
+            nav{
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1000;
+            }
+        /* 上半區塊 */
+            .headerLogin{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #87CEEB;
+                padding: 0 10%;
+                box-shadow: 0 1px 3px 0 #222222;
+            }
+                /* logo區 */
+            .logo img{
+                height:50px;
+            }
+
+                /* 會員區 */
+            .headerMember{
+                display: flex;
+                align-items: center;
+            }
+            .headerMember li{
+                padding: 0 10px;
+            }
+            ion-icon {
+                font-size:24px;
+                color: #333333;
+            }
+        /* 下半區塊 */
+            .headerNav{
+                position: absolute;
+                top:0;
+                left:0;
+                right:0;
+                background-color: #BDFCC9;
+                transition: .5s;
+                z-index: -1;
+            }
+            /* 導覽列項目 */
+            .headerNavList{
+                text-align: center;
+            }
+            .headerNavList li{
+                padding: 10px;
+            }
+
+            .headerNavList li:hover{
+                background-color: #3ea050;
+                color: #fff;
+            }
+        /* 以上header */
+
+
+        /* 動畫 */
+        .container{
+            position: relative;
+            padding-top: 50px;
+            width: 100%;
+            height: 100%;
+        }
+        #scene{
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(#00ccff,#aaddff);
+            overflow: hidden;
+        }
+        .container #scene .layer{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+
+        }
+        .container #scene .layer img{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            margin: auto;
+        }
+        .container #scene .bear img{
+            left: 10%;
+            top: 70%;
+            width: 10%;
+            object-fit: contain;
+        }
+
+        /* 動畫 */
+
+            /* 以下footer */
+
+
+            /* 以上footer */
+            
+        </style>
+</head>
+<body>
+    <nav>
+        <div class="headerNavWrap">
+            <div class="headerLogin">
+                <a href=""><h1 class="logo"><img src="images/logo/logo_110x100.png" alt="TravelMaker"></h1></a>
+                <ul class="headerMember">
+                    <a href=""><li><ion-icon name="cart"></ion-icon></li></a>
+                    <a href=""><li><ion-icon name="person"></ion-icon></li></a>
+                    <a href=""><li>漢堡</li></a>
+                </ul>
+            </div>
+            <div class="headerNav" id="headerNav">
+                <ul class="headerNavList">
+                    <a href=""><li>行程規劃</li></a>
+                    <a href=""><li>揪團旅行</li></a>
+                    <a href=""><li>商城</li></a>
+                    <a href=""><li>旅遊資訊</li></a>
+                    <a href=""><li>關於我們</li></a>
+                    <a href=""><li>明信片</li></a>
+                </ul>
+            </div>            
+        </div>
+    </nav>
+    <header>
+        <section class="banner">
+            <div class="container">
+                <div id="scene">
+                    <div class="layer" data-depth="0.3"><img src="images/twain/wave01_layer_2.png"></div>
+                    <div class="layer" data-depth="0.1"><img src="images/twain/wave02_layer_3.png"></div>
+                    <div class="layer" data-depth="0.2"><img src="images/twain/taiwan_layer_4.png"></div>
+                    <div class="layer" data-depth="0.3"><img src="images/twain/decoration_layer_5.png"></div>
+                    <div class="layer" data-depth="0.4"><img src="images/twain/object_layer_6.png"></div>
+                    <div class="layer" data-depth="0.5"><img src="images/twain/cloud01_layer_7.png"></div>
+                    <div class="layer" data-depth="0.6"><img src="images/twain/cloud02_layer_8.png"></div>
+                    <div class="layer bear" data-depth="1.6"><img src="images/twain/bear01.png"></div>
+                    <div class="layer bear" data-depth="9.6"><img src="images/twain/bear02.png"></div>
+                </div>
+            </div>
+        </section>
+    </header>
+    <main>
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </main>
+    <footer>
+        
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <script>
+        var scene = document.getElementById('scene');
+        var parallaxInstance = new Parallax(scene);
+    </script>
+    <script>
+        $(document).ready(function(){
+        let beforeScroll=0,afterScroll=0;
+            $(window).scroll(function(){
+                let headerNav = document.getElementById('headerNav');
+                afterScroll = $(this).scrollTop();
+                if(beforeScroll<afterScroll){
+                    headerNav.style.top = '100%';
+                }else{
+                    headerNav.style.top = '0';           
+                }
+                console.log(beforeScroll,afterScroll);
+                beforeScroll = afterScroll;
+            })
+        });
+
+
+
+    </script>
+</body>
+</html>
+

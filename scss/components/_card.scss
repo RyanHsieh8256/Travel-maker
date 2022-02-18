@@ -1,0 +1,135 @@
+// 揪團 / 商城 / 文章卡片元件 (蘇)
+.card {
+   
+    &--drag {
+        width: 35%;
+        min-width: 250px;
+        flex-shrink: 0;
+        padding: 0 1rem;
+        margin: 1% 0;
+    }
+
+    &_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    &_person {
+        display: flex;
+        align-items: center;
+    }
+    &_photo {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    &_name {
+        margin-left: 10px;
+        font-size: 16px;
+    }
+
+    &_hit {
+        font-size: 14px;
+        span {
+            font-size: 16px;
+            color: #FF6666;
+        }
+    }
+
+    &_content {
+        padding: 5%;
+        background-color: $card-color;
+        border-radius: 10px;
+
+        &--corner {
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: -30px;
+                left: 18px;
+
+               border-bottom: 20px solid $card-color;
+               border-left: 10px solid transparent;
+               border-right: 10px solid transparent;
+               border-top: 10px solid transparent;
+            }
+        }
+    }
+
+    &_body {
+        position: relative;
+    }
+
+    &_tag,&_like {
+        position: absolute;
+    }
+
+    &_tag {
+        background-color: #fff;
+        top: 0;
+        right: 0;
+        padding: 5px;
+    }
+
+    &_date {
+        padding: 10px;
+        border-left: 1px solid #333;
+    }
+
+    &_time {
+
+        font-size: 14px;
+
+        &--deadline {
+            text-align: right;
+
+            span {
+                display: block;
+            }
+        }
+    }
+
+    &_like {
+        top: 10px;
+        left: 10px;
+    }
+
+    &_title {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    &_text {
+        font-size: 14px;
+    }
+
+
+    &_footer {
+       text-align: right;
+    }
+
+    &_shopping {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &_count {
+        span {
+            font-weight: 600;
+            color: #728FAF;
+        }
+    }
+
+    &_date,&_title,&_footer {
+        margin-top: 15px;
+    }
+
+}
