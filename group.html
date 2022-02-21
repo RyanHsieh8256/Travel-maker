@@ -5,13 +5,136 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>首頁</title>
-
     <link rel="stylesheet" href="css/main.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js'></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </head>
 <body>
-    <header></header>
-    <main></main>
+    <!-- 流動圖片 -->
+    <header>
+        <section class="l-full groupMarquee">
+            <div class="l-full groupMarquee_wrap">
+                <div class="pic">
+                    <img src="./img/group/groupMarquee_picture01.jpg" alt="group picture">
+                    <img src="./img/group/groupMarquee_picture02.jpg" alt="group picture">
+                    <img src="./img/group/groupMarquee_picture01.jpg" alt="group picture">
+                    <img src="./img/group/groupMarquee_picture02.jpg" alt="group picture">
+                </div>
+            </div>
+        </section>
+    </header>
+    <main>
+<!-- 現正熱門揪團城市 -->
+        <section class="l-full groupCities">
+            <div class="l-large groupCities_wrap">
+                <h2>現正熱門揪團城市</h2>
+                <!-- <div class="container"> -->
+                    <div class="row">
+                        <div class="col-4 col-md-2">
+                            <div class="pic">
+                                <img src="./img/group/groupCities_kaohsiung.jpg" alt="kaohsiung">
+                            </div>
+                            <div class="txt">高雄</div>
+                        </div>
+                        <div class="col-4 col-md-2">
+                            <div class="pic">
+                                <img src="./img/group/groupCities_kaohsiung.jpg" alt="kaohsiung">
+                            </div>
+                            <div class="txt">高雄</div>
+                        </div>
+                        <div class="col-4 col-md-2">
+                            <div class="pic">
+                                <img src="./img/group/groupCities_kaohsiung.jpg" alt="kaohsiung">
+                            </div>
+                            <div class="txt">高雄</div>
+                        </div>
+                        <div class="col-4 col-md-2">
+                            <div class="pic">
+                                <img src="./img/group/groupCities_kaohsiung.jpg" alt="kaohsiung">
+                            </div>
+                            <div class="txt">高雄</div>
+                        </div>
+                        <div class="col-4 col-md-2">
+                            <div class="pic">
+                                <img src="./img/group/groupCities_kaohsiung.jpg" alt="kaohsiung">
+                            </div>
+                            <div class="txt">高雄</div>
+                        </div>
+                        <div class="col-4 col-md-2">
+                            <div class="pic">
+                                <img src="./img/group/groupCities_kaohsiung.jpg" alt="kaohsiung">
+                            </div>
+                            <div class="txt">高雄</div>
+                        </div>
+                    </div>
+                <!-- </div> -->
+            </div>
+        </section>
+<!-- 搜尋欄 -->
+        <section class="l-full groupSearchBar">
+            <div class="l-large groupSearchBar_wrap">
+                <form action="" class="search_wrap">
+                    <input type="text">
+                    <button class="search"><ion-icon name="search-outline"></ion-icon></button>
+                </form>
+                <div class="keyword_wrap">
+                    <span class="topSearch">熱門搜尋：</span>
+                    <ul>
+                        <li><button class="tag">櫻花祭</button></li>
+                        <li><button class="tag">櫻花祭</button></li>
+                        <li><button class="tag">櫻花祭</button></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+<!-- 篩選下拉式選單和揪團內容區 -->
+        <section class="l-full groupContent">
+            <div class="groupContent_wrap">
+                <div class="row">
+                    <div class="col-12 col-6">
+                        <div id="filter">
+                            <div class="city">
+                                <select v-model="selectedCity">
+                                    <option value="" disabled>城市</option>
+                                    <option v-for="city in cities">{{city}}</option>
+                                </select>
+                            </div>
+                            <div class="spot">
+                                <select v-model="selectedSpot">
+                                    <option value="" disabled>剩餘名額</option>
+                                    <option v-for="spot in spots">{{spot}}</option>
+                                </select>
+                            </div>
+                            <div class="departureDate">
+                                <select v-model="selectedDate">
+                                    <option value="" disabled>出發日期</option>
+                                    <option v-for="date in dates">{{date}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- 卡片放置區 -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        new Vue({
+            el: '#filter',
+            data:{
+                selectedCity: '',
+                selectedSpot: '',
+                selectedDate:'',
+                cities: ['台北','台中','高雄','屏東'],
+                spots: ['5位內','10位內','不限名額'],
+                dates: ['3天內','7天內','10天內'],
+            },
+        });
+    </script>
+
+
     <footer></footer>
     
 </body>
