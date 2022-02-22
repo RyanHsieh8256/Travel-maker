@@ -1,8 +1,10 @@
 .footer_Wrap{
-    background-color: $FooterBGColor;//footer背景色
-    max-width: 1920px;
-    margin: auto;
+    background-color: $FooterBGColor;
     padding: 20px 0;
+    .footerBlock{
+    width: 90%;
+    margin: auto;
+    }
 }
 .footerMedia{
     font-size: 20px;

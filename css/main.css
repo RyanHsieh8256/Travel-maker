@@ -7118,7 +7118,7 @@ body {
 }
 
 .navBlock .mainNav a:hover {
-  background-color: #afe6ff;
+  background-color: #ffc3a5;
 }
 
 .navBlock .mainNav a li {
@@ -7158,14 +7158,17 @@ body {
 }
 
 .navBlock .navMember .material-icons-sharp:hover {
-  color: #afe6ff;
+  color: #ffc3a5;
 }
 
 .footer_Wrap {
-  background-color: #01adc7;
-  max-width: 1920px;
-  margin: auto;
+  background-color: #007183;
   padding: 20px 0;
+}
+
+.footer_Wrap .footerBlock {
+  width: 90%;
+  margin: auto;
 }
 
 .footerMedia {
@@ -7412,9 +7415,8 @@ body {
   background-color: #fff;
 }
 
-<<<<<<< HEAD
 body {
-  background-color: #fdf6f6;
+  background-color: #f0eee7;
 }
 
 .memberInfoBlock {
@@ -7484,9 +7486,170 @@ body {
   background-color: #fff;
 }
 
-=======
-<<<<<<< HEAD
->>>>>>> b2c20e37f8e061c7b155c3d41af51eb2c025f03f
+/* ---流動圖片區--- */
+.groupMarquee {
+  width: 100%;
+}
+
+.groupMarquee .groupMarquee_wrap {
+  overflow: hidden;
+}
+
+.groupMarquee {
+  width: 100%;
+}
+
+.groupMarquee_wrap {
+  overflow: hidden;
+}
+
+.groupMarquee .pic {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-animation: groupMarquee_move 100s linear infinite running;
+          animation: groupMarquee_move 100s linear infinite running;
+}
+
+.groupMarquee .pic img {
+  width: 50%;
+}
+
+.groupMarquee .pic img {
+  width: 50%;
+}
+
+/* ---熱門揪團城市區---*/
+.groupCities {
+  margin: 30px 0;
+}
+
+.groupCities .groupCities_wrap h2 {
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.groupCities .groupCities_wrap .row .pic {
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.groupCities .groupCities_wrap .row .pic img {
+  width: 100%;
+  border-radius: 50% 0%;
+}
+
+.groupCities .groupCities_wrap .row .txt {
+  text-align: center;
+}
+
+/* ---搜尋框---*/
+.groupSearchBar {
+  margin: 30px 0;
+}
+
+.groupSearchBar .groupSearchBar_wrap .search_wrap {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.groupSearchBar .groupSearchBar_wrap input {
+  width: 80%;
+  height: 30px;
+  border-radius: 50px;
+  padding: 0px 10px;
+  border: 2px solid #3BAFE5;
+  outline: none;
+}
+
+.groupSearchBar .groupSearchBar_wrap input:focus {
+  color: blue;
+}
+
+.groupSearchBar .groupSearchBar_wrap .search_wrap .search {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+  width: 59px;
+  height: 35px;
+  border-radius: 20px 0px 20px 0px;
+  cursor: pointer;
+  border: 2px solid #3BAFE5;
+  background-color: #14c6dd;
+}
+
+.groupSearchBar .groupSearchBar_wrap .search_wrap .search ion-icon {
+  color: aliceblue;
+  font-size: 20px;
+}
+
+/* ---熱門搜尋關鍵字---*/
+.groupSearchBar .groupSearchBar_wrap .keyword_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 0;
+}
+
+.groupSearchBar .groupSearchBar_wrap .keyword_wrap .topSearch {
+  padding-left: 10%;
+}
+
+.groupSearchBar .groupSearchBar_wrap .keyword_wrap ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.groupSearchBar .groupSearchBar_wrap .keyword_wrap ul li .tag {
+  border-radius: 5px;
+  background: darkcyan;
+  position: relative;
+  margin-right: 20px;
+}
+
+.groupSearchBar .groupSearchBar_wrap .keyword_wrap ul li .tag:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 130%;
+  bottom: 0;
+  width: 2px;
+  height: 15px;
+  background: #ccc;
+}
+
+/* ---篩選下拉式選單和揪團內容區---*/
+.groupContent .groupContent_wrap #filter {
+  width: 30%;
+  background-color: gold;
+}
+
+.groupContent .groupContent_wrap #filter select {
+  width: 100%;
+  margin: 30px 0;
+}
+
+/* only for width below 768px */
+@media screen and (max-width: 768px) {
+  .groupCities .groupCities_wrap .row .col-4 {
+    margin: 10px 0;
+  }
+}
+
 .newsSlider {
   padding-top: 70px;
   margin: auto;
@@ -7641,80 +7804,12 @@ body {
 }
 
 .newsListCard {
-=======
-/* ---流動圖片區--- */
-.groupMarquee {
-  width: 100%;
-}
-
-.groupMarquee .groupMarquee_wrap {
-  overflow: hidden;
-}
-
-.groupMarquee {
-  width: 100%;
-}
-
-.groupMarquee_wrap {
-  overflow: hidden;
-}
-
-.groupMarquee .pic {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-animation: groupMarquee_move 100s linear infinite running;
-          animation: groupMarquee_move 100s linear infinite running;
-}
-
-.groupMarquee .pic img {
-  width: 50%;
-}
-
-.groupMarquee .pic img {
-  width: 50%;
-}
-
-/* ---熱門揪團城市區---*/
-.groupCities {
-  margin: 30px 0;
-}
-
-.groupCities .groupCities_wrap h2 {
-  padding-bottom: 30px;
-  text-align: center;
-}
-
-.groupCities .groupCities_wrap .row .pic {
-  width: 100%;
-  padding-bottom: 10px;
-}
-
-.groupCities .groupCities_wrap .row .pic img {
-  width: 100%;
-  border-radius: 50% 0%;
-}
-
-.groupCities .groupCities_wrap .row .txt {
-  text-align: center;
-}
-
-/* ---搜尋框---*/
-.groupSearchBar {
-  margin: 30px 0;
-}
-
-.groupSearchBar .groupSearchBar_wrap .search_wrap {
-  position: relative;
->>>>>>> Julinka
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-<<<<<<< HEAD
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
@@ -7746,54 +7841,12 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-=======
-}
-
-.groupSearchBar .groupSearchBar_wrap input {
-  width: 80%;
-  height: 30px;
-  border-radius: 50px;
-  padding: 0px 10px;
-  border: 2px solid #3BAFE5;
-  outline: none;
-}
-
-.groupSearchBar .groupSearchBar_wrap input:focus {
-  color: blue;
-}
-
-.groupSearchBar .groupSearchBar_wrap .search_wrap .search {
-  position: absolute;
-  top: 50%;
-  right: 10%;
-  -webkit-transform: translate(50%, -50%);
-          transform: translate(50%, -50%);
-  width: 59px;
-  height: 35px;
-  border-radius: 20px 0px 20px 0px;
-  cursor: pointer;
-  border: 2px solid #3BAFE5;
-  background-color: #14c6dd;
-}
-
-.groupSearchBar .groupSearchBar_wrap .search_wrap .search ion-icon {
-  color: aliceblue;
-  font-size: 20px;
-}
-
-/* ---熱門搜尋關鍵字---*/
-.groupSearchBar .groupSearchBar_wrap .keyword_wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
->>>>>>> Julinka
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   padding: 10px 0;
 }
 
-<<<<<<< HEAD
 @media screen and (min-width: 768px) {
   .newsListCard {
     width: 100%;
@@ -7804,53 +7857,6 @@ body {
   .newsListCard .newsListCardText {
     width: 70%;
     padding: 0 10px;
-=======
-.groupSearchBar .groupSearchBar_wrap .keyword_wrap .topSearch {
-  padding-left: 10%;
-}
-
-.groupSearchBar .groupSearchBar_wrap .keyword_wrap ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.groupSearchBar .groupSearchBar_wrap .keyword_wrap ul li .tag {
-  border-radius: 5px;
-  background: darkcyan;
-  position: relative;
-  margin-right: 20px;
-}
-
-.groupSearchBar .groupSearchBar_wrap .keyword_wrap ul li .tag:after {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 130%;
-  bottom: 0;
-  width: 2px;
-  height: 15px;
-  background: #ccc;
-}
-
-/* ---篩選下拉式選單和揪團內容區---*/
-.groupContent .groupContent_wrap #filter {
-  width: 30%;
-  background-color: gold;
-}
-
-.groupContent .groupContent_wrap #filter select {
-  width: 100%;
-  margin: 30px 0;
-}
-
-/* only for width below 768px */
-@media screen and (max-width: 768px) {
-  .groupCities .groupCities_wrap .row .col-4 {
-    margin: 10px 0;
->>>>>>> Julinka
   }
 }
 /*# sourceMappingURL=main.css.map */
