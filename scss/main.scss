@@ -6,6 +6,9 @@
 @import "base/_base";
 @import "base/_text";
 
+@import "vendors/bootstrap-icons";
+@import "base/_animation";
+
 // layout
 @import "layout/_outBox";
 @import "layout/_grid";
@@ -25,7 +28,11 @@
 @import "pages/_cart";
 
 @import "pages/_frologin";
+<<<<<<< HEAD
 // @import "pages/_mem.html";
+=======
+@import "pages/_mem";
+>>>>>>> Julinka
 
 @import "pages/_tour";
 @import "pages/_tourlist";
