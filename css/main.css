@@ -636,6 +636,120 @@ body {
   background-color: #fff;
 }
 
+.shopType {
+  margin-bottom: 0;
+}
+
+.shopTypeBox {
+  width: 50%;
+  height: 50%;
+}
+
+.shopTypeBox_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.shopTypeBox h3 {
+  margin: auto;
+  text-align: center;
+  line-height: 400px;
+}
+
+.shopSearch {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.shopSearch_wrap {
+  margin: auto;
+  width: 80%;
+  position: relative;
+}
+
+.shopSearch input {
+  width: 100%;
+  border-radius: 50px;
+  border: 3px solid #23a0af;
+  line-height: 20px;
+}
+
+.shopSearch input:focus {
+  color: #23a0af;
+  outline: 0;
+  border: 3px solid #23a0af;
+}
+
+.shopSearchBtn {
+  width: 35px;
+  height: 28px;
+  background-color: #23a0af;
+  border: none;
+  border-radius: 50% 0;
+  position: absolute;
+  right: 0px;
+  cursor: pointer;
+}
+
+.shopSearchTag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.shopSearchTag li {
+  display: inline-block;
+  cursor: pointer;
+  background-color: #23a0af;
+  border-radius: 30px;
+  border: 1px solid #02dada;
+}
+
+.shopHotCity {
+  text-align: center;
+}
+
+.shopHotCity .city img {
+  border-radius: 50% 0;
+}
+
+.shopSort_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .shopType_wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .shopTypeBox {
+    width: 25%;
+    height: 400px;
+    margin-left: 5px;
+  }
+  .shopTypeBox:first-child {
+    margin-left: 0;
+  }
+  .shopTypeBox:hover {
+    -webkit-transform: scale(1.05, 1.05);
+            transform: scale(1.05, 1.05);
+  }
+  .shopTypeBox h3 {
+    text-align: center;
+  }
+}
+
 .newsSlider {
   padding-top: 70px;
   margin: auto;

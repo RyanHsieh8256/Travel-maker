@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="shopsort.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="../js/headercontrol.js"></script>
+</head>
+<body>
+    <nav>
+        <section class="nav_Wrap">
+            <div class="navLogin">
+                <a href=""><h1 class="logo"><img src="images/logo/logo_110x100.png" alt="TravelMaker"></h1></a>
+                <ul class="navMember">
+                    <a href=""><li><span class="material-icons-sharp">shopping_cart</span></li></a>
+                    <a href=""><li><span class="material-icons-sharp">account_circle</span></ion-icon></li></a>
+                    <a href=""><li><span class="material-icons-sharp">menu</span></li></a>
+                </ul>
+            </div>
+            <div class="mainNav" id="mainNav">
+                <ul class="mainNavList">
+                    <a href=""><li>行程規劃</li></a>
+                    <a href=""><li>揪團旅行</li></a>
+                    <a href=""><li>商城</li></a>
+                    <a href=""><li>旅遊資訊</li></a>
+                    <a href=""><li>關於我們</li></a>
+                    <a href=""><li>明信片</li></a>
+                </ul>
+            </div>            
+        </section>
+    </nav>
+    <header>
+        <section class="l-full shopType">
+            <div class="shopType_wrap">
+                <div class="typeBox spot" style="background-image: url('https://d20aeo683mqd6t.cloudfront.net/zh-hant/articles/title_images/000/027/786/original/pixta_21862331_s.jpg?2019&d=750x400');">
+                    <h3>北部</h3>
+                </div>
+                <div class="typeBox hotel" style="background-image: url('https://d20aeo683mqd6t.cloudfront.net/zh-hant/articles/title_images/000/027/786/original/pixta_21862331_s.jpg?2019&d=750x400');">
+                    <h3>中部</h3>
+                </div>
+                <div class="typeBox food" style="background-image: url('https://d20aeo683mqd6t.cloudfront.net/zh-hant/articles/title_images/000/027/786/original/pixta_21862331_s.jpg?2019&d=750x400');">
+                    <h3>南部</h3>
+                </div>
+                <div class="typeBox food" style="background-image: url('https://d20aeo683mqd6t.cloudfront.net/zh-hant/articles/title_images/000/027/786/original/pixta_21862331_s.jpg?2019&d=750x400');">
+                    <h3>東部</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="l-full shopHotCity">
+            <h2>熱門城市</h2>
+            <div class="l-large cityBox_wrap">
+                <div class="row">
+                    <div class="col-4 col-md-2">
+                        <div class="city">
+                            <img src="../商城/images/lake-sunset-2021-08-26-18-27-36-utc-1.jpg">
+                            <h3>台北市</h3>
+                        </div>
+                        <div class="city">
+                            <img src="../商城/images/lake-sunset-2021-08-26-18-27-36-utc-1.jpg">
+                            <h3>台北市</h3>
+                        </div>
+                        <div class="city">
+                            <img src="../商城/images/lake-sunset-2021-08-26-18-27-36-utc-1.jpg">
+                            <h3>台北市</h3>
+                        </div>
+                        <div class="city">
+                            <img src="../商城/images/lake-sunset-2021-08-26-18-27-36-utc-1.jpg">
+                            <h3>台北市</h3>
+                        </div>
+                        <div class="city">
+                            <img src="../商城/images/lake-sunset-2021-08-26-18-27-36-utc-1.jpg">
+                            <h3>台北市</h3>
+                        </div>
+                        <div class="city">
+                            <img src="../商城/images/lake-sunset-2021-08-26-18-27-36-utc-1.jpg">
+                            <h3>台北市</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="l-full shopSearch">
+            <input type="search">
+            <button class="searchBtn"><ion-icon name="search-outline"></ion-icon></button>
+            <div class="searchTag">
+                <button>#兩天一夜</button>
+                <button>#海邊民宿</button>
+                <button>#日市民宿</button>
+                <button>#海島風</button>
+            </div>
+        </section>
+    </header>
+    <main>
+        <section class="l-full shopProduct">
+            <h2>台北住宿</h2>
+            <div class="l-medium shopSort_wrap row">
+                <div class="card col-12 col-lg-6 col-xl-4">
+                    <!-- 卡片內容 -->
+                    <div class="card_content">
+                        <div class="card_body">
+                            <span class="card_tag">住宿</span>
+                            <div class="card_like">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                </svg>
+                            </div>
+                            <div class="card_img">
+                                <img src="https://picsum.photos/300/200/?random=10" alt="">
+                            </div>
+                            <!-- <div class="card_date">
+                                <p class="card_time card_time--start">
+                                    <span>出發:</span>
+                                    2022/1/2
+                                </p>
+                                <p class="card_time card_time--end">
+                                    <span>回程:</span>
+                                    2022/1/4
+                                </p>
+                            </div> -->
+                            <h3 class="card_title">商城卡片</h3>
+                            <p class="card_text">
+                                內容文字
+                            </p>  
+                        </div>
+                        <!-- 卡片尾巴 -->
+                        <div class="card_footer">
+                            <!-- <div class="card_time">
+                                2021/12/30
+                            </div> -->
+                            <div class="card_shopping">
+                                <button class="btn btn--cart">加入購物車</button>
+                                <div class="card_count">NT$ 
+                                    <span>1999</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                <div class="card col-12 col-lg-6 col-xl-4">
+                    <!-- 卡片內容 -->
+                    <div class="card_content">
+                        <div class="card_body">
+                            <span class="card_tag">住宿</span>
+                            <div class="card_like">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                </svg>
+                            </div>
+                            <div class="card_img">
+                                <img src="https://picsum.photos/300/200/?random=10" alt="">
+                            </div>
+                            <!-- <div class="card_date">
+                                <p class="card_time card_time--start">
+                                    <span>出發:</span>
+                                    2022/1/2
+                                </p>
+                                <p class="card_time card_time--end">
+                                    <span>回程:</span>
+                                    2022/1/4
+                                </p>
+                            </div> -->
+                            <h3 class="card_title">商城卡片</h3>
+                            <p class="card_text">
+                                內容文字
+                            </p>  
+                        </div>
+                        <!-- 卡片尾巴 -->
+                        <div class="card_footer">
+                            <!-- <div class="card_time">
+                                2021/12/30
+                            </div> -->
+                            <div class="card_shopping">
+                                <button class="btn btn--cart">加入購物車</button>
+                                <div class="card_count">NT$ 
+                                    <span>1999</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                <div class="card col-12 col-lg-6 col-xl-4">
+                    <!-- 卡片內容 -->
+                    <div class="card_content">
+                        <div class="card_body">
+                            <span class="card_tag">住宿</span>
+                            <div class="card_like">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                </svg>
+                            </div>
+                            <div class="card_img">
+                                <img src="https://picsum.photos/300/200/?random=10" alt="">
+                            </div>
+                            <!-- <div class="card_date">
+                                <p class="card_time card_time--start">
+                                    <span>出發:</span>
+                                    2022/1/2
+                                </p>
+                                <p class="card_time card_time--end">
+                                    <span>回程:</span>
+                                    2022/1/4
+                                </p>
+                            </div> -->
+                            <h3 class="card_title">商城卡片</h3>
+                            <p class="card_text">
+                                內容文字
+                            </p>  
+                        </div>
+                        <!-- 卡片尾巴 -->
+                        <div class="card_footer">
+                            <!-- <div class="card_time">
+                                2021/12/30
+                            </div> -->
+                            <div class="card_shopping">
+                                <button class="btn btn--cart">加入購物車</button>
+                                <div class="card_count">NT$ 
+                                    <span>1999</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                <div class="card col-12 col-lg-6 col-xl-4">
+                    <!-- 卡片內容 -->
+                    <div class="card_content">
+                        <div class="card_body">
+                            <span class="card_tag">住宿</span>
+                            <div class="card_like">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                </svg>
+                            </div>
+                            <div class="card_img">
+                                <img src="https://picsum.photos/300/200/?random=10" alt="">
+                            </div>
+                            <!-- <div class="card_date">
+                                <p class="card_time card_time--start">
+                                    <span>出發:</span>
+                                    2022/1/2
+                                </p>
+                                <p class="card_time card_time--end">
+                                    <span>回程:</span>
+                                    2022/1/4
+                                </p>
+                            </div> -->
+                            <h3 class="card_title">商城卡片</h3>
+                            <p class="card_text">
+                                內容文字
+                            </p>  
+                        </div>
+                        <!-- 卡片尾巴 -->
+                        <div class="card_footer">
+                            <!-- <div class="card_time">
+                                2021/12/30
+                            </div> -->
+                            <div class="card_shopping">
+                                <button class="btn btn--cart">加入購物車</button>
+                                <div class="card_count">NT$ 
+                                    <span>1999</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                <div class="card col-12 col-lg-6 col-xl-4">
+                    <!-- 卡片內容 -->
+                    <div class="card_content">
+                        <div class="card_body">
+                            <span class="card_tag">住宿</span>
+                            <div class="card_like">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                </svg>
+                            </div>
+                            <div class="card_img">
+                                <img src="https://picsum.photos/300/200/?random=10" alt="">
+                            </div>
+                            <!-- <div class="card_date">
+                                <p class="card_time card_time--start">
+                                    <span>出發:</span>
+                                    2022/1/2
+                                </p>
+                                <p class="card_time card_time--end">
+                                    <span>回程:</span>
+                                    2022/1/4
+                                </p>
+                            </div> -->
+                            <h3 class="card_title">商城卡片</h3>
+                            <p class="card_text">
+                                內容文字
+                            </p>  
+                        </div>
+                        <!-- 卡片尾巴 -->
+                        <div class="card_footer">
+                            <!-- <div class="card_time">
+                                2021/12/30
+                            </div> -->
+                            <div class="card_shopping">
+                                <button class="btn btn--cart">加入購物車</button>
+                                <div class="card_count">NT$ 
+                                    <span>1999</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                <div class="card col-12 col-lg-6 col-xl-4">
+                    <!-- 卡片內容 -->
+                    <div class="card_content">
+                        <div class="card_body">
+                            <span class="card_tag">住宿</span>
+                            <div class="card_like">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                </svg>
+                            </div>
+                            <div class="card_img">
+                                <img src="https://picsum.photos/300/200/?random=10" alt="">
+                            </div>
+                            <!-- <div class="card_date">
+                                <p class="card_time card_time--start">
+                                    <span>出發:</span>
+                                    2022/1/2
+                                </p>
+                                <p class="card_time card_time--end">
+                                    <span>回程:</span>
+                                    2022/1/4
+                                </p>
+                            </div> -->
+                            <h3 class="card_title">商城卡片</h3>
+                            <p class="card_text">
+                                內容文字
+                            </p>  
+                        </div>
+                        <!-- 卡片尾巴 -->
+                        <div class="card_footer">
+                            <!-- <div class="card_time">
+                                2021/12/30
+                            </div> -->
+                            <div class="card_shopping">
+                                <button class="btn btn--cart">加入購物車</button>
+                                <div class="card_count">NT$ 
+                                    <span>1999</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                <div class="card col-12 col-lg-6 col-xl-4">
+                    <!-- 卡片內容 -->
+                    <div class="card_content">
+                        <div class="card_body">
+                            <span class="card_tag">住宿</span>
+                            <div class="card_like">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                </svg>
+                            </div>
+                            <div class="card_img">
+                                <img src="https://picsum.photos/300/200/?random=10" alt="">
+                            </div>
+                            <!-- <div class="card_date">
+                                <p class="card_time card_time--start">
+                                    <span>出發:</span>
+                                    2022/1/2
+                                </p>
+                                <p class="card_time card_time--end">
+                                    <span>回程:</span>
+                                    2022/1/4
+                                </p>
+                            </div> -->
+                            <h3 class="card_title">商城卡片</h3>
+                            <p class="card_text">
+                                內容文字
+                            </p>  
+                        </div>
+                        <!-- 卡片尾巴 -->
+                        <div class="card_footer">
+                            <!-- <div class="card_time">
+                                2021/12/30
+                            </div> -->
+                            <div class="card_shopping">
+                                <button class="btn btn--cart">加入購物車</button>
+                                <div class="card_count">NT$ 
+                                    <span>1999</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                <div class="card col-12 col-lg-6 col-xl-4">
+                    <!-- 卡片內容 -->
+                    <div class="card_content">
+                        <div class="card_body">
+                            <span class="card_tag">住宿</span>
+                            <div class="card_like">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                </svg>
+                            </div>
+                            <div class="card_img">
+                                <img src="https://picsum.photos/300/200/?random=10" alt="">
+                            </div>
+                            <!-- <div class="card_date">
+                                <p class="card_time card_time--start">
+                                    <span>出發:</span>
+                                    2022/1/2
+                                </p>
+                                <p class="card_time card_time--end">
+                                    <span>回程:</span>
+                                    2022/1/4
+                                </p>
+                            </div> -->
+                            <h3 class="card_title">商城卡片</h3>
+                            <p class="card_text">
+                                內容文字
+                            </p>  
+                        </div>
+                        <!-- 卡片尾巴 -->
+                        <div class="card_footer">
+                            <!-- <div class="card_time">
+                                2021/12/30
+                            </div> -->
+                            <div class="card_shopping">
+                                <button class="btn btn--cart">加入購物車</button>
+                                <div class="card_count">NT$ 
+                                    <span>1999</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                <div class="card col-12 col-lg-6 col-xl-4">
+                    <!-- 卡片內容 -->
+                    <div class="card_content">
+                        <div class="card_body">
+                            <span class="card_tag">住宿</span>
+                            <div class="card_like">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                </svg>
+                            </div>
+                            <div class="card_img">
+                                <img src="https://picsum.photos/300/200/?random=10" alt="">
+                            </div>
+                            <!-- <div class="card_date">
+                                <p class="card_time card_time--start">
+                                    <span>出發:</span>
+                                    2022/1/2
+                                </p>
+                                <p class="card_time card_time--end">
+                                    <span>回程:</span>
+                                    2022/1/4
+                                </p>
+                            </div> -->
+                            <h3 class="card_title">商城卡片</h3>
+                            <p class="card_text">
+                                內容文字
+                            </p>  
+                        </div>
+                        <!-- 卡片尾巴 -->
+                        <div class="card_footer">
+                            <!-- <div class="card_time">
+                                2021/12/30
+                            </div> -->
+                            <div class="card_shopping">
+                                <button class="btn btn--cart">加入購物車</button>
+                                <div class="card_count">NT$ 
+                                    <span>1999</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+
+        </section>
+    </main>
+</body>
+</html>
