@@ -1,3 +1,6 @@
+body{
+    background-color: rgb(255,238,211);
+}
 /* ---流動圖片區--- */
 .groupMarquee {
     width: 100%;
@@ -18,41 +21,45 @@
 /* ---熱門揪團城市區---*/
 .groupCities{
     margin: 30px 0;
-}
-.groupCities .groupCities_wrap h2{
-    padding-bottom: 30px;
-    text-align: center;
-}
-.groupCities .groupCities_wrap .row .pic{
-    width: 100%;
-    padding-bottom: 10px;
-}
-.groupCities .groupCities_wrap .row .pic img{
-    width: 100%;
-    border-radius: 50% 0%;
-}
-.groupCities .groupCities_wrap .row .txt{
-    text-align: center;
+
+    &_wrap h2{
+        padding-bottom: 30px;
+        text-align: center;
+    }
+    &_wrap .row{
+        .pic{
+            width: 100%;
+            padding-bottom: 10px;
+        }
+        img{
+            border-radius: 50% 0%;
+        }
+        .txt{
+            text-align: center;
+        }
+    }   
 }
 /* ---搜尋框---*/
 .groupSearchBar{
     margin: 30px 0;
-}
-.groupSearchBar .groupSearchBar_wrap .search_wrap{
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
-.groupSearchBar .groupSearchBar_wrap input{
-    width: 80%;
-    height: 30px;
-    border-radius: 50px;
-    padding: 0px 10px;
-    border: 2px solid #3BAFE5;
-    outline: none;  
-}
-.groupSearchBar .groupSearchBar_wrap input:focus{
-    color:blue;
+    &_wrap{
+        .search_wrap{
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        input{
+            width: 80%;
+            height: 30px;
+            border-radius: 50px;
+            padding: 0px 10px;
+            border: 2px solid #3BAFE5;
+            outline: none;  
+        }
+        input:focus{
+            color:blue;
+        }
+    }
 }
 .groupSearchBar .groupSearchBar_wrap .search_wrap .search{
     position: absolute;

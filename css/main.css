@@ -7224,6 +7224,10 @@ body {
   background-color: #fff;
 }
 
+body {
+  background-color: #ffeed3;
+}
+
 /* ---流動圖片區--- */
 .groupMarquee {
   width: 100%;
@@ -7251,22 +7255,21 @@ body {
   margin: 30px 0;
 }
 
-.groupCities .groupCities_wrap h2 {
+.groupCities_wrap h2 {
   padding-bottom: 30px;
   text-align: center;
 }
 
-.groupCities .groupCities_wrap .row .pic {
+.groupCities_wrap .row .pic {
   width: 100%;
   padding-bottom: 10px;
 }
 
-.groupCities .groupCities_wrap .row .pic img {
-  width: 100%;
+.groupCities_wrap .row img {
   border-radius: 50% 0%;
 }
 
-.groupCities .groupCities_wrap .row .txt {
+.groupCities_wrap .row .txt {
   text-align: center;
 }
 
@@ -7275,7 +7278,7 @@ body {
   margin: 30px 0;
 }
 
-.groupSearchBar .groupSearchBar_wrap .search_wrap {
+.groupSearchBar_wrap .search_wrap {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7285,7 +7288,7 @@ body {
           justify-content: center;
 }
 
-.groupSearchBar .groupSearchBar_wrap input {
+.groupSearchBar_wrap input {
   width: 80%;
   height: 30px;
   border-radius: 50px;
@@ -7294,7 +7297,7 @@ body {
   outline: none;
 }
 
-.groupSearchBar .groupSearchBar_wrap input:focus {
+.groupSearchBar_wrap input:focus {
   color: blue;
 }
 
