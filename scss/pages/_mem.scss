@@ -1,0 +1,61 @@
+body{
+    background-color: $bodyBgcolor;
+}
+.memberInfoBlock{
+    padding-top:60px;
+    width: 95%;
+    margin: auto;
+}
+//左側帳號設定
+.memberAccountWarp{
+    padding: 10px;
+    .memberAccount{
+        box-shadow: 0 1px 5px 0 #999;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: $white;
+        .memberAccountPhto{
+            width: 70%;
+            margin: 20px auto;
+            clip-path: circle(50%);
+        }
+        .memberAccountName{
+            text-align: center;
+            font-size: $card-title;
+        }
+    }
+    .memberAccountSetting{
+        margin-top:20px ;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 1px 5px 0 #999;
+        border-radius: 10px;
+        padding: 10px 30px;
+        background-color: $white;
+        a{
+            & + a{
+                border-top: #999 1px solid;
+            }
+            li{
+                text-align: center;
+                padding: 10px 0;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1200px) {
+
+
+}
+
+
+.memberProfileWarp{
+    padding: 10px;
+    .memberProfile{
+        box-shadow: 0 1px 5px 0 #999;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: $white;
+    }
+}

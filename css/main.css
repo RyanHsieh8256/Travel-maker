@@ -78,10 +78,10 @@ img {
 }
 
 body {
-  font-family: 'Caveat','Noto Serif TC',serif;
+  font-family: 'Noto Sans TC', sans-serif;
   line-height: 1.5;
   letter-spacing: 1px;
-  font-weight: 400;
+  font-weight: 500;
   color: #333;
 }
 
@@ -306,30 +306,49 @@ body {
   z-index: 1000;
   max-width: 1920px;
   margin: auto;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 3px 3px 0 #ddd5;
+          box-shadow: 0 3px 3px 0 #ddd5;
 }
 
-/* 上半區塊 */
-.navLogin {
+.navBlock {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: #def0f0;
-  padding: 0 5%;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  width: 90%;
+  margin: auto;
 }
 
-/* logo區 */
-.logo img {
+.navBlock .navLogo img {
   height: 50px;
 }
 
-/* 會員區 */
-.navMember {
+.navBlock .mainNav {
+  display: none;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding-left: 40px;
+}
+
+.navBlock .mainNav a {
+  height: 100%;
+  padding: 0 20px;
+  color: #363636;
+}
+
+.navBlock .mainNav a:hover {
+  background-color: #afe6ff;
+}
+
+.navBlock .mainNav a li {
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -338,74 +357,56 @@ body {
           align-items: center;
 }
 
-.navMember li {
-  padding: 0 10px;
-}
-
-.navMember .material-icons-sharp {
-  font-size: 24px;
-  color: #333;
-}
-
-/* 下半區塊 */
-.mainNav {
-  display: none;
-}
-
-/* 導覽列項目 */
-.mainNavList {
-  text-align: center;
-}
-
-.mainNavList li {
-  padding: 10px;
-}
-
-.mainNavList li:hover {
-  background-color: #335875;
-  color: #fff;
-}
-
 @media screen and (min-width: 768px) {
-  .navLogin {
-    -webkit-box-shadow: 0 1px 3px 0 #222222;
-            box-shadow: 0 1px 3px 0 #222222;
+  .navBlock .mainNav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
-  .mainNav {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    -webkit-transition: .5s;
-    transition: .5s;
-    z-index: -1;
-    background-color: #dce5ef;
-  }
+}
+
+.navBlock .navMember {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navBlock .navMember li {
+  padding-left: 20px;
+}
+
+.navBlock .navMember .material-icons-sharp {
+  font-size: 24px;
+  color: #363636;
+}
+
+.navBlock .navMember .material-icons-sharp:hover {
+  color: #afe6ff;
 }
 
 .footer_Wrap {
-  font-family: 'Noto Serif TC',serif;
-  background-color: #335875;
+  background-color: #01adc7;
   max-width: 1920px;
   margin: auto;
-  padding-bottom: 10px;
+  padding: 20px 0;
 }
 
 .footerMedia {
   font-size: 20px;
   text-align: center;
-  background-color: #83abc9;
 }
 
 .footerMedia li {
   font-size: 30px;
-  padding: 0 15px;
-  color: #fff;
+  padding: 0 20px;
+  color: white;
 }
 
 .footerMedia li:hover {
-  color: #335875;
+  color: #f0692a;
 }
 
 .footerContect {
@@ -420,13 +421,14 @@ body {
       justify-content: space-around;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  color: #fff;
+  color: #ffffff;
   text-align: center;
   font-size: 14px;
+  padding: 5px 0;
 }
 
 .footerContect li {
-  padding: 10px 20px;
+  padding: 5px 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -443,7 +445,7 @@ body {
 }
 
 .footerContect a {
-  color: white;
+  color: #ffffff;
 }
 
 .footerTerms {
@@ -455,11 +457,11 @@ body {
 .footerTerms a {
   position: relative;
   margin: 0 10px;
-  color: #e5e6e7;
+  color: #ffffff;
 }
 
 .footerTerms a li:hover {
-  color: #75ffe8;
+  color: #f0692a;
 }
 
 .footerTerms a + a::before {
@@ -470,7 +472,7 @@ body {
 
 .footerCopyRight {
   text-align: center;
-  color: #e5e6e7;
+  color: #ffffff;
   font-size: 12px;
 }
 
@@ -633,6 +635,77 @@ body {
 }
 
 .btn--cart {
+  background-color: #fff;
+}
+
+body {
+  background-color: #fdf6f6;
+}
+
+.memberInfoBlock {
+  padding-top: 60px;
+  width: 95%;
+  margin: auto;
+}
+
+.memberAccountWarp {
+  padding: 10px;
+}
+
+.memberAccountWarp .memberAccount {
+  -webkit-box-shadow: 0 1px 5px 0 #999;
+          box-shadow: 0 1px 5px 0 #999;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.memberAccountWarp .memberAccount .memberAccountPhto {
+  width: 70%;
+  margin: 20px auto;
+  -webkit-clip-path: circle(50%);
+          clip-path: circle(50%);
+}
+
+.memberAccountWarp .memberAccount .memberAccountName {
+  text-align: center;
+  font-size: 20px;
+}
+
+.memberAccountWarp .memberAccountSetting {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-shadow: 0 1px 5px 0 #999;
+          box-shadow: 0 1px 5px 0 #999;
+  border-radius: 10px;
+  padding: 10px 30px;
+  background-color: #fff;
+}
+
+.memberAccountWarp .memberAccountSetting a + a {
+  border-top: #999 1px solid;
+}
+
+.memberAccountWarp .memberAccountSetting a li {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.memberProfileWarp {
+  padding: 10px;
+}
+
+.memberProfileWarp .memberProfile {
+  -webkit-box-shadow: 0 1px 5px 0 #999;
+          box-shadow: 0 1px 5px 0 #999;
+  border-radius: 10px;
+  padding: 10px;
   background-color: #fff;
 }
 
