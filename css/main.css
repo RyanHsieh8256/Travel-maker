@@ -7229,14 +7229,6 @@ body {
   width: 100%;
 }
 
-.groupMarquee .groupMarquee_wrap {
-  overflow: hidden;
-}
-
-.groupMarquee {
-  width: 100%;
-}
-
 .groupMarquee_wrap {
   overflow: hidden;
 }
@@ -7248,10 +7240,6 @@ body {
   display: flex;
   -webkit-animation: groupMarquee_move 100s linear infinite running;
           animation: groupMarquee_move 100s linear infinite running;
-}
-
-.groupMarquee .pic img {
-  width: 50%;
 }
 
 .groupMarquee .pic img {

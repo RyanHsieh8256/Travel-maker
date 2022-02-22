@@ -1,11 +1,4 @@
 /* ---流動圖片區--- */
-.groupMarquee{
-    width: 100%;
-}
-.groupMarquee .groupMarquee_wrap{
-    overflow: hidden;
-}
-
 .groupMarquee {
     width: 100%;
 
@@ -21,15 +14,7 @@
             width: 50%;
         }
     }
-    
-    
-
 }
-
-.groupMarquee .pic img{
-    width: 50%;
-}
-
 /* ---熱門揪團城市區---*/
 .groupCities{
     margin: 30px 0;

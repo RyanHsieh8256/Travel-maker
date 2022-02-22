@@ -12,7 +12,7 @@
 
 </head>
 <body>
-    <!-- 流動圖片 -->
+    <!-- 流動圖片區 -->
     <header>
         <section class="l-full groupMarquee">
             <div class="l-full groupMarquee_wrap">
@@ -26,7 +26,7 @@
         </section>
     </header>
     <main>
-<!-- 現正熱門揪團城市 -->
+<!-- 熱門揪團城市區 -->
         <section class="l-full groupCities">
             <div class="l-large groupCities_wrap">
                 <h2>現正熱門揪團城市</h2>
@@ -91,7 +91,7 @@
         <section class="l-full groupContent">
             <div class="l-large groupContent_wrap">
                 <div class="row">
-                    <div class="col-12 col-6">
+                    <div class="col-12 col-lg-6 col-xl-6">
                         <div id="filter">
                             <div class="city">
                                 <select v-model="selectedCity">
@@ -112,8 +112,107 @@
                                 </select>
                             </div>
                         </div>
-                        <!-- 卡片放置區 -->
-                        
+                    </div>
+                    <!-- 卡片放置區 -->
+                    <div class="card col-12 col-lg-6 col-xl-6">
+                        <!-- 卡片頭 -->
+                        <div class="card_header">
+                            <div class="card_person">
+                                <div class="card_photo">
+                                    <img src="https://picsum.photos/50/50/?random=10" alt="">
+                                </div>
+                                <div class="card_name">人才丁丁</div>
+                            </div>
+                            <div class="card_hit">
+                                <span>19999</span>
+                                點擊
+                            </div>
+                        </div>
+                        <!-- 卡片內容 -->
+                        <div class="card_content card_content--corner">
+                            <div class="card_body">
+                                <span class="card_tag">台南</span>
+                                <div class="card_like">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                    </svg>
+                                </div>
+                                <div class="card_img">
+                                    <img src="https://picsum.photos/300/200/?random=10" alt="">
+                                </div>
+                                <div class="card_date">
+                                    <p class="card_time card_time--start">
+                                        <span>出發:</span>
+                                        2022/1/2
+                                    </p>
+                                    <p class="card_time card_time--end">
+                                        <span>回程:</span>
+                                        2022/1/4
+                                    </p>
+                                </div>
+                                <h3 class="card_title">揪團卡片</h3>
+                                <p class="card_text">
+                                    內容文字
+                                </p>
+                            </div>
+                            <!-- 卡片尾巴 -->
+                            <div class="card_footer">
+                                <div class="card_time card_time--deadline">
+                                    <span>報名截止</span>
+                                    2021/12/30
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card col-12 col-lg-6 col-xl-6">
+                        <!-- 卡片頭 -->
+                        <div class="card_header">
+                            <div class="card_person">
+                                <div class="card_photo">
+                                    <img src="https://picsum.photos/50/50/?random=10" alt="">
+                                </div>
+                                <div class="card_name">人才丁丁</div>
+                            </div>
+                            <div class="card_hit">
+                                <span>19999</span>
+                                點擊
+                            </div>
+                        </div>
+                        <!-- 卡片內容 -->
+                        <div class="card_content card_content--corner">
+                            <div class="card_body">
+                                <span class="card_tag">台南</span>
+                                <div class="card_like">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                    </svg>
+                                </div>
+                                <div class="card_img">
+                                    <img src="https://picsum.photos/300/200/?random=10" alt="">
+                                </div>
+                                <div class="card_date">
+                                    <p class="card_time card_time--start">
+                                        <span>出發:</span>
+                                        2022/1/2
+                                    </p>
+                                    <p class="card_time card_time--end">
+                                        <span>回程:</span>
+                                        2022/1/4
+                                    </p>
+                                </div>
+                                <h3 class="card_title">揪團卡片</h3>
+                                <p class="card_text">
+                                    內容文字
+                                </p>
+                            </div>
+                            <!-- 卡片尾巴 -->
+                            <div class="card_footer">
+                                <div class="card_time card_time--deadline">
+                                    <span>報名截止</span>
+                                    2021/12/30
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -126,7 +225,7 @@
                 selectedCity: '',
                 selectedSpot: '',
                 selectedDate:'',
-                cities: ['台北','台中','高雄','屏東'],
+                cities: ['北部','中部','南部','東部'],
                 spots: ['5位內','10位內','不限名額'],
                 dates: ['3天內','7天內','10天內'],
             },
