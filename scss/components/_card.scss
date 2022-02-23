@@ -1,6 +1,6 @@
 // 揪團 / 商城 / 文章卡片元件 (蘇)
 .card {
-   
+
     &--drag {
         width: 35%;
         min-width: 250px;
@@ -21,6 +21,7 @@
         display: flex;
         align-items: center;
     }
+
     &_photo {
         width: 40px;
         height: 40px;
@@ -35,6 +36,7 @@
 
     &_hit {
         font-size: 14px;
+
         span {
             font-size: 16px;
             color: #FF6666;
@@ -55,10 +57,10 @@
                 top: -30px;
                 left: 18px;
 
-               border-bottom: 20px solid $card-color;
-               border-left: 10px solid transparent;
-               border-right: 10px solid transparent;
-               border-top: 10px solid transparent;
+                border-bottom: 20px solid $card-color;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-top: 10px solid transparent;
             }
         }
     }
@@ -67,7 +69,8 @@
         position: relative;
     }
 
-    &_tag,&_like {
+    &_tag,
+    &_like {
         position: absolute;
     }
 
@@ -109,11 +112,14 @@
 
     &_text {
         font-size: 14px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
 
     &_footer {
-       text-align: right;
+        text-align: right;
     }
 
     &_shopping {
@@ -128,7 +134,9 @@
         }
     }
 
-    &_date,&_title,&_footer {
+    &_date,
+    &_title,
+    &_footer {
         margin-top: 15px;
     }
 

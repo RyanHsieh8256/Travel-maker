@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首頁</title>
+    <title>揪團首頁</title>
     <link rel="stylesheet" href="css/main.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js'></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -12,7 +12,7 @@
 
 </head>
 <body>
-    <!-- 流動圖片 -->
+    <!-- 流動圖片區 -->
     <header>
         <section class="l-full groupMarquee">
             <div class="l-full groupMarquee_wrap">
@@ -26,7 +26,7 @@
         </section>
     </header>
     <main>
-<!-- 現正熱門揪團城市 -->
+<!-- 熱門揪團城市區 -->
         <section class="l-full groupCities">
             <div class="l-large groupCities_wrap">
                 <h2>現正熱門揪團城市</h2>
@@ -91,11 +91,12 @@
         <section class="l-full groupContent">
             <div class="l-large groupContent_wrap">
                 <div class="row">
-                    <div class="col-12 col-6">
+                    <div id="filterMobile">篩選</div>
+                    <div class="col-12 col-lg-6 col-xl-6">
                         <div id="filter">
                             <div class="city">
                                 <select v-model="selectedCity">
-                                    <option value="" disabled>城市</option>
+                                    <option value="" disabled>旅遊地區</option>
                                     <option v-for="city in cities">{{city}}</option>
                                 </select>
                             </div>
@@ -111,9 +112,99 @@
                                     <option v-for="date in dates">{{date}}</option>
                                 </select>
                             </div>
+                            <button id="filterBtn">篩選</button>
                         </div>
-                        <!-- 卡片放置區 -->
-                        
+                    </div>
+                    <!-- 卡片放置區 -->
+                    <div class="card col-12 col-lg-6 col-xl-6">
+                        <!-- 卡片頭 -->
+                        <div class="card_header">
+                            <div class="card_person">
+                                <div class="card_photo">
+                                    <img src="https://picsum.photos/50/50/?random=10" alt="">
+                                </div>
+                                <div class="card_name">人才丁丁</div>
+                            </div>
+                            <div class="card_hit">
+                                <span>19999</span>
+                                點擊
+                            </div>
+                        </div>
+                        <!-- 卡片內容 -->
+                        <div class="card_content card_content--corner">
+                            <div class="card_body">
+                                <span class="card_tag">台東</span>
+                                <div class="card_img">
+                                    <img src="https://picsum.photos/300/200/?random=10" alt="">
+                                </div>
+                                <div class="card_date">
+                                    <p class="card_time card_time--start">
+                                        <span>出發日期:</span>
+                                        2022/1/2
+                                    </p>
+                                    <p class="card_time card_time--end">
+                                        <span>回程日期:</span>
+                                        2022/1/4
+                                    </p>
+                                </div>
+                                <h3 class="card_title">台東秘境嘉明湖三日登山行程(含山屋申請)｜發現天使的眼淚</h3>
+                                <p class="card_text">
+                                    想一探台東秘境"嘉明湖"真實面貌，就必須爬上海拔3000多公尺的高山，三日裡背負重裝，由專業高山嚮導帶領從池上出發3天2夜，沿途中，不斷地與自己對話，行程提供代為申請山屋或營帳住宿，加上免背免備公器公糧服務，讓您能保存更多的體力去應付前往嘉明湖三叉向陽山的登山路程。當親眼見到『天使的眼淚-嘉明湖』之美，神秘又遙遠的台灣美景，讓人學會敬畏與謙卑。越美的風景，越要觀察，保持神秘，她永遠在心中，隱藏在高山中湛藍的絕美湖泊景致。
+                                </p>
+                            </div>
+                            <!-- 卡片尾巴 -->
+                            <div class="card_footer">
+                                <div class="card_time card_time--deadline">
+                                    <span>報名截止</span>
+                                    2021/12/30
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card col-12 col-lg-6 col-xl-6">
+                        <!-- 卡片頭 -->
+                        <div class="card_header">
+                            <div class="card_person">
+                                <div class="card_photo">
+                                    <img src="https://picsum.photos/50/50/?random=10" alt="">
+                                </div>
+                                <div class="card_name">人才丁丁</div>
+                            </div>
+                            <div class="card_hit">
+                                <span>19999</span>
+                                點擊
+                            </div>
+                        </div>
+                        <!-- 卡片內容 -->
+                        <div class="card_content card_content--corner">
+                            <div class="card_body">
+                                <span class="card_tag">台東</span>
+                                <div class="card_img">
+                                    <img src="https://picsum.photos/300/200/?random=10" alt="">
+                                </div>
+                                <div class="card_date">
+                                    <p class="card_time card_time--start">
+                                        <span>出發日期:</span>
+                                        2022/1/2
+                                    </p>
+                                    <p class="card_time card_time--end">
+                                        <span>回程日期:</span>
+                                        2022/1/4
+                                    </p>
+                                </div>
+                                <h3 class="card_title">台東秘境嘉明湖三日登山行程(含山屋申請)｜發現天使的眼淚</h3>
+                                <p class="card_text">
+                                    想一探台東秘境"嘉明湖"真實面貌，就必須爬上海拔3000多公尺的高山，三日裡背負重裝，由專業高山嚮導帶領從池上出發3天2夜，沿途中，不斷地與自己對話，行程提供代為申請山屋或營帳住宿，加上免背免備公器公糧服務，讓您能保存更多的體力去應付前往嘉明湖三叉向陽山的登山路程。當親眼見到『天使的眼淚-嘉明湖』之美，神秘又遙遠的台灣美景，讓人學會敬畏與謙卑。越美的風景，越要觀察，保持神秘，她永遠在心中，隱藏在高山中湛藍的絕美湖泊景致。
+                                </p>
+                            </div>
+                            <!-- 卡片尾巴 -->
+                            <div class="card_footer">
+                                <div class="card_time card_time--deadline">
+                                    <span>報名截止</span>
+                                    2021/12/30
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -126,7 +217,7 @@
                 selectedCity: '',
                 selectedSpot: '',
                 selectedDate:'',
-                cities: ['台北','台中','高雄','屏東'],
+                cities: ['北部','中部','南部','東部'],
                 spots: ['5位內','10位內','不限名額'],
                 dates: ['3天內','7天內','10天內'],
             },
