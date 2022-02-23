@@ -1,14 +1,47 @@
-body{
-    background-color: $bodyBGcolor;
-}
-
 .memberInfoBlock{
     padding-top:60px;
-    width: 95%;
+    width: 100%;
     margin: auto;
 }
+
+//文字隱藏(謝)
+.text_Overflow {
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}
+
+//三角形
+// .memberAccountMobile{
+//     position: fixed;
+//     top: 0;
+//     right: 0;
+//     z-index: 1000;
+//     &::before{
+//         content: '';
+//         display: block;
+//         border-bottom: 20px solid #fff;
+//         border-right: 10px solid #0000;
+//         border-left: 10px solid #0000;
+//         // width: 20px;
+//         // height: 20px;
+//         // background-color: aqua;
+//         // border-radius: 10px;
+//         position: absolute;
+//         right: 26%;
+//         top:-10px;
+//     }
+    
+// }
+
+
 //左側帳號設定
 .memberAccountWarp{
+    display: none;
     padding: 10px;
     .memberAccount{
         box-shadow: 0 1px 5px 0 #999;
@@ -34,25 +67,24 @@ body{
         padding: 10px 30px;
         background-color: $white;
         a{
-            & + a{
-                border-top: #999 1px solid;
-            }
+            color: #333;
             li{
-                text-align: center;
                 padding: 10px 0;
             }
         }
+
     }
 }
 
-@media screen and (min-width:1200px) {
-
-
+@media screen and (min-width:996px) {
+    .memberAccountWarp{
+        display: block;
+    }
 }
 
-
+//右側表單區 共通部分
 .memberProfileWarp{
-    padding: 10px;
+    padding: 10px 0;
     .memberProfile{
         box-shadow: 0 1px 5px 0 #999;
         border-radius: 10px;
@@ -60,3 +92,93 @@ body{
         background-color: $white;
     }
 }
+.memberBlockTtile{
+    font-size: $third-title;
+    padding: 10px;
+}
+
+//區域1 基本資料設定
+
+.InfoSettingForm{
+    width: 100%;
+    th,td{
+        padding: 10px 30px;
+        border-bottom: 1px solid #3332;
+        text-align: left;
+        input{
+            display: inline-block;
+            height: 30px;
+        }
+    }
+}
+.sendButton{
+    padding: 10px 0;
+    margin-left: auto;
+    text-align: right;
+    input{
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        background-color: $accentColor;
+        color: $white;
+    }
+}
+
+
+//區域2 我的行程
+
+
+.horizontalcard{
+    display: flex;
+    justify-content:flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid #3333;
+    .horizontalcard_pic{
+        width: 40%;
+        height: 100%;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    .horizontalcard_content{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
+        padding-left: 5px;
+        .horizontalcard_title{
+            font-size: $card-title;
+        }
+        .horizontalcard_text{
+            font-size: $card-text;
+            
+        }
+        .horizontalcard_btn{
+            text-align: right;
+            button{
+                background-color:$accentColor ;
+                border-radius: 5px;
+                margin: 0 5px;
+                color: $white;
+                font-size: $card-text;
+            }
+        }
+    }
+}
+.newTourBtn{
+    width: 100%;
+    margin: 20px auto 0 auto;
+    padding: 5px 0;
+    border-radius:10px ;
+    background-color:$FooterBGColor;
+    color: $white;
+    text-align: center;
+}
+@media screen and (min-width:996px) {
+    .horizontalcard_pic{
+        width: 40%;
+    }
+}
+
+//區域3 我的揪團
+

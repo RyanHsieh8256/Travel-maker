@@ -6,7 +6,7 @@
     z-index: 1000;
     max-width: 1920px;
     margin: auto;
-    background-color: $navBGColor;
+    background-color: $white;
     box-shadow: 0 3px 3px 0 #ddd5;
 }
 
@@ -26,9 +26,10 @@
         a{
             height: 100%;
             padding: 0 20px;
-            color: $navFontColor;
+            color: $black;
             &:hover{
-                background-color: $navHoverColor;
+                background-color: $accentColor;
+                color: $white;
             }
             li{
                 height: 100%;
@@ -51,9 +52,9 @@
         }
         .material-icons-sharp{
             font-size:24px;
-            color: $navFontColor;
+            color: $black;
             &:hover{
-                color: $navHoverColor;
+                color: $accentColor;
             }
         }
     }
