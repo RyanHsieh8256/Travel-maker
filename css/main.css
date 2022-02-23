@@ -7410,17 +7410,127 @@ body {
   background-color: #fff;
 }
 
-<<<<<<< HEAD
-.shopType {
-  margin-bottom: 0;
+/* ---流動圖片區--- */
+.groupMarquee {
+  width: 100%;
 }
 
-.shopTypeBox {
+.groupMarquee .groupMarquee_wrap {
+  overflow: hidden;
+}
+
+.groupMarquee {
+  width: 100%;
+}
+
+.groupMarquee_wrap {
+  overflow: hidden;
+}
+
+.groupMarquee .pic {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-animation: groupMarquee_move 100s linear infinite running;
+          animation: groupMarquee_move 100s linear infinite running;
+}
+
+.groupMarquee .pic img {
   width: 50%;
-  height: 50%;
 }
 
-.shopTypeBox_wrap {
+.groupMarquee .pic img {
+  width: 50%;
+}
+
+/* ---熱門揪團城市區---*/
+.groupCities {
+  margin: 30px 0;
+}
+
+.groupCities .groupCities_wrap h2 {
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.groupCities .groupCities_wrap .row .pic {
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.groupCities .groupCities_wrap .row .pic img {
+  width: 100%;
+  border-radius: 50% 0%;
+}
+
+.groupCities .groupCities_wrap .row .txt {
+  text-align: center;
+}
+
+/* ---搜尋框---*/
+.groupSearchBar {
+  margin: 30px 0;
+}
+
+.groupSearchBar .groupSearchBar_wrap .search_wrap {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.groupSearchBar .groupSearchBar_wrap input {
+  width: 80%;
+  height: 30px;
+  border-radius: 50px;
+  padding: 0px 10px;
+  border: 2px solid #3BAFE5;
+  outline: none;
+}
+
+.groupSearchBar .groupSearchBar_wrap input:focus {
+  color: blue;
+}
+
+.groupSearchBar .groupSearchBar_wrap .search_wrap .search {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+  width: 59px;
+  height: 35px;
+  border-radius: 20px 0px 20px 0px;
+  cursor: pointer;
+  border: 2px solid #3BAFE5;
+  background-color: #14c6dd;
+}
+
+.groupSearchBar .groupSearchBar_wrap .search_wrap .search ion-icon {
+  color: aliceblue;
+  font-size: 20px;
+}
+
+/* ---熱門搜尋關鍵字---*/
+.groupSearchBar .groupSearchBar_wrap .keyword_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 0;
+}
+
+.groupSearchBar .groupSearchBar_wrap .keyword_wrap .topSearch {
+  padding-left: 10%;
+}
+
+.groupSearchBar .groupSearchBar_wrap .keyword_wrap ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7428,10 +7538,67 @@ body {
       flex-wrap: wrap;
 }
 
-.shopTypeBox h3 {
-  margin: auto;
-  text-align: center;
-  line-height: 400px;
+.groupSearchBar .groupSearchBar_wrap .keyword_wrap ul li .tag {
+  border-radius: 5px;
+  background: darkcyan;
+  position: relative;
+  margin-right: 20px;
+}
+
+.groupSearchBar .groupSearchBar_wrap .keyword_wrap ul li .tag:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 130%;
+  bottom: 0;
+  width: 2px;
+  height: 15px;
+  background: #ccc;
+}
+
+/* ---篩選下拉式選單和揪團內容區---*/
+.groupContent .groupContent_wrap #filter {
+  width: 30%;
+  background-color: gold;
+}
+
+.groupContent .groupContent_wrap #filter select {
+  width: 100%;
+  margin: 30px 0;
+}
+
+/* only for width below 768px */
+@media screen and (max-width: 768px) {
+  .groupCities .groupCities_wrap .row .col-4 {
+    margin: 10px 0;
+  }
+}
+
+.shopType {
+  margin: 50px auto;
+}
+
+.shopType .item .parttxt {
+  padding: 40%;
+}
+
+.shopType .item h3 {
+  color: white;
+  border: 1px solid white;
+  border-radius: 50% 0;
+  padding: 5px;
+  display: inline-block;
+}
+
+.shopType .col-6 {
+  padding: .2rem .2rem;
+  margin: 0;
+}
+
+.shopType .item {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .shopSearch {
@@ -7502,32 +7669,403 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  .shopType_wrap {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin-bottom: 20px;
+  .shopType .item h3 {
+    padding: 60% 40%;
   }
-  .shopTypeBox {
-    width: 25%;
-    height: 400px;
-    margin-left: 5px;
+  .shopType .col-md-3 {
+    padding: .1rem .1rem;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
   }
-  .shopTypeBox:first-child {
-    margin-left: 0;
-  }
-  .shopTypeBox:hover {
-    -webkit-transform: scale(1.05, 1.05);
-            transform: scale(1.05, 1.05);
-  }
-  .shopTypeBox h3 {
-    text-align: center;
+  .shopType .item:hover {
+    -webkit-transform: scale(1.02, 1.02);
+            transform: scale(1.02, 1.02);
   }
 }
 
-=======
-<<<<<<< HEAD
->>>>>>> dev
+.shopspotSlide_wrap {
+  margin: 50px auto;
+  width: 60%;
+}
+
+.shopspotSlide_wrap .owl-carousel {
+  position: relative;
+}
+
+.shopspotSlide_wrap .owl-dots {
+  position: absolute;
+  bottom: 10%;
+  left: 37%;
+}
+
+.shopspotSlide_wrap .owl-prev {
+  position: absolute;
+  top: 45%;
+  left: 0;
+}
+
+.shopspotSlide_wrap .owl-next {
+  position: absolute;
+  top: 45%;
+  right: 0;
+}
+
+.shopspotInfoTittle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 100px;
+}
+
+.shopspotInfoText {
+  margin: 20px auto 60px auto;
+  width: 60%;
+}
+
+.shopspotInfoTittle img {
+  width: 20px;
+}
+
+.shopspotBooking {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 100px auto;
+}
+
+/*------- 日 -------- 曆 --------*/
+.calendar .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 80px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.calendar .title a {
+  text-decoration: none;
+  color: #000;
+}
+
+.calendar .title .prev {
+  padding-left: 70px;
+}
+
+.calendar .title .next {
+  padding-right: 70px;
+}
+
+.calendar .ym {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.calendar {
+  width: 450px;
+  /* min-height: 430px; */
+  background: #F7F7F7;
+  -webkit-box-shadow: 3px 5px 5px 1px rgba(73, 73, 73, 0.1);
+          box-shadow: 3px 5px 5px 1px rgba(73, 73, 73, 0.1);
+}
+
+.calendar .body-list ul {
+  width: 100%;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.calendar .body-list ul li {
+  width: 14.28%;
+  height: 50px;
+  line-height: 36px;
+  list-style-type: none;
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  float: left;
+  text-align: center;
+}
+
+.calendar .week_title li {
+  font-size: 18px;
+  color: #565656;
+}
+
+.calendar .year_title,
+.calendar .year_month,
+.calendar .line {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.calendar .lightgrey {
+  color: #a8a8a8;
+  /*浅灰色*/
+}
+
+.calendar .darkgrey {
+  color: #565656;
+  /*深灰色*/
+}
+
+.calendar .green {
+  color: #858585;
+  /*绿色*/
+}
+
+.calendar .focus {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/*-------------------------------*/
+.calendar .booking_room {
+  margin-top: 30px;
+  position: relative;
+}
+
+.calendar .booking_room img {
+  position: absolute;
+  width: 118px;
+  top: 10px;
+  left: 6px;
+  z-index: -1;
+}
+
+.calendar .booking_btn {
+  width: 118px;
+  height: 53px;
+  background-color: #575757;
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 1.67px;
+  text-align: center;
+  font-weight: 200;
+  border: none;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.calendar .booking_btn:focus {
+  outline: none;
+}
+
+.calendar .checked {
+  background-color: #ddd;
+}
+
+.shopspotBooking .sub {
+  width: 400px;
+}
+
+.shopspotBooking .sub h3 {
+  margin: 35px;
+}
+
+.shopspotBooking .sub .counter-item {
+  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.shopspotBooking .sub .counter-item h4 {
+  width: 50px;
+}
+
+.shopspotBooking .sub .counter-item input {
+  width: 30px;
+  border: none;
+  text-align: center;
+}
+
+/* .shopspotBooking .sub .counter-item .amount{
+   margin-left: 10px;
+} */
+.subtotal {
+  text-align: right;
+  margin-right: 30px;
+}
+
+.shopspotContent {
+  margin: 80px;
+  position: relative;
+}
+
+.contentTitle {
+  padding: 10px;
+  padding-left: 30px;
+  display: inline-block;
+  border: 2px solid black;
+  border-radius: 0 30px 30px 0;
+}
+
+.shopspotContentTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.shopspotContentTitle .spot {
+  position: absolute;
+  left: -20px;
+  top: -6px;
+  border: 2px solid black;
+  background-color: #fff;
+  font-size: 35px;
+  margin-bottom: 0;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.shopspotFeature {
+  margin: 30px auto;
+}
+
+.feature_wrap {
+  width: 100%;
+  margin: auto;
+  border: 1px solid black;
+}
+
+/* .feature_wrap .owl-prev {
+    width: 0px;
+    position: absolute;
+    top: 45%;
+    left: 0;
+
+}
+  .feature_wrap .owl-next {
+    width: 0px;
+    position: absolute;
+    top: 45%;
+    right: 0;
+
+} */
+.feature_wrap .owl-prev {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top: 45%;
+  left: -15%;
+  display: block;
+  border: 0px solid black;
+}
+
+.feature_wrap .owl-next {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top: 45%;
+  right: -5%;
+  display: block;
+  border: 0px solid black;
+}
+
+.feature_wrap .owl-prev img, .owl-next img {
+  width: 30px;
+}
+
+.feature_wrap .item {
+  /* display: flex; */
+  /* margin: 20px; */
+}
+
+.feature_wrap .item img {
+  width: 300px;
+  /* overflow: hidden; */
+}
+
+.feature_wrap .item_text {
+  margin: 10px;
+}
+
+.shopspotTicket, .shopspotNotice {
+  margin: 30px auto;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  line-height: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .shopspotSlide_wrap .owl-dots {
+    left: 45%;
+  }
+  .shopspotInfoText {
+    margin: 20px 100px 60px 100px;
+    width: 60%;
+  }
+  .shopspotBooking {
+    width: 80%;
+  }
+  .shopspotSlide_wrap .owl-dots {
+    position: absolute;
+    top: 90%;
+    left: 45%;
+  }
+  .feature_wrap {
+    width: 60%;
+    margin: auto;
+    border: 1px solid black;
+  }
+  .feature_wrap .item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 20px;
+  }
+  .feature_wrap .owl-prev {
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top: 45%;
+    left: 0%;
+    display: block;
+    border: 0px solid black;
+  }
+  .feature_wrap .owl-next {
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top: 45%;
+    right: 5%;
+    display: block;
+    border: 0px solid black;
+  }
+  .feature_wrap .owl-prev img, .owl-next img {
+    width: 20px;
+  }
+  .feature_wrap .item_text {
+    margin: 20px;
+    width: 60%;
+  }
+  .feature_wrap .item img {
+    width: 200px;
+    overflow: hidden;
+  }
+}
+
 .newsSlider {
   padding-top: 70px;
   margin: auto;
@@ -7682,80 +8220,12 @@ body {
 }
 
 .newsListCard {
-=======
-/* ---流動圖片區--- */
-.groupMarquee {
-  width: 100%;
-}
-
-.groupMarquee .groupMarquee_wrap {
-  overflow: hidden;
-}
-
-.groupMarquee {
-  width: 100%;
-}
-
-.groupMarquee_wrap {
-  overflow: hidden;
-}
-
-.groupMarquee .pic {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-animation: groupMarquee_move 100s linear infinite running;
-          animation: groupMarquee_move 100s linear infinite running;
-}
-
-.groupMarquee .pic img {
-  width: 50%;
-}
-
-.groupMarquee .pic img {
-  width: 50%;
-}
-
-/* ---熱門揪團城市區---*/
-.groupCities {
-  margin: 30px 0;
-}
-
-.groupCities .groupCities_wrap h2 {
-  padding-bottom: 30px;
-  text-align: center;
-}
-
-.groupCities .groupCities_wrap .row .pic {
-  width: 100%;
-  padding-bottom: 10px;
-}
-
-.groupCities .groupCities_wrap .row .pic img {
-  width: 100%;
-  border-radius: 50% 0%;
-}
-
-.groupCities .groupCities_wrap .row .txt {
-  text-align: center;
-}
-
-/* ---搜尋框---*/
-.groupSearchBar {
-  margin: 30px 0;
-}
-
-.groupSearchBar .groupSearchBar_wrap .search_wrap {
-  position: relative;
->>>>>>> Julinka
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-<<<<<<< HEAD
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
@@ -7787,54 +8257,12 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-=======
-}
-
-.groupSearchBar .groupSearchBar_wrap input {
-  width: 80%;
-  height: 30px;
-  border-radius: 50px;
-  padding: 0px 10px;
-  border: 2px solid #3BAFE5;
-  outline: none;
-}
-
-.groupSearchBar .groupSearchBar_wrap input:focus {
-  color: blue;
-}
-
-.groupSearchBar .groupSearchBar_wrap .search_wrap .search {
-  position: absolute;
-  top: 50%;
-  right: 10%;
-  -webkit-transform: translate(50%, -50%);
-          transform: translate(50%, -50%);
-  width: 59px;
-  height: 35px;
-  border-radius: 20px 0px 20px 0px;
-  cursor: pointer;
-  border: 2px solid #3BAFE5;
-  background-color: #14c6dd;
-}
-
-.groupSearchBar .groupSearchBar_wrap .search_wrap .search ion-icon {
-  color: aliceblue;
-  font-size: 20px;
-}
-
-/* ---熱門搜尋關鍵字---*/
-.groupSearchBar .groupSearchBar_wrap .keyword_wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
->>>>>>> Julinka
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   padding: 10px 0;
 }
 
-<<<<<<< HEAD
 @media screen and (min-width: 768px) {
   .newsListCard {
     width: 100%;
@@ -7845,53 +8273,6 @@ body {
   .newsListCard .newsListCardText {
     width: 70%;
     padding: 0 10px;
-=======
-.groupSearchBar .groupSearchBar_wrap .keyword_wrap .topSearch {
-  padding-left: 10%;
-}
-
-.groupSearchBar .groupSearchBar_wrap .keyword_wrap ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.groupSearchBar .groupSearchBar_wrap .keyword_wrap ul li .tag {
-  border-radius: 5px;
-  background: darkcyan;
-  position: relative;
-  margin-right: 20px;
-}
-
-.groupSearchBar .groupSearchBar_wrap .keyword_wrap ul li .tag:after {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 130%;
-  bottom: 0;
-  width: 2px;
-  height: 15px;
-  background: #ccc;
-}
-
-/* ---篩選下拉式選單和揪團內容區---*/
-.groupContent .groupContent_wrap #filter {
-  width: 30%;
-  background-color: gold;
-}
-
-.groupContent .groupContent_wrap #filter select {
-  width: 100%;
-  margin: 30px 0;
-}
-
-/* only for width below 768px */
-@media screen and (max-width: 768px) {
-  .groupCities .groupCities_wrap .row .col-4 {
-    margin: 10px 0;
->>>>>>> Julinka
   }
 }
 /*# sourceMappingURL=main.css.map */

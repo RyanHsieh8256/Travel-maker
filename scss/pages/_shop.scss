@@ -1,24 +1,39 @@
-.shopType{
-    margin-bottom: 0;
-     
- }
- 
- 
- .shopTypeBox{ 
-     width:50%;
-     height:50% ;
- }
+body{
+    // background-color: rgb(252, 250, 218);
+}
 
- .shopTypeBox_wrap{
-     display: flex;
-     flex-wrap: wrap;
- }
- 
- .shopTypeBox h3{
-     margin: auto;
-     text-align: center;
-     line-height: 400px;
- }
+.shopType{
+    margin: 50px auto;
+}
+
+.shopType .item{
+    // height: 400px;
+}
+
+.shopType .item .parttxt{
+    padding: 40%;
+    
+}
+
+.shopType .item h3{
+    color: white;
+    border: 1px solid white;
+    border-radius: 50% 0;
+    padding: 5px;
+    display: inline-block;
+}
+
+.shopType .col-6{
+    padding: .2rem .2rem;
+    margin: 0;
+    
+}
+
+.shopType .item{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
  
 .shopSearch{
     text-align: center;
@@ -89,107 +104,21 @@
 }
 
 @media screen and (min-width:768px){
-    .shopType_wrap{
-        display: flex;
-        margin-bottom: 20px;
-    
+    .shopType .item h3{
+        padding: 60% 40%;
     }
 
-    .shopTypeBox{ 
-        width: 25%;
-        height: 400px;
-        margin-left: 5px;
-
+    .shopType .col-md-3{
+        padding: .1rem .1rem;
+        margin: 0;
+        overflow-x: hidden;
+        overflow-y: hidden;
     }
 
-    .shopTypeBox:first-child{
-        margin-left: 0;
+    .shopType .item:hover{
+        transform:scale(1.02,1.02);
+        
     }
-
-    .shopTypeBox:hover{
-        transform : scale(1.05,1.05);
-    }
-    
-    .shopTypeBox h3{
-        text-align: center;
-        // margin:160px;
-    }
-
-    // .shopTypeBox.north:hover{
-    //     width: 40%;
-    //     transition: all 0.2s ease-in-out;
-    // }
-    
-    // .shopTypeBox.north:hover div.middle{
-    //     width: 20%;
-       
-    // }
-    
-    // .shopTypeBox.north:hover div.south{
-    //     width: 20%;
-        
-    // }
-    // .shopTypeBox.north:hover div.east{
-    //     width: 20%;
-       
-    // }
-
-    // .shopTypeBox.middle:hover{
-    //     width: 40%;
-    //     transition: all 0.2s ease-in-out;
-    // }
-
-    // .shopTypeBox.middle:hover div.north{
-    //     width: 20%;
-        
-    // }
-    
-    // .shopTypeBox.middle:hover div.south{
-    //     width: 20%;
-        
-    // }
-    // .shopTypeBox.middle:hover div.east{
-    //     width: 20%;
-        
-    // }
-
-    // .shopTypeBox.south:hover{
-    //     width: 40%;
-    //     transition: all 0.2s ease-in-out;
-    // }
-
-    // .shopTypeBox.south:hover div.north{
-    //     width: 20%;
-        
-    // }
-    
-    // .shopTypeBox.south:hover div.middle{
-    //     width: 20%;
-        
-    // }
-    // .shopTypeBox.south:hover div.east{
-    //     width: 25%;
-        
-    // }
-
-    // .shopTypeBox.east:hover{
-    //     width: 40%;
-    //     transition: all 0.2s ease-in-out;
-    // }
-
-    // .shopTypeBox.east:hover div.north{
-    //     width: 20%;
-        
-    // }
-    
-    // .shopTypeBox.east:hover div.middle{
-    //     width: 20%;
-        
-    // }
-    // .shopTypeBox.east:hover div.south{
-    //     width: 20%;
-        
-    // }
 
 }
 

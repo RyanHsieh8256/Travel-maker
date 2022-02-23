@@ -1,0 +1,335 @@
+.shopspotSlide_wrap{
+  margin: 40px auto;
+  /* width: 60%; */
+  width: 100%;
+  
+}
+
+.shopspotSlide_wrap .owl-carousel{
+ position: relative;
+}
+
+.shopspotSlide_wrap .owl-dots {
+position: absolute;
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+  
+}
+
+.shopspotSlide_wrap .owl-dot span{
+width: 10px;
+}
+
+.shopspotSlide_wrap .owl-prev {
+  position: absolute;
+  top: 45%;
+  left: 0;
+
+}
+.shopspotSlide_wrap .owl-next {
+  position: absolute;
+  top: 45%;
+  right: 0;
+
+}
+
+.shopspotInfo h2{
+
+margin-left: 127px;
+}
+
+.shopspotInfo .title{
+  width: 80%;
+  margin: auto;
+  
+}
+
+.shopspotInfo .text{
+  margin: 20px auto 60px auto;
+  width: 80%;
+}
+
+/* .shopspotInfo .title img{
+width: 20px;
+} */
+
+/* .shopspotInfo .table .total{
+text-align: left;
+} */
+
+.shopspotInfo .sub{
+margin: 0 auto;
+width: 85%;
+}
+
+
+
+.shopspotInfo .price_wrap{
+margin: 10px;
+}
+
+.shopspotInfo .price{
+width: 30px;
+border: none;
+text-align: center;
+
+}
+
+.shopspotInfo .button-container{
+display: flex;
+
+}
+
+.shopspotInfo .cart-qty-minus,.cart-qty-plus{
+border: none;
+background-color: #fff;
+}
+
+.shopspotInfo .cart-qty-plus img,.cart-qty-minus img{
+width: 20px;
+}
+
+.shopspotInfo .qty{
+width: 40px;
+margin: 5px;
+}
+
+
+
+.shopspotInfo .type{
+/* width: 100px; */
+margin-right: 10px;
+}
+
+.shopspotInfo .total{
+display: inline-block;
+margin-top:20px ;
+}
+
+.shopspotBooking{
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 100px auto;
+}
+.shopspotBooking .sub{
+    width: 400px;
+}
+
+.shopspotBooking .sub h3{
+    margin: 35px;
+}
+
+.shopspotBooking .sub .counter-item{
+    margin: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.shopspotBooking .sub .counter-item h4{
+    width: 50px;
+}
+
+.shopspotBooking .sub .counter-item input{
+    width: 30px;
+    border: none;
+    text-align: center;
+}
+
+.subtotal{
+    text-align: right;
+    margin-right: 30px;
+}
+
+.shopspotContent{
+    margin: 80px;
+    position: relative;
+}
+
+
+
+.contentTitle{
+    padding: 10px;
+    padding-left: 30px;
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 0 30px 30px 0;
+   
+}
+
+.shopspotContentTitle{
+    display: flex;
+}
+
+.shopspotContentTitle .spot{
+    position: absolute;
+    left: -20px;
+    top: -6px;
+    border: 2px solid black;
+    background-color: #fff;
+    font-size: 35px;
+    margin-bottom: 0;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.shopspotFeature{
+  margin: 30px auto;
+}
+
+.feature_wrap{
+    width: 100%;
+    margin: auto;
+    border: 1px solid black;
+
+}
+
+.feature_wrap .owl-prev {
+width: 0px;
+height: 0px;
+position: absolute;
+top: 45%;
+left:-15%;
+display: block;
+border:0px solid black;
+
+}
+
+.feature_wrap .owl-next {
+width: 0px;
+height: 0px;
+position: absolute;
+top: 45%;
+right: -5%;
+display: block;
+border:0px solid black;
+
+}
+
+.feature_wrap .owl-prev img,.owl-next img {
+width: 30px;
+
+}
+
+.feature_wrap .item{
+/* display: flex; */
+/* margin: 20px; */
+}
+.feature_wrap .item img{
+width: 300px;
+/* overflow: hidden; */
+}
+
+.feature_wrap .item_text{
+  margin: 10px;
+}
+
+.shopspotTicket,.shopspotNotice{
+    margin: 30px auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    line-height: 20px;
+}
+ 
+
+
+@media screen and (min-width:768px){
+  .shopspotSlide_wrap{
+    margin: 40px auto;
+    /* width: 60%; */
+    width: 80%;
+    
+}
+
+.shopspotInfo_wrap{
+  display: flex;
+}
+
+.shopspotInfo_wrap .info{
+  width: 50%;
+  
+}
+    
+.shopspotInfo .title{
+  width: 60%;
+  
+}
+
+.shopspotInfo .text{
+  /* margin: 20px 0px 60px 100px; */
+  width: 60%;
+}
+
+.shopspotInfo .sub{
+width: 40%;
+}
+
+.shopspotInfo .sub_wrap{
+width: 80%;
+/* margin: auto; */
+}
+
+  .shopspotBooking{
+      width: 80%;
+  }
+  
+
+  /* .shopspotSlide_wrap .owl-dots {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  } */
+
+  .feature_wrap{
+    width: 60%;
+    margin: auto;
+    border: 1px solid black;
+
+}
+
+  .feature_wrap .item{
+    display: flex;
+    margin: 20px;
+  }
+
+  .feature_wrap .owl-prev {
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top: 45%;
+    left:0%;
+    display: block;
+    border:0px solid black;
+    
+  }
+  
+  .feature_wrap .owl-next {
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top: 45%;
+    right: 5%;
+    display: block;
+    border:0px solid black;
+  
+  }
+
+  .feature_wrap .owl-prev img,.owl-next img {
+    width: 20px;
+  
+  }
+
+  .feature_wrap .item_text{
+    margin: 20px;
+    width: 60%;
+  }
+  .feature_wrap .item img{
+    width: 200px;
+    overflow: hidden;
+  }
+}
+
