@@ -223,8 +223,47 @@
             },
         });
     </script>
+    <script>
+        $(function(){
+            let filterMobile = document.getElementById('filterMobile');
+            filterMobile.addEventListener('click', showFilter);
+        })
+        function showFilter(){
+            alert('HI');
+        }
+        function isMobileDevice(){
+            let mobileDevices = ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone']
+            let isMobileDevice=false
+            for(let i=0;i<mobileDevices.length;i++){
+                if(navigator.userAgent.match(mobileDevices[i])){
+                    isMobileDevice=true
+                }
+            }
+            return isMobileDevice
+        }
 
-
+        if(isMobileDevice() != true){
+            $("body").mousemove(function(e){
+            let X = e.clientX;
+            let Y = e.clientY;
+            console.log(X,Y);
+            setTimeout(function(){
+            $('#mouseEffect').css({
+                top:Y + "px",
+                left:X + "px",
+                opacity:'1'
+            });
+            },50)
+            setTimeout(function(){
+                $('#mouseEffect2').css({
+                top:Y + "px",
+                left:X + "px",
+                opacity:'1'
+                });
+            },150)
+            });
+        };
+    </script>
     <footer></footer>
     
 </body>
