@@ -1,8 +1,13 @@
+/* ---團封面照--- */
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .cover img{
+    border-radius: 10px;
+}
 /* ---團主大頭貼和名字--- */
 .groupdetailCoverInfo .groupdetailCoverInfo_wrap .info{
     display: flex;
     align-items: center;
     .initiatorPic{
+        margin-right: 3%;
         width: 50px;
         img{
             border-radius: 50%;
@@ -10,9 +15,11 @@
     }
 }
 /* ---團的標題--- */
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .title{
-    text-align: center;
-}
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .card{
+    .title{
+        text-align: center;
+    }
+} 
 /* ---團的熱門搜尋關鍵字和剩餘名額--- */
 .groupdetailCoverInfo .groupdetailCoverInfo_wrap .keywordSpot_wrap{
     display: flex;
