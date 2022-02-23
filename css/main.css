@@ -7696,8 +7696,8 @@ body {
 }
 
 /* ---團的標題--- */
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .card_title {
-  text-align: center;
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .card_text {
+  white-space: initial;
 }
 
 /* ---團的熱門搜尋關鍵字和剩餘名額--- */
