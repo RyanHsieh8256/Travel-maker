@@ -5,7 +5,7 @@ let beforeScroll=0,afterScroll=0;
         let mainNav = document.getElementById('mainNav');
         afterScroll = $(this).scrollTop();
         if(beforeScroll<afterScroll){
-            mainNav.style.top = '100%';
+            mainNav.style.top = '110%';
         }else{
             mainNav.style.top = '0';           
         }

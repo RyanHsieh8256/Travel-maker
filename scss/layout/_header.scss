@@ -6,64 +6,55 @@
     z-index: 1000;
     max-width: 1920px;
     margin: auto;
+    background-color: $navBGColor;
+    box-shadow: 0 3px 3px 0 #ddd5;
 }
-/* 上半區塊 */
-.navLogin{
+
+.navBlock{
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    background-color: rgb(222,240,240);
-    padding: 0 5%;
-}
-    /* logo區 */
-.logo img{
-    height:50px;
-}
-
-    /* 會員區 */
-.navMember{
-    display: flex;
-    align-items: center;
-}
-.navMember li{
-    padding: 0 10px;
-}
-.navMember{
-    .material-icons-sharp{
-        font-size:24px;
-        color: #333;
-    }
-}
-/* 下半區塊 */
-.mainNav{
-    display: none;
-}
-/* 導覽列項目 */
-.mainNavList{
-    text-align: center;
-}
-.mainNavList li{
-    padding: 10px;
-}
-
-.mainNavList li:hover{
-    background-color: rgb(51, 88, 117);
-    color: #fff;
-}
-
-
-@media screen and (min-width:768px) {
-    .navLogin{
-        box-shadow: 0 1px 3px 0 #222222;
+    align-items: stretch;
+    width: 90%;
+    margin: auto;
+    .navLogo img{
+        height:50px;
     }
     .mainNav{
-        display: block;
-        position: absolute;
-        top:0;
-        left:0;
-        right:0;
-        transition: .5s;
-        z-index: -1;
-        background-color: rgb(220,229,239);
+        display: none;
+        flex-grow: 1;
+        padding-left: 40px;
+        a{
+            height: 100%;
+            padding: 0 20px;
+            color: $navFontColor;
+            &:hover{
+                background-color: $navHoverColor;
+            }
+            li{
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+    @media screen and (min-width:768px){
+        .mainNav{
+            display:flex;
+        }
+    }
+
+    .navMember{
+        display: flex;
+        align-items: center;
+        li{
+            padding-left:20px;
+        }
+        .material-icons-sharp{
+            font-size:24px;
+            color: $navFontColor;
+            &:hover{
+                color: $navHoverColor;
+            }
+        }
     }
 }

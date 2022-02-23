@@ -1,20 +1,20 @@
 .footer_Wrap{
-    font-family:'Noto Serif TC',serif;
-    background-color: rgb(51, 88, 117);//footer背景色
-    max-width: 1920px;
+    background-color: $FooterBGColor;
+    padding: 20px 0;
+    .footerBlock{
+    width: 90%;
     margin: auto;
-    padding-bottom: 10px;
+    }
 }
 .footerMedia{
     font-size: 20px;
     text-align: center;
-    background-color: rgb(131,171,201);//icon區背景色
     li{
         font-size: 30px;
-        padding: 0 15px;
-        color: #fff;//icon顏色
+        padding: 0 20px;
+        color: $FooterIconColor;//icon顏色
         &:hover{
-            color: rgb(51, 88, 117);//icon區hover色
+            color: $FooterHoverColor;//icon區hover色
         }
     }
 }
@@ -23,11 +23,12 @@
     flex-direction: column;
     justify-content: space-around;
     flex-wrap: wrap;
-    color: #fff;//聯絡資料顏色
+    color: $FooterFontColor;//聯絡資料顏色
     text-align: center;
     font-size: 14px;
+    padding: 5px 0;
     li{
-        padding: 10px 20px;
+        padding: 5px 20px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -36,7 +37,7 @@
         }
     }
     a{
-        color: rgb(255, 255, 255);//聯絡資料顏色
+        color: $FooterFontColor;//聯絡資料顏色
     }
 }
 .footerTerms{
@@ -46,9 +47,9 @@
     a{
         position: relative;
         margin: 0 10px;
-        color: rgb(229,230,231);//條約顏色
+        color: $FooterFontColor;//條約顏色
         li:hover{
-            color: rgb(117, 255, 232);//條約hover顏色
+            color: $FooterHoverColor;//條約hover顏色
         }
         & + a::before{
             content: '|';
@@ -59,7 +60,7 @@
 }
 .footerCopyRight{
     text-align: center;
-    color: rgb(229,230,231);//著作權顏色
+    color: $FooterFontColor;//著作權顏色
     font-size: 12px;
 }
 
