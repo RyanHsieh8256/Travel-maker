@@ -1,0 +1,60 @@
+.nav_Wrap{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    max-width: 1920px;
+    margin: auto;
+    background-color: $navBGColor;
+    box-shadow: 0 3px 3px 0 #ddd5;
+}
+
+.navBlock{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 90%;
+    margin: auto;
+    .navLogo img{
+        height:50px;
+    }
+    .mainNav{
+        display: none;
+        flex-grow: 1;
+        padding-left: 40px;
+        a{
+            height: 100%;
+            padding: 0 20px;
+            color: $navFontColor;
+            &:hover{
+                background-color: $navHoverColor;
+            }
+            li{
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+    @media screen and (min-width:768px){
+        .mainNav{
+            display:flex;
+        }
+    }
+
+    .navMember{
+        display: flex;
+        align-items: center;
+        li{
+            padding-left:20px;
+        }
+        .material-icons-sharp{
+            font-size:24px;
+            color: $navFontColor;
+            &:hover{
+                color: $navHoverColor;
+            }
+        }
+    }
+}

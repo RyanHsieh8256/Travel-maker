@@ -1,0 +1,114 @@
+/* ---團主大頭貼和名字--- */
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .info{
+    display: flex;
+    align-items: center;
+    .initiatorPic{
+        width: 50px;
+        img{
+            border-radius: 50%;
+        }
+    }
+}
+/* ---團的標題--- */
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .title{
+    text-align: center;
+}
+/* ---團的熱門搜尋關鍵字和剩餘名額--- */
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .keywordSpot_wrap{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 9%;
+    ul{
+        display: flex;
+    }
+} 
+/* ---團的旅程資訊和留言區--- */
+.groupdetailInfo .groupdetailInfo_wrap{
+    .title{
+        text-align: center;
+    }
+    .tourInfo{
+        height: 500px;
+        border: 1px solid darkcyan;
+    }
+}
+.groupdetailInfo .groupdetailInfo_wrap .message{
+    height: 500px;
+    overflow-y: scroll;
+    border: 1px solid red;
+    position: relative;
+}
+.groupdetailInfo .groupdetailInfo_wrap .message .message_wrap{
+    background-color:darksalmon;
+    margin: 30px 0px;
+}
+.groupdetailInfo .groupdetailInfo_wrap .message .message_wrap .header{
+    display: flex;
+    align-items: center;
+}
+.groupdetailInfo .groupdetailInfo_wrap .message .message_wrap:nth-of-type(even){
+    background-color: darkkhaki;
+}
+.groupdetailInfo .groupdetailInfo_wrap .message .message_wrap:nth-of-type(even) .header,.content{
+    justify-content: flex-end;
+}
+.groupdetailInfo .groupdetailInfo_wrap .message .message_wrap:nth-of-type(even) .content{
+    text-align: end;
+}
+.groupdetailInfo .groupdetailInfo_wrap .message .message_wrap .header .initiatorPic{
+    width: 50px;
+}
+.groupdetailInfo .groupdetailInfo_wrap .message .message_wrap .header .initiatorPic img{
+    width: 100%;
+    border-radius: 50%;
+}
+.groupdetailInfo .groupdetailInfo_wrap .message .leaveMessage{
+    background-color: #ffffff;
+    position: sticky;
+    bottom: 0;
+    display: flex;
+}
+.groupdetailInfo .groupdetailInfo_wrap .message .leaveMessage textarea{
+    background-color: darkseagreen;
+    width: 100%;
+    resize: none;
+    border: none;
+}
+.groupdetailInfo .groupdetailInfo_wrap .message .leaveMessage .leaveMessageBtn{
+    border: none;
+}
+.joinBtn{
+    border: none;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    position: fixed;
+    top: 50%;
+    right: 1%;
+    cursor: pointer;
+    background-color: deepskyblue;
+    color: #ffffff;
+    display: none;
+}
+.showJoinBtn{
+    display: block;
+    transition: 600ms ease-in-out;
+    animation: move .5s;
+    transform: translateY(50%);
+}
+@keyframes move{
+    from{
+        transform: translateY(-150%);
+    }
+    to{
+        transform: translateY(50%);
+    }
+}
+
+/* only for width below 768px */
+@media screen and (max-width:768px) {
+    .groupdetailInfo .groupdetailInfo_wrap .col-12{
+        margin-top: 30px;
+    }
+}

@@ -4,15 +4,453 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首頁</title>
+    <title>旅遊資訊</title>
 
     <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery.js"></script>
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- owl.carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"></link>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!-- googleicon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+    <!-- ionicon -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script src="js/headercontrol.js"></script>
 
 </head>
 <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
-    
+    <nav>
+        <section class="nav_Wrap">
+            <div class="navLogin">
+                <a href=""><h1 class="logo"><img src="images/logo/logo_84x50.png" alt="TravelMaker"></h1></a>
+                <ul class="navMember">
+                    <a href=""><li><span class="material-icons-sharp">shopping_cart</span></li></a>
+                    <a href=""><li><span class="material-icons-sharp">account_circle</span></ion-icon></li></a>
+                    <a href=""><li><span class="material-icons-sharp">menu</span></li></a>
+                </ul>
+            </div>
+            <div class="mainNav" id="mainNav">
+                <ul class="mainNavList">
+                    <a href=""><li>行程規劃</li></a>
+                    <a href=""><li>揪團旅行</li></a>
+                    <a href=""><li>商城</li></a>
+                    <a href=""><li>旅遊資訊</li></a>
+                    <a href=""><li>關於我們</li></a>
+                    <a href=""><li>明信片</li></a>
+                </ul>
+            </div>            
+        </section>
+    </nav>
+    <header>
+        <section class="newsSlider">
+            <div class="owl-carousel owl-theme owl-loaded">
+                <div class="owl-stage-outer">
+                    <div class="owl-stage">
+                        <div class="owl-item sliderItem">
+                            <div class="sliderImgWrap">
+                                <img src="https://picsum.photos/800/600/?random=10">
+                            </div>
+                            <h3 class="sliderItemTitle">一閃一閃亮晶晶</h3>
+                        </div>
+                        <div class="owl-item sliderItem">
+                            <div class="sliderImgWrap">
+                                <img src="https://picsum.photos/800/600/?random=3">
+                            </div>
+                            <h3 class="sliderItemTitle">二閃二閃亮晶晶</h3>
+                        </div>
+                        <div class="owl-item sliderItem">
+                            <div class="sliderImgWrap">
+                                <img src="https://picsum.photos/800/600/?random=9">
+                            </div>
+                            <h3 class="sliderItemTitle">三閃三閃亮晶晶</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 class="sliderTitle" id="sliderTitle"></h3>
+        </section>
+    </header>
+    <main>
+        <section class="newsAritcleBlock">
+            <h2 class="newsAritcleBlockTitle">熱門遊記</h2>
+            <div class="row">
+                <div class="card col-12 col-lg-4 col-xl-3">
+                    <!-- 卡片頭 -->
+                    <div class="card_header">
+                        <div class="card_person">
+                            <div class="card_photo">
+                                <img src="https://picsum.photos/50/50/?random=10" alt="">
+                            </div>
+                            <div class="card_name">人才丁丁</div>
+                        </div>
+                        <div class="card_hit">
+                            <span>19999</span>
+                            點擊
+                        </div>
+                    </div> 
+                    <!-- 卡片內容 -->
+                    <div class="card_content card_content--corner">
+                        <div class="card_body">
+                            <span class="card_tag">旅記</span>
+                            <div class="card_like">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                </svg>
+                            </div>
+                            <div class="card_img">
+                                <img src="https://picsum.photos/300/200/?random=10" alt="">
+                            </div>
+                            <h3 class="card_title">文章卡片</h3>
+                            <p class="card_text">
+                                內容文字
+                            </p>  
+                        </div>
+                        <!-- 卡片尾巴 -->
+                        <div class="card_footer">
+                            <div class="card_time">
+                                2021/12/30
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                <div class="card col-12 col-lg-4 col-xl-3">
+                    <!-- 卡片頭 -->
+                    <div class="card_header">
+                        <div class="card_person">
+                            <div class="card_photo">
+                                <img src="https://picsum.photos/50/50/?random=10" alt="">
+                            </div>
+                            <div class="card_name">人才丁丁</div>
+                        </div>
+                        <div class="card_hit">
+                            <span>19999</span>
+                            點擊
+                        </div>
+                    </div> 
+                    <!-- 卡片內容 -->
+                    <div class="card_content card_content--corner">
+                        <div class="card_body">
+                            <span class="card_tag">旅記</span>
+                            <div class="card_like">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                </svg>
+                            </div>
+                            <div class="card_img">
+                                <img src="https://picsum.photos/300/200/?random=10" alt="">
+                            </div>
+                            <h3 class="card_title">文章卡片</h3>
+                            <p class="card_text">
+                                內容文字
+                            </p>  
+                        </div>
+                        <!-- 卡片尾巴 -->
+                        <div class="card_footer">
+                            <div class="card_time">
+                                2021/12/30
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                <div class="card col-12 col-lg-4 col-xl-3">
+                    <!-- 卡片頭 -->
+                    <div class="card_header">
+                        <div class="card_person">
+                            <div class="card_photo">
+                                <img src="https://picsum.photos/50/50/?random=10" alt="">
+                            </div>
+                            <div class="card_name">人才丁丁</div>
+                        </div>
+                        <div class="card_hit">
+                            <span>19999</span>
+                            點擊
+                        </div>
+                    </div> 
+                    <!-- 卡片內容 -->
+                    <div class="card_content card_content--corner">
+                        <div class="card_body">
+                            <span class="card_tag">旅記</span>
+                            <div class="card_like">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                </svg>
+                            </div>
+                            <div class="card_img">
+                                <img src="https://picsum.photos/300/200/?random=10" alt="">
+                            </div>
+                            <h3 class="card_title">文章卡片</h3>
+                            <p class="card_text">
+                                內容文字
+                            </p>  
+                        </div>
+                        <!-- 卡片尾巴 -->
+                        <div class="card_footer">
+                            <div class="card_time">
+                                2021/12/30
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                <div class="card col-12 col-lg-4 col-xl-3">
+                    <!-- 卡片頭 -->
+                    <div class="card_header">
+                        <div class="card_person">
+                            <div class="card_photo">
+                                <img src="https://picsum.photos/50/50/?random=10" alt="">
+                            </div>
+                            <div class="card_name">人才丁丁</div>
+                        </div>
+                        <div class="card_hit">
+                            <span>19999</span>
+                            點擊
+                        </div>
+                    </div> 
+                    <!-- 卡片內容 -->
+                    <div class="card_content card_content--corner">
+                        <div class="card_body">
+                            <span class="card_tag">旅記</span>
+                            <div class="card_like">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                </svg>
+                            </div>
+                            <div class="card_img">
+                                <img src="https://picsum.photos/300/200/?random=10" alt="">
+                            </div>
+                            <h3 class="card_title">文章卡片</h3>
+                            <p class="card_text">
+                                內容文字
+                            </p>  
+                        </div>
+                        <!-- 卡片尾巴 -->
+                        <div class="card_footer">
+                            <div class="card_time">
+                                2021/12/30
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                <div class="card col-12 col-lg-4 col-xl-3">
+                    <!-- 卡片頭 -->
+                    <div class="card_header">
+                        <div class="card_person">
+                            <div class="card_photo">
+                                <img src="https://picsum.photos/50/50/?random=10" alt="">
+                            </div>
+                            <div class="card_name">人才丁丁</div>
+                        </div>
+                        <div class="card_hit">
+                            <span>19999</span>
+                            點擊
+                        </div>
+                    </div> 
+                    <!-- 卡片內容 -->
+                    <div class="card_content card_content--corner">
+                        <div class="card_body">
+                            <span class="card_tag">旅記</span>
+                            <div class="card_like">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                </svg>
+                            </div>
+                            <div class="card_img">
+                                <img src="https://picsum.photos/300/200/?random=10" alt="">
+                            </div>
+                            <h3 class="card_title">文章卡片</h3>
+                            <p class="card_text">
+                                內容文字
+                            </p>  
+                        </div>
+                        <!-- 卡片尾巴 -->
+                        <div class="card_footer">
+                            <div class="card_time">
+                                2021/12/30
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                <div class="card col-12 col-lg-4 col-xl-3">
+                    <!-- 卡片頭 -->
+                    <div class="card_header">
+                        <div class="card_person">
+                            <div class="card_photo">
+                                <img src="https://picsum.photos/50/50/?random=10" alt="">
+                            </div>
+                            <div class="card_name">人才丁丁</div>
+                        </div>
+                        <div class="card_hit">
+                            <span>19999</span>
+                            點擊
+                        </div>
+                    </div> 
+                    <!-- 卡片內容 -->
+                    <div class="card_content card_content--corner">
+                        <div class="card_body">
+                            <span class="card_tag">旅記</span>
+                            <div class="card_like">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                </svg>
+                            </div>
+                            <div class="card_img">
+                                <img src="https://picsum.photos/300/200/?random=10" alt="">
+                            </div>
+                            <h3 class="card_title">文章卡片</h3>
+                            <p class="card_text">
+                                內容文字
+                            </p>  
+                        </div>
+                        <!-- 卡片尾巴 -->
+                        <div class="card_footer">
+                            <div class="card_time">
+                                2021/12/30
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                <div class="card col-12 col-lg-4 col-xl-3">
+                    <!-- 卡片頭 -->
+                    <div class="card_header">
+                        <div class="card_person">
+                            <div class="card_photo">
+                                <img src="https://picsum.photos/50/50/?random=10" alt="">
+                            </div>
+                            <div class="card_name">人才丁丁</div>
+                        </div>
+                        <div class="card_hit">
+                            <span>19999</span>
+                            點擊
+                        </div>
+                    </div> 
+                    <!-- 卡片內容 -->
+                    <div class="card_content card_content--corner">
+                        <div class="card_body">
+                            <span class="card_tag">旅記</span>
+                            <div class="card_like">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                </svg>
+                            </div>
+                            <div class="card_img">
+                                <img src="https://picsum.photos/300/200/?random=10" alt="">
+                            </div>
+                            <h3 class="card_title">文章卡片</h3>
+                            <p class="card_text">
+                                內容文字
+                            </p>  
+                        </div>
+                        <!-- 卡片尾巴 -->
+                        <div class="card_footer">
+                            <div class="card_time">
+                                2021/12/30
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                <div class="card col-12 col-lg-4 col-xl-3">
+                    <!-- 卡片頭 -->
+                    <div class="card_header">
+                        <div class="card_person">
+                            <div class="card_photo">
+                                <img src="https://picsum.photos/50/50/?random=10" alt="">
+                            </div>
+                            <div class="card_name">人才丁丁</div>
+                        </div>
+                        <div class="card_hit">
+                            <span>19999</span>
+                            點擊
+                        </div>
+                    </div> 
+                    <!-- 卡片內容 -->
+                    <div class="card_content card_content--corner">
+                        <div class="card_body">
+                            <span class="card_tag">旅記</span>
+                            <div class="card_like">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                </svg>
+                            </div>
+                            <div class="card_img">
+                                <img src="https://picsum.photos/300/200/?random=10" alt="">
+                            </div>
+                            <h3 class="card_title">文章卡片</h3>
+                            <p class="card_text">
+                                內容文字
+                            </p>  
+                        </div>
+                        <!-- 卡片尾巴 -->
+                        <div class="card_footer">
+                            <div class="card_time">
+                                2021/12/30
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+            <div class="newsMoreLink">
+                <a href="">更多精彩遊記➜</a>
+            </div>
+        </section>
+        <section class="newsAnnounceBlock">
+            <h2 class="newsAnnounceTitle">最新消息</h2>
+            <div class="newsAnnounceList">
+                <ul class="newsAnnounceListBlock">
+                    <a href=""><li><span>2022/02/20</span>六福村門票跳樓大拍賣</li></a>
+                    <a href=""><li><span>2022/02/14</span>單身狗情人節好去處 沒墨鏡也不怕被閃瞎</li></a>
+                    <a href=""><li><span>2021/12/25</span>新北耶誕城全攻略 走這裡人最少</li></a>
+                    <a href=""><li><span>2021/11/15</span>小人國改建大人國 全新設施報你知</li></a>
+                    <a href=""><li><span>2021/10/05</span>阿里山小火車車票 這裡買最便宜</li></a>
+                </ul>
+                <ul class="newsAnnounceListBlock">
+                    <a href=""><li><span>2022/02/20</span>六福村門票跳樓大拍賣</li></a>
+                    <a href=""><li><span>2022/02/14</span>單身狗情人節好去處 沒墨鏡也不怕被閃瞎</li></a>
+                    <a href=""><li><span>2021/12/25</span>新北耶誕城全攻略 走這裡人最少</li></a>
+                    <a href=""><li><span>2021/11/15</span>小人國改建大人國 全新設施報你知</li></a>
+                    <a href=""><li><span>2021/10/05</span>阿里山小火車車票 這裡買最便宜</li></a>
+                </ul>
+            </div>
+            <div class="newsMoreLink">
+                <a href="">更多最新消息➜</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <section class="footer_Wrap">
+            <ul class="footerMedia">
+                <a href=""><li><ion-icon name="logo-facebook"></ion-icon></li></a>
+                <a href=""><li><ion-icon name="logo-instagram"></ion-icon></li></a>
+                <a href=""><li><ion-icon name="logo-twitter"></ion-icon></li></a>
+            </ul>
+            <ul class="footerContect">
+                <li><ion-icon name="call-outline"></ion-icon>電話:03-1234567</li>
+                <li><ion-icon name="mail-outline"></ion-icon>服務信箱:<a href="mailto:abc12345@gmail.com">abc12345@gmail.com</a></li>
+                <li><ion-icon name="time-outline"></ion-icon>營業時間:09:00 ~ 18:00(一)~(五)</li>
+                <li><ion-icon name="location-outline"></ion-icon>地址:桃園市桃園區中正路99999號</li>
+            </ul>
+            <ul class="footerTerms">
+                <a href=""><li>服務條款</li></a><a href=""><li>購物條款</li></a><a href=""><li>付款方式</li></a>
+            </ul>
+            <p class="footerCopyRight">&copy;copy right by nobody.Please don'tsue me.</p>
+        </section>
+    </footer>
 </body>
+<script>
+    $('.owl-carousel').owlCarousel({
+        margin:10,
+        loop:true,
+        items:1,
+        animateOut: 'fadeOut',
+        smartSpeed:300,
+        dragEndSpeed:300,
+        
+    })
+</script>
 </html>

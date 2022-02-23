@@ -1,0 +1,82 @@
+.footer_Wrap{
+    background-color: $FooterBGColor;
+    padding: 20px 0;
+    .footerBlock{
+    width: 90%;
+    margin: auto;
+    }
+}
+.footerMedia{
+    font-size: 20px;
+    text-align: center;
+    li{
+        font-size: 30px;
+        padding: 0 20px;
+        color: $FooterIconColor;//icon顏色
+        &:hover{
+            color: $FooterHoverColor;//icon區hover色
+        }
+    }
+}
+.footerContect{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    color: $FooterFontColor;//聯絡資料顏色
+    text-align: center;
+    font-size: 14px;
+    padding: 5px 0;
+    li{
+        padding: 5px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        ion-icon{
+            padding-right: 3px;
+        }
+    }
+    a{
+        color: $FooterFontColor;//聯絡資料顏色
+    }
+}
+.footerTerms{
+    text-align: center;
+    font-size: 12px;
+    padding: 10px 0;
+    a{
+        position: relative;
+        margin: 0 10px;
+        color: $FooterFontColor;//條約顏色
+        li:hover{
+            color: $FooterHoverColor;//條約hover顏色
+        }
+        & + a::before{
+            content: '|';
+            position: absolute;
+            left: -10px;
+        }
+    }
+}
+.footerCopyRight{
+    text-align: center;
+    color: $FooterFontColor;//著作權顏色
+    font-size: 12px;
+}
+
+// @media screen and (min-width:768px) {
+    
+// }
+@media screen and (min-width:996px) {
+    .footer_Wrap{
+        .footerContect{
+            flex-direction: row;
+            // justify-content:space-evenly;
+            
+        }
+    }
+}
+
+// @media screen (min-width:1200px) {
+    
+// }

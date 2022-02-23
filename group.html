@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首頁</title>
+    <title>揪團首頁</title>
     <link rel="stylesheet" href="css/main.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js'></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -91,11 +91,12 @@
         <section class="l-full groupContent">
             <div class="l-large groupContent_wrap">
                 <div class="row">
+                    <div id="filterMobile">篩選</div>
                     <div class="col-12 col-lg-6 col-xl-6">
                         <div id="filter">
                             <div class="city">
                                 <select v-model="selectedCity">
-                                    <option value="" disabled>城市</option>
+                                    <option value="" disabled>旅遊地區</option>
                                     <option v-for="city in cities">{{city}}</option>
                                 </select>
                             </div>
@@ -111,6 +112,7 @@
                                     <option v-for="date in dates">{{date}}</option>
                                 </select>
                             </div>
+                            <button id="filterBtn">篩選</button>
                         </div>
                     </div>
                     <!-- 卡片放置區 -->
@@ -131,28 +133,23 @@
                         <!-- 卡片內容 -->
                         <div class="card_content card_content--corner">
                             <div class="card_body">
-                                <span class="card_tag">台南</span>
-                                <div class="card_like">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                                    </svg>
-                                </div>
+                                <span class="card_tag">台東</span>
                                 <div class="card_img">
                                     <img src="https://picsum.photos/300/200/?random=10" alt="">
                                 </div>
                                 <div class="card_date">
                                     <p class="card_time card_time--start">
-                                        <span>出發:</span>
+                                        <span>出發日期:</span>
                                         2022/1/2
                                     </p>
                                     <p class="card_time card_time--end">
-                                        <span>回程:</span>
+                                        <span>回程日期:</span>
                                         2022/1/4
                                     </p>
                                 </div>
-                                <h3 class="card_title">揪團卡片</h3>
+                                <h3 class="card_title">台東秘境嘉明湖三日登山行程(含山屋申請)｜發現天使的眼淚</h3>
                                 <p class="card_text">
-                                    內容文字
+                                    想一探台東秘境"嘉明湖"真實面貌，就必須爬上海拔3000多公尺的高山，三日裡背負重裝，由專業高山嚮導帶領從池上出發3天2夜，沿途中，不斷地與自己對話，行程提供代為申請山屋或營帳住宿，加上免背免備公器公糧服務，讓您能保存更多的體力去應付前往嘉明湖三叉向陽山的登山路程。當親眼見到『天使的眼淚-嘉明湖』之美，神秘又遙遠的台灣美景，讓人學會敬畏與謙卑。越美的風景，越要觀察，保持神秘，她永遠在心中，隱藏在高山中湛藍的絕美湖泊景致。
                                 </p>
                             </div>
                             <!-- 卡片尾巴 -->
@@ -181,28 +178,23 @@
                         <!-- 卡片內容 -->
                         <div class="card_content card_content--corner">
                             <div class="card_body">
-                                <span class="card_tag">台南</span>
-                                <div class="card_like">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                                    </svg>
-                                </div>
+                                <span class="card_tag">台東</span>
                                 <div class="card_img">
                                     <img src="https://picsum.photos/300/200/?random=10" alt="">
                                 </div>
                                 <div class="card_date">
                                     <p class="card_time card_time--start">
-                                        <span>出發:</span>
+                                        <span>出發日期:</span>
                                         2022/1/2
                                     </p>
                                     <p class="card_time card_time--end">
-                                        <span>回程:</span>
+                                        <span>回程日期:</span>
                                         2022/1/4
                                     </p>
                                 </div>
-                                <h3 class="card_title">揪團卡片</h3>
+                                <h3 class="card_title">台東秘境嘉明湖三日登山行程(含山屋申請)｜發現天使的眼淚</h3>
                                 <p class="card_text">
-                                    內容文字
+                                    想一探台東秘境"嘉明湖"真實面貌，就必須爬上海拔3000多公尺的高山，三日裡背負重裝，由專業高山嚮導帶領從池上出發3天2夜，沿途中，不斷地與自己對話，行程提供代為申請山屋或營帳住宿，加上免背免備公器公糧服務，讓您能保存更多的體力去應付前往嘉明湖三叉向陽山的登山路程。當親眼見到『天使的眼淚-嘉明湖』之美，神秘又遙遠的台灣美景，讓人學會敬畏與謙卑。越美的風景，越要觀察，保持神秘，她永遠在心中，隱藏在高山中湛藍的絕美湖泊景致。
                                 </p>
                             </div>
                             <!-- 卡片尾巴 -->

@@ -1,15 +1,9 @@
-body{
-    background-color: rgb(255,238,211);
-}
 /* ---流動圖片區--- */
 .groupMarquee {
-    width: 100%;
-
     &_wrap {
         overflow: hidden;
     }
     .pic{
-        width: 100%;
         display: flex;
         animation: groupMarquee_move 100s linear infinite running;
 
@@ -28,7 +22,6 @@ body{
     }
     &_wrap .row{
         .pic{
-            width: 100%;
             padding-bottom: 10px;
         }
         img{
@@ -37,9 +30,12 @@ body{
         .txt{
             text-align: center;
         }
+        .col-4{
+            margin: 10px 0;
+        }
     }   
 }
-/* ---搜尋框---*/
+/* ---搜尋欄---*/
 .groupSearchBar{
     margin: 30px 0;
     &_wrap{
@@ -47,6 +43,18 @@ body{
             position: relative;
             display: flex;
             justify-content: center;
+            .search{
+                position: absolute;
+                top: 50%;
+                right: 10%;
+                transform: translate(50%,-50%);
+                width: 59px;
+                height: 35px;
+                border-radius: 20px 0px 20px 0px;
+                cursor: pointer;
+                border: 2px solid #3BAFE5;
+                background-color: #14c6dd;
+            }
         }
         input{
             width: 80%;
@@ -55,25 +63,13 @@ body{
             padding: 0px 10px;
             border: 2px solid #3BAFE5;
             outline: none;  
-        }
-        input:focus{
-            color:blue;
+            &:focus{
+                color:blue;
+            }
         }
     }
 }
-.groupSearchBar .groupSearchBar_wrap .search_wrap .search{
-    position: absolute;
-    top: 50%;
-    right: 10%;
-    transform: translate(50%,-50%);
-    width: 59px;
-    height: 35px;
-    border-radius: 20px 0px 20px 0px;
-    cursor: pointer;
-    border: 2px solid #3BAFE5;
-    background-color: #14c6dd;
-}
-.groupSearchBar .groupSearchBar_wrap .search_wrap .search ion-icon{
+ion-icon{
     color: aliceblue;
     font-size: 20px;    
 }
@@ -82,43 +78,76 @@ body{
     display: flex;
     align-items: center;
     padding: 10px 0;
-}
-.groupSearchBar .groupSearchBar_wrap .keyword_wrap .topSearch{
-    padding-left: 10%;
-}
-.groupSearchBar .groupSearchBar_wrap .keyword_wrap ul{
-    display: flex;
-    flex-wrap: wrap;
-}
-.groupSearchBar .groupSearchBar_wrap .keyword_wrap ul li .tag{
-    border-radius: 5px;
-    background:darkcyan;
-    position: relative;
-    margin-right: 20px;
-}
-.groupSearchBar .groupSearchBar_wrap .keyword_wrap ul li .tag:after{
-    content: '';
-    display: block;
-    position: absolute;
-    left: 130%;
-    bottom: 0;
-    width: 2px;
-    height: 15px;
-    background: #ccc;
-}
-/* ---篩選下拉式選單和揪團內容區---*/
-.groupContent .groupContent_wrap #filter{
-    width: 30%;
-    background-color:gold;
-}
-.groupContent .groupContent_wrap #filter select{
-    width: 100%;
-    margin: 30px 0;
-}
+    
+    .topSearch{
+        padding-left: 10%;
+    }
+    ul{
+        display: flex;
+        flex-wrap: wrap;
 
-/* only for width below 768px */
-@media screen and (max-width: 768px) {
-    .groupCities .groupCities_wrap .row .col-4{
-        margin: 10px 0;
+        li .tag{
+            border-radius: 5px;
+            background:darkcyan;
+            position: relative;
+            margin-right: 20px;
+            &:after{
+                content: '';
+                display: block;
+                position: absolute;
+                left: 130%;
+                bottom: 0;
+                width: 2px;
+                height: 15px;
+                background: #ccc;
+            }
+        }
     }
 }
+/* ---篩選下拉式選單---*/
+.groupContent .groupContent_wrap .row .col-12:nth-of-type(2){
+    display: none;
+}
+.groupContent .groupContent_wrap #filter{
+    width: 100%;
+    background-color:gold;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    select{
+        width: 100%;
+        margin: 30px 0;
+    }
+    #filterBtn{
+        cursor: pointer;
+    }
+}
+/* 手機的篩選器 */
+.groupContent .groupContent_wrap #filterMobile{
+    width: 60px;
+    height: 60px;
+    background-color: coral;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 60px;
+    margin: auto;
+}
+
+/* only for width above 768px */
+@media screen and (min-width: 768px) {
+    .groupContent .groupContent_wrap .row .col-12{
+        width: 30%;
+    }
+    .groupContent .groupContent_wrap .row .card.col-12{
+        width: 35%;
+    }
+    .groupContent .groupContent_wrap #filterMobile{
+        display: none;
+    }
+    .groupContent .groupContent_wrap .row .col-12:nth-of-type(1){
+        display: block;
+    }
+}
+

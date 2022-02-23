@@ -4,15 +4,172 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首頁</title>
+    <title>旅遊資訊</title>
 
     <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery.js"></script>
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- owl.carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"></link>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!-- googleicon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+    <!-- ionicon -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script src="js/headercontrol.js"></script>
 
 </head>
 <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
-    
+    <nav class="nav_Wrap">
+        <section class="navBlock">
+            <a href="">
+                <h1 class="navLogo">
+                    <img src="images/logo/logo_84x50.png" alt="TravelMaker">
+                </h1>
+            </a>
+            <ul class="mainNav">
+                <a href=""><li>行程規劃</li></a>
+                <a href=""><li>揪團旅行</li></a>
+                <a href=""><li>商城</li></a>
+            </ul>
+            <ul class="navMember">
+                <a href=""><li><span class="material-icons-sharp">shopping_cart</span></li></a>
+                <a href=""><li><span class="material-icons-sharp">account_circle</span></ion-icon></li></a>
+                <a href=""><li><span class="material-icons-sharp">menu</span></li></a>
+            </ul>
+        </section>          
+    </nav>
+    <header>
+        <h2 class="newsListTitle">新聞總攬</h2>
+    </header>
+    <main>
+        <section class="newsListBlock">
+            <ul class="newsListNav">
+                <li>熱門景點介紹</li>
+                <li>熱門遊記</li>
+                <li>最新消息</li>
+            </ul>
+            <div class="newsListWrap">
+                <div class="newsListCard">
+                    <div class="newsListCardPic" >
+                        <img src="https://picsum.photos/300/200/?random=10">
+                    </div>
+                    <div class="newsListCardText" >
+                        <h3 class="card_title">文章卡片</h3>
+                        <p class="card_text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam distinctio earum beatae numquam corrupti iusto neque eius laboriosam. Asperiores voluptatum accusamus autem modi tenetur maiores corporis reprehenderit dolorem quis laborum?
+                        </p>
+                        <div class="newsListCardPersonInfo">
+                            <div class="card_person">
+                                <div class="card_photo">
+                                    <img src="https://picsum.photos/50/50/?random=10" alt="">
+                                </div>
+                                <div class="card_name">人才丁丁</div>
+                            </div>
+                            <div class="card_hit">
+                                <span>19999</span>
+                                點擊
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <div class="newsListCard">
+                    <div class="newsListCardPic" >
+                        <img src="https://picsum.photos/300/200/?random=10">
+                    </div>
+                    <div class="newsListCardText" >
+                        <h3 class="card_title">文章卡片</h3>
+                        <p class="card_text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam distinctio earum beatae numquam corrupti iusto neque eius laboriosam. Asperiores voluptatum accusamus autem modi tenetur maiores corporis reprehenderit dolorem quis laborum?
+                        </p>
+                        <div class="card_header">
+                            <div class="card_person">
+                                <div class="card_photo">
+                                    <img src="https://picsum.photos/50/50/?random=10" alt="">
+                                </div>
+                                <div class="card_name">人才丁丁</div>
+                            </div>
+                            <div class="card_hit">
+                                <span>19999</span>
+                                點擊
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <div class="newsListCard">
+                    <div class="newsListCardPic" >
+                        <img src="https://picsum.photos/300/200/?random=10">
+                    </div>
+                    <div class="newsListCardText" >
+                        <h3 class="card_title">文章卡片</h3>
+                        <p class="card_text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam distinctio earum beatae numquam corrupti iusto neque eius laboriosam. Asperiores voluptatum accusamus autem modi tenetur maiores corporis reprehenderit dolorem quis laborum?
+                        </p>
+                        <div class="card_header">
+                            <div class="card_person">
+                                <div class="card_photo">
+                                    <img src="https://picsum.photos/50/50/?random=10" alt="">
+                                </div>
+                                <div class="card_name">人才丁丁</div>
+                            </div>
+                            <div class="card_hit">
+                                <span>19999</span>
+                                點擊
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <div class="newsListCard">
+                    <div class="newsListCardPic" >
+                        <img src="https://picsum.photos/300/200/?random=10">
+                    </div>
+                    <div class="newsListCardText" >
+                        <h3 class="card_title">文章卡片</h3>
+                        <p class="card_text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam distinctio earum beatae numquam corrupti iusto neque eius laboriosam. Asperiores voluptatum accusamus autem modi tenetur maiores corporis reprehenderit dolorem quis laborum?
+                        </p>
+                        <div class="card_header">
+                            <div class="card_person">
+                                <div class="card_photo">
+                                    <img src="https://picsum.photos/50/50/?random=10" alt="">
+                                </div>
+                                <div class="card_name">人才丁丁</div>
+                            </div>
+                            <div class="card_hit">
+                                <span>19999</span>
+                                點擊
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <section class="footer_Wrap">
+            <ul class="footerMedia">
+                <a href=""><li><ion-icon name="logo-facebook"></ion-icon></li></a>
+                <a href=""><li><ion-icon name="logo-instagram"></ion-icon></li></a>
+                <a href=""><li><ion-icon name="logo-twitter"></ion-icon></li></a>
+            </ul>
+            <ul class="footerContect">
+                <li><ion-icon name="call-outline"></ion-icon>電話:03-1234567</li>
+                <li><ion-icon name="mail-outline"></ion-icon>服務信箱:<a href="mailto:abc12345@gmail.com">abc12345@gmail.com</a></li>
+                <li><ion-icon name="time-outline"></ion-icon>營業時間:09:00 ~ 18:00(一)~(五)</li>
+                <li><ion-icon name="location-outline"></ion-icon>地址:桃園市桃園區中正路99999號</li>
+            </ul>
+            <ul class="footerTerms">
+                <a href=""><li>服務條款</li></a><a href=""><li>購物條款</li></a><a href=""><li>付款方式</li></a>
+            </ul>
+            <p class="footerCopyRight">&copy;copy right by nobody.Please don'tsue me.</p>
+        </section>
+    </footer>
 </body>
 </html>
