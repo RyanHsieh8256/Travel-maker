@@ -1,54 +1,56 @@
 // import需要注意先後順序 (蘇)
-
 // base
-@import "base/_var";
-@import "base/_reset";
-@import "base/_base";
-@import "base/_text";
+@import "base/var";
+@import "base/reset";
+@import "base/base";
+@import "base/text";
 
 @import "vendors/bootstrap-icons";
-@import "base/_animation";
+@import "base/animation";
 
 // layout
-@import "layout/_outBox";
-@import "layout/_grid";
-@import "layout/_header";
-@import "layout/_footer";
+@import "layout/outBox";
+@import "layout/grid";
+@import "layout/header";
+@import "layout/footer";
 
 // components
-@import "components/_card";
-@import "components/_button";
+@import "components/card";
+@import "components/button";
 
 // pages
-@import "pages/_backlogin";
-// @import "pages/_back";
+@import "pages/backlogin";
+// @import "pages/back";
 
-@import "pages/_home";
+@import "pages/home";
 
-@import "pages/_cart";
+@import "pages/cart";
 
-@import "pages/_frologin";
+@import "pages/frologin";
 
-@import "pages/_mem";
+@import "pages/mem";
 
 
-@import "pages/_tour";
-@import "pages/_tourlist";
-@import "pages/_tourbuild";
-@import "pages/_tourshare";
+@import "pages/tour";
+@import "pages/tourlist";
+@import "pages/tourbuild";
+@import "pages/tourshare";
 
-@import "pages/_group";
-@import "pages/_groupdetail";
-@import "pages/_grouplist";
-@import "pages/_groupform";
+@import "pages/group";
+@import "pages/groupdetail";
+@import "pages/grouplist";
+@import "pages/groupform";
 
-@import "pages/_shop";
+@import "pages/shop";
+@import "pages/shopproduct";
+@import "pages/shopcart";
+@import "pages/shoppay";
 
-@import "pages/_news";
-@import "pages/_newslist";
-// @import "pages/_newsdetail";
+@import "pages/news";
+@import "pages/newslist";
+// @import "pages/newsdetail";
 
-// @import "pages/_postcard";
+// @import "pages/postcard";
 
-@import "pages/_about";
+@import "pages/about";
 
