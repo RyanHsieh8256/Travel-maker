@@ -83,10 +83,7 @@ body {
   letter-spacing: 1px;
   font-weight: 500;
   color: #333;
-<<<<<<< HEAD
-=======
   background-color: #f0eee7;
->>>>>>> ryan
 }
 
 @font-face {
@@ -7084,11 +7081,7 @@ body {
   z-index: 1000;
   max-width: 1920px;
   margin: auto;
-<<<<<<< HEAD
-  background-color: #ffffff;
-=======
   background-color: #fff;
->>>>>>> ryan
   -webkit-box-shadow: 0 3px 3px 0 #ddd5;
           box-shadow: 0 3px 3px 0 #ddd5;
 }
@@ -7122,20 +7115,12 @@ body {
 .navBlock .mainNav a {
   height: 100%;
   padding: 0 20px;
-<<<<<<< HEAD
-  color: #363636;
-}
-
-.navBlock .mainNav a:hover {
-  background-color: #ffc3a5;
-=======
   color: #333;
 }
 
 .navBlock .mainNav a:hover {
   background-color: #ff7e29;
   color: #fff;
->>>>>>> ryan
 }
 
 .navBlock .mainNav a li {
@@ -7165,19 +7150,6 @@ body {
           align-items: center;
 }
 
-<<<<<<< HEAD
-.navBlock .navMember li {
-  padding-left: 20px;
-}
-
-.navBlock .navMember .material-icons-sharp {
-  font-size: 24px;
-  color: #363636;
-}
-
-.navBlock .navMember .material-icons-sharp:hover {
-  color: #ffc3a5;
-=======
 .navBlock .navMember a {
   padding-left: 20px;
   font-size: 24px;
@@ -7186,7 +7158,6 @@ body {
 
 .navBlock .navMember a:hover {
   color: #ff7e29;
->>>>>>> ryan
 }
 
 .footer_Wrap {
@@ -7211,11 +7182,7 @@ body {
 }
 
 .footerMedia li:hover {
-<<<<<<< HEAD
-  color: #f0692a;
-=======
   color: #ff7e29;
->>>>>>> ryan
 }
 
 .footerContect {
@@ -7230,11 +7197,7 @@ body {
       justify-content: space-around;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-<<<<<<< HEAD
-  color: #ffffff;
-=======
   color: #fff;
->>>>>>> ryan
   text-align: center;
   font-size: 14px;
   padding: 5px 0;
@@ -7253,17 +7216,8 @@ body {
           justify-content: center;
 }
 
-<<<<<<< HEAD
-.footerContect li ion-icon {
-  padding-right: 3px;
-}
-
-.footerContect a {
-  color: #ffffff;
-=======
 .footerContect a {
   color: #fff;
->>>>>>> ryan
 }
 
 .footerTerms {
@@ -7275,19 +7229,11 @@ body {
 .footerTerms a {
   position: relative;
   margin: 0 10px;
-<<<<<<< HEAD
-  color: #ffffff;
-}
-
-.footerTerms a li:hover {
-  color: #f0692a;
-=======
   color: #fff;
 }
 
 .footerTerms a li:hover {
   color: #ff7e29;
->>>>>>> ryan
 }
 
 .footerTerms a + a::before {
@@ -7298,11 +7244,7 @@ body {
 
 .footerCopyRight {
   text-align: center;
-<<<<<<< HEAD
-  color: #ffffff;
-=======
   color: #fff;
->>>>>>> ryan
   font-size: 12px;
 }
 
@@ -7434,13 +7376,10 @@ body {
 
 .card_text {
   font-size: 14px;
-<<<<<<< HEAD
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-=======
->>>>>>> ryan
 }
 
 .card_footer {
@@ -7475,10 +7414,6 @@ body {
   background-color: #fff;
 }
 
-<<<<<<< HEAD
-body {
-  background-color: #f0eee7;
-=======
 .text_Overflow {
   overflow: hidden;
   white-space: nowrap;
@@ -7505,23 +7440,15 @@ body {
   .text_Overflow {
     -webkit-line-clamp: 5;
   }
->>>>>>> ryan
 }
 
 .memberInfoBlock {
   padding-top: 60px;
-<<<<<<< HEAD
-  width: 95%;
-=======
   width: 100%;
->>>>>>> ryan
   margin: auto;
 }
 
 .memberAccountWarp {
-<<<<<<< HEAD
-  padding: 10px;
-=======
   padding: 10px 0;
   -webkit-transition: .5s;
   transition: .5s;
@@ -7531,7 +7458,6 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
->>>>>>> ryan
 }
 
 .memberAccountWarp .memberAccount {
@@ -7540,10 +7466,7 @@ body {
   border-radius: 10px;
   padding: 10px;
   background-color: #fff;
-<<<<<<< HEAD
-=======
   width: 45%;
->>>>>>> ryan
 }
 
 .memberAccountWarp .memberAccount .memberAccountPhto {
@@ -7559,10 +7482,6 @@ body {
 }
 
 .memberAccountWarp .memberAccountSetting {
-<<<<<<< HEAD
-  margin-top: 20px;
-=======
->>>>>>> ryan
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7575,24 +7494,6 @@ body {
   border-radius: 10px;
   padding: 10px 30px;
   background-color: #fff;
-<<<<<<< HEAD
-}
-
-.memberAccountWarp .memberAccountSetting a + a {
-  border-top: #999 1px solid;
-}
-
-.memberAccountWarp .memberAccountSetting a li {
-  text-align: center;
-  padding: 10px 0;
-}
-
-.memberProfileWarp {
-  padding: 10px;
-}
-
-.memberProfileWarp .memberProfile {
-=======
   width: 50%;
 }
 
@@ -7625,17 +7526,10 @@ body {
 }
 
 .mem_sectionBG {
->>>>>>> ryan
   -webkit-box-shadow: 0 1px 5px 0 #999;
           box-shadow: 0 1px 5px 0 #999;
   border-radius: 10px;
   padding: 10px;
-<<<<<<< HEAD
-  background-color: #fff;
-}
-
-/* ---流動圖片區--- */
-=======
   margin-bottom: 20px;
   background-color: #fff;
 }
@@ -7832,28 +7726,11 @@ body {
 }
 
 /* ---流動圖片區--- */
-.groupMarquee {
-  width: 100%;
-}
-
-.groupMarquee .groupMarquee_wrap {
-  overflow: hidden;
-}
-
-.groupMarquee {
-  width: 100%;
-}
-
->>>>>>> ryan
 .groupMarquee_wrap {
   overflow: hidden;
 }
 
 .groupMarquee .pic {
-<<<<<<< HEAD
-=======
-  width: 100%;
->>>>>>> ryan
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7865,28 +7742,16 @@ body {
   width: 50%;
 }
 
-<<<<<<< HEAD
-=======
-.groupMarquee .pic img {
-  width: 50%;
-}
-
->>>>>>> ryan
 /* ---熱門揪團城市區---*/
 .groupCities {
   margin: 30px 0;
 }
 
-<<<<<<< HEAD
 .groupCities_wrap h2 {
-=======
-.groupCities .groupCities_wrap h2 {
->>>>>>> ryan
   padding-bottom: 30px;
   text-align: center;
 }
 
-<<<<<<< HEAD
 .groupCities_wrap .row .pic {
   padding-bottom: 10px;
 }
@@ -7900,28 +7765,10 @@ body {
 }
 
 /* ---搜尋欄---*/
-=======
-.groupCities .groupCities_wrap .row .pic {
-  width: 100%;
-  padding-bottom: 10px;
-}
-
-.groupCities .groupCities_wrap .row .pic img {
-  width: 100%;
-  border-radius: 50% 0%;
-}
-
-.groupCities .groupCities_wrap .row .txt {
-  text-align: center;
-}
-
-/* ---搜尋框---*/
->>>>>>> ryan
 .groupSearchBar {
   margin: 30px 0;
 }
 
-<<<<<<< HEAD
 .search {
   position: absolute;
   top: 50%;
@@ -7937,9 +7784,6 @@ body {
 }
 
 .search_wrap {
-=======
-.groupSearchBar .groupSearchBar_wrap .search_wrap {
->>>>>>> ryan
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7949,11 +7793,7 @@ body {
           justify-content: center;
 }
 
-<<<<<<< HEAD
 .search_input {
-=======
-.groupSearchBar .groupSearchBar_wrap input {
->>>>>>> ryan
   width: 80%;
   height: 30px;
   border-radius: 50px;
@@ -7962,33 +7802,11 @@ body {
   outline: none;
 }
 
-<<<<<<< HEAD
 .search_input:focus {
   color: #f0692a;
 }
 
 .bi.bi-search {
-=======
-.groupSearchBar .groupSearchBar_wrap input:focus {
-  color: blue;
-}
-
-.groupSearchBar .groupSearchBar_wrap .search_wrap .search {
-  position: absolute;
-  top: 50%;
-  right: 10%;
-  -webkit-transform: translate(50%, -50%);
-          transform: translate(50%, -50%);
-  width: 59px;
-  height: 35px;
-  border-radius: 20px 0px 20px 0px;
-  cursor: pointer;
-  border: 2px solid #3BAFE5;
-  background-color: #14c6dd;
-}
-
-.groupSearchBar .groupSearchBar_wrap .search_wrap .search ion-icon {
->>>>>>> ryan
   color: aliceblue;
   font-size: 20px;
 }
@@ -8018,12 +7836,8 @@ body {
 
 .groupSearchBar .groupSearchBar_wrap .keyword_wrap ul li .tag {
   border-radius: 5px;
-<<<<<<< HEAD
   background: #007183;
   color: #FFFFFF;
-=======
-  background: darkcyan;
->>>>>>> ryan
   position: relative;
   margin-right: 20px;
 }
@@ -8039,7 +7853,6 @@ body {
   background: #ccc;
 }
 
-<<<<<<< HEAD
 /* 手機的篩選器 */
 .groupContent .groupContent_wrap #filterMobile {
   width: 60px;
@@ -8260,28 +8073,12 @@ body {
     -webkit-transform: translateY(50%);
             transform: translateY(50%);
   }
-=======
-/* ---篩選下拉式選單和揪團內容區---*/
-.groupContent .groupContent_wrap #filter {
-  width: 30%;
-  background-color: gold;
-}
-
-.groupContent .groupContent_wrap #filter select {
-  width: 100%;
-  margin: 30px 0;
->>>>>>> ryan
 }
 
 /* only for width below 768px */
 @media screen and (max-width: 768px) {
-<<<<<<< HEAD
   .groupdetailInfo .groupdetailInfo_wrap .col-12 {
     margin-top: 30px;
-=======
-  .groupCities .groupCities_wrap .row .col-4 {
-    margin: 10px 0;
->>>>>>> ryan
   }
 }
 
@@ -8395,7 +8192,6 @@ body {
   }
 }
 
-<<<<<<< HEAD
 .shopspotSlide_wrap {
   margin: 40px auto;
   /* width: 60%; */
@@ -8706,8 +8502,6 @@ text-align: left;
   }
 }
 
-=======
->>>>>>> ryan
 .newsSlider {
   padding-top: 70px;
   margin: auto;
