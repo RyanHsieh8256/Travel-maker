@@ -6860,6 +6860,28 @@ body {
   }
 }
 
+@-webkit-keyframes groupdetail_move {
+  from {
+    -webkit-transform: translateY(-150%);
+            transform: translateY(-150%);
+  }
+  to {
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
+  }
+}
+
+@keyframes groupdetail_move {
+  from {
+    -webkit-transform: translateY(-150%);
+            transform: translateY(-150%);
+  }
+  to {
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
+  }
+}
+
 .l-full {
   width: 100%;
   margin: auto;
@@ -7312,8 +7334,10 @@ body {
 
 .card_content {
   padding: 5%;
-  background-color: #DBD3D1;
+  background-color: #fff;
   border-radius: 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
+          box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
 }
 
 .card_content--corner {
@@ -7325,7 +7349,7 @@ body {
   position: absolute;
   top: -30px;
   left: 18px;
-  border-bottom: 20px solid #DBD3D1;
+  border-bottom: 20px solid #fff;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-top: 10px solid transparent;
@@ -7340,10 +7364,11 @@ body {
 }
 
 .card_tag {
-  background-color: #fff;
+  background-color: #FEBC9F;
   top: 0;
   right: 0;
   padding: 5px;
+  border-radius: 0 0 0 10px;
 }
 
 .card_date {
@@ -7372,6 +7397,7 @@ body {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 5px;
+  color: #007183;
 }
 
 .card_text {
@@ -7900,7 +7926,7 @@ body {
 .groupContent .groupContent_wrap .filter_wrap .filterBtn {
   cursor: pointer;
   width: 20%;
-  background-color: #ffc3a5;
+  background-color: #ff7e29;
   margin: 10px auto;
   border-radius: 10px;
 }
@@ -7918,7 +7944,16 @@ body {
 }
 
 /* ---團封面照--- */
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .cover img {
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .cover_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .cover_wrap img {
   border-radius: 10px;
 }
 
@@ -7942,8 +7977,7 @@ body {
 }
 
 /* ---團的標題--- */
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .card_text {
-  white-space: initial;
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .cardText {
   line-height: 160%;
 }
 
@@ -8018,12 +8052,12 @@ body {
 
 /* 網頁捲軸【背景】顏色 */
 ::-webkit-scrollbar-track {
-  background: #007183;
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 /* 網頁捲軸【把手】顏色 */
 ::-webkit-scrollbar-thumb {
-  background: #ffc3a5;
+  background: #007183;
   border-radius: 100px;
 }
 
@@ -8035,7 +8069,6 @@ body {
 .groupdetailInfo .groupdetailInfo_wrap .message {
   height: 500px;
   overflow-y: scroll;
-  border: 1px solid red;
   position: relative;
 }
 
@@ -8106,32 +8139,10 @@ body {
   display: block;
   -webkit-transition: 600ms ease-in-out;
   transition: 600ms ease-in-out;
-  -webkit-animation: move .5s;
-          animation: move .5s;
+  -webkit-animation: groupdetail_move .5s;
+          animation: groupdetail_move .5s;
   -webkit-transform: translateY(50%);
           transform: translateY(50%);
-}
-
-@-webkit-keyframes move {
-  from {
-    -webkit-transform: translateY(-150%);
-            transform: translateY(-150%);
-  }
-  to {
-    -webkit-transform: translateY(50%);
-            transform: translateY(50%);
-  }
-}
-
-@keyframes move {
-  from {
-    -webkit-transform: translateY(-150%);
-            transform: translateY(-150%);
-  }
-  to {
-    -webkit-transform: translateY(50%);
-            transform: translateY(50%);
-  }
 }
 
 /* only for width below 768px */
@@ -8139,6 +8150,49 @@ body {
   .groupdetailInfo .groupdetailInfo_wrap .col-12 {
     margin-top: 30px;
   }
+  .groupdetailCoverInfo .groupdetailCoverInfo_wrap .cover_wrap {
+    margin-bottom: 30px;
+  }
+}
+
+/*揪團清單大標題*/
+.grouplistTitle .grouplistTitle_wrap h2 {
+  text-align: center;
+}
+
+/*我的收藏行程*/
+.grouplistContent .grouplistCollect_wrap .grouplistOwl {
+  /*箭頭的定位目標(父層)*/
+  /*箭頭本身*/
+}
+
+.grouplistContent .grouplistCollect_wrap .grouplistOwl .owl-stage-outer {
+  position: relative;
+}
+
+.grouplistContent .grouplistCollect_wrap .grouplistOwl .owl-prev, .grouplistContent .grouplistCollect_wrap .grouplistOwl .owl-next {
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+}
+
+.grouplistContent .grouplistCollect_wrap .grouplistOwl .owl-prev {
+  left: 0;
+}
+
+.grouplistContent .grouplistCollect_wrap .grouplistOwl .owl-next {
+  right: 0;
+}
+
+/*我的建立行程*/
+.grouplistContent .grouplistMyList_wrap .myTour {
+  border: 1px solid #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .shopType {
@@ -8574,7 +8628,7 @@ text-align: left;
 }
 
 .newsSlider .sliderItem .sliderItemTitle {
-  background-color: #DBD3D1;
+  background-color: #fff;
   text-align: center;
   font-size: 30px;
 }
@@ -8638,7 +8692,7 @@ text-align: left;
       flex-wrap: wrap;
   border-radius: 10px;
   padding: 20px 0;
-  background-color: #DBD3D1;
+  background-color: #fff;
 }
 
 .newsAnnounceListBlock {
@@ -8689,7 +8743,7 @@ text-align: left;
 
 .newsListNav li {
   padding: 5px 10px;
-  background-color: #DBD3D1;
+  background-color: #fff;
   border-radius: 10px 10px 0 0;
 }
 
@@ -8699,7 +8753,7 @@ text-align: left;
 }
 
 .newsListNav li:hover {
-  background-color: #DBD3D1;
+  background-color: #fff;
 }
 
 .newsListBlock {
@@ -8709,7 +8763,7 @@ text-align: left;
 }
 
 .newsListBlock .newsListWrap {
-  background-color: #DBD3D1;
+  background-color: #fff;
   border-radius: 0 10px 10px 10px;
   padding: 20px;
 }

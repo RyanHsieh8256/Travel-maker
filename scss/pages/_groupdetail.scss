@@ -1,7 +1,11 @@
 /* ---團封面照--- */
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .cover img {
-    border-radius: 10px;
-}
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .cover_wrap{
+    display: flex;
+    align-items: center;
+    img {
+        border-radius: 10px;
+    }
+} 
 
 /* ---團主大頭貼和名字--- */
 .groupdetailCoverInfo .groupdetailCoverInfo_wrap .info {
@@ -19,8 +23,7 @@
 }
 
 /* ---團的標題--- */
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .card_text {
-    white-space: initial;
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .cardText {
     line-height: 160%;
 }
 
@@ -53,7 +56,6 @@
         }
     }
 }
-
 /* ---團的旅程資訊和留言區--- */
 .groupdetailInfo .groupdetailInfo_wrap {
     .title {
@@ -65,7 +67,6 @@
         border: 1px solid darkcyan;
     }
 }
-
 .groupdetailInfo .groupdetailInfo_wrap .message {
 
     /* 捲軸把手顏色 */
@@ -89,12 +90,13 @@
 
 /* 網頁捲軸【背景】顏色 */
 ::-webkit-scrollbar-track {
-    background: #007183;
+    background-color: rgba(255, 255, 255, .4);;
+    // background: #007183;
 }
 
 /* 網頁捲軸【把手】顏色 */
 ::-webkit-scrollbar-thumb {
-    background: #ffc3a5;
+    background: #007183;
     border-radius: 100px;
 }
 
@@ -106,7 +108,6 @@
 .groupdetailInfo .groupdetailInfo_wrap .message {
     height: 500px;
     overflow-y: scroll;
-    border: 1px solid red;
     position: relative;
 
     .message_wrap {
@@ -171,23 +172,16 @@
 .showJoinBtn {
     display: block;
     transition: 600ms ease-in-out;
-    animation: move .5s;
+    animation: groupdetail_move .5s;
     transform: translateY(50%);
-}
-
-@keyframes move {
-    from {
-        transform: translateY(-150%);
-    }
-
-    to {
-        transform: translateY(50%);
-    }
 }
 
 /* only for width below 768px */
 @media screen and (max-width:768px) {
     .groupdetailInfo .groupdetailInfo_wrap .col-12 {
         margin-top: 30px;
+    }
+    .groupdetailCoverInfo .groupdetailCoverInfo_wrap .cover_wrap{
+        margin-bottom: 30px;
     }
 }

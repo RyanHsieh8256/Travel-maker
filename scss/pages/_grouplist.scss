@@ -1,0 +1,34 @@
+/*揪團清單大標題*/
+.grouplistTitle .grouplistTitle_wrap h2{
+    text-align: center;
+}
+/*我的收藏行程*/
+.grouplistContent .grouplistCollect_wrap .grouplistOwl
+{
+    /*箭頭的定位目標(父層)*/
+    .owl-stage-outer{
+        position: relative;
+    }
+    /*箭頭本身*/
+    .owl-prev,.owl-next{
+        font-size: 30px;
+        position: absolute;
+        top: 50%;
+    }
+    .owl-prev{
+        left: 0;
+    }
+    .owl-next{
+        right: 0;
+        
+    }
+} 
+/*我的建立行程*/
+.grouplistContent .grouplistMyList_wrap{
+    .myTour{
+        border: 1px solid #fff;
+        display: flex;
+        align-items: center;
+        
+    }
+}
