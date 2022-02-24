@@ -90,10 +90,10 @@
 <!-- 篩選下拉式選單和揪團內容區 -->
         <section class="l-full groupContent">
             <div class="l-large groupContent_wrap">
-                <div id="filterMobile">篩選</div>
+                <div class="filterMobile" id="filterMobile">篩選</div>
                 <div class="row">
-                    <div class="col-12 col-md-3" id="filter">
-                        <div id="filter_wrap">
+                    <div class="col-12 col-md-3 filter">
+                        <div class="filter_wrap" id="filter_wrap">
                             <!-- <div class="city"> -->
                                 <select v-model="selectedCity" class="dropdownMenu">
                                     <option value="" disabled>旅遊地區</option>
@@ -112,7 +112,7 @@
                                     <option v-for="date in dates">{{date}}</option>
                                 </select>
                             <!-- </div> -->
-                            <button id="filterBtn">篩選</button>
+                            <button class="filterBtn" id="filterBtn">篩選</button>
                         </div>
                     </div>
                     <!-- 卡片放置區 -->
@@ -271,46 +271,16 @@
         });
     </script>
     <script>
-        $(function(){
+        function init(){
             let filterMobile = document.getElementById('filterMobile');
             filterMobile.addEventListener('click', showFilter);
-        })
+        }
         function showFilter(){
-            
+            let filter = document.querySelector('.filter');
+            filter.classList.toggle('is_active');
 
         }
-        // function isMobileDevice(){
-        //     let mobileDevices = ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone']
-        //     let isMobileDevice=false
-        //     for(let i=0;i<mobileDevices.length;i++){
-        //         if(navigator.userAgent.match(mobileDevices[i])){
-        //             isMobileDevice=true;
-        //         }
-        //     }
-        //     return isMobileDevice;
-        // }
-
-        // if(isMobileDevice() != true){
-        //     $("body").mousemove(function(e){
-        //     let X = e.clientX;
-        //     let Y = e.clientY;
-        //     console.log(X,Y);
-        //     setTimeout(function(){
-        //     $('#mouseEffect').css({
-        //         top:Y + "px",
-        //         left:X + "px",
-        //         opacity:'1'
-        //     });
-        //     },50)
-        //     setTimeout(function(){
-        //         $('#mouseEffect2').css({
-        //         top:Y + "px",
-        //         left:X + "px",
-        //         opacity:'1'
-        //         });
-        //     },150)
-        //     });
-        // };
+        window.addEventListener('load', init);
     </script>
     <footer></footer>
     

@@ -7610,7 +7610,7 @@ body {
   content: '';
   display: block;
   position: absolute;
-  left: 130%;
+  left: 120%;
   bottom: 0;
   width: 2px;
   height: 15px;
@@ -7618,7 +7618,7 @@ body {
 }
 
 /* 手機的篩選器 */
-.groupContent .groupContent_wrap #filterMobile {
+.groupContent .groupContent_wrap .filterMobile {
   width: 60px;
   height: 60px;
   background-color: #f0692a;
@@ -7629,12 +7629,16 @@ body {
   margin: auto;
 }
 
-.groupContent .groupContent_wrap #filter {
-  /* ---篩選下拉式選單手機時不見---*/
+.groupContent .groupContent_wrap .filter {
+  /* ---"篩選下拉式選單"手機時不見---*/
   display: none;
 }
 
-.groupContent .groupContent_wrap #filter_wrap {
+.groupContent .groupContent_wrap .filter.is_active {
+  display: block;
+}
+
+.groupContent .groupContent_wrap .filter_wrap {
   width: 100%;
   background-color: #007183;
   margin: auto;
@@ -7651,22 +7655,28 @@ body {
   border-radius: 10px;
 }
 
-.groupContent .groupContent_wrap #filter_wrap .dropdownMenu {
+.groupContent .groupContent_wrap .filter_wrap .dropdownMenu {
   width: 100%;
   margin: 30px 0;
   background-color: #FFFFFF;
 }
 
-.groupContent .groupContent_wrap #filter_wrap #filterBtn {
+.groupContent .groupContent_wrap .filter_wrap .filterBtn {
   cursor: pointer;
+  width: 20%;
+  background-color: #ffc3a5;
+  margin: 10px auto;
+  border-radius: 10px;
 }
 
 /* only for width above 768px */
 @media screen and (min-width: 768px) {
-  .groupContent .groupContent_wrap #filterMobile {
+  /* 圓圓的篩選器消失 */
+  .groupContent .groupContent_wrap .filterMobile {
     display: none;
   }
-  .groupContent .groupContent_wrap #filter {
+  /* 篩選下拉式選單出現*/
+  .groupContent .groupContent_wrap .filter {
     display: block;
   }
 }
@@ -7698,6 +7708,7 @@ body {
 /* ---團的標題--- */
 .groupdetailCoverInfo .groupdetailCoverInfo_wrap .card_text {
   white-space: initial;
+  line-height: 160%;
 }
 
 /* ---團的熱門搜尋關鍵字和剩餘名額--- */
@@ -7708,13 +7719,32 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 0 9%;
+  margin-top: 10px;
 }
 
 .groupdetailCoverInfo .groupdetailCoverInfo_wrap .keywordSpot_wrap ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .keywordSpot_wrap ul li .tag {
+  border-radius: 5px;
+  background: #007183;
+  color: #FFFFFF;
+  position: relative;
+  margin-right: 20px;
+}
+
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .keywordSpot_wrap ul li .tag:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 120%;
+  bottom: 0;
+  width: 2px;
+  height: 15px;
+  background: #ccc;
 }
 
 /* ---團的旅程資訊和留言區--- */
@@ -7728,6 +7758,45 @@ body {
 }
 
 .groupdetailInfo .groupdetailInfo_wrap .message {
+  /* 捲軸把手顏色 */
+  /* 捲軸背景顏色 */
+}
+
+.groupdetailInfo .groupdetailInfo_wrap .message::-webkit-scrollbar-thumb {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#007183), color-stop(99%, #ffc3a5));
+  background-image: linear-gradient(180deg, #007183 0%, #ffc3a5 99%);
+  -webkit-box-shadow: inset 2px 2px 5px 0 rgba(255, 255, 255, 0.5);
+          box-shadow: inset 2px 2px 5px 0 rgba(255, 255, 255, 0.5);
+  border-radius: 100px;
+}
+
+.groupdetailInfo .groupdetailInfo_wrap .message::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+
+/*網頁本身的捲軸*/
+/* 網頁捲軸【寬度】 */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* 網頁捲軸【背景】顏色 */
+::-webkit-scrollbar-track {
+  background: #007183;
+}
+
+/* 網頁捲軸【把手】顏色 */
+::-webkit-scrollbar-thumb {
+  background: #ffc3a5;
+  border-radius: 100px;
+}
+
+/* 網頁捲軸【滑過時】把手的顏色 */
+::-webkit-scrollbar-thumb:hover {
+  background: #f0692a;
+}
+
+.groupdetailInfo .groupdetailInfo_wrap .message {
   height: 500px;
   overflow-y: scroll;
   border: 1px solid red;
@@ -7735,8 +7804,8 @@ body {
 }
 
 .groupdetailInfo .groupdetailInfo_wrap .message .message_wrap {
-  background-color: darksalmon;
-  margin: 30px 0px;
+  background-color: #DBD3D1;
+  margin-bottom: 30px;
 }
 
 .groupdetailInfo .groupdetailInfo_wrap .message .message_wrap .header {
@@ -7746,33 +7815,20 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 15px;
 }
 
-.groupdetailInfo .groupdetailInfo_wrap .message .message_wrap:nth-of-type(even) {
-  background-color: darkkhaki;
-}
-
-.groupdetailInfo .groupdetailInfo_wrap .message .message_wrap:nth-of-type(even) .header, .content {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-}
-
-.groupdetailInfo .groupdetailInfo_wrap .message .message_wrap:nth-of-type(even) .content {
-  text-align: end;
-}
-
-.groupdetailInfo .groupdetailInfo_wrap .message .message_wrap .header .initiatorPic {
+.groupdetailInfo .groupdetailInfo_wrap .message .message_wrap .header .pic {
   width: 50px;
+  margin-right: 3%;
 }
 
-.groupdetailInfo .groupdetailInfo_wrap .message .message_wrap .header .initiatorPic img {
-  width: 100%;
+.groupdetailInfo .groupdetailInfo_wrap .message .message_wrap .header .pic img {
   border-radius: 50%;
 }
 
 .groupdetailInfo .groupdetailInfo_wrap .message .leaveMessage {
-  background-color: #ffffff;
+  background-color: #ffc3a5;
   position: -webkit-sticky;
   position: sticky;
   bottom: 0;
@@ -7781,17 +7837,20 @@ body {
   display: flex;
 }
 
-.groupdetailInfo .groupdetailInfo_wrap .message .leaveMessage textarea {
-  background-color: darkseagreen;
+.groupdetailInfo .groupdetailInfo_wrap .message .leaveMessage #inputBox {
+  background-color: #007183;
+  color: #FFFFFF;
   width: 100%;
   resize: none;
   border: none;
 }
 
-.groupdetailInfo .groupdetailInfo_wrap .message .leaveMessage .leaveMessageBtn {
+.groupdetailInfo .groupdetailInfo_wrap .message .leaveMessage #leaveMessageBtn {
   border: none;
+  cursor: pointer;
 }
 
+/* ---參團懸浮按紐--- */
 .joinBtn {
   border: none;
   width: 40px;
@@ -7843,429 +7902,6 @@ body {
 @media screen and (max-width: 768px) {
   .groupdetailInfo .groupdetailInfo_wrap .col-12 {
     margin-top: 30px;
-<<<<<<< HEAD
-=======
-  }
-}
-
-.shopType {
-  margin: 50px auto;
-}
-
-.shopType .item .parttxt {
-  padding: 40%;
-}
-
-.shopType .item h3 {
-  color: white;
-  border: 1px solid white;
-  border-radius: 50% 0;
-  padding: 5px;
-  display: inline-block;
-}
-
-.shopType .col-6 {
-  padding: .2rem .2rem;
-  margin: 0;
-}
-
-.shopType .item {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.shopSearch {
-  text-align: center;
-  padding: 20px 0;
-}
-
-.shopSearch_wrap {
-  margin: auto;
-  width: 80%;
-  position: relative;
-}
-
-.shopSearch input {
-  width: 100%;
-  border-radius: 50px;
-  border: 3px solid #23a0af;
-  line-height: 20px;
-}
-
-.shopSearch input:focus {
-  color: #23a0af;
-  outline: 0;
-  border: 3px solid #23a0af;
-}
-
-.shopSearchBtn {
-  width: 35px;
-  height: 28px;
-  background-color: #23a0af;
-  border: none;
-  border-radius: 50% 0;
-  position: absolute;
-  right: 0px;
-  cursor: pointer;
-}
-
-.shopSearchTag {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-.shopSearchTag li {
-  display: inline-block;
-  cursor: pointer;
-  background-color: #23a0af;
-  border-radius: 30px;
-  border: 1px solid #02dada;
-}
-
-.shopHotCity {
-  text-align: center;
-}
-
-.shopHotCity .city img {
-  border-radius: 50% 0;
-}
-
-.shopSort_wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 20px;
-}
-
-@media screen and (min-width: 768px) {
-  .shopType .item h3 {
-    padding: 60% 40%;
-  }
-  .shopType .col-md-3 {
-    padding: .1rem .1rem;
-    margin: 0;
-    overflow-x: hidden;
-    overflow-y: hidden;
-  }
-  .shopType .item:hover {
-    -webkit-transform: scale(1.02, 1.02);
-            transform: scale(1.02, 1.02);
-  }
-}
-
-.shopspotSlide_wrap {
-  margin: 40px auto;
-  /* width: 60%; */
-  width: 100%;
-}
-
-.shopspotSlide_wrap .owl-carousel {
-  position: relative;
-}
-
-.shopspotSlide_wrap .owl-dots {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-
-.shopspotSlide_wrap .owl-dot span {
-  width: 10px;
-}
-
-.shopspotSlide_wrap .owl-prev {
-  position: absolute;
-  top: 45%;
-  left: 0;
-}
-
-.shopspotSlide_wrap .owl-next {
-  position: absolute;
-  top: 45%;
-  right: 0;
-}
-
-.shopspotInfo h2 {
-  margin-left: 127px;
-}
-
-.shopspotInfo .title {
-  width: 80%;
-  margin: auto;
-}
-
-.shopspotInfo .text {
-  margin: 20px auto 60px auto;
-  width: 80%;
-}
-
-/* .shopspotInfo .title img{
-width: 20px;
-} */
-/* .shopspotInfo .table .total{
-text-align: left;
-} */
-.shopspotInfo .sub {
-  margin: 0 auto;
-  width: 85%;
-}
-
-.shopspotInfo .price_wrap {
-  margin: 10px;
-}
-
-.shopspotInfo .price {
-  width: 30px;
-  border: none;
-  text-align: center;
-}
-
-.shopspotInfo .button-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.shopspotInfo .cart-qty-minus, .cart-qty-plus {
-  border: none;
-  background-color: #fff;
-}
-
-.shopspotInfo .cart-qty-plus img, .cart-qty-minus img {
-  width: 20px;
-}
-
-.shopspotInfo .qty {
-  width: 40px;
-  margin: 5px;
-}
-
-.shopspotInfo .type {
-  /* width: 100px; */
-  margin-right: 10px;
-}
-
-.shopspotInfo .total {
-  display: inline-block;
-  margin-top: 20px;
-}
-
-.shopspotBooking {
-  width: 90%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin: 100px auto;
-}
-
-.shopspotBooking .sub {
-  width: 400px;
-}
-
-.shopspotBooking .sub h3 {
-  margin: 35px;
-}
-
-.shopspotBooking .sub .counter-item {
-  margin: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-.shopspotBooking .sub .counter-item h4 {
-  width: 50px;
-}
-
-.shopspotBooking .sub .counter-item input {
-  width: 30px;
-  border: none;
-  text-align: center;
-}
-
-.subtotal {
-  text-align: right;
-  margin-right: 30px;
-}
-
-.shopspotContent {
-  margin: 80px;
-  position: relative;
-}
-
-.contentTitle {
-  padding: 10px;
-  padding-left: 30px;
-  display: inline-block;
-  border: 2px solid black;
-  border-radius: 0 30px 30px 0;
-}
-
-.shopspotContentTitle {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.shopspotContentTitle .spot {
-  position: absolute;
-  left: -20px;
-  top: -6px;
-  border: 2px solid black;
-  background-color: #fff;
-  font-size: 35px;
-  margin-bottom: 0;
-  padding: 5px;
-  border-radius: 50%;
-}
-
-.shopspotFeature {
-  margin: 30px auto;
-}
-
-.feature_wrap {
-  width: 100%;
-  margin: auto;
-  border: 1px solid black;
-}
-
-.feature_wrap .owl-prev {
-  width: 0px;
-  height: 0px;
-  position: absolute;
-  top: 45%;
-  left: -15%;
-  display: block;
-  border: 0px solid black;
-}
-
-.feature_wrap .owl-next {
-  width: 0px;
-  height: 0px;
-  position: absolute;
-  top: 45%;
-  right: -5%;
-  display: block;
-  border: 0px solid black;
-}
-
-.feature_wrap .owl-prev img, .owl-next img {
-  width: 30px;
-}
-
-.feature_wrap .item {
-  /* display: flex; */
-  /* margin: 20px; */
-}
-
-.feature_wrap .item img {
-  width: 300px;
-  /* overflow: hidden; */
-}
-
-.feature_wrap .item_text {
-  margin: 10px;
-}
-
-.shopspotTicket, .shopspotNotice {
-  margin: 30px auto;
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: 20px;
-  line-height: 20px;
-}
-
-@media screen and (min-width: 768px) {
-  .shopspotSlide_wrap {
-    margin: 40px auto;
-    /* width: 60%; */
-    width: 80%;
-  }
-  .shopspotInfo_wrap {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-  .shopspotInfo_wrap .info {
-    width: 50%;
-  }
-  .shopspotInfo .title {
-    width: 60%;
-  }
-  .shopspotInfo .text {
-    /* margin: 20px 0px 60px 100px; */
-    width: 60%;
-  }
-  .shopspotInfo .sub {
-    width: 40%;
-  }
-  .shopspotInfo .sub_wrap {
-    width: 80%;
-    /* margin: auto; */
-  }
-  .shopspotBooking {
-    width: 80%;
-  }
-  /* .shopspotSlide_wrap .owl-dots {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  } */
-  .feature_wrap {
-    width: 60%;
-    margin: auto;
-    border: 1px solid black;
-  }
-  .feature_wrap .item {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin: 20px;
-  }
-  .feature_wrap .owl-prev {
-    width: 0px;
-    height: 0px;
-    position: absolute;
-    top: 45%;
-    left: 0%;
-    display: block;
-    border: 0px solid black;
-  }
-  .feature_wrap .owl-next {
-    width: 0px;
-    height: 0px;
-    position: absolute;
-    top: 45%;
-    right: 5%;
-    display: block;
-    border: 0px solid black;
-  }
-  .feature_wrap .owl-prev img, .owl-next img {
-    width: 20px;
-  }
-  .feature_wrap .item_text {
-    margin: 20px;
-    width: 60%;
-  }
-  .feature_wrap .item img {
-    width: 200px;
-    overflow: hidden;
->>>>>>> NienChen
   }
 }
 
