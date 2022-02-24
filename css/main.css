@@ -8195,15 +8195,16 @@ body {
           align-items: center;
 }
 
-.shopType {
-  margin: 50px auto;
+h2 {
+  font-size: 40px;
+  text-align: center;
 }
 
 .shopType .item .parttxt {
   padding: 40%;
 }
 
-.shopType .item h3 {
+.shopType .item h2 {
   color: white;
   border: 1px solid white;
   border-radius: 50% 0;
@@ -8224,7 +8225,7 @@ body {
 
 .shopSearch {
   text-align: center;
-  padding: 20px 0;
+  margin: 30px 0;
 }
 
 .shopSearch_wrap {
@@ -8235,47 +8236,40 @@ body {
 
 .shopSearch input {
   width: 100%;
+  padding: 0 10px;
+  height: 30px;
   border-radius: 50px;
-  border: 3px solid #23a0af;
-  line-height: 20px;
+  border: 2px solid #3BAFE5;
 }
 
 .shopSearch input:focus {
-  color: #23a0af;
+  color: #f0692a;
   outline: 0;
-  border: 3px solid #23a0af;
+  border: 3px solid #3BAFE5;
 }
 
 .shopSearchBtn {
-  width: 35px;
-  height: 28px;
-  background-color: #23a0af;
+  width: 60px;
+  height: 30px;
+  background-color: #007183;
   border: none;
-  border-radius: 50% 0;
+  border-radius: 20px 0px 20px 0px;
   position: absolute;
   right: 0px;
   cursor: pointer;
 }
 
-.shopSearchTag {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-.shopSearchTag li {
-  display: inline-block;
-  cursor: pointer;
-  background-color: #23a0af;
-  border-radius: 30px;
-  border: 1px solid #02dada;
+.bi.bi-search {
+  color: aliceblue;
+  font-size: 20px;
 }
 
 .shopHotCity {
   text-align: center;
+}
+
+.shopHotCity h2 {
+  margin: 30px 0;
 }
 
 .shopHotCity .city img {
