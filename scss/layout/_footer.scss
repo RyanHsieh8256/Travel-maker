@@ -14,7 +14,7 @@
         padding: 0 20px;
         color: $FooterIconColor;//icon顏色
         &:hover{
-            color: $FooterHoverColor;//icon區hover色
+            color: $accentColor;//icon區hover色
         }
     }
 }
@@ -23,7 +23,7 @@
     flex-direction: column;
     justify-content: space-around;
     flex-wrap: wrap;
-    color: $FooterFontColor;//聯絡資料顏色
+    color: $white;//聯絡資料顏色
     text-align: center;
     font-size: 14px;
     padding: 5px 0;
@@ -32,12 +32,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        ion-icon{
-            padding-right: 3px;
-        }
     }
     a{
-        color: $FooterFontColor;//聯絡資料顏色
+        color: $white;//聯絡資料顏色
     }
 }
 .footerTerms{
@@ -47,9 +44,9 @@
     a{
         position: relative;
         margin: 0 10px;
-        color: $FooterFontColor;//條約顏色
+        color: $white;//條約顏色
         li:hover{
-            color: $FooterHoverColor;//條約hover顏色
+            color: $accentColor;//條約hover顏色
         }
         & + a::before{
             content: '|';
@@ -60,7 +57,7 @@
 }
 .footerCopyRight{
     text-align: center;
-    color: $FooterFontColor;//著作權顏色
+    color: $white;//著作權顏色
     font-size: 12px;
 }
 
