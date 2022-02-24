@@ -7801,8 +7801,8 @@ body {
   right: 10%;
   -webkit-transform: translate(50%, -50%);
           transform: translate(50%, -50%);
-  width: 59px;
-  height: 35px;
+  width: 60px;
+  height: 30px;
   border-radius: 20px 0px 20px 0px;
   cursor: pointer;
   border: 2px solid #007183;
@@ -8158,9 +8158,18 @@ body {
 /*揪團清單大標題*/
 .grouplistTitle .grouplistTitle_wrap h2 {
   text-align: center;
+  font-size: 40px;
 }
 
 /*我的收藏行程*/
+.grouplistContent .grouplistCollect_wrap {
+  margin: 30px 0;
+}
+
+.grouplistContent .grouplistCollect_wrap h3 {
+  font-size: 30px;
+}
+
 .grouplistContent .grouplistCollect_wrap .grouplistOwl {
   /*箭頭的定位目標(父層)*/
   /*箭頭本身*/
@@ -8185,14 +8194,24 @@ body {
 }
 
 /*我的建立行程*/
+.grouplistContent .grouplistMyList_wrap h3 {
+  font-size: 30px;
+}
+
 .grouplistContent .grouplistMyList_wrap .myTour {
-  border: 1px solid #fff;
+  border: #3333 1px solid;
+  border-radius: 10px;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 150px;
 }
 
 h2 {
@@ -8360,6 +8379,11 @@ h2 {
   width: 80%;
 }
 
+.bi.bi-plus-circle-fill, .bi.bi-dash-circle-fill {
+  color: #007183;
+  font-size: 20px;
+}
+
 .shopspotInfo .sub {
   margin: 0 auto;
   margin-bottom: 70px;
@@ -8384,7 +8408,7 @@ h2 {
 
 .shopspotInfo .cart-qty-minus, .cart-qty-plus {
   border: none;
-  background-color: #fff;
+  background-color: none;
 }
 
 .shopspotInfo .cart-qty-plus img, .cart-qty-minus img {

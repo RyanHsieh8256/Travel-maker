@@ -61,6 +61,12 @@
     width: 80%;
 }
 
+.bi.bi-plus-circle-fill,.bi.bi-dash-circle-fill{
+  color: #007183;
+  font-size: 20px;
+  
+}
+
 .shopspotInfo .sub{
   margin: 0 auto;
   margin-bottom: 70px;
@@ -87,7 +93,7 @@
 
 .shopspotInfo .cart-qty-minus,.cart-qty-plus{
   border: none;
-  background-color: #fff;
+  background-color: none;
 }
 
 .shopspotInfo .cart-qty-plus img,.cart-qty-minus img{

@@ -11,10 +11,12 @@
     <link rel="stylesheet" href="link/owl.carousel.min.css">
     <link rel="stylesheet" href="link/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="shopspot.css">
-    <script src="link/jquery-3.6.0.min.js"></script>
-    <script src="link/owl.carousel.js"></script>
-    <script src="shop.js"></script>
+    <!-- <link rel="stylesheet" href="shopspot.css"> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <!-- <script src="link/jquery-3.6.0.min.js"></script> -->
+    <!-- <script src="link/owl.carousel.js"></script> -->
+    <!-- <script src="shop.js"></script> -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     
@@ -60,9 +62,9 @@
                                         </td>
                                         <td>
                                             <div class="button-container">
-                                                <button class="cart-qty-minus" type="button" value="-"><img src="images/minus-button.png" alt=""></button>
+                                                <button class="cart-qty-minus" type="button" value="-"><i class="bi bi-dash-circle-fill"></i></button>
                                                 <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
-                                                <button class="cart-qty-plus" type="button" value="+"><img src="images/plus.png" alt=""></button>
+                                                <button class="cart-qty-plus" type="button" value="+"><i class="bi bi-plus-circle-fill"></i></button>
                                             </div>
                                         </td>
                                        
@@ -77,9 +79,9 @@
                                         </td>
                                         <td>
                                             <div class="button-container">
-                                                <button class="cart-qty-minus" type="button" value="-"><img src="images/minus-button.png" alt=""></button>
+                                                <button class="cart-qty-minus" type="button" value="-"><i class="bi bi-dash-circle-fill"></i></button>
                                                 <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
-                                                <button class="cart-qty-plus" type="button" value="+"><img src="images/plus.png" alt=""></button>
+                                                <button class="cart-qty-plus" type="button" value="+"><i class="bi bi-plus-circle-fill"></i></button>
                                             </div>
                                         </td>
                                        
@@ -94,9 +96,9 @@
                                         </td>
                                         <td>
                                             <div class="button-container">
-                                                <button class="cart-qty-minus" type="button" value="-"><img src="images/minus-button.png" alt=""></button>
+                                                <button class="cart-qty-minus" type="button" value="-"><i class="bi bi-dash-circle-fill"></i></button>
                                                 <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
-                                                <button class="cart-qty-plus" type="button" value="+"><img src="images/plus.png" alt=""></button>
+                                                <button class="cart-qty-plus" type="button" value="+"><i class="bi bi-plus-circle-fill"></i></button>
                                             </div>
                                         </td>
                                         
@@ -208,5 +210,52 @@
             </div>           
         </section>
     </main>
+    <script>
+        //  -----------------for-Shopping-cart-------------
+$(document).ready(function(){
+  update_amounts();
+  $('.qty, .price').on('keyup keypress blur change', function(e) {
+    update_amounts();
+  });
+});
+function update_amounts(){
+var sum = 0.0;
+    $('#myTable > tbody  > tr').each(function() {
+    var qty = $(this).find('.qty').val();
+      var price = $(this).find('.price').val();
+      var amount = (qty*price)
+      sum+=amount;
+      $(this).find('.amount').text(''+amount);
+    });
+     
+$('.total').text(sum);
+}
+
+
+
+// ----------------for quantity-increment-or-decrement-------
+var incrementQty;
+var decrementQty;
+var plusBtn  = $(".cart-qty-plus");
+var minusBtn = $(".cart-qty-minus");
+var incrementQty = plusBtn.click(function() {
+var $n = $(this)
+  .parent(".button-container")
+  .find(".qty");
+$n.val(Number($n.val())+1 );
+update_amounts();
+});
+
+var decrementQty = minusBtn.click(function() {
+  var $n = $(this)
+  .parent(".button-container")
+  .find(".qty");
+var QtyVal = Number($n.val());
+if (QtyVal > 0) {
+  $n.val(QtyVal-1);
+}
+update_amounts();
+});
+    </script>
 </body>
 </html>
