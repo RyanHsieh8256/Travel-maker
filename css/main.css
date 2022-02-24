@@ -83,6 +83,7 @@ body {
   letter-spacing: 1px;
   font-weight: 500;
   color: #333;
+  background-color: #f0eee7;
 }
 
 @font-face {
@@ -6859,6 +6860,28 @@ body {
   }
 }
 
+@-webkit-keyframes groupdetail_move {
+  from {
+    -webkit-transform: translateY(-150%);
+            transform: translateY(-150%);
+  }
+  to {
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
+  }
+}
+
+@keyframes groupdetail_move {
+  from {
+    -webkit-transform: translateY(-150%);
+            transform: translateY(-150%);
+  }
+  to {
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
+  }
+}
+
 .l-full {
   width: 100%;
   margin: auto;
@@ -7080,7 +7103,7 @@ body {
   z-index: 1000;
   max-width: 1920px;
   margin: auto;
-  background-color: #ffffff;
+  background-color: #fff;
   -webkit-box-shadow: 0 3px 3px 0 #ddd5;
           box-shadow: 0 3px 3px 0 #ddd5;
 }
@@ -7114,11 +7137,12 @@ body {
 .navBlock .mainNav a {
   height: 100%;
   padding: 0 20px;
-  color: #363636;
+  color: #333;
 }
 
 .navBlock .mainNav a:hover {
-  background-color: #ffc3a5;
+  background-color: #ff7e29;
+  color: #fff;
 }
 
 .navBlock .mainNav a li {
@@ -7148,17 +7172,14 @@ body {
           align-items: center;
 }
 
-.navBlock .navMember li {
+.navBlock .navMember a {
   padding-left: 20px;
-}
-
-.navBlock .navMember .material-icons-sharp {
   font-size: 24px;
-  color: #363636;
+  color: #333;
 }
 
-.navBlock .navMember .material-icons-sharp:hover {
-  color: #ffc3a5;
+.navBlock .navMember a:hover {
+  color: #ff7e29;
 }
 
 .footer_Wrap {
@@ -7183,7 +7204,7 @@ body {
 }
 
 .footerMedia li:hover {
-  color: #f0692a;
+  color: #ff7e29;
 }
 
 .footerContect {
@@ -7198,7 +7219,7 @@ body {
       justify-content: space-around;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  color: #ffffff;
+  color: #fff;
   text-align: center;
   font-size: 14px;
   padding: 5px 0;
@@ -7217,12 +7238,8 @@ body {
           justify-content: center;
 }
 
-.footerContect li ion-icon {
-  padding-right: 3px;
-}
-
 .footerContect a {
-  color: #ffffff;
+  color: #fff;
 }
 
 .footerTerms {
@@ -7234,11 +7251,11 @@ body {
 .footerTerms a {
   position: relative;
   margin: 0 10px;
-  color: #ffffff;
+  color: #fff;
 }
 
 .footerTerms a li:hover {
-  color: #f0692a;
+  color: #ff7e29;
 }
 
 .footerTerms a + a::before {
@@ -7249,7 +7266,7 @@ body {
 
 .footerCopyRight {
   text-align: center;
-  color: #ffffff;
+  color: #fff;
   font-size: 12px;
 }
 
@@ -7317,8 +7334,10 @@ body {
 
 .card_content {
   padding: 5%;
-  background-color: #DBD3D1;
+  background-color: #fff;
   border-radius: 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
+          box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
 }
 
 .card_content--corner {
@@ -7330,7 +7349,7 @@ body {
   position: absolute;
   top: -30px;
   left: 18px;
-  border-bottom: 20px solid #DBD3D1;
+  border-bottom: 20px solid #fff;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-top: 10px solid transparent;
@@ -7345,10 +7364,11 @@ body {
 }
 
 .card_tag {
-  background-color: #fff;
+  background-color: #FEBC9F;
   top: 0;
   right: 0;
   padding: 5px;
+  border-radius: 0 0 0 10px;
 }
 
 .card_date {
@@ -7377,6 +7397,7 @@ body {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 5px;
+  color: #007183;
 }
 
 .card_text {
@@ -7419,18 +7440,50 @@ body {
   background-color: #fff;
 }
 
-body {
-  background-color: #f0eee7;
+.text_Overflow {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+.text_Overflow_One {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@media screen and (min-width: 768px) {
+  .text_Overflow {
+    -webkit-line-clamp: 3;
+  }
+}
+
+@media screen and (min-width: 996px) {
+  .text_Overflow {
+    -webkit-line-clamp: 5;
+  }
 }
 
 .memberInfoBlock {
   padding-top: 60px;
-  width: 95%;
+  width: 100%;
   margin: auto;
 }
 
 .memberAccountWarp {
-  padding: 10px;
+  padding: 10px 0;
+  -webkit-transition: .5s;
+  transition: .5s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .memberAccountWarp .memberAccount {
@@ -7439,6 +7492,7 @@ body {
   border-radius: 10px;
   padding: 10px;
   background-color: #fff;
+  width: 45%;
 }
 
 .memberAccountWarp .memberAccount .memberAccountPhto {
@@ -7454,7 +7508,6 @@ body {
 }
 
 .memberAccountWarp .memberAccountSetting {
-  margin-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7467,27 +7520,235 @@ body {
   border-radius: 10px;
   padding: 10px 30px;
   background-color: #fff;
+  width: 50%;
 }
 
-.memberAccountWarp .memberAccountSetting a + a {
-  border-top: #999 1px solid;
+.memberAccountWarp .memberAccountSetting li {
+  color: #333;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
-.memberAccountWarp .memberAccountSetting a li {
-  text-align: center;
-  padding: 10px 0;
+@media screen and (min-width: 768px) {
+  .memberAccountWarp {
+    display: block;
+  }
+  .memberAccountWarp .memberAccount {
+    width: auto;
+  }
+  .memberAccountWarp .memberAccountSetting {
+    margin-top: 20px;
+    width: auto;
+  }
 }
 
 .memberProfileWarp {
-  padding: 10px;
+  padding: 10px 0;
 }
 
-.memberProfileWarp .memberProfile {
+.memberProfileWarp .memberProfile + .memberProfile {
+  display: none;
+}
+
+.mem_sectionBG {
   -webkit-box-shadow: 0 1px 5px 0 #999;
           box-shadow: 0 1px 5px 0 #999;
   border-radius: 10px;
   padding: 10px;
+  margin-bottom: 20px;
   background-color: #fff;
+}
+
+.memberBlockTtile {
+  font-size: 30px;
+  padding: 10px;
+  border-bottom: #333 1px solid;
+}
+
+.InfoSettingForm {
+  width: 100%;
+}
+
+.InfoSettingForm th, .InfoSettingForm td {
+  padding: 10px 30px;
+  border-bottom: 1px solid #3332;
+  text-align: left;
+}
+
+.InfoSettingForm th input, .InfoSettingForm td input {
+  display: inline-block;
+  height: 30px;
+}
+
+.sendButton {
+  padding: 10px 0;
+  margin-left: auto;
+  text-align: right;
+}
+
+.sendButton input {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #ff7e29;
+  color: #fff;
+}
+
+.horizontalcard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 10px 0;
+  border-bottom: 1px solid #3333;
+}
+
+.horizontalcard .horizontalcard_pic {
+  min-width: 200px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: auto;
+}
+
+.horizontalcard .horizontalcard_content {
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding-left: 5px;
+}
+
+.horizontalcard .horizontalcard_content .horizontalcard_title {
+  font-size: 20px;
+  padding: 5px 0;
+}
+
+.horizontalcard .horizontalcard_content .horizontalcard_text {
+  font-size: 14px;
+}
+
+.horizontalcard .horizontalcard_date {
+  font-size: 8px;
+  color: #666;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.horizontalcard .horizontalcard_footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  font-size: 14px;
+}
+
+.horizontalcard .horizontalcard_footer .horizontalcard_footerItem {
+  padding-left: 10px;
+}
+
+.horizontalcard .horizontalcard_footer .horizontalcard_date {
+  font-size: 8px;
+  color: #999;
+}
+
+.horizontalcard .horizontalcard_footer a {
+  color: #ff7e29;
+}
+
+@media screen and (min-width: 996px) {
+  .horizontalcard .horizontalcard_pic {
+    width: 35%;
+  }
+  .horizontalcard .horizontalcard_content {
+    width: 65%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .horizontalcard .horizontalcard_pic {
+    width: 30%;
+  }
+  .horizontalcard .horizontalcard_content {
+    width: 70%;
+  }
+}
+
+.horizontalcard_empty {
+  height: 150px;
+}
+
+.horizontalcard_empty p {
+  border: #3333 1px solid;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.newTourBtn {
+  width: 100%;
+  margin: 20px auto 0 auto;
+  padding: 5px 0;
+  border-radius: 10px;
+  background-color: #007183;
+  color: #fff;
+  text-align: center;
+}
+
+.horizontalcard_oder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding-top: 5px;
+}
+
+.horizontalcard_oder h4 {
+  font-size: 14px;
+  color: #aaa;
+  font-weight: 400;
+  padding: 5px 0;
+}
+
+.horizontalcard_oder > div {
+  padding-right: 5%;
 }
 
 /* ---流動圖片區--- */
@@ -7611,7 +7872,7 @@ body {
   content: '';
   display: block;
   position: absolute;
-  left: 130%;
+  left: 120%;
   bottom: 0;
   width: 2px;
   height: 15px;
@@ -7619,7 +7880,7 @@ body {
 }
 
 /* 手機的篩選器 */
-.groupContent .groupContent_wrap #filterMobile {
+.groupContent .groupContent_wrap .filterMobile {
   width: 60px;
   height: 60px;
   background-color: #f0692a;
@@ -7630,12 +7891,16 @@ body {
   margin: auto;
 }
 
-.groupContent .groupContent_wrap #filter {
-  /* ---篩選下拉式選單手機時不見---*/
+.groupContent .groupContent_wrap .filter {
+  /* ---"篩選下拉式選單"手機時不見---*/
   display: none;
 }
 
-.groupContent .groupContent_wrap #filter_wrap {
+.groupContent .groupContent_wrap .filter.is_active {
+  display: block;
+}
+
+.groupContent .groupContent_wrap .filter_wrap {
   width: 100%;
   background-color: #007183;
   margin: auto;
@@ -7652,28 +7917,43 @@ body {
   border-radius: 10px;
 }
 
-.groupContent .groupContent_wrap #filter_wrap .dropdownMenu {
+.groupContent .groupContent_wrap .filter_wrap .dropdownMenu {
   width: 100%;
   margin: 30px 0;
   background-color: #FFFFFF;
 }
 
-.groupContent .groupContent_wrap #filter_wrap #filterBtn {
+.groupContent .groupContent_wrap .filter_wrap .filterBtn {
   cursor: pointer;
+  width: 20%;
+  background-color: #ff7e29;
+  margin: 10px auto;
+  border-radius: 10px;
 }
 
 /* only for width above 768px */
 @media screen and (min-width: 768px) {
-  .groupContent .groupContent_wrap #filterMobile {
+  /* 圓圓的篩選器消失 */
+  .groupContent .groupContent_wrap .filterMobile {
     display: none;
   }
-  .groupContent .groupContent_wrap #filter {
+  /* 篩選下拉式選單出現*/
+  .groupContent .groupContent_wrap .filter {
     display: block;
   }
 }
 
 /* ---團封面照--- */
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .cover img {
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .cover_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .cover_wrap img {
   border-radius: 10px;
 }
 
@@ -7697,8 +7977,8 @@ body {
 }
 
 /* ---團的標題--- */
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .card .title {
-  text-align: center;
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .cardText {
+  line-height: 160%;
 }
 
 /* ---團的熱門搜尋關鍵字和剩餘名額--- */
@@ -7709,13 +7989,32 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 0 9%;
+  margin-top: 10px;
 }
 
 .groupdetailCoverInfo .groupdetailCoverInfo_wrap .keywordSpot_wrap ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .keywordSpot_wrap ul li .tag {
+  border-radius: 5px;
+  background: #007183;
+  color: #FFFFFF;
+  position: relative;
+  margin-right: 20px;
+}
+
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .keywordSpot_wrap ul li .tag:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 120%;
+  bottom: 0;
+  width: 2px;
+  height: 15px;
+  background: #ccc;
 }
 
 /* ---團的旅程資訊和留言區--- */
@@ -7729,15 +8028,53 @@ body {
 }
 
 .groupdetailInfo .groupdetailInfo_wrap .message {
+  /* 捲軸把手顏色 */
+  /* 捲軸背景顏色 */
+}
+
+.groupdetailInfo .groupdetailInfo_wrap .message::-webkit-scrollbar-thumb {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#007183), color-stop(99%, #ffc3a5));
+  background-image: linear-gradient(180deg, #007183 0%, #ffc3a5 99%);
+  -webkit-box-shadow: inset 2px 2px 5px 0 rgba(255, 255, 255, 0.5);
+          box-shadow: inset 2px 2px 5px 0 rgba(255, 255, 255, 0.5);
+  border-radius: 100px;
+}
+
+.groupdetailInfo .groupdetailInfo_wrap .message::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+
+/*網頁本身的捲軸*/
+/* 網頁捲軸【寬度】 */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* 網頁捲軸【背景】顏色 */
+::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* 網頁捲軸【把手】顏色 */
+::-webkit-scrollbar-thumb {
+  background: #007183;
+  border-radius: 100px;
+}
+
+/* 網頁捲軸【滑過時】把手的顏色 */
+::-webkit-scrollbar-thumb:hover {
+  background: #f0692a;
+}
+
+.groupdetailInfo .groupdetailInfo_wrap .message {
   height: 500px;
   overflow-y: scroll;
-  border: 1px solid red;
   position: relative;
 }
 
 .groupdetailInfo .groupdetailInfo_wrap .message .message_wrap {
-  background-color: darksalmon;
-  margin: 30px 0px;
+  background-color: #DBD3D1;
+  margin-bottom: 30px;
 }
 
 .groupdetailInfo .groupdetailInfo_wrap .message .message_wrap .header {
@@ -7747,33 +8084,20 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 15px;
 }
 
-.groupdetailInfo .groupdetailInfo_wrap .message .message_wrap:nth-of-type(even) {
-  background-color: darkkhaki;
-}
-
-.groupdetailInfo .groupdetailInfo_wrap .message .message_wrap:nth-of-type(even) .header, .content {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-}
-
-.groupdetailInfo .groupdetailInfo_wrap .message .message_wrap:nth-of-type(even) .content {
-  text-align: end;
-}
-
-.groupdetailInfo .groupdetailInfo_wrap .message .message_wrap .header .initiatorPic {
+.groupdetailInfo .groupdetailInfo_wrap .message .message_wrap .header .pic {
   width: 50px;
+  margin-right: 3%;
 }
 
-.groupdetailInfo .groupdetailInfo_wrap .message .message_wrap .header .initiatorPic img {
-  width: 100%;
+.groupdetailInfo .groupdetailInfo_wrap .message .message_wrap .header .pic img {
   border-radius: 50%;
 }
 
 .groupdetailInfo .groupdetailInfo_wrap .message .leaveMessage {
-  background-color: #ffffff;
+  background-color: #ffc3a5;
   position: -webkit-sticky;
   position: sticky;
   bottom: 0;
@@ -7782,17 +8106,20 @@ body {
   display: flex;
 }
 
-.groupdetailInfo .groupdetailInfo_wrap .message .leaveMessage textarea {
-  background-color: darkseagreen;
+.groupdetailInfo .groupdetailInfo_wrap .message .leaveMessage #inputBox {
+  background-color: #007183;
+  color: #FFFFFF;
   width: 100%;
   resize: none;
   border: none;
 }
 
-.groupdetailInfo .groupdetailInfo_wrap .message .leaveMessage .leaveMessageBtn {
+.groupdetailInfo .groupdetailInfo_wrap .message .leaveMessage #leaveMessageBtn {
   border: none;
+  cursor: pointer;
 }
 
+/* ---參團懸浮按紐--- */
 .joinBtn {
   border: none;
   width: 40px;
@@ -7812,32 +8139,10 @@ body {
   display: block;
   -webkit-transition: 600ms ease-in-out;
   transition: 600ms ease-in-out;
-  -webkit-animation: move .5s;
-          animation: move .5s;
+  -webkit-animation: groupdetail_move .5s;
+          animation: groupdetail_move .5s;
   -webkit-transform: translateY(50%);
           transform: translateY(50%);
-}
-
-@-webkit-keyframes move {
-  from {
-    -webkit-transform: translateY(-150%);
-            transform: translateY(-150%);
-  }
-  to {
-    -webkit-transform: translateY(50%);
-            transform: translateY(50%);
-  }
-}
-
-@keyframes move {
-  from {
-    -webkit-transform: translateY(-150%);
-            transform: translateY(-150%);
-  }
-  to {
-    -webkit-transform: translateY(50%);
-            transform: translateY(50%);
-  }
 }
 
 /* only for width below 768px */
@@ -7845,6 +8150,49 @@ body {
   .groupdetailInfo .groupdetailInfo_wrap .col-12 {
     margin-top: 30px;
   }
+  .groupdetailCoverInfo .groupdetailCoverInfo_wrap .cover_wrap {
+    margin-bottom: 30px;
+  }
+}
+
+/*揪團清單大標題*/
+.grouplistTitle .grouplistTitle_wrap h2 {
+  text-align: center;
+}
+
+/*我的收藏行程*/
+.grouplistContent .grouplistCollect_wrap .grouplistOwl {
+  /*箭頭的定位目標(父層)*/
+  /*箭頭本身*/
+}
+
+.grouplistContent .grouplistCollect_wrap .grouplistOwl .owl-stage-outer {
+  position: relative;
+}
+
+.grouplistContent .grouplistCollect_wrap .grouplistOwl .owl-prev, .grouplistContent .grouplistCollect_wrap .grouplistOwl .owl-next {
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+}
+
+.grouplistContent .grouplistCollect_wrap .grouplistOwl .owl-prev {
+  left: 0;
+}
+
+.grouplistContent .grouplistCollect_wrap .grouplistOwl .owl-next {
+  right: 0;
+}
+
+/*我的建立行程*/
+.grouplistContent .grouplistMyList_wrap .myTour {
+  border: 1px solid #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .shopType {
@@ -8567,7 +8915,7 @@ text-align: left;
 }
 
 .newsSlider .sliderItem .sliderItemTitle {
-  background-color: #DBD3D1;
+  background-color: #fff;
   text-align: center;
   font-size: 30px;
 }
@@ -8631,7 +8979,7 @@ text-align: left;
       flex-wrap: wrap;
   border-radius: 10px;
   padding: 20px 0;
-  background-color: #DBD3D1;
+  background-color: #fff;
 }
 
 .newsAnnounceListBlock {
@@ -8682,7 +9030,7 @@ text-align: left;
 
 .newsListNav li {
   padding: 5px 10px;
-  background-color: #DBD3D1;
+  background-color: #fff;
   border-radius: 10px 10px 0 0;
 }
 
@@ -8692,7 +9040,7 @@ text-align: left;
 }
 
 .newsListNav li:hover {
-  background-color: #DBD3D1;
+  background-color: #fff;
 }
 
 .newsListBlock {
@@ -8702,7 +9050,7 @@ text-align: left;
 }
 
 .newsListBlock .newsListWrap {
-  background-color: #DBD3D1;
+  background-color: #fff;
   border-radius: 0 10px 10px 10px;
   padding: 20px;
 }
