@@ -7382,8 +7382,9 @@ body {
 .card_text {
   font-size: 14px;
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .card_footer {
