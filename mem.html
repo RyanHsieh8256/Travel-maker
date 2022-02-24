@@ -25,8 +25,6 @@
     <!-- ionicon -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-    <script src="js/headercontrol.js"></script>
 </head>
 <body>
     <header>
@@ -43,9 +41,9 @@
                     <a href=""><li>商城</li></a>
                 </ul>
                 <ul class="navMember">
-                    <a href=""><li><span class="material-icons-sharp">shopping_cart</span></li></a>
-                    <a href=""><li><span class="material-icons-sharp">account_circle</span></li></a>
-                    <a href=""><li><span class="material-icons-sharp">menu</span></li></a>
+                    <a href=""><li><i class="bi bi-minecart-loaded"></i></li></a>
+                    <a><li><i class="bi bi-person-circle"></i></li></a>
+                    <a href=""><li><i class="bi bi-list"></i></li></a>
                 </ul>
             </section>          
         </nav>
@@ -53,8 +51,8 @@
     <main class="memberInfoBlock">
         <section class="l-full" >
             <div class="row">
-                <div class="col-lg-3">
-                    <aside class="memberAccountWarp">
+                <div class="col-12 col-md-4">
+                    <aside class="memberAccountWarp" id="memberAccountWarp">
                         <div class="memberAccount">
                             <div class="memberAccountPhto">
                                 <img src="https://picsum.photos/200/200/?random=10">
@@ -64,125 +62,229 @@
                             </div>
                         </div>
                         <ul class="memberAccountSetting">
-                            <a href=""><li><i class="bi bi-gear"></i> 帳號設定</li></a>
-                            <a href=""><li><i class="bi bi-calendar2"></i> 我的行程</li></a>
-                            <a href=""><li><i class="bi bi-file-person"></i> 我的揪團</li></a>
-                            <a href=""><li><i class="bi bi-bag"></i> 我的訂單</li></a>
-                            <a href=""><li><i class="bi bi-bookmark-heart"></i> 我的收藏</li></a>
+                            <li class="member_SectionControlor"><i class="bi bi-gear"></i> 帳號設定</li>
+                            <li class="member_SectionControlor"><i class="bi bi-calendar2"></i> 我的行程</li>
+                            <li class="member_SectionControlor"><i class="bi bi-bookmark-heart"></i> 我的收藏</li>
+                            <li class="member_SectionControlor"><i class="bi bi-file-person"></i> 我的揪團</li>
+                            <li class="member_SectionControlor"><i class="bi bi-bag"></i> 我的訂單</li>
                         </ul>
                     </aside>
                 </div>
-                <div class="col-12 col-lg-9">
+                <div class="col-12 col-md-8">
                     <section class="memberProfileWarp">
-                        <!-- <form action="" class="memberProfile memberInfoSetting">
-                            <h3 class="memberBlockTtile">帳號設定</h3>
-                            <table class="InfoSettingForm">
-                                <tr>
-                                    <th>姓名:</th>
-                                    <td><input type="text"></td>
-                                </tr>
-                                <tr>
-                                    <th>電子信箱(帳號):</th>
-                                    <td><input type="text"></td>
-                                </tr>
-                                <tr>
-                                    <th>密碼:</th>
-                                    <td><input type="password"></td>
-                                </tr>
-                                <tr>
-                                    <th>電話:</th>
-                                    <td><input type="tel"></td>
-                                </tr>
-                                <tr>
-                                    <th>生日:</th>
-                                    <td><input type="date"></td>
-                                </tr>
-                            </table>
-                            <div class="sendButton">
-                                <input type="submit" value="確定更改">
-                            </div>
-                        </form> -->
-                        <!-- <div class="memberProfile memberMyTour">
-                            <h3 class="memberBlockTtile">我的旅程</h3>
+                        <!-- 帳號設定 -->
+                        <section class="memberProfile  mem_sectionBG">
+                            <form action="" class="memberInfoSetting">
+                                <h3 class="memberBlockTtile">帳號設定</h3>
+                                <table class="InfoSettingForm">
+                                    <tr>
+                                        <th>姓名:</th>
+                                        <td><input type="text"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>電子信箱(帳號):</th>
+                                        <td><input type="text"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>密碼:</th>
+                                        <td><input type="password"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>電話:</th>
+                                        <td><input type="tel"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>生日:</th>
+                                        <td><input type="date"></td>
+                                    </tr>
+                                </table>
+                                <div class="sendButton">
+                                    <input type="submit" value="確定更改">
+                                </div>
+                            </form>
+                        </section>
+                        <!-- 我的行程 -->
+                        <section class="memberProfile  mem_sectionBG">
+                            <h3 class="memberBlockTtile">我的行程</h3>
                             <div class="row">
                                 <div class="col-12">
                                     <div class="horizontalcard">
                                         <div class="horizontalcard_pic" >
-                                            <img src="https://picsum.photos/300/200/?random=10">
+                                            <img src="https://picsum.photos/800/500/?random=10">
                                         </div>
                                         <div class="horizontalcard_content" >
                                             <h3 class="horizontalcard_title">行程標題</h3>
                                             <p class="horizontalcard_text text_Overflow">
                                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. In nemo voluptatem iusto fuga perspiciatis? Cupiditate voluptas error dignissimos. Amet impedit ea quaerat. Hic assumenda optio doloribus dignissimos culpa nulla illo!
                                             </p>
-                                            <div class="horizontalcard_btn">
-                                                <button>以此行程揪團</button><button>編輯行程</button>
+                                            <div class="horizontalcard_footer">
+                                                <div class="horizontalcard_footerItem"><a href="">以此行程揪團</a></div>
+                                                <div class="horizontalcard_footerItem"><a href="">編輯行程</a></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="horizontalcard">
-                                        <div class="horizontalcard_pic" >
-                                            <img src="https://picsum.photos/300/200/?random=10">
-                                        </div>
-                                        <div class="horizontalcard_content" >
-                                            <h3 class="horizontalcard_title">行程標題</h3>
-                                            <p class="horizontalcard_text text_Overflow">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. In nemo voluptatem iusto fuga perspiciatis? Cupiditate voluptas error dignissimos. Amet impedit ea quaerat. Hic assumenda optio doloribus dignissimos culpa nulla illo!
-                                            </p>
-                                            <div class="horizontalcard_btn">
-                                                <button>以此行程揪團</button><button>編輯行程</button>
-                                            </div>
-                                        </div>
+                                    <div class="horizontalcard_empty">
+                                        <p>沒有行程</p>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="horizontalcard">
-                                        <div class="horizontalcard_pic" >
-                                            <img src="https://picsum.photos/300/200/?random=10">
-                                        </div>
-                                        <div class="horizontalcard_content" >
-                                            <h3 class="horizontalcard_title">行程標題</h3>
-                                            <p class="horizontalcard_text text_Overflow">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. In nemo voluptatem iusto fuga perspiciatis? Cupiditate voluptas error dignissimos. Amet impedit ea quaerat. Hic assumenda optio doloribus dignissimos culpa nulla illo!
-                                            </p>
-                                            <div class="horizontalcard_btn">
-                                                <button>以此行程揪團</button><button>編輯行程</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <a href="" class="newTourBtn">建立行程</a>
                                 </div>
                             </div>
-                            <div class="newTourBtn">建立新行程</div>
-                        </div> -->
-                        <div class="memberProfile memberMyGroup">
-                            <h3 class="memberBlockTtile">我的揪團</h3>
+                        </section>
+                        <!-- 我的收藏 -->
+                        <section class="memberProfile  mem_sectionBG">
+                            <h3 class="memberBlockTtile">收藏的行程</h3>
                             <div class="row">
                                 <div class="col-12">
                                     <div class="horizontalcard">
                                         <div class="horizontalcard_pic" >
-                                            <img src="https://picsum.photos/300/200/?random=10">
+                                            <img src="https://picsum.photos/800/500/?random=10">
                                         </div>
                                         <div class="horizontalcard_content" >
                                             <h3 class="horizontalcard_title">行程標題</h3>
                                             <p class="horizontalcard_text text_Overflow">
                                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. In nemo voluptatem iusto fuga perspiciatis? Cupiditate voluptas error dignissimos. Amet impedit ea quaerat. Hic assumenda optio doloribus dignissimos culpa nulla illo!
                                             </p>
-                                            <div class="horizontalcard_btn">
-                                                <div>參加人數</div><button>揪團詳情</button>
+                                            <div class="horizontalcard_footer">
+                                                <div class="horizontalcard_footerItem"><a href="">查看行程</a></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-12">
+                                    <div class="horizontalcard_empty">
+                                        <p>沒有行程</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <!-- <div class="memberProfile memberMyOrder">
-
-                        </div>
-                        <div class="memberProfile memberMyCollection">
-
-                        </div> -->
+                        </section>
+                        <!-- 我的揪團 -->
+                        <section class="memberProfile">
+                                <!-- 參加 -->
+                            <section class="mem_sectionBG">
+                                <h3 class="memberBlockTtile">我參加的揪團</h3>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="horizontalcard">
+                                            <div class="horizontalcard_pic" >
+                                                <img src="https://picsum.photos/800/500/?random=10">
+                                            </div>
+                                            <div class="horizontalcard_content" >
+                                                <h3 class="horizontalcard_title">揪團標題</h3>
+                                                <p class="horizontalcard_text text_Overflow">
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In nemo voluptatem iusto fuga perspiciatis? Cupiditate voluptas error dignissimos. Amet impedit ea quaerat. Hic assumenda optio doloribus dignissimos culpa nulla illo!
+                                                </p>
+                                                <div class="horizontalcard_date">
+                                                    <p>
+                                                        出發日期: <span>2021/02/20</span><br>
+                                                        天數 : <span>3</span>天
+                                                    </p>
+                                                    <p>參加人數 : <span>3</span>人</p>
+                                                </div>
+                                                <div class="horizontalcard_footer">
+                                                    <div class="horizontalcard_footerItem"><a href="">揪團詳情</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="horizontalcard_empty">
+                                            <p>沒有參加的揪團</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <a href="" class="newTourBtn">找團參加</a>
+                                    </div>
+                                </div>
+                            </section>
+                                <!-- 建立 -->
+                            <section class="mem_sectionBG">
+                                <h3 class="memberBlockTtile">我建立的揪團</h3>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="horizontalcard">
+                                            <div class="horizontalcard_pic" >
+                                                <img src="https://picsum.photos/800/500/?random=10">
+                                            </div>
+                                            <div class="horizontalcard_content" >
+                                                <h3 class="horizontalcard_title">揪團標題</h3>
+                                                <p class="horizontalcard_text text_Overflow">
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In nemo voluptatem iusto fuga perspiciatis? Cupiditate voluptas error dignissimos. Amet impedit ea quaerat. Hic assumenda optio doloribus dignissimos culpa nulla illo!
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In nemo voluptatem iusto fuga perspiciatis? Cupiditate voluptas error dignissimos. Amet impedit ea quaerat. Hic assumenda optio doloribus dignissimos culpa nulla illo!
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In nemo voluptatem iusto fuga perspiciatis? Cupiditate voluptas error dignissimos. Amet impedit ea quaerat. Hic assumenda optio doloribus dignissimos culpa nulla illo!
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In nemo voluptatem iusto fuga perspiciatis? Cupiditate voluptas error dignissimos. Amet impedit ea quaerat. Hic assumenda optio doloribus dignissimos culpa nulla illo!
+                                                </p>
+                                                <div class="horizontalcard_date">
+                                                    <p>
+                                                        出發日期: <span>2021/02/20</span><br>
+                                                        天數 : <span>3</span>天
+                                                    </p>
+                                                    <p>參加人數 : <span>3</span>人</p>
+                                                </div>
+                                                <div class="horizontalcard_footer">
+                                                    <div class="horizontalcard_footerItem"><a href="">編輯揪團</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="horizontalcard_empty">
+                                            <p>沒有參加的揪團</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <a href="" class="newTourBtn">建立新揪團</a>
+                                    </div>
+                                </div>
+                            </section>
+                        </section>
+                        <!-- 我的訂單 -->
+                        <section class="memberProfile mem_sectionBG">
+                            <h3 class="memberBlockTtile">我的訂單</h3>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="horizontalcard">
+                                        <div class="horizontalcard_pic" >
+                                            <img src="https://picsum.photos/800/500/?random=10">
+                                        </div>
+                                        <div class="horizontalcard_content" >
+                                            <h3 class="horizontalcard_title">訂單編號: <span>0000001</span></h3>
+                                            <p class="horizontalcard_text text_Overflow">
+                                                <div class="horizontalcard_oder">
+                                                    <div class="text_Overflow_One">
+                                                        <h4>商品明細</h4>
+                                                        <span>六福村門票</span><br>
+                                                        <span>七福村門票</span><br>
+                                                        <span>八福村門票</span>
+                                                    </div>
+                                                    <div class="">
+                                                        <h4>訂購日期</h4>
+                                                        <span>2020/01/03</span>
+                                                    </div>
+                                                    <div>
+                                                        <h4>付款金額</h4>
+                                                        <span>2,000</span>
+                                                    </div>
+                                                </div>
+                                            </p>
+                                            <div class="horizontalcard_footer">
+                                                <div class="horizontalcard_footerItem">
+                                                    <a href="">票卷連結</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="horizontalcard_empty">
+                                        <p>查無訂單</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                     </section>
                 </div>
             </div>
@@ -197,10 +299,10 @@
                 </ion-icon></li></a>
             </ul>
             <ul class="footerContect">
-                <li><ion-icon name="call-outline"></ion-icon>電話:03-1234567</li>
-                <li><ion-icon name="mail-outline"></ion-icon>服務信箱:<a href="mailto:abc12345@gmail.com">abc12345@gmail.com</a></li>
-                <li><ion-icon name="time-outline"></ion-icon>營業時間:09:00 ~ 18:00(一)~(五)</li>
-                <li><ion-icon name="location-outline"></ion-icon>地址:桃園市桃園區中正路99999號</li>
+                <li><i class="bi bi-telephone"></i>電話:03-1234567</li>
+                <li><i class="bi bi-envelope"></i>服務信箱:<a href="mailto:abc12345@gmail.com">abc12345@gmail.com</a></li>
+                <li><i class="bi bi-clock"></i>營業時間:09:00 ~ 18:00(一)~(五)</li>
+                <li><i class="bi bi-pin-map"></i>地址:桃園市桃園區中正路99999號</li>
             </ul>
             <ul class="footerTerms">
                 <a href=""><li>服務條款</li></a><a href=""><li>購物條款</li></a><a href=""><li>付款方式</li></a>
@@ -209,4 +311,27 @@
         </section>
     </footer>
 </body>
+<script>
+
+    function mem_sectionControl(){
+        let member_SectionControlor = document.getElementsByClassName('member_SectionControlor');
+        
+        for(let i = 0;i<member_SectionControlor.length;i++){
+            member_SectionControlor[i].index = i;
+            member_SectionControlor[i].onclick = function(){
+                let memberProfile = document.getElementsByClassName("memberProfile");
+                for(a=0;a<memberProfile.length;a++){
+                    memberProfile[a].style.display = 'none';
+                    member_SectionControlor[a].style.backgroundColor = '#fff';
+                    member_SectionControlor[a].style.color = '#333';
+                }
+                memberProfile[i].style.display = "block";
+                member_SectionControlor[i].style.backgroundColor = 'rgb(255, 126, 41)';
+                member_SectionControlor[i].style.color = '#fff';
+            }
+        };
+    }
+
+    window.addEventListener('load',mem_sectionControl)
+</script>
 </html>

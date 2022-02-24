@@ -7150,16 +7150,13 @@ body {
           align-items: center;
 }
 
-.navBlock .navMember li {
+.navBlock .navMember a {
   padding-left: 20px;
-}
-
-.navBlock .navMember .material-icons-sharp {
   font-size: 24px;
   color: #333;
 }
 
-.navBlock .navMember .material-icons-sharp:hover {
+.navBlock .navMember a:hover {
   color: #ff7e29;
 }
 
@@ -7217,10 +7214,6 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-.footerContect li ion-icon {
-  padding-right: 3px;
 }
 
 .footerContect a {
@@ -7417,12 +7410,6 @@ body {
   background-color: #fff;
 }
 
-.memberInfoBlock {
-  padding-top: 60px;
-  width: 100%;
-  margin: auto;
-}
-
 .text_Overflow {
   overflow: hidden;
   white-space: nowrap;
@@ -7433,9 +7420,40 @@ body {
   white-space: normal;
 }
 
+.text_Overflow_One {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@media screen and (min-width: 768px) {
+  .text_Overflow {
+    -webkit-line-clamp: 3;
+  }
+}
+
+@media screen and (min-width: 996px) {
+  .text_Overflow {
+    -webkit-line-clamp: 5;
+  }
+}
+
+.memberInfoBlock {
+  padding-top: 60px;
+  width: 100%;
+  margin: auto;
+}
+
 .memberAccountWarp {
-  display: none;
-  padding: 10px;
+  padding: 10px 0;
+  -webkit-transition: .5s;
+  transition: .5s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .memberAccountWarp .memberAccount {
@@ -7444,6 +7462,7 @@ body {
   border-radius: 10px;
   padding: 10px;
   background-color: #fff;
+  width: 45%;
 }
 
 .memberAccountWarp .memberAccount .memberAccountPhto {
@@ -7459,7 +7478,6 @@ body {
 }
 
 .memberAccountWarp .memberAccountSetting {
-  margin-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7472,19 +7490,26 @@ body {
   border-radius: 10px;
   padding: 10px 30px;
   background-color: #fff;
+  width: 50%;
 }
 
-.memberAccountWarp .memberAccountSetting a {
+.memberAccountWarp .memberAccountSetting li {
   color: #333;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
-.memberAccountWarp .memberAccountSetting a li {
-  padding: 10px 0;
-}
-
-@media screen and (min-width: 996px) {
+@media screen and (min-width: 768px) {
   .memberAccountWarp {
     display: block;
+  }
+  .memberAccountWarp .memberAccount {
+    width: auto;
+  }
+  .memberAccountWarp .memberAccountSetting {
+    margin-top: 20px;
+    width: auto;
   }
 }
 
@@ -7492,17 +7517,23 @@ body {
   padding: 10px 0;
 }
 
-.memberProfileWarp .memberProfile {
+.memberProfileWarp .memberProfile + .memberProfile {
+  display: none;
+}
+
+.mem_sectionBG {
   -webkit-box-shadow: 0 1px 5px 0 #999;
           box-shadow: 0 1px 5px 0 #999;
   border-radius: 10px;
   padding: 10px;
+  margin-bottom: 20px;
   background-color: #fff;
 }
 
 .memberBlockTtile {
   font-size: 30px;
   padding: 10px;
+  border-bottom: #333 1px solid;
 }
 
 .InfoSettingForm {
@@ -7541,19 +7572,21 @@ body {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   padding: 10px 0;
   border-bottom: 1px solid #3333;
 }
 
 .horizontalcard .horizontalcard_pic {
-  width: 40%;
-  height: 100%;
+  min-width: 200px;
   border-radius: 5px;
   overflow: hidden;
+  margin: auto;
 }
 
 .horizontalcard .horizontalcard_content {
-  width: 50%;
+  width: 70%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7572,22 +7605,86 @@ body {
 
 .horizontalcard .horizontalcard_content .horizontalcard_title {
   font-size: 20px;
+  padding: 5px 0;
 }
 
 .horizontalcard .horizontalcard_content .horizontalcard_text {
   font-size: 14px;
 }
 
-.horizontalcard .horizontalcard_content .horizontalcard_btn {
-  text-align: right;
+.horizontalcard .horizontalcard_date {
+  font-size: 8px;
+  color: #666;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.horizontalcard .horizontalcard_content .horizontalcard_btn button {
-  background-color: #ff7e29;
-  border-radius: 5px;
-  margin: 0 5px;
-  color: #fff;
+.horizontalcard .horizontalcard_footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   font-size: 14px;
+}
+
+.horizontalcard .horizontalcard_footer .horizontalcard_footerItem {
+  padding-left: 10px;
+}
+
+.horizontalcard .horizontalcard_footer .horizontalcard_date {
+  font-size: 8px;
+  color: #999;
+}
+
+.horizontalcard .horizontalcard_footer a {
+  color: #ff7e29;
+}
+
+@media screen and (min-width: 996px) {
+  .horizontalcard .horizontalcard_pic {
+    width: 35%;
+  }
+  .horizontalcard .horizontalcard_content {
+    width: 65%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .horizontalcard .horizontalcard_pic {
+    width: 30%;
+  }
+  .horizontalcard .horizontalcard_content {
+    width: 70%;
+  }
+}
+
+.horizontalcard_empty {
+  height: 150px;
+}
+
+.horizontalcard_empty p {
+  border: #3333 1px solid;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .newTourBtn {
@@ -7600,10 +7697,28 @@ body {
   text-align: center;
 }
 
-@media screen and (min-width: 996px) {
-  .horizontalcard_pic {
-    width: 20%;
-  }
+.horizontalcard_oder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding-top: 5px;
+}
+
+.horizontalcard_oder h4 {
+  font-size: 14px;
+  color: #aaa;
+  font-weight: 400;
+  padding: 5px 0;
+}
+
+.horizontalcard_oder > div {
+  padding-right: 5%;
 }
 
 /* ---流動圖片區--- */
@@ -7767,6 +7882,116 @@ body {
 @media screen and (max-width: 768px) {
   .groupCities .groupCities_wrap .row .col-4 {
     margin: 10px 0;
+  }
+}
+
+.shopType {
+  margin: 50px auto;
+}
+
+.shopType .item .parttxt {
+  padding: 40%;
+}
+
+.shopType .item h3 {
+  color: white;
+  border: 1px solid white;
+  border-radius: 50% 0;
+  padding: 5px;
+  display: inline-block;
+}
+
+.shopType .col-6 {
+  padding: .2rem .2rem;
+  margin: 0;
+}
+
+.shopType .item {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.shopSearch {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.shopSearch_wrap {
+  margin: auto;
+  width: 80%;
+  position: relative;
+}
+
+.shopSearch input {
+  width: 100%;
+  border-radius: 50px;
+  border: 3px solid #23a0af;
+  line-height: 20px;
+}
+
+.shopSearch input:focus {
+  color: #23a0af;
+  outline: 0;
+  border: 3px solid #23a0af;
+}
+
+.shopSearchBtn {
+  width: 35px;
+  height: 28px;
+  background-color: #23a0af;
+  border: none;
+  border-radius: 50% 0;
+  position: absolute;
+  right: 0px;
+  cursor: pointer;
+}
+
+.shopSearchTag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.shopSearchTag li {
+  display: inline-block;
+  cursor: pointer;
+  background-color: #23a0af;
+  border-radius: 30px;
+  border: 1px solid #02dada;
+}
+
+.shopHotCity {
+  text-align: center;
+}
+
+.shopHotCity .city img {
+  border-radius: 50% 0;
+}
+
+.shopSort_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .shopType .item h3 {
+    padding: 60% 40%;
+  }
+  .shopType .col-md-3 {
+    padding: .1rem .1rem;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  .shopType .item:hover {
+    -webkit-transform: scale(1.02, 1.02);
+            transform: scale(1.02, 1.02);
   }
 }
 

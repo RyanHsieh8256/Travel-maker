@@ -47,10 +47,8 @@
     .navMember{
         display: flex;
         align-items: center;
-        li{
+        a{
             padding-left:20px;
-        }
-        .material-icons-sharp{
             font-size:24px;
             color: $black;
             &:hover{
