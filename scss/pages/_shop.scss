@@ -88,11 +88,12 @@ h2{
     border-radius: 50% 0;
 }
 
-.shopSort_wrap{
-    display: flex;
-    margin-bottom: 20px;
+.shopProduct .card_content{
+    margin: 0 15px;
+}
 
-    
+.shopProduct .card a{
+    color: black;
 }
 
 @media screen and (min-width:768px){
