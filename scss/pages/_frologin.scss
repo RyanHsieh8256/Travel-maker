@@ -1,0 +1,110 @@
+.bodyimg{
+    width: 100%;
+    height: 200vh;
+    top: 0;
+    img{
+        height: 100%;
+    }
+}
+
+// 以上背景
+
+.froLoginBG{
+    position: fixed;
+    top: 0;
+    right: 0;
+    backdrop-filter: blur(5px);
+    width: 100%;
+    height: 100vh;
+}
+
+
+
+//登入
+.froLoginBlock{
+    width: 350px;
+
+    position: fixed;
+    top:20%;
+    left: 50%;
+    transform: translate(-50%,0);
+    margin: auto;
+
+    border-radius: 10px;
+    border: .5px solid #3339;
+    box-shadow: 3px 3px 5px #3335;
+    background-color: $card-color;
+
+    //取消按鈕
+    .froLoginCancel{
+        position: absolute;
+        top: 0;
+        left: 100%;
+        transform: translate(-50%,-50%);
+        vertical-align: top;
+        .bi-x-circle-fill{
+            font-size: 25px;
+            color: $FooterBGColor;
+        }
+    }
+}
+
+
+//熊熊
+.froLoginSwitch{
+    display: flex;
+    text-align: center;
+    overflow: hidden;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    .froLoginSwitch_btn{
+        width: 50%;
+        background-color:#a39e9d;
+        padding: 5px 0;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .froLoginSwitch_active{
+        background-color:$card-color;
+    }
+
+}
+
+// 登入表單
+.froLogin_wrap{
+    margin: auto;
+    padding: 20px 0;
+    .froLoginForm{
+        display: flex;
+        flex-direction: column;
+        &+ .froLoginForm{
+            display: none;
+        }
+        .froLoginFormItem{
+            th{
+                padding: 10px 0;
+                text-align: right;
+            }
+            input{
+                border-radius: 3px;
+                border: none;
+                outline: none;
+                padding: 5px;
+                box-shadow: inset 0px 0px 2px #333;
+            }
+        }
+        .froLoginBtn{
+            text-align: center;
+            padding: 10px 0;
+            input{
+                background-color: $FooterBGColor;
+                color: $white;
+                border: none;
+                border-radius: 25px;
+                width: 70%;
+                padding: 5px 0;
+                box-shadow:0px 0px 1px #333;
+            }
+        }
+    }
+}

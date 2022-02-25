@@ -4,15 +4,156 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首頁</title>
+    <title>會員專區</title>
 
     <link rel="stylesheet" href="css/main.css">
-
+    <script src="js/jquery.js"></script>
+    <script src="js/vue.js"></script>
 </head>
 <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
-    
+<nav class="nav_Wrap">
+    <section class="navBlock">
+        <a href="">
+            <h1 class="navLogo">
+                <img src="images/logo/logo_84x50.png" alt="TravelMaker">
+            </h1>
+        </a>
+        <ul class="mainNav">
+            <a href=""><li>行程規劃</li></a>
+            <a href=""><li>揪團旅行</li></a>
+            <a href=""><li>商城</li></a>
+        </ul>
+        <ul class="navMember">
+            <a href=""><li><i class="bi bi-minecart-loaded"></i></li></a>
+            <a><li><i class="bi bi-person-circle"></i></li></a>
+            <a href=""><li><i class="bi bi-list"></i></li></a>
+        </ul>
+    </section>          
+</nav>
+<div class="bodyimg">
+    <img src="https://picsum.photos/1200/500/?random=10">
+</div>
+<div class="froLoginBG" id="froLoginBG">
+    <section class="froLoginBlock" id="froLoginBlock">
+        <!-- 取消按鈕 -->
+        <div class="froLoginCancel">
+            <button><i class="bi bi-x-circle-fill"></i></button>
+        </div>
+        <!-- 註冊/登入 -->
+        <div class="froLoginSwitch">
+            <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login'">
+                登入
+            </div>
+            <div class="froLoginSwitch_btn" @click="content='signin'">
+                註冊
+            </div>
+        </div> 
+        <!-- 表單區 -->
+        <div class="froLogin_wrap">
+            <keep-alive>
+                <component :is='content'></component>
+            </keep-alive>
+        </div>
+    </section>
+</div>
+<footer class="footer_Wrap">
+    <section class="footerBlock">
+        <ul class="footerMedia">
+            <a href=""><li><i class="bi bi-facebook"></i></li></a>
+            <a href=""><li><i class="bi bi-instagram"></i></li></a>
+            <a href=""><li><i class="bi bi-line"></i>
+            </ion-icon></li></a>
+        </ul>
+        <ul class="footerContect">
+            <li><i class="bi bi-telephone"></i>電話:03-1234567</li>
+            <li><i class="bi bi-envelope"></i>服務信箱:<a href="mailto:abc12345@gmail.com">abc12345@gmail.com</a></li>
+            <li><i class="bi bi-clock"></i>營業時間:09:00 ~ 18:00(一)~(五)</li>
+            <li><i class="bi bi-pin-map"></i>地址:桃園市桃園區中正路99999號</li>
+        </ul>
+        <ul class="footerTerms">
+            <a href=""><li>服務條款</li></a><a href=""><li>購物條款</li></a><a href=""><li>付款方式</li></a>
+        </ul>
+        <p class="footerCopyRight">&copy;copy right by nobody.Please don'tsue me.</p>
+    </section>
+</footer>
 </body>
+<script>
+    // 登入表單組件
+    Vue.component('login',{
+        template: `
+        <form action="" class="froLoginForm">
+                <table>
+                    <tr class="froLoginFormItem">
+                        <th>電子信箱:</th><td><input type="email"></td>
+                    </tr>
+                    <tr class="froLoginFormItem">
+                        <th>密碼:</th><td><input type="password"></td>
+                    </tr>
+                </table>
+                <div class="froLoginBtn">
+                    <input type="submit" name="" value="登入">
+                </div>
+            </form>
+        `,
+    });
+    // 註冊表單組件
+    Vue.component('signin',{
+        template: `
+        <form action="" class="froLoginForm">
+                <table>
+                    <tr class="froLoginFormItem">
+                        <th>電子信箱:</th><td><input type="email"></td>
+                    </tr>
+                    <tr class="froLoginFormItem">
+                        <th>密碼:</th><td><input type="password"></td>
+                    </tr>
+                    <tr class="froLoginFormItem">
+                        <th>確認密碼:</th><td><input type="password"></td>
+                    </tr>
+                    <tr class="froLoginFormItem">
+                        <th>電話:</th><td><input type="tel"></td>
+                    </tr>
+                    <tr class="froLoginFormItem">
+                        <th>生日:</th><td><input type="date"></td>
+                    </tr>
+                </table>
+                <div class="froLoginBtn">
+                    <input type="submit" name="" value="註冊">
+                </div>
+            </form>
+        `,
+    });
+    new Vue({
+        el: '#froLoginBlock',
+        data: {
+            content: 'login',
+        },
+    });
+</script>
+<script>
+
+    let froLoginSwitch_btn = document.querySelectorAll('.froLoginSwitch_btn');
+    let froLoginCancel = document.querySelectorAll('.froLoginCancel');
+    let froLoginBG = document.getElementById('froLoginBG');
+
+    // 註冊事件
+    function loginBox_doFirst(){
+        for(i=0;i<froLoginSwitch_btn.length;i++){
+            froLoginSwitch_btn[i].addEventListener('click',switchBtnColor)
+        };
+        froLoginCancel[0].addEventListener('click',closeLoginBox);
+    }
+
+    // 登入/註冊切換
+    function switchBtnColor(){
+        $('.froLoginSwitch_btn').removeClass('froLoginSwitch_active');
+        $(this).addClass('froLoginSwitch_active');
+    }
+
+    // 關閉燈箱
+    function closeLoginBox(){
+        froLoginBG.style.display = 'none';
+    }
+    window.addEventListener('load',loginBox_doFirst)
+</script>
 </html>

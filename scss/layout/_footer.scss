@@ -1,9 +1,11 @@
 .footer_Wrap{
     background-color: $FooterBGColor;
     padding: 20px 0;
-    .footerBlock{
-    width: 90%;
+    max-width: 1920px;
     margin: auto;
+    .footerBlock{
+        width: 90%;
+        margin: auto;
     }
 }
 .footerMedia{
@@ -42,7 +44,6 @@
     font-size: 12px;
     padding: 10px 0;
     a{
-        position: relative;
         margin: 0 10px;
         color: $white;//條約顏色
         li:hover{
@@ -50,7 +51,6 @@
         }
         & + a::before{
             content: '|';
-            position: absolute;
             left: -10px;
         }
     }
