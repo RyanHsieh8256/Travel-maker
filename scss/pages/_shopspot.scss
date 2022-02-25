@@ -117,11 +117,18 @@
   margin-top:20px ;
 }
 
+.sub_wrap .subbtn{
+  text-align: center;
+}
+
 .sub_wrap .subbtn>*{
   padding: 10px 20px;
-  border: 1px solid rgb(35,160,175);
-  background-color: aqua;
+  border: 1px solid #007183;
+  background-color: #007183;
   border-radius: 10px;
+  color: #fff;
+  margin-top: 30px;
+  
 }
 
   .shopspotContent{
