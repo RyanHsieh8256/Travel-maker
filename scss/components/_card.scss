@@ -45,9 +45,11 @@
         padding: 5%;
         background-color: $card-color;
         border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
 
         &--corner {
             position: relative;
+            box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
 
             &::before {
                 content: '';
@@ -72,10 +74,11 @@
     }
 
     &_tag {
-        background-color: #fff;
+        background-color: #FEBC9F;
         top: 0;
         right: 0;
         padding: 5px;
+        border-radius: 5px 0 0 5px;
     }
 
     &_date {
@@ -105,6 +108,7 @@
         font-size: 20px;
         font-weight: 600;
         margin-bottom: 5px;
+        color: #007183;
     }
 
     &_text {
