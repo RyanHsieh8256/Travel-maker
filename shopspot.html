@@ -5,18 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="../css/main.css"> -->
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="link/owl.carousel.min.css">
-    <link rel="stylesheet" href="link/owl.theme.default.min.css">
+    <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="shopspot.css">
-    <script src="link/jquery-3.6.0.min.js"></script>
-    <script src="link/owl.carousel.js"></script>
-    <script src="shop.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    
     
    
 </head>
@@ -47,7 +40,7 @@
                 </div>
                 <div class="sub">
                     <div class="sub_wrap">
-                        <h3>選擇數量</h3>
+                        <p>選擇數量</p>
                         <hr>
                             <table id="myTable" class="table">
                                 <tbody>
@@ -60,9 +53,9 @@
                                         </td>
                                         <td>
                                             <div class="button-container">
-                                                <button class="cart-qty-minus" type="button" value="-"><img src="images/minus-button.png" alt=""></button>
+                                                <button class="cart-qty-minus" type="button" value="-"><i class="bi bi-dash-circle-fill"></i></button>
                                                 <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
-                                                <button class="cart-qty-plus" type="button" value="+"><img src="images/plus.png" alt=""></button>
+                                                <button class="cart-qty-plus" type="button" value="+"><i class="bi bi-plus-circle-fill"></i></button>
                                             </div>
                                         </td>
                                        
@@ -77,9 +70,9 @@
                                         </td>
                                         <td>
                                             <div class="button-container">
-                                                <button class="cart-qty-minus" type="button" value="-"><img src="images/minus-button.png" alt=""></button>
+                                                <button class="cart-qty-minus" type="button" value="-"><i class="bi bi-dash-circle-fill"></i></button>
                                                 <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
-                                                <button class="cart-qty-plus" type="button" value="+"><img src="images/plus.png" alt=""></button>
+                                                <button class="cart-qty-plus" type="button" value="+"><i class="bi bi-plus-circle-fill"></i></button>
                                             </div>
                                         </td>
                                        
@@ -94,9 +87,9 @@
                                         </td>
                                         <td>
                                             <div class="button-container">
-                                                <button class="cart-qty-minus" type="button" value="-"><img src="images/minus-button.png" alt=""></button>
+                                                <button class="cart-qty-minus" type="button" value="-"><i class="bi bi-dash-circle-fill"></i></button>
                                                 <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
-                                                <button class="cart-qty-plus" type="button" value="+"><img src="images/plus.png" alt=""></button>
+                                                <button class="cart-qty-plus" type="button" value="+"><i class="bi bi-plus-circle-fill"></i></button>
                                             </div>
                                         </td>
                                         
@@ -126,7 +119,7 @@
                     <div class="shopspotContent col-12 col-lg-8">
                         <div class="l-medium shopspotFeatured">
                             <div class="shopspotContentMark">
-                            <ion-icon name="golf-outline" class="spot"></ion-icon>
+                                <i class="bi bi-building"></i>
                             <h2 class="contentTitle">景點特色</h2>
                             </div>
                             <div class="featured">
@@ -154,7 +147,7 @@
                 
                         <div class="l-medium shopspotIllustrate">
                             <div class="shopspotContentMark">
-                            <ion-icon name="golf-outline" class="spot"></ion-icon>
+                           <i class="bi bi-building"></i>
                             <h2 class="contentTitle">票券說明</h2>
                             </div>
                            <div class="shopspotText">
@@ -163,7 +156,7 @@
                         </div>
                         <div class="l-medium shopspotGuide">
                             <div class="shopspotContentMark">
-                            <ion-icon name="golf-outline" class="spot"></ion-icon>
+                           <i class="bi bi-building"></i>
                             <h2 class="contentTitle">購買須知</h2>
                             </div>
                            <div class="shopspotText">
@@ -172,7 +165,7 @@
                         </div>
                         <div class="l-medium shopspotMethod">
                             <div class="shopspotContentMark">
-                            <ion-icon name="golf-outline" class="spot"></ion-icon>
+                           <i class="bi bi-building"></i>
                             <h2 class="contentTitle">使用方法</h2>
                             </div>
                            <div class="shopspotText">
@@ -182,7 +175,7 @@
                 
                         <div class="l-medium shopspotNotice">
                             <div class="shopspotContentMark">
-                                <ion-icon name="golf-outline" class="spot"></ion-icon>
+                               <i class="bi bi-building"></i>
                                 <h2 class="contentTitle">注意事項</h2>
                             </div>
                             <ul>
@@ -208,5 +201,111 @@
             </div>           
         </section>
     </main>
+    <script>
+        $(document).ready(function(){
+ //slide
+ var shopspotSlide = $("#shopspotSlide");
+ 
+
+function isMobileDevice(){
+  let mobileDevices = ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone']
+  let isMobileDevice=false
+  for(let i=0;i<mobileDevices.length;i++){
+      if(navigator.userAgent.match(mobileDevices[i])){
+          isMobileDevice=true
+      }
+  }
+  return isMobileDevice
+}
+
+if(isMobileDevice() != true){
+// 桌機的話執行
+shopspotSlide.owlCarousel({
+  center: true,
+  items:1.5,
+  loop:true,
+  margin:10,
+  nav:true
+
+});
+}else{
+  //手機的話
+  shopspotSlide.owlCarousel({
+    items: 1,
+    autoplay: true,
+    loop:true,
+    nav:true,
+  });
+};
+
+
+  //  -----------------for-Shopping-cart-------------
+$(document).ready(function(){
+  update_amounts();
+  $('.qty, .price').on('keyup keypress blur change', function(e) {
+    update_amounts();
+  });
+});
+function update_amounts(){
+var sum = 0.0;
+    $('#myTable > tbody  > tr').each(function() {
+    var qty = $(this).find('.qty').val();
+      var price = $(this).find('.price').val();
+      var amount = (qty*price)
+      sum+=amount;
+      $(this).find('.amount').text(''+amount);
+    });
+     
+$('.total').text(sum);
+}
+
+
+
+// ----------------for quantity-increment-or-decrement-------
+var incrementQty;
+var decrementQty;
+var plusBtn  = $(".cart-qty-plus");
+var minusBtn = $(".cart-qty-minus");
+var incrementQty = plusBtn.click(function() {
+var $n = $(this)
+  .parent(".button-container")
+  .find(".qty");
+$n.val(Number($n.val())+1 );
+update_amounts();
+});
+
+var decrementQty = minusBtn.click(function() {
+  var $n = $(this)
+  .parent(".button-container")
+  .find(".qty");
+var QtyVal = Number($n.val());
+if (QtyVal > 0) {
+  $n.val(QtyVal-1);
+}
+update_amounts();
+});
+
+});
+
+//deadline
+let deadline = document.querySelectorAll('.deadline');
+
+
+console.log(deadline);
+var myDate = new Date()
+myDate.setMonth(myDate.getMonth() + 3);
+// console.log(myDate);
+let year = myDate.getFullYear();
+let month = myDate.getMonth()+1;
+let date = myDate.getDate();
+
+for(let i =0;i<deadline.length;i++){
+ deadline[i].innerText = `${year} / ${month} / ${date}`;   
+}
+// console.log(year, month, date);
+// console.log(`${year} / ${month}/ ${date}`);
+
+    </script>
+    
 </body>
 </html>
