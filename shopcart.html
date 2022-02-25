@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="shopcart.css">
-    <script src="link/jquery-3.6.0.min.js"></script>
-    
+    <link rel="stylesheet" href="css/main.css">
+    <!-- <link rel="stylesheet" href="shopcart.css"> -->
     <!-- <script src="shop.js"></script> -->
 </head>
 <body>
@@ -18,7 +17,7 @@
                 <hr>
                 <div class="shoplist">
                     <div class="proimg">
-                        <img src="images/lake-sunset-2021-08-26-18-27-36-utc-1.jpg">
+                        <img src="images/shop/shopType_east.jpg">
                     </div>
                     <div class="shoplist_text">
                         <h3>商品名稱</h3>
@@ -32,7 +31,7 @@
                 <hr>
                 <div class="shoplist">
                     <div class="proimg">
-                        <img src="images/lake-sunset-2021-08-26-18-27-36-utc-1.jpg">
+                        <img src="images/shop/shopType_east.jpg">
                     </div>
                     <div class="shoplist_text">
                         <h3>商品名稱</h3>
@@ -46,7 +45,7 @@
                 <hr>
                 <div class="shoplist">
                     <div class="proimg">
-                        <img src="images/lake-sunset-2021-08-26-18-27-36-utc-1.jpg">
+                        <img src="images/shop/shopType_east.jpg">
                     </div>
                     <div class="shoplist_text">
                         <h3>商品名稱</h3>
@@ -69,7 +68,24 @@
         </section>
 
     </main>
-
-    <script src="shop.js"></script>
+<script>
+//deadline
+    let deadline = document.querySelectorAll('.deadline');
+    
+    
+    console.log(deadline);
+    var myDate = new Date()
+    myDate.setMonth(myDate.getMonth() + 3);
+    // console.log(myDate);
+    let year = myDate.getFullYear();
+    let month = myDate.getMonth()+1;
+    let date = myDate.getDate();
+    
+    for(let i =0;i<deadline.length;i++){
+     deadline[i].innerText = `${year} / ${month} / ${date}`;   
+    }
+    // console.log(year, month, date);
+    // console.log(`${year} / ${month}/ ${date}`);
+    </script>
 </body>
 </html>

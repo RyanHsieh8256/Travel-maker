@@ -1,3 +1,4 @@
+
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
   background: #535D26;
   }
@@ -48,6 +49,7 @@
   width: 80%;
   margin: auto;
   margin-bottom: 10px;
+  text-align: left;
 }
 
 .shopspotInfo .title{
@@ -88,6 +90,7 @@
 
 .shopspotInfo .button-container{
   display: flex;
+  justify-content: space-between;
   
 }
 
@@ -101,7 +104,7 @@
 }
 
 .shopspotInfo .qty{
-  width: 40px;
+  width: 50px;
   margin: 5px;
 }
 
@@ -115,6 +118,11 @@
 .shopspotInfo .total{
   display: inline-block;
   margin-top:20px ;
+}
+
+.sub_wrap{
+  width: 95%;
+  margin: auto;
 }
 
 .sub_wrap .subbtn{
@@ -141,12 +149,13 @@
       padding: 10px;
       padding-left: 30px;
       display: inline-block;
+      margin-left: 10px;
       
      
   }
 
   .shopspotContentMark{
-      background-color: #fff;
+      background-color: $bodyBGcolor;
       display: flex;
       position: absolute;
       top: -20px;
@@ -154,13 +163,13 @@
 
   }
 
-  .shopspotContentMark .spot{
+  .bi.bi-building{
       position: absolute;
-      left: -20px;
-      top: 1px;
-      border: 1px solid black;
-      background-color: #fff;
-      font-size: 25px;
+      left: -10px;
+      top: 0;
+      border: 1.5px solid black;
+      background-color: $bodyBGcolor;
+      font-size: 30px;
       margin-bottom: 0;
       padding: 5px;
       border-radius: 50%;
@@ -168,13 +177,16 @@
 
   .shopspotContent>*{
       margin: 30px auto;
-      border: 1px solid black;
+      border: 1.5px solid black;
       border-radius: 10px;
-      padding: 20px;
+      padding: 35px;
       line-height: 20px;
       position: relative;
   }
    
+  .shopspotSelect{
+    display: none;
+  }
   
 
   @media screen and (min-width:768px){
@@ -206,6 +218,8 @@
 
 .shopspotInfo .sub{
   width: 40%;
+  margin-left: 0;
+  
 }
 
 .shopspotInfo .sub_wrap{
@@ -213,13 +227,22 @@
   /* margin: auto; */
 }
 
-/* .shopspotSelect{
+.shopspotInfo .sub_wrap table{
+  width: 100%;
+}
+
+.button-container{
+  width: 100%;
+}
+
+.shopspotSelect{
+  padding: 50px;
+  display: block;
   position: sticky;
   top: 0;
-} */
-
-    
-
+  height: 100px;
+  
+}
 
 }
 
