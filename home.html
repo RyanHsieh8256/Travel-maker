@@ -9,307 +9,6 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
 
-    <style>
-
-        /* 共用 (內容再調整) */
-        .main-title {
-            font-size: 85px;
-            font-weight: 700;
-            color: transparent;
-            -webkit-text-stroke: 2px #007183;
-            letter-spacing: 10px;
-            
-        }
-
-        .second-title {
-            font-size: 9vh;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .third-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: #fff;
-            text-align: center;
-            
-        }
-
-        .p-span {
-            font-size: 20px;
-            font-weight: 600;
-            
-        }
-
-        .t-right {
-            text-align: right;
-        }
-
-        
-
-        .overlay {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            left: 0%;
-            z-index: 3000;
-            background-color: #007183;
-        }
-
-        .first {
-        top: 0;
-        }
-
-        .second {
-        top: 33.3%
-        }
-
-        .third {
-        top: 66.6%;
-        }
-
-        .l-hori {
-            display: flex;
-            margin: auto;
-            width: 100%;
-            min-width: 100vw;
-            height: 100%;
-            padding: 0 1%;   
-        }
-
-        .as-end {
-            align-self: end;
-        }
-
-
-        .progress_bar {
-            position: fixed;
-            bottom: 5%;
-            left: 3%;
-            width: 70%;
-            height: 1.5px;
-            background-color: #ece9e6;
-            z-index: 1000;
-        }
-
-        .progress_barNav {
-            position: absolute;
-            transition: width .2s ease;
-            height: 1.5px;
-            background-color: #CDA24F;
-            transition: width .2s ease;
-            z-index: 1100;
-        }
-
-        .iconNav {
-            position: fixed;
-            top: 3%;
-            right: 1%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 30%;
-            min-width: 100px;
-            max-width: 200px;
-            padding: 0 20px;
-            z-index: 2200;
-        }
-
-        .iconNav-item {
-            width: 27%;
-            max-width: 50px;
-            text-align: center;
-        }
-
-
-
-        .iconNav-link {
-            color: #000;
-            display: block;
-        }
-
-        .burger-toggle {
-            position: relative;
-            background-color: #007183;
-            border-radius: 50%;
-            padding-bottom: 100%;
-            
-        }
-
-        .burger-toggle::before {
-            content: '';
-            position: absolute;
-            top: 30%;
-            right: 5px;
-            width: 30%;
-            height: 2px;
-            background-color: #FFC3A5;
-        }
-
-        .burger-toggle::after {
-            content: '';
-            position: absolute;
-            top: 70%;
-            right: 5px;
-            width: 75%;
-            height: 2px;
-            background-color: #FFC3A5;
-        }
-
-        .burger-line {
-            position: absolute;
-            top: 50%;
-            right: 5px;
-            width: 45%;
-            height: 2px;
-            background-color: #FFC3A5;
-        }
-
-    
-     
-
-        /* image Map */
-        .imageMap {
-            width: 100%;
-            height: 80vh;
-            display: grid;
-            align-self: center;
-            grid-template-columns: .8fr 2fr 2fr repeat(5,1fr);
-            /* transform: scale(1.5); */
-            background: url('images/bg-02_1.svg');
-            background-size: 30%;
-            
-            position: relative;
-            overflow: hidden;
-            
-        }
-
-        .imageMap_card {
-            position: absolute;
-            width: 200px;
-            padding: 8px 8px 50px 8px;
-            background-color: #fdf5f5;
-            box-shadow: rgba(55, 93, 136, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-
-            
-        }
-
-        .imageMap_card:before {
-            content: '';
-            position: absolute;
-            width: 7px;
-            height: 22px;
-            background-color: #D5B58F;
-            top: -16px;
-            left: 50%;
-            box-shadow: rgba(133, 109, 81, 0.15) 1.95px 1.95px 2.6px;
-            transform: rotate(7deg);
-            border-bottom: 1px solid #856c3bad;
-        }
-
-        .imageMap_card:first-child {
-            top: 5%;
-            left: 3%;
-        }
-
-        .imageMap_card:nth-child(2) {
-            top: 8%;
-            left: 40%;
-            transform: rotate(7deg);
-        }
-
-        .imageMap_card:nth-child(3) {
-            top: 55%;
-            left: 45%;
-            transform: rotate(-5deg);
-        }
-
-        .imageMap_card:nth-child(4) {
-            top: 15%;
-            right: 6%;
-            transform: rotate(-3deg);
-        }
-
-        .imageMap_card:nth-child(5) {
-            top: 42%;
-            left: 12%;
-            transform: rotate(10deg);
-        }
-
-        .imageMap_card:nth-child(6) {
-            bottom: 10%;
-            right: 3%;
-            
-        }
-
-        div.row0e,div.row1e,div.row2e,div.row4d,div.row6e,div.row1d,div.row2d,div.row4c,div.row5d,div.row4b,div.row5b,div.row3c,div.row2c {
-        border-left: 3px solid #FFC3A5;
-        }
-
-        div.row2d,div.row2e,div.row2f,div.row2g,div.row4a,div.row4b {
-        border-top: 3px solid #FFC3A5;
-        }
-
-        div.row2d,div.row2e,div.row3f,div.row4b,div.row3c{
-        border-bottom: 3px solid #FFC3A5;
-        }
-
-        div.row1e {
-        grid-column-end: span 2;
-        background-image: url('https://images.pexels.com/photos/1252500/pexels-photo-1252500.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-        background-size: cover;
-        border-right: 3px solid #FFC3A5;
-        }
-
-        div.row2d {
-        grid-row-end: span 2;
-        background-image: url('https://images.pexels.com/photos/4388167/pexels-photo-4388167.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-        background-size: cover;
-        background-position: center center;
-        }
-
-        div.row2e {
-        grid-row-end: span 2;
-        grid-column-end: span 2;
-        background-image: url('https://images.pexels.com/photos/3493777/pexels-photo-3493777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-        background-size: cover;
-        border-right: 2px solid #FFC3A5;
-        filter: contrast(.7);
-        transition: .4s filter ease-in-out;
-        }
-
-        div.row2e:hover {
-            filter: contrast(1);
-        }
-
-        div.row2f {
-        background-image: url('https://images.pexels.com/photos/3014596/pexels-photo-3014596.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-        background-size: cover;
-        border-bottom: 2px solid #FFC3A5;
-        }
-
-        div.row3c {
-        grid-row-end: span 2;
-        background-image: url('https://images.pexels.com/photos/2446396/pexels-photo-2446396.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-        background-size: cover;
-        }
-
-        div.row4b {
-        background-image: url('https://images.pexels.com/photos/691668/pexels-photo-691668.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-        background-size: cover;
-        }
-
-        div.row4d {
-        grid-row-end: span 2;
-        background-image: url('https://images.pexels.com/photos/1010079/pexels-photo-1010079.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-        background-size: cover;
-        border-bottom: 2px solid #FFC3A5;
-        }
-
-       
-
-
-    </style>
 
 </head>
 <body class="home_body">
@@ -396,61 +95,6 @@
                                         <img src="https://www.fun01.cc/ups/20079/images/20171128/5a1cb08246cf5.png" alt="">
                                     </div>
                                 </div>
-                                <!-- <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div class="row0e"></div>
-                                <div></div>
-                                <div></div>
-                                <div></div> -->
-                                <!--  row1  -->
-                                <!-- <div></div>
-                                <div></div>
-                                <div></div>
-                                <div class="row1d"></div>
-                                <div class="row1e"></div>
-                                <div></div>
-                                <div></div> -->
-                                <!--  row2  -->
-                                <!-- <div></div>
-                                <div></div>
-                                <div class="row2c"></div>
-                                <div class="row2d"></div>
-                                <div class="row2e"></div>
-                                <div class="row2f"></div>
-                                <div class="row2g"></div> -->
-                                <!--  row3  -->
-                                <!-- <div></div>
-                                <div></div>
-                                <div class="row3c"></div>
-                                <div class="row3f"></div>
-                                <div></div> 
-                                <div class="row4a"></div> -->
-                                <!--  row4  -->
-                                <!-- <div  class="row4b"></div>
-                                <div class="row4c"></div>
-                                <div class="row4d"></div>
-                                <div></div>
-                                <div></div>
-                                <div></div> -->
-                                <!--  row5  -->
-                                <!-- <div></div>
-                                <div class="row5b"></div>
-                                <div></div>
-                                <div class="row5d"></div>
-                                <div></div>
-                                <div></div>
-                                <div></div> -->
-                                <!--  row6  -->
-                                <!-- <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div class="row6e"></div>
-                                <div></div>
-                                <div></div>
-                                <div></div> -->
                             </div>
                         </div>
                     </div>
@@ -796,23 +440,29 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
     <script>
+    
+    function homeAni() {
         TweenMax.to('.first', 1.5, {
-      delay: .2,
-      left: '-100%',
-      ease: Expo.easeInOut
-    })
+            delay: .2,
+            left: '-100%',
+            ease: Expo.easeInOut
+        })
 
-    TweenMax.to('.second', 1.5, {
-      delay: .4,
-      left: '-100%',
-      ease: Expo.easeInOut
-    })
+        TweenMax.to('.second', 1.5, {
+            delay: .4,
+            left: '-100%',
+            ease: Expo.easeInOut
+        })
 
-    TweenMax.to('.third', 1.5, {
-      delay: .6,
-      left: '-100%',
-      ease: Expo.easeInOut
-    })
+        TweenMax.to('.third', 1.5, {
+            delay: .6,
+            left: '-100%',
+            ease: Expo.easeInOut
+        })
+    }
+
+    homeAni();
+    
 
     function fillBar() {
 

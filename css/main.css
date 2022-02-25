@@ -61,11 +61,13 @@ table {
 
 a {
   text-decoration: none;
+  display: inline-block;
 }
 
 button {
   border: none;
   background-color: transparent;
+  font-family: serif;
 }
 
 img {
@@ -76,11 +78,12 @@ img {
 }
 
 body {
-  font-family: 'Caveat',serif;
+  font-family: 'Noto Sans TC', sans-serif;
   line-height: 1.5;
   letter-spacing: 1px;
-  font-weight: 400;
+  font-weight: 500;
   color: #333;
+  background-color: #f0eee7;
 }
 
 .l-full {
@@ -359,8 +362,6 @@ body {
 
 .card_content--corner {
   position: relative;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
-          box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
 }
 
 .card_content--corner::before {
@@ -387,7 +388,7 @@ body {
   top: 0;
   right: 0;
   padding: 5px;
-  border-radius: 5px 0 0 5px;
+  border-radius: 0 0 0 10px;
 }
 
 .card_date {
@@ -421,6 +422,10 @@ body {
 
 .card_text {
   font-size: 14px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .card_footer {
@@ -461,6 +466,250 @@ body {
   color: #FEBC9F;
 }
 
+.main-title {
+  font-size: 85px;
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 2px #007183;
+  letter-spacing: 10px;
+}
+
+.second-title {
+  font-size: 9vh;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.third-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+}
+
+.p-span {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.t-right {
+  text-align: right;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0%;
+  z-index: 3000;
+  background-color: #007183;
+}
+
+.first {
+  top: 0;
+}
+
+.second {
+  top: 33.3%;
+}
+
+.third {
+  top: 66.6%;
+}
+
+.l-hori {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  width: 100%;
+  min-width: 100vw;
+  height: 100%;
+  padding: 0 1%;
+}
+
+.as-end {
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
+}
+
+.progress_bar {
+  position: fixed;
+  bottom: 5%;
+  left: 3%;
+  width: 70%;
+  height: 1.5px;
+  background-color: #ece9e6;
+  z-index: 1000;
+}
+
+.progress_barNav {
+  position: absolute;
+  -webkit-transition: width .2s ease;
+  transition: width .2s ease;
+  height: 1.5px;
+  background-color: #CDA24F;
+  transition: width .2s ease;
+  z-index: 1100;
+}
+
+.iconNav {
+  position: fixed;
+  top: 3%;
+  right: 1%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 30%;
+  min-width: 100px;
+  max-width: 200px;
+  padding: 0 20px;
+  z-index: 2200;
+}
+
+.iconNav-item {
+  width: 27%;
+  max-width: 50px;
+  text-align: center;
+}
+
+.iconNav-link {
+  color: #000;
+  display: block;
+}
+
+.burger-toggle {
+  position: relative;
+  background-color: #007183;
+  border-radius: 50%;
+  padding-bottom: 100%;
+}
+
+.burger-toggle::before {
+  content: '';
+  position: absolute;
+  top: 30%;
+  right: 5px;
+  width: 30%;
+  height: 2px;
+  background-color: #FFC3A5;
+}
+
+.burger-toggle::after {
+  content: '';
+  position: absolute;
+  top: 70%;
+  right: 5px;
+  width: 75%;
+  height: 2px;
+  background-color: #FFC3A5;
+}
+
+.burger-line {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  width: 45%;
+  height: 2px;
+  background-color: #FFC3A5;
+}
+
+/* image Map */
+.imageMap {
+  width: 100%;
+  height: 80vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-columns: 0.8fr 2fr 2fr (1fr)[5];
+      grid-template-columns: 0.8fr 2fr 2fr repeat(5, 1fr);
+  background: url("../images/bg-02_1.svg");
+  background-size: 30%;
+  position: relative;
+  overflow: hidden;
+}
+
+.imageMap_card {
+  position: absolute;
+  width: 200px;
+  padding: 8px 8px 50px 8px;
+  background-color: #fdf5f5;
+  -webkit-box-shadow: rgba(55, 93, 136, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+          box-shadow: rgba(55, 93, 136, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.imageMap_card::before {
+  content: '';
+  position: absolute;
+  width: 7px;
+  height: 22px;
+  background-color: #D5B58F;
+  top: -16px;
+  left: 50%;
+  -webkit-box-shadow: rgba(133, 109, 81, 0.15) 1.95px 1.95px 2.6px;
+          box-shadow: rgba(133, 109, 81, 0.15) 1.95px 1.95px 2.6px;
+  -webkit-transform: rotate(7deg);
+          transform: rotate(7deg);
+  border-bottom: 1px solid #856c3bad;
+}
+
+.imageMap_card:first-child {
+  top: 5%;
+  left: 3%;
+}
+
+.imageMap_card:nth-child(2) {
+  top: 8%;
+  left: 40%;
+  -webkit-transform: rotate(7deg);
+          transform: rotate(7deg);
+}
+
+.imageMap_card:nth-child(3) {
+  top: 55%;
+  left: 45%;
+  -webkit-transform: rotate(-5deg);
+          transform: rotate(-5deg);
+}
+
+.imageMap_card:nth-child(4) {
+  top: 15%;
+  right: 6%;
+  -webkit-transform: rotate(-3deg);
+          transform: rotate(-3deg);
+}
+
+.imageMap_card:nth-child(5) {
+  top: 42%;
+  left: 12%;
+  -webkit-transform: rotate(10deg);
+          transform: rotate(10deg);
+}
+
+.imageMap_card:nth-child(6) {
+  bottom: 10%;
+  right: 3%;
+}
+
+.home_body {
+  font-family: 'Caveat','Noto Sans TC', sans-serif;
+  background-color: #ECEBE8;
+}
+
+@media screen and (min-width: 1200px) {
+  .home_body {
+    overflow: hidden;
+  }
+}
+
 .home_wrap {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -479,13 +728,6 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-@media screen and (min-width: 1200px) {
-  .home_body {
-    overflow: hidden;
-    background-color: #ECEBE8;
-  }
 }
 
 .homeBanner_title {
