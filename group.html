@@ -33,9 +33,21 @@
                 <div class="row">
                     <div class="col-4 col-md-2">
                         <div class="pic">
-                            <img src="./images/group/groupCities_kaohsiung.jpg" alt="kaohsiung">
+                            <img src="./images/group/groupCities_taipei.jpg" alt="taipei">
                         </div>
-                        <div class="txt">高雄</div>
+                        <div class="txt">台北</div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="pic">
+                            <img src="./images/group/groupCities_taoyuan.jpg" alt="taoyuan">
+                        </div>
+                        <div class="txt">桃園</div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="pic">
+                            <img src="./images/group/groupCities_taichung.jpg" alt="taichung">
+                        </div>
+                        <div class="txt">台中</div>
                     </div>
                     <div class="col-4 col-md-2">
                         <div class="pic">
@@ -45,27 +57,15 @@
                     </div>
                     <div class="col-4 col-md-2">
                         <div class="pic">
-                            <img src="./images/group/groupCities_kaohsiung.jpg" alt="kaohsiung">
+                            <img src="./images/group/groupCities_taitung.jpg" alt="taitung">
                         </div>
-                        <div class="txt">高雄</div>
+                        <div class="txt">台東</div>
                     </div>
                     <div class="col-4 col-md-2">
                         <div class="pic">
-                            <img src="./images/group/groupCities_kaohsiung.jpg" alt="kaohsiung">
+                            <img src="./images/group/groupCities_hualian.jpg" alt="hualian">
                         </div>
-                        <div class="txt">高雄</div>
-                    </div>
-                    <div class="col-4 col-md-2">
-                        <div class="pic">
-                            <img src="./images/group/groupCities_kaohsiung.jpg" alt="kaohsiung">
-                        </div>
-                        <div class="txt">高雄</div>
-                    </div>
-                    <div class="col-4 col-md-2">
-                        <div class="pic">
-                            <img src="./images/group/groupCities_kaohsiung.jpg" alt="kaohsiung">
-                        </div>
-                        <div class="txt">高雄</div>
+                        <div class="txt">花蓮</div>
                     </div>
                 </div>
             </div>
@@ -77,23 +77,15 @@
                     <input type="text" class="search_input">
                     <button class="search"><i class="bi bi-search"></i></button>
                 </form>
-                <div class="keyword_wrap">
-                    <span class="topSearch">熱門搜尋：</span>
-                    <ul>
-                        <li><button class="tag">櫻花祭</button></li>
-                        <li><button class="tag">櫻花祭</button></li>
-                        <li><button class="tag">櫻花祭</button></li>
-                    </ul>
-                </div>
             </div>
         </section>
 <!-- 篩選下拉式選單和揪團內容區 -->
         <section class="l-full groupContent">
             <div class="l-large groupContent_wrap">
-                <div id="filterMobile">篩選</div>
+                <div class="filterMobile" id="filterMobile">篩選</div>
                 <div class="row">
-                    <div class="col-12 col-md-3" id="filter">
-                        <div id="filter_wrap">
+                    <div class="col-12 col-md-3 filter">
+                        <div class="filter_wrap" id="filter_wrap">
                             <!-- <div class="city"> -->
                                 <select v-model="selectedCity" class="dropdownMenu">
                                     <option value="" disabled>旅遊地區</option>
@@ -112,56 +104,58 @@
                                     <option v-for="date in dates">{{date}}</option>
                                 </select>
                             <!-- </div> -->
-                            <button id="filterBtn">篩選</button>
+                            <button class="filterBtn" id="filterBtn">篩選</button>
                         </div>
                     </div>
                     <!-- 卡片放置區 -->
                     <div class="row col-12 col-md-9">
                         <div class="card col-12 col-md-4">
                             <!-- 卡片頭 -->
-                            <div class="card_header">
-                                <div class="card_person">
-                                    <div class="card_photo">
-                                        <img src="https://picsum.photos/50/50/?random=10" alt="">
+                            <a href="./groupdetail.html">
+                                <div class="card_header">
+                                    <div class="card_person">
+                                        <div class="card_photo">
+                                            <img src="https://picsum.photos/50/50/?random=10" alt="">
+                                        </div>
+                                        <div class="card_name">人才丁丁</div>
                                     </div>
-                                    <div class="card_name">人才丁丁</div>
-                                </div>
-                                <div class="card_hit">
-                                    <span>19999</span>
-                                    點擊
-                                </div>
-                            </div>
-                            <!-- 卡片內容 -->
-                            <div class="card_content card_content--corner">
-                                <div class="card_body">
-                                    <span class="card_tag">台東</span>
-                                    <div class="card_img">
-                                        <img src="https://picsum.photos/300/200/?random=10" alt="">
+                                    <div class="card_hit">
+                                        <span>19999</span>
+                                        點擊
                                     </div>
-                                    <div class="card_date">
-                                        <p class="card_time card_time--start">
-                                            <span>出發日期:</span>
-                                            2022/1/2
+                                </div>
+                                <!-- 卡片內容 -->
+                                <div class="card_content card_content--corner">
+                                    <div class="card_body">
+                                        <span class="card_tag">台東</span>
+                                        <div class="card_img">
+                                            <img src="https://picsum.photos/300/200/?random=10" alt="">
+                                        </div>
+                                        <div class="card_date">
+                                            <p class="card_time card_time--start">
+                                                <span>出發日期:</span>
+                                                2022/1/2
+                                            </p>
+                                            <p class="card_time card_time--end">
+                                                <span>回程日期:</span>
+                                                2022/1/4
+                                            </p>
+                                        </div>
+                                        <h3 class="card_title">台東秘境嘉明湖三日登山行程(含山屋申請)｜發現天使的眼淚</h3>
+                                        <p class="card_text">
+                                            想一探台東秘境"嘉明湖"真實面貌，就必須爬上海拔3000多公尺的高山，三日裡背負重裝，由專業高山嚮導帶領從池上出發3天2夜，沿途中，不斷地與自己對話，行程提供代為申請山屋或營帳住宿，加上免背免備公器公糧服務，讓您能保存更多的體力去應付前往嘉明湖三叉向陽山的登山路程。當親眼見到『天使的眼淚-嘉明湖』之美，神秘又遙遠的台灣美景，讓人學會敬畏與謙卑。越美的風景，越要觀察，保持神秘，她永遠在心中，隱藏在高山中湛藍的絕美湖泊景致。
                                         </p>
-                                        <p class="card_time card_time--end">
-                                            <span>回程日期:</span>
-                                            2022/1/4
-                                        </p>
                                     </div>
-                                    <h3 class="card_title">台東秘境嘉明湖三日登山行程(含山屋申請)｜發現天使的眼淚</h3>
-                                    <p class="card_text">
-                                        想一探台東秘境"嘉明湖"真實面貌，就必須爬上海拔3000多公尺的高山，三日裡背負重裝，由專業高山嚮導帶領從池上出發3天2夜，沿途中，不斷地與自己對話，行程提供代為申請山屋或營帳住宿，加上免背免備公器公糧服務，讓您能保存更多的體力去應付前往嘉明湖三叉向陽山的登山路程。當親眼見到『天使的眼淚-嘉明湖』之美，神秘又遙遠的台灣美景，讓人學會敬畏與謙卑。越美的風景，越要觀察，保持神秘，她永遠在心中，隱藏在高山中湛藍的絕美湖泊景致。
-                                    </p>
-                                </div>
-                                <!-- 卡片尾巴 -->
-                                <div class="card_footer">
-                                    <div class="card_time card_time--deadline">
-                                        <span>報名截止</span>
-                                        2021/12/30
+                                    <!-- 卡片尾巴 -->
+                                    <div class="card_footer">
+                                        <div class="card_time card_time--deadline">
+                                            <span>報名截止</span>
+                                            2021/12/30
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                                                        </div>
+                            </a>
                         <div class="card col-12 col-md-4">
                             <!-- 卡片頭 -->
                             <div class="card_header">
@@ -271,46 +265,16 @@
         });
     </script>
     <script>
-        $(function(){
+        function init(){
             let filterMobile = document.getElementById('filterMobile');
             filterMobile.addEventListener('click', showFilter);
-        })
+        }
         function showFilter(){
-            
+            let filter = document.querySelector('.filter');
+            filter.classList.toggle('is_active');
 
         }
-        // function isMobileDevice(){
-        //     let mobileDevices = ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone']
-        //     let isMobileDevice=false
-        //     for(let i=0;i<mobileDevices.length;i++){
-        //         if(navigator.userAgent.match(mobileDevices[i])){
-        //             isMobileDevice=true;
-        //         }
-        //     }
-        //     return isMobileDevice;
-        // }
-
-        // if(isMobileDevice() != true){
-        //     $("body").mousemove(function(e){
-        //     let X = e.clientX;
-        //     let Y = e.clientY;
-        //     console.log(X,Y);
-        //     setTimeout(function(){
-        //     $('#mouseEffect').css({
-        //         top:Y + "px",
-        //         left:X + "px",
-        //         opacity:'1'
-        //     });
-        //     },50)
-        //     setTimeout(function(){
-        //         $('#mouseEffect2').css({
-        //         top:Y + "px",
-        //         left:X + "px",
-        //         opacity:'1'
-        //         });
-        //     },150)
-        //     });
-        // };
+        window.addEventListener('load', init);
     </script>
     <footer></footer>
     

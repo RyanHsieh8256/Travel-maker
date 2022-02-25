@@ -1,0 +1,195 @@
+.personal_info,.shoppaycredit,.detail{
+    width: 80%;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.personal_info .name{
+    margin-bottom: 0;
+}
+
+.personal_info .contact{
+    margin-top: 0;
+}
+
+.personal_info .name>*{
+    /* display: block; */
+    margin: 10px;
+   
+}
+
+.personal_info .contact>*{
+    /* display: block; */
+    margin: 10px;
+}
+
+.personal_info>*{
+    margin: 20px;
+}
+
+.personal_info input{
+    /* margin-left: 10px; */
+}
+
+.personal_info .name>*{
+    margin-right: 2rem;
+}
+
+.personal_info .contact>*{
+    margin-right: 2rem;
+}
+
+.shoppaycredit_info>*{
+    /* display: block; */
+    margin: 10px;
+}
+
+.shoppaycredit>*{
+    margin: 20px;
+}
+
+.shoppaycredit_info input{
+    /* margin-left: 10px; */
+}
+
+.shoplist{
+    margin: 10px;
+    display: flex;
+    
+}
+
+.shoplist img{
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    margin: 10px;
+    
+}
+
+.shoplist .content{
+    width: 80%;
+    
+}
+
+.shoplist h3{
+    margin-top: 10px;
+}
+
+.shoplist .text p{
+    margin: 10px auto;
+    
+}
+
+
+.shoplist .deadline{
+    margin-left: 5px;
+    
+}
+
+.shoplist .sub{
+    margin: 0 10px;
+    display: block;
+    text-align: right;
+}
+
+.shoplist_total{
+    margin: 15px;
+    text-align: right;
+}
+
+.shopcart .shopbtn{
+    margin: auto;
+    width: 80%;
+    text-align: right;
+}
+
+.shoppayconfirm{
+    text-align: center;
+}
+
+.shoppayconfirm .confirm{
+    border-radius: 10px;
+    padding: 10px 20px;
+    background-color: rgb(55, 180, 180);
+    border: 1px solid rgb(55, 180, 180);
+    border: 0;
+}
+
+
+
+@media screen and (min-width:768px){
+    .personal_info,.shoppaycredit,.detail{
+        width: 60%;
+    }
+
+    .personal_info .name{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .personal_info .name>*{
+        width: 40%;
+        margin: 5px 10px;
+    }
+
+    .personal_info .contact{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .personal_info .contact>*{
+        width: 40%;
+        margin: 5px 10px;
+    }
+    
+    .shoppaycredit_info>*{
+        margin: 5px 10px;
+    }
+
+    .shoppaycredit_info{
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+
+    .shoplist .proimg{
+        width: 20%;
+    }
+
+    .shoplist img{
+        width: 80%;
+        height: auto;
+        /* overflow: hidden; */
+        margin: 10px;
+        
+    }
+    
+    .shoplist_text{
+        width: 90%;
+        
+        
+    }
+
+    .shoplist_text .content_wrap{
+        display: flex;
+        /* margin: auto; */
+        justify-content: space-between;
+        margin-left: 0;
+       
+    }
+
+    .shoplist_text>*{
+        margin: auto;
+    }
+
+    .shoplist .content{
+        width: 40%;
+        
+        
+    }
+
+    .shoplist_text .sub{
+        margin: 20px;
+    }
+}

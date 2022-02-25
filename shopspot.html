@@ -5,23 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="../css/main.css"> -->
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="shopproduct.css">
-    <link rel="stylesheet" href="link/owl.carousel.min.css">
-    <link rel="stylesheet" href="link/owl.theme.default.min.css">
-    <script src="link/jquery-3.6.0.min.js"></script>
-    <script src="link/owl.carousel.js"></script>
-    <script src="shop.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    
+    
    
 </head>
 <body>
     <header>
         <section class="l-full shopspotSlide">
             <div class="l-medium shopspotSlide_wrap">
-                <div class="owl-carousel owl-theme" id="one">
+                <div class="owl-carousel owl-theme" id="shopspotSlide">
                     <div class="item"><img src="https://picsum.photos/600/350/?random=10"></div>
                     <div class="item"><img src="https://picsum.photos/600/350/?random=10"></div>
                     <div class="item"><img src="https://picsum.photos/600/350/?random=10"></div>
@@ -44,7 +40,7 @@
                 </div>
                 <div class="sub">
                     <div class="sub_wrap">
-                        <h3>選擇數量</h3>
+                        <p>選擇數量</p>
                         <hr>
                             <table id="myTable" class="table">
                                 <tbody>
@@ -57,9 +53,9 @@
                                         </td>
                                         <td>
                                             <div class="button-container">
-                                                <button class="cart-qty-minus" type="button" value="-"><img src="/商城/images/minus-button.png" alt=""></button>
+                                                <button class="cart-qty-minus" type="button" value="-"><i class="bi bi-dash-circle-fill"></i></button>
                                                 <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
-                                                <button class="cart-qty-plus" type="button" value="+"><img src="/商城/images/plus.png" alt=""></button>
+                                                <button class="cart-qty-plus" type="button" value="+"><i class="bi bi-plus-circle-fill"></i></button>
                                             </div>
                                         </td>
                                        
@@ -74,9 +70,9 @@
                                         </td>
                                         <td>
                                             <div class="button-container">
-                                                <button class="cart-qty-minus" type="button" value="-"><img src="/商城/images/minus-button.png" alt=""></button>
+                                                <button class="cart-qty-minus" type="button" value="-"><i class="bi bi-dash-circle-fill"></i></button>
                                                 <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
-                                                <button class="cart-qty-plus" type="button" value="+"><img src="/商城/images/plus.png" alt=""></button>
+                                                <button class="cart-qty-plus" type="button" value="+"><i class="bi bi-plus-circle-fill"></i></button>
                                             </div>
                                         </td>
                                        
@@ -91,9 +87,9 @@
                                         </td>
                                         <td>
                                             <div class="button-container">
-                                                <button class="cart-qty-minus" type="button" value="-"><img src="/商城/images/minus-button.png" alt=""></button>
+                                                <button class="cart-qty-minus" type="button" value="-"><i class="bi bi-dash-circle-fill"></i></button>
                                                 <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
-                                                <button class="cart-qty-plus" type="button" value="+"><img src="/商城/images/plus.png" alt=""></button>
+                                                <button class="cart-qty-plus" type="button" value="+"><i class="bi bi-plus-circle-fill"></i></button>
                                             </div>
                                         </td>
                                         
@@ -106,62 +102,210 @@
                                     </tr>
                                 </tfoot>
                             </table>
+                            <div class="subbtn">
+                                <button class="tocart">加入購物車</button>
+                                <!-- <button class="topay"></button> -->
+                                <input class="topay" type="submit" value="立即結帳">
+                            </div>
                     </div>
                 </div>
             </div>
                         
         </section>
 
-        <section class="l-full shopspotContent">
-            <div class="shopspotContentTitle">
-                <ion-icon name="golf-outline" class="spot"></ion-icon>
-                <h2 class="contentTitle">商品說明</h2>
-            </div>
-            <div class="shopspotFeature">
-                <h3>景點特色</h3>
-                <div class="feature_wrap">
-                    <div class="owl-carousel owl-theme" id="two">
-                        <div class="item">
-                            <img src="images/lake-sunset-2021-08-26-18-27-36-utc-1.jpg">
-                            <div class="item_text">
-                                <h3>title</h3>
-                                <p>簡介公司你是只好涉及，從事亞洲雙手各類報價改造，責任那位，快速意思，產品你的商務表演出現回來地區上午擔任五金對她，消除原文平靜便宜溫州合同收集特別結束新手隨時幾年專業，數碼相機，批發十大招標估計氣息相互總結戰爭接着一次不在手裡離開烏日，全新機制，影音不久。</p>
+        <section class="l-full shopspotOverview">
+            <div class="l-medium shopspotContent_wrap">
+                <div class="row">
+                    <div class="shopspotContent col-12 col-lg-8">
+                        <div class="l-medium shopspotFeatured">
+                            <div class="shopspotContentMark">
+                                <i class="bi bi-building"></i>
+                            <h2 class="contentTitle">景點特色</h2>
                             </div>
-                        </div>
-                        <div class="item">
-                            <img src="images/lake-sunset-2021-08-26-18-27-36-utc-1.jpg">
-                            <div class="item_text">
-                                <h3>title</h3>
-                                <p>簡介公司你是只好涉及，從事亞洲雙手各類報價改造，責任那位，快速意思，產品你的商務表演出現回來地區上午擔任五金對她，消除原文平靜便宜溫州合同收集特別結束新手隨時幾年專業，數碼相機，批發十大招標估計氣息相互總結戰爭接着一次不在手裡離開烏日，全新機制，影音不久。</p>
+                            <div class="featured">
+                                <img class="featured_img" src="https://picsum.photos/600/350/?random=10">
+                                <p class="featured_text">填寫經理講話回家隨着經典初步各自，網域名稱一道分享過程據說筆記本沒有什麼書記辦法有限公司引起，自己的魅力不能下載體會複雜奇蹟便利商店當前，詳細內容工廠典型素質定位感動，上網遠遠精選一天凱文反對，智慧。</p>
                             </div>
-                        </div>
-                        <div class="item">
-                            <img src="images/lake-sunset-2021-08-26-18-27-36-utc-1.jpg">
-                            <div class="item_text">
-                                <h3>title</h3>
-                                <p>簡介公司你是只好涉及，從事亞洲雙手各類報價改造，責任那位，快速意思，產品你的商務表演出現回來地區上午擔任五金對她，消除原文平靜便宜溫州合同收集特別結束新手隨時幾年專業，數碼相機，批發十大招標估計氣息相互總結戰爭接着一次不在手裡離開烏日，全新機制，影音不久。</p>
+                            <div class="featured">
+                                <img class="featured_img" src="https://picsum.photos/600/350/?random=10">
+                                <p class="featured_text">填寫經理講話回家隨着經典初步各自，網域名稱一道分享過程據說筆記本沒有什麼書記辦法有限公司引起，自己的魅力不能下載體會複雜奇蹟便利商店當前，詳細內容工廠典型素質定位感動，上網遠遠精選一天凱文反對，智慧。</p>
                             </div>
+                            <div class="featured">
+                                <img class="featured_img" src="https://picsum.photos/600/350/?random=10">
+                                <p class="featured_text">填寫經理講話回家隨着經典初步各自，網域名稱一道分享過程據說筆記本沒有什麼書記辦法有限公司引起，自己的魅力不能下載體會複雜奇蹟便利商店當前，詳細內容工廠典型素質定位感動，上網遠遠精選一天凱文反對，智慧。</p>
+                            </div>
+                            <div class="featured">
+                                <img class="featured_img" src="https://picsum.photos/600/350/?random=10">
+                                <p class="featured_text">填寫經理講話回家隨着經典初步各自，網域名稱一道分享過程據說筆記本沒有什麼書記辦法有限公司引起，自己的魅力不能下載體會複雜奇蹟便利商店當前，詳細內容工廠典型素質定位感動，上網遠遠精選一天凱文反對，智慧。</p>
+                            </div>
+                            <div class="featured">
+                                <img class="featured_img" src="https://picsum.photos/600/350/?random=10">
+                                <p class="featured_text">填寫經理講話回家隨着經典初步各自，網域名稱一道分享過程據說筆記本沒有什麼書記辦法有限公司引起，自己的魅力不能下載體會複雜奇蹟便利商店當前，詳細內容工廠典型素質定位感動，上網遠遠精選一天凱文反對，智慧。</p>
+                            </div>
+                
                         </div>
+                
+                        <div class="l-medium shopspotIllustrate">
+                            <div class="shopspotContentMark">
+                           <i class="bi bi-building"></i>
+                            <h2 class="contentTitle">票券說明</h2>
+                            </div>
+                           <div class="shopspotText">
+                               <p>分析做法便利商店有些說過圖書館會在統計實在全身臺灣加速近日，百度那種怎麼高考形象日韓沒想到，寬頻不但就能瞬間書庫內存滿意，第一個低價提示發揮一張效益排名無限一笑，創造城市其中世界的說身邊部分貼布，裝備出發大約早已效果在這小七圖片正好，都不追求較大情形天下。</p>
+                           </div>
+                        </div>
+                        <div class="l-medium shopspotGuide">
+                            <div class="shopspotContentMark">
+                           <i class="bi bi-building"></i>
+                            <h2 class="contentTitle">購買須知</h2>
+                            </div>
+                           <div class="shopspotText">
+                               <p>分析做法便利商店有些說過圖書館會在統計實在全身臺灣加速近日，百度那種怎麼高考形象日韓沒想到，寬頻不但就能瞬間書庫內存滿意，第一個低價提示發揮一張效益排名無限一笑，創造城市其中世界的說身邊部分貼布，裝備出發大約早已效果在這小七圖片正好，都不追求較大情形天下。</p>
+                           </div>
+                        </div>
+                        <div class="l-medium shopspotMethod">
+                            <div class="shopspotContentMark">
+                           <i class="bi bi-building"></i>
+                            <h2 class="contentTitle">使用方法</h2>
+                            </div>
+                           <div class="shopspotText">
+                               <p>分析做法便利商店有些說過圖書館會在統計實在全身臺灣加速近日，百度那種怎麼高考形象日韓沒想到，寬頻不但就能瞬間書庫內存滿意，第一個低價提示發揮一張效益排名無限一笑，創造城市其中世界的說身邊部分貼布，裝備出發大約早已效果在這小七圖片正好，都不追求較大情形天下。</p>
+                           </div>
+                        </div>
+                
+                        <div class="l-medium shopspotNotice">
+                            <div class="shopspotContentMark">
+                               <i class="bi bi-building"></i>
+                                <h2 class="contentTitle">注意事項</h2>
+                            </div>
+                            <ul>
+                                <li>● 開關股份有限公司醫。</li>
+                                <li>● 開關股份有限公司醫。</li>
+                                <li>● 開關股份有限公司醫。</li>
+                                <li>● 開關股份有限公司醫。</li>
+                                <li>● 開關股份有限公司醫。</li>
+                                <li>● 開關股份有限公司醫。</li>
+                            </ul>
+                         </div>
+                    </div>
+                    <div class="shopspotSelect col-12 col-lg-4">
+                            <ol>
+                                <ul>景點特色</ul>
+                                <ul>票券說明</ul>
+                                <ul>購買須知</ul>
+                                <ul>使用方法</ul>
+                                <ul>注意事項</ul>
+                            </ol>
                     </div>
                 </div>
-            </div>
-            <div class="l-medium shopspotTicket">
-               <h3>票券內容</h3>
-               <p>分析做法便利商店有些說過圖書館會在統計實在全身臺灣加速近日，百度那種怎麼高考形象日韓沒想到，寬頻不但就能瞬間書庫內存滿意，第一個低價提示發揮一張效益排名無限一笑，創造城市其中世界的說身邊部分貼布，裝備出發大約早已效果在這小七圖片正好，都不追求較大情形天下。</p>
-            </div>
-            <div class="l-medium shopspotNotice">
-                <h3>注意事項</h3>
-                <ul>
-                    <li>● 開關股份有限公司醫。</li>
-                    <li>● 開關股份有限公司醫。</li>
-                    <li>● 開關股份有限公司醫。</li>
-                    <li>● 開關股份有限公司醫。</li>
-                    <li>● 開關股份有限公司醫。</li>
-                    <li>● 開關股份有限公司醫。</li>
-                </ul>
-             </div>
-            
+            </div>           
         </section>
     </main>
+    <script>
+        $(document).ready(function(){
+ //slide
+ var shopspotSlide = $("#shopspotSlide");
+ 
+
+function isMobileDevice(){
+  let mobileDevices = ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone']
+  let isMobileDevice=false
+  for(let i=0;i<mobileDevices.length;i++){
+      if(navigator.userAgent.match(mobileDevices[i])){
+          isMobileDevice=true
+      }
+  }
+  return isMobileDevice
+}
+
+if(isMobileDevice() != true){
+// 桌機的話執行
+shopspotSlide.owlCarousel({
+  center: true,
+  items:1.5,
+  loop:true,
+  margin:10,
+  nav:true
+
+});
+}else{
+  //手機的話
+  shopspotSlide.owlCarousel({
+    items: 1,
+    autoplay: true,
+    loop:true,
+    nav:true,
+  });
+};
+
+
+  //  -----------------for-Shopping-cart-------------
+$(document).ready(function(){
+  update_amounts();
+  $('.qty, .price').on('keyup keypress blur change', function(e) {
+    update_amounts();
+  });
+});
+function update_amounts(){
+var sum = 0.0;
+    $('#myTable > tbody  > tr').each(function() {
+    var qty = $(this).find('.qty').val();
+      var price = $(this).find('.price').val();
+      var amount = (qty*price)
+      sum+=amount;
+      $(this).find('.amount').text(''+amount);
+    });
+     
+$('.total').text(sum);
+}
+
+
+
+// ----------------for quantity-increment-or-decrement-------
+var incrementQty;
+var decrementQty;
+var plusBtn  = $(".cart-qty-plus");
+var minusBtn = $(".cart-qty-minus");
+var incrementQty = plusBtn.click(function() {
+var $n = $(this)
+  .parent(".button-container")
+  .find(".qty");
+$n.val(Number($n.val())+1 );
+update_amounts();
+});
+
+var decrementQty = minusBtn.click(function() {
+  var $n = $(this)
+  .parent(".button-container")
+  .find(".qty");
+var QtyVal = Number($n.val());
+if (QtyVal > 0) {
+  $n.val(QtyVal-1);
+}
+update_amounts();
+});
+
+});
+
+//deadline
+let deadline = document.querySelectorAll('.deadline');
+
+
+console.log(deadline);
+var myDate = new Date()
+myDate.setMonth(myDate.getMonth() + 3);
+// console.log(myDate);
+let year = myDate.getFullYear();
+let month = myDate.getMonth()+1;
+let date = myDate.getDate();
+
+for(let i =0;i<deadline.length;i++){
+ deadline[i].innerText = `${year} / ${month} / ${date}`;   
+}
+// console.log(year, month, date);
+// console.log(`${year} / ${month}/ ${date}`);
+
+    </script>
+    
 </body>
 </html>

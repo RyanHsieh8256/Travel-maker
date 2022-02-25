@@ -5,8 +5,87 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+    <!-- <link rel="stylesheet" href="shopcart.css"> -->
+    <!-- <script src="shop.js"></script> -->
 </head>
 <body>
+    <main>
+        <section class="l-full shopcart">
+            <div class="l-medium shopcart_wrap">
+                <h2>購物車</h2>
+                <hr>
+                <div class="shoplist">
+                    <div class="proimg">
+                        <img src="images/shop/shopType_east.jpg">
+                    </div>
+                    <div class="shoplist_text">
+                        <h3>商品名稱</h3>
+                        <div class="content_wrap">
+                            <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
+                            <p >有效期限<span class="deadline"></span></p>
+                            <span class="sub">$1234</span>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="shoplist">
+                    <div class="proimg">
+                        <img src="images/shop/shopType_east.jpg">
+                    </div>
+                    <div class="shoplist_text">
+                        <h3>商品名稱</h3>
+                        <div class="content_wrap">
+                            <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
+                            <p >有效期限<span class="deadline"></span></p>
+                            <span class="sub">$1234</span>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="shoplist">
+                    <div class="proimg">
+                        <img src="images/shop/shopType_east.jpg">
+                    </div>
+                    <div class="shoplist_text">
+                        <h3>商品名稱</h3>
+                        <div class="content_wrap">
+                            <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
+                            <p>有效期限<span class="deadline"></span></p>
+                            <span class="sub">$1234</span>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                    <div class="shoplist_total">
+                        <p>總金額 TWD &emsp;<span id="shoptotal">$12345</span> </p>
+                        <a href=""><button class="count">前往結帳</button></a>
+                    </div>
+            </div>
+            <div class="shopbtn">
+                <a href=""><button class="keep">繼續購物 >></button></a>   
+            </div>
+        </section>
+
+    </main>
+<script>
+//deadline
+    let deadline = document.querySelectorAll('.deadline');
     
+    
+    console.log(deadline);
+    var myDate = new Date()
+    myDate.setMonth(myDate.getMonth() + 3);
+    // console.log(myDate);
+    let year = myDate.getFullYear();
+    let month = myDate.getMonth()+1;
+    let date = myDate.getDate();
+    
+    for(let i =0;i<deadline.length;i++){
+     deadline[i].innerText = `${year} / ${month} / ${date}`;   
+    }
+    // console.log(year, month, date);
+    // console.log(`${year} / ${month}/ ${date}`);
+    </script>
 </body>
 </html>

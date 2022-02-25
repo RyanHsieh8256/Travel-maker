@@ -4,9 +4,12 @@
 @import "base/reset";
 @import "base/base";
 @import "base/text";
-
-@import "vendors/bootstrap-icons";
 @import "base/animation";
+
+//vendors
+@import "vendors/bootstrap-icons";
+@import "vendors/owl.carousel.min";
+@import "vendors/owl.theme.default.min";
 
 // layout
 @import "layout/outBox";
