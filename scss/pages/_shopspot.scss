@@ -1,0 +1,213 @@
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+  background: #535D26;
+  }
+  
+.owl-theme .owl-nav {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  top: calc(50% - 2.5rem);
+  margin-top: 0;
+  
+  }
+  
+  .owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev{
+  font-size: 3rem;
+  color: #f5f5f5;
+  background-color: #ccc;
+  }
+  
+  
+  
+  .owl-theme .owl-nav [class*=owl-]:hover {
+  background: #C5B9B3;
+  }
+
+
+.shopspotSlide_wrap{
+    margin: 40px auto;
+    /* width: 60%; */
+    width: 100%;
+    
+}
+
+.shopspotSlide_wrap .owl-dots {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+    
+}
+
+.shopspotSlide_wrap .owl-dot span{
+  width: 10px;
+}
+
+.shopspotInfo h2{
+  width: 80%;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.shopspotInfo .title{
+    width: 80%;
+    margin: auto;
+    
+}
+
+.shopspotInfo .text{
+    margin: 20px auto 60px auto;
+    width: 80%;
+}
+
+.shopspotInfo .sub{
+  margin: 0 auto;
+  margin-bottom: 70px;
+  width: 85%;
+}
+
+
+
+.shopspotInfo .price_wrap{
+  margin: 10px;
+}
+
+.shopspotInfo .price{
+  width: 30px;
+  border: none;
+  text-align: center;
+
+}
+
+.shopspotInfo .button-container{
+  display: flex;
+  
+}
+
+.shopspotInfo .cart-qty-minus,.cart-qty-plus{
+  border: none;
+  background-color: #fff;
+}
+
+.shopspotInfo .cart-qty-plus img,.cart-qty-minus img{
+  width: 20px;
+}
+
+.shopspotInfo .qty{
+  width: 40px;
+  margin: 5px;
+}
+
+
+
+.shopspotInfo .type{
+  /* width: 100px; */
+  margin-right: 10px;
+}
+
+.shopspotInfo .total{
+  display: inline-block;
+  margin-top:20px ;
+}
+
+.sub_wrap .subbtn>*{
+  padding: 10px 20px;
+  border: 1px solid rgb(35,160,175);
+  background-color: aqua;
+  border-radius: 10px;
+}
+
+  .shopspotContent{
+      /* width: 80%; */
+      /* margin: auto; */
+      position: relative;
+  }
+
+  .contentTitle{
+      padding: 10px;
+      padding-left: 30px;
+      display: inline-block;
+      
+     
+  }
+
+  .shopspotContentMark{
+      background-color: #fff;
+      display: flex;
+      position: absolute;
+      top: -20px;
+      left: 1.5rem ;
+
+  }
+
+  .shopspotContentMark .spot{
+      position: absolute;
+      left: -20px;
+      top: 1px;
+      border: 1px solid black;
+      background-color: #fff;
+      font-size: 25px;
+      margin-bottom: 0;
+      padding: 5px;
+      border-radius: 50%;
+  }
+
+  .shopspotContent>*{
+      margin: 30px auto;
+      border: 1px solid black;
+      border-radius: 10px;
+      padding: 20px;
+      line-height: 20px;
+      position: relative;
+  }
+   
+  
+
+  @media screen and (min-width:768px){
+    .shopspotSlide_wrap{
+      margin: 40px auto;
+      /* width: 60%; */
+      width: 80%;
+      
+  }
+
+  .shopspotInfo_wrap{
+    display: flex;
+  }
+
+  .shopspotInfo_wrap .info{
+    width: 50%;
+    
+  }
+      
+  .shopspotInfo .title{
+    width: 60%;
+    
+}
+
+  .shopspotInfo .text{
+    /* margin: 20px 0px 60px 100px; */
+    width: 60%;
+}
+
+.shopspotInfo .sub{
+  width: 40%;
+}
+
+.shopspotInfo .sub_wrap{
+  width: 80%;
+  /* margin: auto; */
+}
+
+/* .shopspotSelect{
+  position: sticky;
+  top: 0;
+} */
+
+    
+
+
+}
+
+  

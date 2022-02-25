@@ -4,18 +4,18 @@
 @import "base/reset";
 @import "base/base";
 @import "base/text";
-// @import "base/animation";
+@import "base/animation";
 
 //vendors
-// @import "vendors/bootstrap-icons";
-// @import "vendors/owl.carousel.min";
-// @import "vendors/owl.theme.default.min";
+@import "vendors/bootstrap-icons";
+@import "vendors/owl.carousel.min";
+@import "vendors/owl.theme.default.min";
 
 // layout
 @import "layout/outBox";
 @import "layout/grid";
-
-
+@import "layout/header";
+@import "layout/footer";
 
 // components
 @import "components/card";
@@ -45,7 +45,17 @@
 @import "pages/groupform";
 
 @import "pages/shop";
+@import "pages/shopspot";
+@import "pages/shopcart";
+@import "pages/shoppay";
 
+@import "pages/news";
+@import "pages/newslist";
+// @import "pages/newsdetail";
+
+// @import "pages/postcard";
+
+@import "pages/about";
 
 
 
