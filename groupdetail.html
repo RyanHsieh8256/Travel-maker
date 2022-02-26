@@ -27,12 +27,7 @@
                         <p class="cardText">
                             想一探台東秘境"嘉明湖"真實面貌，就必須爬上海拔3000多公尺的高山，三日裡背負重裝，由專業高山嚮導帶領從池上出發3天2夜，沿途中，不斷地與自己對話，行程提供代為申請山屋或營帳住宿，加上免背免備公器公糧服務，讓您能保存更多的體力去應付前往嘉明湖三叉向陽山的登山路程。當親眼見到『天使的眼淚-嘉明湖』之美，神秘又遙遠的台灣美景，讓人學會敬畏與謙卑。越美的風景，越要觀察，保持神秘，她永遠在心中，隱藏在高山中湛藍的絕美湖泊景致。
                         </p>
-                        <div class="keywordSpot_wrap">
-                            <ul>
-                                <li><button class="tag">櫻花祭</button></li>
-                                <li><button class="tag">櫻花祭</button></li>
-                                <li><button class="tag">櫻花祭</button></li>
-                            </ul>
+                        <div class="spot_wrap">
                             <div class="spot">剩餘名額5位</div>
                         </div>
                         <div class="card_date">
@@ -124,7 +119,7 @@
             $(window).scroll(function(){
                 let scrollTop = $(window).scrollTop();
                 // console.log(scrollTop);
-                let showPoint = $('.keywordSpot_wrap').offset().top;
+                let showPoint = $('.spot_wrap').offset().top;
                 // console.log(showPoint);
                 if(scrollTop >= showPoint){
                     $('.joinBtn').addClass('showJoinBtn');
