@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="css/main.css">
 
-    <style>
+    <!-- <style>
         /* 寫在pages/_news.scss中 */
         .newsChosen {
             background-color: #ccc;
@@ -36,7 +36,7 @@
 
         .shopHot_box {}
 
-    </style>
+    </style> -->
 </head>
 <body>
     <header></header>
@@ -415,5 +415,29 @@
     
     
 </body>
+
+    <script>
+        function changeTab() {
+        tabs = document.querySelectorAll('.timeline_tab');
+        pages = document.querySelectorAll('.timeline_page');
+        tabs.forEach(tab => tab.addEventListener('click',changePage));
+        
+            function changePage(e) {
+            tabs.forEach(tab => tab.classList.remove('timeline_tab--active'));
+            pages.forEach(page => page.classList.remove('timeline_page--active'));
+
+            let curPage = Number(e.target.dataset['tab']);
+            let tab = document.querySelector(`.timeline_tab--${curPage}`);
+            let page = document.querySelector(`.timeline_page--${curPage}`);
+
+            if(!tab || !page) return;
+            tab.classList.add('timeline_tab--active');
+            page.classList.add('timeline_page--active');
+            }
+        }
+
+        changeTab();
+
+    </script>
 <footer></footer>
 </html>
