@@ -132,7 +132,7 @@ body {
 
 @font-face {
   font-family: "bootstrap-icons";
-  src: url("./fonts/bootstrap-icons.woff2?524846017b983fc8ded9325d94ed40f3") format("woff2"), url("./fonts/bootstrap-icons.woff?524846017b983fc8ded9325d94ed40f3") format("woff");
+  src: url("../../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2") format("woff2"), url("../../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff?524846017b983fc8ded9325d94ed40f3") format("woff");
 }
 
 .bi::before,
@@ -7461,13 +7461,68 @@ body {
 }
 
 .navBlock .navMember a {
-  padding-left: 20px;
-  font-size: 24px;
   color: #333;
 }
 
-.navBlock .navMember a:hover {
-  color: #ff7e29;
+.navBlock .navMember > li {
+  padding-left: 20px;
+  color: #333;
+  cursor: pointer;
+}
+
+.navDropdownMenu {
+  display: none;
+  position: absolute;
+  top: 130%;
+  right: 5%;
+  background-color: #fff;
+  border-radius: 5px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 5px;
+          box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 5px;
+}
+
+.navDropdownMenu .navDropdownMenuItem {
+  padding: 10px 45px;
+  border-bottom: 1px solid #3335;
+}
+
+.navDropdownMenu .navDropdownMenuItem + .navDropdownMenuItem {
+  border-bottom: none;
+  border-top: 1px solid #3332;
+}
+
+.navDropdownMenu .navMemProfile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.navDropdownMenu .navMemProfile .navDropdownMenuPhoto {
+  width: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.navDropdownMenu .navMemProfile .navDropdownMenuTitle {
+  width: 70%;
+  padding-left: 10px;
+}
+
+.navDropdownMenu::before {
+  content: '';
+  display: block;
+  border-bottom: 10px solid #fff;
+  border-right: 5px solid #0000;
+  border-left: 5px solid #0000;
+  position: absolute;
+  right: 20%;
+  top: -10px;
 }
 
 .footer_Wrap {
@@ -7539,7 +7594,6 @@ body {
 }
 
 .footerTerms a {
-  margin: 0 10px;
   color: #fff;
 }
 
@@ -7547,15 +7601,15 @@ body {
   color: #ff7e29;
 }
 
-.footerTerms a + a::before {
+.footerTerms a + a li::before {
   content: '|';
-  left: -10px;
+  padding: 0 15px;
 }
 
 .footerCopyRight {
   text-align: center;
-  color: #fff;
-  font-size: 12px;
+  color: #ccc;
+  font-size: 8px;
 }
 
 @media screen and (min-width: 996px) {
@@ -7746,10 +7800,17 @@ body {
           backdrop-filter: blur(5px);
   width: 100%;
   height: 100vh;
+  display: none;
+  overflow: auto;
+}
+
+.froLoginBlock_warp {
+  position: relative;
 }
 
 .froLoginBlock {
-  width: 350px;
+  width: 300px;
+  height: 400px;
   position: fixed;
   top: 20%;
   left: 50%;
@@ -7757,9 +7818,8 @@ body {
           transform: translate(-50%, 0);
   margin: auto;
   border-radius: 10px;
-  border: .5px solid #3339;
-  -webkit-box-shadow: 3px 3px 5px #3335;
-          box-shadow: 3px 3px 5px #3335;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
+          box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
   background-color: #fff;
 }
 
@@ -7789,7 +7849,7 @@ body {
 
 .froLoginSwitch .froLoginSwitch_btn {
   width: 50%;
-  background-color: #a39e9d;
+  background-color: #d6d6d6;
   padding: 5px 0;
   font-size: 20px;
   font-weight: 600;
@@ -7799,12 +7859,23 @@ body {
   background-color: #fff;
 }
 
-.froLogin_wrap {
+.froLoginForm_wrap {
   margin: auto;
   padding: 20px 0;
+  -webkit-transition: .9s;
+  transition: .9s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.froLogin_wrap .froLoginForm {
+.froLoginForm_wrap .froLoginForm {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7814,16 +7885,19 @@ body {
           flex-direction: column;
 }
 
-.froLogin_wrap .froLoginForm + .froLoginForm {
-  display: none;
+.froLoginForm_wrap .froLoginForm .froLoginFormTitle {
+  margin: auto;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
 }
 
-.froLogin_wrap .froLoginForm .froLoginFormItem th {
+.froLoginForm_wrap .froLoginForm .froLoginFormItem th {
   padding: 10px 0;
   text-align: right;
 }
 
-.froLogin_wrap .froLoginForm .froLoginFormItem input {
+.froLoginForm_wrap .froLoginForm .froLoginFormItem input {
   border-radius: 3px;
   border: none;
   outline: none;
@@ -7832,20 +7906,129 @@ body {
           box-shadow: inset 0px 0px 2px #333;
 }
 
-.froLogin_wrap .froLoginForm .froLoginBtn {
+.froLoginForm_wrap .froLoginForm .froLoginBtn {
   text-align: center;
   padding: 10px 0;
 }
 
-.froLogin_wrap .froLoginForm .froLoginBtn input {
+.froLoginForm_wrap .froLoginForm .froLoginBtn input {
   background-color: #007183;
   color: #fff;
   border: none;
   border-radius: 25px;
-  width: 70%;
+  width: 30%;
   padding: 5px 0;
-  -webkit-box-shadow: 0px 0px 1px #333;
-          box-shadow: 0px 0px 1px #333;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
+          box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
+}
+
+.froLoginMascot {
+  position: absolute;
+  left: 80%;
+  top: 70%;
+  width: 100px;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-animation-name: Mascotjump;
+          animation-name: Mascotjump;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: 2;
+          animation-iteration-count: 2;
+}
+
+@-webkit-keyframes Mascotjump {
+  0% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    top: 70%;
+  }
+  50% {
+    -webkit-transform: scaleY(0.85);
+            transform: scaleY(0.85);
+    top: 50%;
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    top: 70%;
+  }
+}
+
+@keyframes Mascotjump {
+  0% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    top: 70%;
+  }
+  50% {
+    -webkit-transform: scaleY(0.85);
+            transform: scaleY(0.85);
+    top: 50%;
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    top: 70%;
+  }
+}
+
+.frologintransition-enter-active, .frologintransition-leave-active {
+  -webkit-transition: all .8s ease-in-out;
+  transition: all .8s ease-in-out;
+}
+
+.frologintransition-enter {
+  opacity: 0;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+.frologintransition-enter-to {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.frologintransition-leave {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.frologintransition-leave-to {
+  opacity: 0;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+.mascottransition-enter-active, .mascottransition-leave-active {
+  -webkit-transition: all .8s ease-in-out;
+  transition: all .8s ease-in-out;
+}
+
+.mascottransition-enter {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  opacity: 0;
+}
+
+.mascottransition-enter-to {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+}
+
+.mascottransition-leave {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+  opacity: 1;
+}
+
+.mascottransition-leave-to {
+  -webkit-transform: rotateY(90deg);
+          transform: rotateY(90deg);
+  opacity: 0;
 }
 
 .text_Overflow {

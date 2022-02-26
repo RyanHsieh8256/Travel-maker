@@ -16,13 +16,18 @@
     backdrop-filter: blur(5px);
     width: 100%;
     height: 100vh;
+    display: none;
+    overflow: auto;
 }
 
 
-
+.froLoginBlock_warp{
+    position: relative;
+}
 //登入
 .froLoginBlock{
-    width: 350px;
+    width: 300px;
+    height: 400px;
 
     position: fixed;
     top:20%;
@@ -31,8 +36,8 @@
     margin: auto;
 
     border-radius: 10px;
-    border: .5px solid #3339;
-    box-shadow: 3px 3px 5px #3335;
+    // border: .5px solid #3339;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
     background-color: $card-color;
 
     //取消按鈕
@@ -50,7 +55,7 @@
 }
 
 
-//熊熊
+//切換按鈕
 .froLoginSwitch{
     display: flex;
     text-align: center;
@@ -59,7 +64,7 @@
     border-top-right-radius:10px;
     .froLoginSwitch_btn{
         width: 50%;
-        background-color:#a39e9d;
+        background-color:#d6d6d6;
         padding: 5px 0;
         font-size: 20px;
         font-weight: 600;
@@ -71,14 +76,21 @@
 }
 
 // 登入表單
-.froLogin_wrap{
+.froLoginForm_wrap{
     margin: auto;
     padding: 20px 0;
+    transition: .9s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     .froLoginForm{
         display: flex;
         flex-direction: column;
-        &+ .froLoginForm{
-            display: none;
+        .froLoginFormTitle{
+            margin: auto;
+            text-align: center;
+            font-size: $card-title;
+            font-weight: 600;
         }
         .froLoginFormItem{
             th{
@@ -101,10 +113,83 @@
                 color: $white;
                 border: none;
                 border-radius: 25px;
-                width: 70%;
+                width: 30%;
                 padding: 5px 0;
-                box-shadow:0px 0px 1px #333;
+                box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
             }
         }
     }
+}
+.froLoginMascot{
+    position: absolute;
+    left:80%;
+    top:70%;
+    width: 100px;
+    transform-origin:center ;
+    animation-name: Mascotjump;
+    animation-duration:1s;
+    animation-iteration-count:2 ;
+}
+@keyframes  Mascotjump {
+    0%{
+        transform: scaleY(1);
+        top:70%;
+    }
+    50%{
+        transform: scaleY(.85);
+        top:50%;
+    }
+    100%{
+        transform: scaleY(1);
+        top:70%;
+    }
+}
+
+.frologintransition-enter-active,.frologintransition-leave-active {
+    transition: all .8s ease-in-out;
+}
+  
+.frologintransition-enter{
+    opacity: 0;
+    transform: scale(0);
+}
+
+.frologintransition-enter-to{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.frologintransition-leave{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.frologintransition-leave-to{
+    opacity: 0;
+    transform: scale(0);
+}
+
+//熊熊動畫
+.mascottransition-enter-active,.mascottransition-leave-active {
+    transition: all .8s ease-in-out;
+}
+  
+.mascottransition-enter{
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.mascottransition-enter-to{
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.mascottransition-leave{
+    transform: rotateY(0);
+    opacity: 1;
+}
+
+.mascottransition-leave-to{
+    transform: rotateY(90deg);
+    opacity: 0;
 }
