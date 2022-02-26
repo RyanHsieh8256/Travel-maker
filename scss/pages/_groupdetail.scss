@@ -28,9 +28,9 @@
 }
 
 /* ---團的熱門搜尋關鍵字和剩餘名額--- */
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .spot_wrap {
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .keywordSpot_wrap {
     display: flex;
-    justify-content:end;
+    justify-content: space-between;
     margin-top: 10px;
 
     ul {
