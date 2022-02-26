@@ -8270,23 +8270,23 @@ body {
 }
 
 /* ---團的熱門搜尋關鍵字和剩餘名額--- */
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .keywordSpot_wrap {
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .spot_wrap {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
   margin-top: 10px;
 }
 
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .keywordSpot_wrap ul {
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .spot_wrap ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .keywordSpot_wrap ul li .tag {
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .spot_wrap ul li .tag {
   border-radius: 5px;
   background: #007183;
   color: #FFFFFF;
@@ -8294,7 +8294,7 @@ body {
   margin-right: 20px;
 }
 
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .keywordSpot_wrap ul li .tag:after {
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .spot_wrap ul li .tag:after {
   content: '';
   display: block;
   position: absolute;
@@ -8506,6 +8506,95 @@ h3 {
       -ms-flex-pack: center;
           justify-content: center;
   height: 150px;
+}
+
+.groupform .groupform_wrap {
+  width: 80%;
+  margin: auto;
+}
+
+.groupform .groupform_wrap .uploadCover {
+  border: #3333 1px solid;
+  border-radius: 10px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 15px 0;
+}
+
+.groupform .groupform_wrap .uploadCover .header {
+  margin: auto;
+}
+
+.groupform .groupform_wrap .uploadCover .dropZone {
+  position: relative;
+  width: 90%;
+  border: #3333 1px solid;
+  margin: auto;
+  overflow: hidden;
+}
+
+.groupform .groupform_wrap .uploadCover .dropZone::before {
+  content: "";
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 60%;
+}
+
+.groupform .groupform_wrap .uploadCover .dropZone img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.groupform .groupform_wrap .fieldSection {
+  margin: 20px 0;
+}
+
+.groupform_desc {
+  display: block;
+}
+
+.groupform_desc .desc {
+  width: 100%;
+}
+
+.groupform_date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.datepicker_wrap {
+  position: relative;
+  display: initial;
+}
+
+.ui-datepicker-trigger {
+  cursor: pointer;
+  max-width: 30px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-40%);
+          transform: translateY(-40%);
+}
+
+@media screen and (min-width: 768px) {
+  .groupform .groupform_wrap {
+    width: 60%;
+  }
 }
 
 .shopType {
