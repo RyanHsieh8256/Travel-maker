@@ -7,12 +7,503 @@
     <title>首頁</title>
 
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+
 
 </head>
-<body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+<body class="home_body">
+
+    <div class="home_wrap">
+        <!-- 開頭動畫 (蘇) -->
+        <div class="overlay first"></div>
+        <div class="overlay second"></div>
+        <div class="overlay third"></div>
+        
+        <!-- 首頁nav (蘇) -->
+
+        <div class="home_logo">
+            <img src="images/logo/logo_84x50.png" alt="">
+        </div>
+        <ul class="iconNav">
+            <li class="iconNav-item">
+                <a href="##" class="iconNav-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#007183" class="bi bi-minecart-loaded" viewBox="0 0 16 16">
+                        <path d="M4 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm8-1a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM.115 3.18A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 14 12H2a.5.5 0 0 1-.491-.408l-1.5-8a.5.5 0 0 1 .106-.411zm.987.82 1.313 7h11.17l1.313-7H1.102z"/>
+                        <path fill-rule="evenodd" d="M6 1a2.498 2.498 0 0 1 4 0c.818 0 1.545.394 2 1 .67 0 1.552.57 2 1h-2c-.314 0-.611-.15-.8-.4-.274-.365-.71-.6-1.2-.6-.314 0-.611-.15-.8-.4a1.497 1.497 0 0 0-2.4 0c-.189.25-.486.4-.8.4-.507 0-.955.251-1.228.638-.09.13-.194.25-.308.362H3c.13-.147.401-.432.562-.545a1.63 1.63 0 0 0 .393-.393A2.498 2.498 0 0 1 6 1z"/>
+                    </svg>
+                </a>
+            </li>
+            <div class="iconNav-item">
+                <a href="##" class="iconNav-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#007183" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="iconNav-item">
+                <div class="burger-toggle">
+                    <span class="burger-line"></span>
+                </div>
+            </div>
+        </ul>
+        <!-- 進度條 (蘇) -->
+        <div class="progress_bar">
+            <div class="progress_barNav"></div>
+        </div>
+        <header>
+            <section class="l-hori homeBanner">
+                <div class="l-large homeBanner_wrap">
+                    <div class="row">
+                        <div class="homeBanner_title">
+                            <h1 class="main-title">Travel Maker</h1>
+                            <p class="p-text" style="font-size: 20px;font-weight: 500;">
+                                讓 Travel Maker 陪你，
+                                <br>
+                                邁開腳步走過全台所有美景。
+                            </p>
+                        </div>
+                        <div class="homeBanner_box col-12 col-md-8">
+                            <div class="imageMap">
+                                <div class="imageMap_card">
+                                    <div class="imageMap_img">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPh0bMdbCqUakFC1OvfALNQO49wN34WK77TA&usqp=CAU" alt="">
+                                    </div>
+                                </div>
+                                <div class="imageMap_card">
+                                    <div class="imageMap_img">
+                                        <img src="https://taiwan.sharelife.tw/tw-news-img/36306/4223290720264315.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="imageMap_card">
+                                    <div class="imageMap_img">
+                                        <img src="https://snowhy.tw/wp-content/uploads/20171228172821_62.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="imageMap_card">
+                                    <div class="imageMap_img">
+                                        <img src="https://travel.tycg.gov.tw/content/images/attractions/75471/1024x768_attractions-image-ofk9_v0zeewyotl1mkwcbg.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="imageMap_card">
+                                    <div class="imageMap_img">
+                                        <img src="https://images.poplady-mag.com/wp-content/uploads/2020/08/%E7%9B%A4%E9%BB%9E%E8%87%AA%E7%84%B6%E7%B3%BBIG%E6%89%93%E5%8D%A1%E5%BF%85%E5%8E%BB%E6%99%AF%E9%BB%9E9.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="imageMap_card">
+                                    <div class="imageMap_img">
+                                        <img src="https://www.fun01.cc/ups/20079/images/20171128/5a1cb08246cf5.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+        <main class="home_flex">
+            <!-- section 建立行程 (蘇) -->
+            <section class="l-hori homeTour">
+                <div class="l-large homeTour_wrap">
+                    <div class="row">
+                        <div class="homeTour_box col-4">
+                            <div class="homeTour_suggest">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <img src="https://images.pexels.com/photos/1869643/pexels-photo-1869643.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                    </div>
+                                    <div class="col-6">
+                                        是以故意不會禮物清晰根本房價開通宜蘭並沒有，合同智慧鄉民們規模這時。
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="homeTour_point">
+                                <a href="##" class="btn btn--main homeTour_point--start">建立行程</a>
+                                <a href="##" class="btn btn--main homeTour_point--end">行程總覽</a>
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, a at facere sunt ratione eum delectus illo error obcaecati excepturi in labore vel quia similique dolorem? Alias nostrum labore commodi.
+                            </p>
+                        </div>
+                        <div class="homeTour_box col-8">
+                            <h2 class="second-title"
+                            >+Plan it 
+                            <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Today
+                            </h2>
+                            <p class="t-right p-span">計劃屬於你的行程!</p>
+                            <div class="homeTour_map" id="homeTour_map"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- section 揪團 (蘇) -->
+            <section class="l-hori homeGroup">
+                <div class="l-large homeGroup_wrap">
+                    <div class="row">
+                    <div class="card col-12 col-lg-6 col-xl-3">
+                        <!-- 卡片頭 -->
+                        <div class="card_header">
+                            <div class="card_person">
+                                <div class="card_photo">
+                                    <img src="https://picsum.photos/50/50/?random=10" alt="">
+                                </div>
+                                <div class="card_name">人才丁丁</div>
+                            </div>
+                            <div class="card_hit">
+                                <span>19999</span>
+                                點擊
+                            </div>
+                        </div> 
+                        <!-- 卡片內容 -->
+                        <div class="card_content card_content--corner">
+                            <div class="card_body">
+                                <span class="card_tag">台南</span>
+                                <div class="card_like">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                    </svg>
+                                </div>
+                                <div class="card_img">
+                                    <img src="https://picsum.photos/300/200/?random=10" alt="">
+                                </div>
+                                <div class="card_date">
+                                    <p class="card_time card_time--start">
+                                        <span>出發:</span>
+                                        2022/1/2
+                                    </p>
+                                    <p class="card_time card_time--end">
+                                        <span>回程:</span>
+                                        2022/1/4
+                                    </p>
+                                </div>
+                                <h3 class="card_title">揪團卡片</h3>
+                                <p class="card_text">
+                                    內容文字
+                                </p>  
+                            </div>
+                            <!-- 卡片尾巴 -->
+                            <div class="card_footer">
+                                <div class="card_time card_time--deadline">
+                                    <span>報名截止</span>
+                                    2021/12/30
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="card col-12 col-lg-6 col-xl-3">
+                        <!-- 卡片頭 -->
+                        <div class="card_header">
+                            <div class="card_person">
+                                <div class="card_photo">
+                                    <img src="https://picsum.photos/50/50/?random=10" alt="">
+                                </div>
+                                <div class="card_name">人才丁丁</div>
+                            </div>
+                            <div class="card_hit">
+                                <span>19999</span>
+                                點擊
+                            </div>
+                        </div> 
+                        <!-- 卡片內容 -->
+                        <div class="card_content card_content--corner">
+                            <div class="card_body">
+                                <span class="card_tag">台南</span>
+                                <div class="card_like">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                    </svg>
+                                </div>
+                                <div class="card_img">
+                                    <img src="https://picsum.photos/300/200/?random=10" alt="">
+                                </div>
+                                <div class="card_date">
+                                    <p class="card_time card_time--start">
+                                        <span>出發:</span>
+                                        2022/1/2
+                                    </p>
+                                    <p class="card_time card_time--end">
+                                        <span>回程:</span>
+                                        2022/1/4
+                                    </p>
+                                </div>
+                                <h3 class="card_title">揪團卡片</h3>
+                                <p class="card_text">
+                                    內容文字
+                                </p>  
+                            </div>
+                            <!-- 卡片尾巴 -->
+                            <div class="card_footer">
+                                <div class="card_time card_time--deadline">
+                                    <span>報名截止</span>
+                                    2021/12/30
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="card col-12 col-lg-6 col-xl-3">
+                        <!-- 卡片頭 -->
+                        <div class="card_header">
+                            <div class="card_person">
+                                <div class="card_photo">
+                                    <img src="https://picsum.photos/50/50/?random=10" alt="">
+                                </div>
+                                <div class="card_name">人才丁丁</div>
+                            </div>
+                            <div class="card_hit">
+                                <span>19999</span>
+                                點擊
+                            </div>
+                        </div> 
+                        <!-- 卡片內容 -->
+                        <div class="card_content card_content--corner">
+                            <div class="card_body">
+                                <span class="card_tag">台南</span>
+                                <div class="card_like">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                    </svg>
+                                </div>
+                                <div class="card_img">
+                                    <img src="https://picsum.photos/300/200/?random=10" alt="">
+                                </div>
+                                <div class="card_date">
+                                    <p class="card_time card_time--start">
+                                        <span>出發:</span>
+                                        2022/1/2
+                                    </p>
+                                    <p class="card_time card_time--end">
+                                        <span>回程:</span>
+                                        2022/1/4
+                                    </p>
+                                </div>
+                                <h3 class="card_title">揪團卡片</h3>
+                                <p class="card_text">
+                                    內容文字
+                                </p>  
+                            </div>
+                            <!-- 卡片尾巴 -->
+                            <div class="card_footer">
+                                <div class="card_time card_time--deadline">
+                                    <span>報名截止</span>
+                                    2021/12/30
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="card col-12 col-lg-6 col-xl-3">
+                        <!-- 卡片頭 -->
+                        <div class="card_header">
+                            <div class="card_person">
+                                <div class="card_photo">
+                                    <img src="https://picsum.photos/50/50/?random=10" alt="">
+                                </div>
+                                <div class="card_name">人才丁丁</div>
+                            </div>
+                            <div class="card_hit">
+                                <span>19999</span>
+                                點擊
+                            </div>
+                        </div> 
+                        <!-- 卡片內容 -->
+                        <div class="card_content card_content--corner">
+                            <div class="card_body">
+                                <span class="card_tag">台南</span>
+                                <div class="card_like">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                    </svg>
+                                </div>
+                                <div class="card_img">
+                                    <img src="https://picsum.photos/300/200/?random=10" alt="">
+                                </div>
+                                <div class="card_date">
+                                    <p class="card_time card_time--start">
+                                        <span>出發:</span>
+                                        2022/1/2
+                                    </p>
+                                    <p class="card_time card_time--end">
+                                        <span>回程:</span>
+                                        2022/1/4
+                                    </p>
+                                </div>
+                                <h3 class="card_title">揪團卡片</h3>
+                                <p class="card_text">
+                                    內容文字
+                                </p>  
+                            </div>
+                            <!-- 卡片尾巴 -->
+                            <div class="card_footer">
+                                <div class="card_time card_time--deadline">
+                                    <span>報名截止</span>
+                                    2021/12/30
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                    </div>
+                    <div class="homeGroup_flex">
+                        <div class="homeGroup_title">
+                            <h2 class="second-title">
+                                Let's take a trip together!
+                            </h2>
+                            <!-- <p class="p-span">揪團旅遊看這裡!</p> -->
+                        </div>
+                        <div class="homeGroup_btnBox">
+                            <button class="btn btn--main">揪團總覽</button>
+                            <button class="btn btn--main">建立揪團</button>
+                        </div>  
+                    </div> 
+                </div>    
+            </section>
+            <!-- section 商城 (蘇) -->
+            <section class="homeShop">
+                <div class="l-large homeShop_wrap">
+                    <div class="homeShop_title">
+                        <h2 class="second-title">Fun,Eat,AllTogether!</h2>
+                        <p class="p-span">吃喝玩樂全都包</p>
+                    </div>
+                    <div class="homeShop_box">
+                        <div class="homeShop_grid">
+                            <!--  row0  -->
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div class="homeRow_0e"></div>
+                            <div class="homeRow_0f"></div>
+                            <!--  row1  -->
+                            <div></div>
+                            <div></div>
+                            <div class="homeRow_1b"></div>
+                            <div class="homeRow_1c"></div>
+                            <div></div>
+                            <div class="homeRow_1e"></div>
+                            <div class="homeRow_1f"></div>
+                            <!--  row2 -->
+                            <div class="homeRow_2a"></div>
+                            <div></div>
+                            <div class="homeRow_2b">北部</div>
+                            <div class="homeRow_2c">中部</div>
+                            <div></div>
+                            <div class="homeRow_2e">東部</div>
+                            <div class="homeRow_2f">南部</div>
+                            <!--  row3  -->
+                            <div class="homeRow_3a">全部票券</div>
+                            <div></div>
+                            <div class="homeRow_3b"></div>
+                            <div class="homeRow_3c"></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <!--  row4  -->
+                            <div class="homeRow_4a"></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+        </main>
+        <!-- footer 頁尾 (蘇) -->
+        <footer class="homeFooter">
+            <nav class="homeFooter_nav">
+                <ul class="homeFooter_list">
+                    <li class="homeFooter_item">
+                        <a href="##" class="homeFooter_link">行程規劃</a>
+                    </li>
+                    <li class="homeFooter_item">
+                        <a href="##" class="homeFooter_link">揪團去</a>
+                    </li>
+                    <li class="homeFooter_item">
+                        <a href="##" class="homeFooter_link">商城</a>
+                    </li>
+                    <li class="homeFooter_item">
+                        <a href="##" class="homeFooter_link">使用教學</a>
+                    </li>
+                    <li class="homeFooter_item">
+                        <a href="##" class="homeFooter_link">關於我們</a>
+                    </li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
     
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <script>
+    
+    function homeAni() {
+        TweenMax.to('.first', 1.5, {
+            delay: .2,
+            left: '-100%',
+            ease: Expo.easeInOut
+        })
+
+        TweenMax.to('.second', 1.5, {
+            delay: .4,
+            left: '-100%',
+            ease: Expo.easeInOut
+        })
+
+        TweenMax.to('.third', 1.5, {
+            delay: .6,
+            left: '-100%',
+            ease: Expo.easeInOut
+        })
+    }
+
+    homeAni();
+    
+
+    function fillBar() {
+
+    let totalWidth = document.body.scrollWidth - window.innerWidth;
+    let widthPos = window.scrollX;
+
+    let posPercent = (widthPos / totalWidth * 100);
+
+    let bar = document.querySelector('.progress_bar .progress_barNav');
+    bar.style.width = `${posPercent}%`;
+    }
+
+    window.addEventListener('wheel',(e) => {
+    console.log(window.scrollX)
+
+    if(e.deltaY != 0) 
+    window.scroll(window.scrollX + e.deltaY * 1, window.scrollY);
+
+
+    fillBar();
+    })
+
+    function displayMap() {
+        var map = L.map('homeTour_map').setView([24.98921012878418, 121.31353759765625], 10);
+
+
+        let Stamen_Watercolor = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
+            // attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            subdomains: 'abcd',
+            minZoom: 1,
+            maxZoom: 16,
+            ext: 'jpg'
+        }).addTo(map);
+
+        L.marker([24.98921012878418, 121.31353759765625]).addTo(map)
+            .bindPopup('以家為起點<br> 規畫屬於你的旅途吧')
+            .openPopup();
+    }
+
+    displayMap();
+
+    </script>
 </body>
 </html>
