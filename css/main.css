@@ -8048,12 +8048,7 @@ body {
 .imageMap {
   width: 100%;
   height: 80vh;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-row-align: center;
-      align-self: center;
-  -ms-grid-columns: 0.8fr 2fr 2fr (1fr)[5];
-      grid-template-columns: 0.8fr 2fr 2fr repeat(5, 1fr);
+  margin-top: 10vh;
   background: url("../images/bg-02_1.svg");
   background-size: 30%;
   position: relative;
@@ -9177,11 +9172,6 @@ h3 {
   height: 150px;
 }
 
-<<<<<<< HEAD
-h2 {
-  font-size: 40px;
-  text-align: center;
-=======
 .groupform .groupform_wrap {
   width: 80%;
   margin: auto;
@@ -9271,9 +9261,9 @@ h2 {
   }
 }
 
-.shopType {
-  margin: 50px auto;
->>>>>>> Julinka
+h2 {
+  font-size: 40px;
+  text-align: center;
 }
 
 .shopType .item .parttxt {
