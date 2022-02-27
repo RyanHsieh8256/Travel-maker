@@ -3,10 +3,13 @@
     border: 1px solid black;
     border-radius: 30px;
     margin: auto;
+    margin-top: 80px;
 }
 
 .shopcart h2{
     margin: 15px;
+    font-size:$second-title ;
+    
 }
 
 .shoplist{
@@ -38,10 +41,7 @@
 }
 
 
-.shoplist .deadline{
-    margin-left: 5px;
-    
-}
+
 
 .shoplist .sub{
     margin: 0 10px;
@@ -68,15 +68,19 @@
     background: none;
 }
 
-.shoplist_total .count{
-    border-radius: 10px;
-    padding: 10px;
-    background-color: rgb(55, 180, 180);
-    border: 1px solid rgb(55, 180, 180);
-    border: 0;
+.shoplist_total p{
+    margin: 10px;
+    color: rgb(139, 139, 139);
 }
 
+.shoplist_total .shoptotal{
+    color: #007183;
+}
 
+.shoplist_total .deadline{
+    margin-left: 5px; 
+    
+}
 
 @media screen and (min-width:768px){
     .shoplist .proimg{
