@@ -8064,6 +8064,7 @@ body {
 /* ---流動圖片區--- */
 .groupMarquee_wrap {
   overflow: hidden;
+  padding-top: 100px;
 }
 
 .groupMarquee .pic {
@@ -8255,6 +8256,10 @@ body {
 }
 
 /* ---團封面照--- */
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap {
+  padding-top: 100px;
+}
+
 .groupdetailCoverInfo .groupdetailCoverInfo_wrap .cover_wrap {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8572,7 +8577,7 @@ body {
   position: relative;
   width: 90%;
   border: #3333 1px solid;
-  margin: auto;
+  margin: 15px auto;
   overflow: hidden;
 }
 
@@ -8591,8 +8596,21 @@ body {
   left: 0;
 }
 
-input[type=file] {
-  display: none;
+.groupform .groupform_wrap .uploadCover .dropZone_title {
+  color: #aaa9;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.groupform .uploadBtn {
+  cursor: pointer;
+  background-color: #007183;
+  color: #fff;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 .groupform .groupform_wrap .fieldSection {

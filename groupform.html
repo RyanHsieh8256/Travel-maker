@@ -25,16 +25,28 @@
                     </h1>
                 </a>
                 <ul class="mainNav">
-                    <a href=""><li>行程規劃</li></a>
-                    <a href=""><li>揪團旅行</li></a>
-                    <a href=""><li>商城</li></a>
+                    <a href="">
+                        <li>行程規劃</li>
+                    </a>
+                    <a href="">
+                        <li>揪團旅行</li>
+                    </a>
+                    <a href="">
+                        <li>商城</li>
+                    </a>
                 </ul>
                 <ul class="navMember">
-                    <a href=""><li><i class="bi bi-minecart-loaded"></i></li></a>
-                    <a><li><i class="bi bi-person-circle"></i></li></a>
-                    <a href=""><li><i class="bi bi-list"></i></li></a>
+                    <a href="">
+                        <li><i class="bi bi-minecart-loaded"></i></li>
+                    </a>
+                    <a>
+                        <li><i class="bi bi-person-circle"></i></li>
+                    </a>
+                    <a href="">
+                        <li><i class="bi bi-list"></i></li>
+                    </a>
                 </ul>
-            </section>          
+            </section>
         </nav>
     </header>
     <main>
@@ -43,10 +55,11 @@
                 <div class="title">封面圖片</div>
                 <div class="uploadCover">
                     <div class="header">
-                        <label for="uploadBtn">
-                            <button class="uploadBtn" type="button"><i class="fas fa-image"></i> 點我上傳封面</button>
+                        <label class="uploadBtn">
+                            <input id="uploadBtn" style="display:none;" type="file">
+                            <i class="bi bi-image">上傳圖片</i>
                         </label>
-                        <input type="file" id="uploadBtn">
+                        <!-- <input type="file" id="uploadBtn"> -->
                     </div>
                     <div class="dropZone" id="dropZone">
                         <div class="dropZone_title">限制大小最多2MB</div>
@@ -65,19 +78,19 @@
                     <div class="date_wrap startDate_wrap">
                         <label for="startDate">揪團出發日期</label>
                         <div class="datepicker_wrap align">
-                            <input type="date" id="startDate">
+                            <input type="date" class="diablePastDate">
                         </div>
                     </div>
                     <div class="date_wrap endDate_wrap">
                         <label for="endDate">揪團結束日期</label>
                         <div class="datepicker_wrap align">
-                            <input type="date" id="endDate">
+                            <input type="date" class="diablePastDate">
                         </div>
                     </div>
                     <div class="date_wrap deadline_wrap">
                         <label for="deadline">報名截止日期</label>
                         <div class="datepicker_wrap">
-                            <input type="date" id="deadline">
+                            <input type="date" class="diablePastDate">
                         </div>
                     </div>
                 </div>
@@ -102,10 +115,17 @@
     <footer class="footer_Wrap">
         <section class="footerBlock">
             <ul class="footerMedia">
-                <a href=""><li><i class="bi bi-facebook"></i></li></a>
-                <a href=""><li><i class="bi bi-instagram"></i></li></a>
-                <a href=""><li><i class="bi bi-line"></i>
-                </ion-icon></li></a>
+                <a href="">
+                    <li><i class="bi bi-facebook"></i></li>
+                </a>
+                <a href="">
+                    <li><i class="bi bi-instagram"></i></li>
+                </a>
+                <a href="">
+                    <li><i class="bi bi-line"></i>
+                        </ion-icon>
+                    </li>
+                </a>
             </ul>
             <ul class="footerContect">
                 <li><i class="bi bi-telephone"></i>電話:03-1234567</li>
@@ -114,7 +134,13 @@
                 <li><i class="bi bi-pin-map"></i>地址:桃園市桃園區中正路99999號</li>
             </ul>
             <ul class="footerTerms">
-                <a href=""><li>服務條款</li></a><a href=""><li>購物條款</li></a><a href=""><li>付款方式</li></a>
+                <a href="">
+                    <li>服務條款</li>
+                </a><a href="">
+                    <li>購物條款</li>
+                </a><a href="">
+                    <li>付款方式</li>
+                </a>
             </ul>
             <p class="footerCopyRight">&copy;copy right by nobody.Please don'tsue me.</p>
         </section>
@@ -133,7 +159,7 @@
                 <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
                     註冊
                 </div>
-            </div> 
+            </div>
             <!-- 表單區 -->
             <div class="froLoginForm_wrap">
                 <transition name="frologintransition" mode="out-in">
@@ -148,7 +174,7 @@
         </section>
     </div>
 
-    
+
     <!-- 封面JS區 -->
     <script>
         function init() {
@@ -174,25 +200,31 @@
         }
         function previewImg() {
             let file = uploadBtn.files[0];
+            let fileSize = uploadBtn.files[0].size;
+            console.log(fileSize);
             let readFile = new FileReader();
             readFile.readAsDataURL(file);
             readFile.addEventListener('load', function () {
                 let coverImg = document.getElementById('coverImg')
+                // if(file[0].size > 20 * 1024){
+                //     coverImg.innerText = '上傳失敗，請上傳2MB以內的照片';
+                //     return;
+                // }else{
                 coverImg.src = readFile.result;
+                // }
+
             })
         }
         window.addEventListener('load', init);
     </script>
-    <!-- date picker -->
+    <!-- disable past dates -->
     <script>
-        $("#ui-datepicker-div").remove();
-        $('.datepicker').datepicker({
-            dateFormat: 'yy/mm/dd',
-            minDate: new Date(),
-            showOn: "both",
-            buttonImage: "./images/groupform_calendar.png",
-            buttonText: '',
-        });
+        let today = new Date().toISOString().split('T')[0];
+        let diablePastDate = document.querySelectorAll('.diablePastDate');
+        for(let i=0; i<diablePastDate.length; i++){
+            diablePastDate[i].setAttribute('min', today);
+        }
+        
     </script>
     <!-- VUE出數量加減 -->
     <script>
@@ -201,18 +233,18 @@
             data: {
                 total: 0,
                 selectedMethod: '',
-                ways: ['免費', '各自負擔','先付訂金'],
+                ways: ['免費', '各自負擔', '先付訂金'],
             },
             methods: {
-                subtract(){
-                    if(this.total>0){
-                        this.total -=1;
-                    }else{
+                subtract() {
+                    if (this.total > 0) {
+                        this.total -= 1;
+                    } else {
                         this.total = 0;
                     }
                 },
-                add(){
-                    this.total +=1;
+                add() {
+                    this.total += 1;
                 },
             },
         });

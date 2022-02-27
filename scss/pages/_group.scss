@@ -2,6 +2,7 @@
 .groupMarquee {
     &_wrap {
         overflow: hidden;
+        padding-top: 100px;
     }
     .pic{
         display: flex;
