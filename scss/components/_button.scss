@@ -1,10 +1,17 @@
 .btn {
-    font-family: 'Caveat','Noto Serif TC',serif;
-    padding: 5px;
+    font-family: 'Caveat',serif;
+    padding: 10px;
     border-radius: 100px;
 
     &--cart {
         background-color: #fff;
+       
         
+    }
+
+    &--main {
+        background-color: #007183;
+        font-size: 20px;
+        color: #FEBC9F;
     }
 }

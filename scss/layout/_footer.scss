@@ -1,9 +1,11 @@
 .footer_Wrap{
     background-color: $FooterBGColor;
     padding: 20px 0;
-    .footerBlock{
-    width: 90%;
+    max-width: 1920px;
     margin: auto;
+    .footerBlock{
+        width: 90%;
+        margin: auto;
     }
 }
 .footerMedia{
@@ -42,23 +44,21 @@
     font-size: 12px;
     padding: 10px 0;
     a{
-        position: relative;
-        margin: 0 10px;
         color: $white;//條約顏色
+
         li:hover{
             color: $accentColor;//條約hover顏色
         }
-        & + a::before{
+        & + a li::before{
             content: '|';
-            position: absolute;
-            left: -10px;
+            padding: 0 15px;
         }
     }
 }
 .footerCopyRight{
     text-align: center;
-    color: $white;//著作權顏色
-    font-size: 12px;
+    color: #ccc;//著作權顏色
+    font-size: 8px;
 }
 
 // @media screen and (min-width:768px) {

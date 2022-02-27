@@ -4,15 +4,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首頁</title>
+    <title>揪團表單</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="./css/jquery-ui.theme.css">
+    <script src="./js/jquery.js"></script>
+    <script src="./js/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/redmond/jquery-ui.css">
+
+    
 
 </head>
 <body>
     <header>
         <section class="l-full groupform">
-            <div class="l-medium groupform_wrap">
+            <div class="groupform_wrap">
+                <div class="title">封面圖片</div>
                 <div class="uploadCover">
+                    <div class="header">
+                        <input type="file" id="uploadBtn">
+                    </div>
+                    <div class="dropZone" id="dropZone">
+                        <img id="coverImg">
+                    </div>
+                </div>
+                <div class="fieldSection">
+                    <label for="groupTitle">揪團名稱</label>
+                    <input type="text" id="groupTitle">
+                </div>
+                <div class="fieldSection groupform_desc">
+                    <label for="groupDesc">揪團描述</label>
+                    <textarea name="" id="groupDesc" cols="30" rows="10" class="desc"></textarea>
+                </div>
+                <div class="fieldSection groupform_date">
+                    <div class="title">揪團日期</div>
+                    <div class="startDate_wrap">
+                        <label for="startDate">出發日期</label>
+                        <div class="datepicker_wrap">
+                            <input type="text" id="startDate" class="datepicker">
+                        </div>
+                    </div>
+                    <div class="endDate_wrap">
+                        <label for="endDate">結束日期</label>
+                        <div class="datepicker_wrap">
+                            <input type="text" id="endDate" class="datepicker">
+                        </div>
+                    </div>
+                    <div class="deadline_wrap">
+                        <label for="deadline">報名截止日期</label>
+                        <div class="datepicker_wrap">
+                            <input type="text" id="deadline" class="datepicker">
+                        </div>
+                    </div>
+                </div>
+                <div class="peopleNum">
                     
                 </div>
             </div>
@@ -21,5 +65,50 @@
     <main></main>
     <footer></footer>
     
+    <!-- 封面JS區 -->
+    <script>
+        function init(){
+            var dropZone =document.getElementById('dropZone');
+            var uploadBtn = document.getElementById('uploadBtn');
+
+            dropZone.ondragover = dragOver;
+            dropZone.ondrop = dropped;
+            uploadBtn.onchange = previewImg;
+        }
+        function dragOver(e){
+            e.preventDefault();
+        }
+        function dropped(e){
+            e.preventDefault();
+            let file = e.dataTransfer.files[0];
+            let readfile= new FileReader();
+            readfile.readAsDataURL(file);
+            readfile.addEventListener('load', function(){
+                let coverImg = document.getElementById('coverImg')
+                coverImg.src = readfile.result;
+            });
+        }
+        function previewImg(){
+            let file = uploadBtn.files[0];
+            let readFile = new FileReader();
+            readFile.readAsDataURL(file);
+            readFile.addEventListener('load', function(){
+                let coverImg = document.getElementById('coverImg')
+                coverImg.src = readFile.result;
+            })
+        }
+        window.addEventListener('load', init);
+    </script>
+    <!-- date picker -->
+    <script>
+        $('.datepicker').datepicker({
+            dateFormat: 'yy/mm/dd',
+            minDate:new Date(),
+            showOn: "both",
+            buttonImage : "./images/groupform_calendar.png",
+            buttonText: '',
+        });
+
+    </script>
 </body>
 </html>
