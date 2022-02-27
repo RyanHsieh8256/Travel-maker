@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,22 +9,60 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="./css/jquery-ui.theme.css">
     <script src="./js/jquery.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js'></script>
     <script src="./js/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/redmond/jquery-ui.css">
-
-    
-
+    <!-- <link rel="stylesheet" href="./css/jquery-ui.theme.css"> -->
 </head>
-<body>
+
+<body class="groupform_body">
     <header>
+        <nav class="nav_Wrap">
+            <section class="navBlock">
+                <a href="">
+                    <h1 class="navLogo">
+                        <img src="images/logo/logo_84x50.png" alt="TravelMaker">
+                    </h1>
+                </a>
+                <ul class="mainNav">
+                    <a href="">
+                        <li>行程規劃</li>
+                    </a>
+                    <a href="">
+                        <li>揪團旅行</li>
+                    </a>
+                    <a href="">
+                        <li>商城</li>
+                    </a>
+                </ul>
+                <ul class="navMember">
+                    <a href="">
+                        <li><i class="bi bi-minecart-loaded"></i></li>
+                    </a>
+                    <a>
+                        <li><i class="bi bi-person-circle"></i></li>
+                    </a>
+                    <a href="">
+                        <li><i class="bi bi-list"></i></li>
+                    </a>
+                </ul>
+            </section>
+        </nav>
+    </header>
+    <main>
         <section class="l-full groupform">
-            <div class="groupform_wrap">
+            <div class="groupform_wrap" id="groupform_wrap">
                 <div class="title">封面圖片</div>
                 <div class="uploadCover">
                     <div class="header">
-                        <input type="file" id="uploadBtn">
+                        <label class="uploadBtn">
+                            <input id="uploadBtn" style="display:none;" type="file">
+                            <i class="bi bi-image">上傳圖片</i>
+                        </label>
+                        <!-- <input type="file" id="uploadBtn"> -->
                     </div>
                     <div class="dropZone" id="dropZone">
+                        <div class="dropZone_title">限制大小最多2MB</div>
                         <img id="coverImg">
                     </div>
                 </div>
@@ -36,79 +75,182 @@
                     <textarea name="" id="groupDesc" cols="30" rows="10" class="desc"></textarea>
                 </div>
                 <div class="fieldSection groupform_date">
-                    <div class="title">揪團日期</div>
-                    <div class="startDate_wrap">
-                        <label for="startDate">出發日期</label>
-                        <div class="datepicker_wrap">
-                            <input type="text" id="startDate" class="datepicker">
+                    <div class="date_wrap startDate_wrap">
+                        <label for="startDate">揪團出發日期</label>
+                        <div class="datepicker_wrap align">
+                            <input type="date" class="diablePastDate">
                         </div>
                     </div>
-                    <div class="endDate_wrap">
-                        <label for="endDate">結束日期</label>
-                        <div class="datepicker_wrap">
-                            <input type="text" id="endDate" class="datepicker">
+                    <div class="date_wrap endDate_wrap">
+                        <label for="endDate">揪團結束日期</label>
+                        <div class="datepicker_wrap align">
+                            <input type="date" class="diablePastDate">
                         </div>
                     </div>
-                    <div class="deadline_wrap">
+                    <div class="date_wrap deadline_wrap">
                         <label for="deadline">報名截止日期</label>
                         <div class="datepicker_wrap">
-                            <input type="text" id="deadline" class="datepicker">
+                            <input type="date" class="diablePastDate">
                         </div>
                     </div>
                 </div>
-                <div class="peopleNum">
-                    
+                <div id="peopleNum" class="fieldSection groupform_peopleNum">揪團設定總人數
+                    <button class="numBtn" @click="subtract">-</button>
+                    <input type="text" value="0" size="1" v-model="total">
+                    <button class="numBtn" @click="add">+</button>
+                </div>
+                <div class="fieldSection share">分攤方式
+                    <select v-model="selectedMethod">
+                        <option value="" disabled>請選擇</option>
+                        <option v-for="way in ways">{{way}}</option>
+                    </select>
+                </div>
+                <div class="fieldSection btnSection">
+                    <button class="cancel">取消</button>
+                    <button class="publish">公開揪團</button>
                 </div>
             </div>
         </section>
-    </header>
-    <main></main>
-    <footer></footer>
-    
+    </main>
+    <footer class="footer_Wrap">
+        <section class="footerBlock">
+            <ul class="footerMedia">
+                <a href="">
+                    <li><i class="bi bi-facebook"></i></li>
+                </a>
+                <a href="">
+                    <li><i class="bi bi-instagram"></i></li>
+                </a>
+                <a href="">
+                    <li><i class="bi bi-line"></i>
+                        </ion-icon>
+                    </li>
+                </a>
+            </ul>
+            <ul class="footerContect">
+                <li><i class="bi bi-telephone"></i>電話:03-1234567</li>
+                <li><i class="bi bi-envelope"></i>服務信箱:<a href="mailto:abc12345@gmail.com">abc12345@gmail.com</a></li>
+                <li><i class="bi bi-clock"></i>營業時間:09:00 ~ 18:00(一)~(五)</li>
+                <li><i class="bi bi-pin-map"></i>地址:桃園市桃園區中正路99999號</li>
+            </ul>
+            <ul class="footerTerms">
+                <a href="">
+                    <li>服務條款</li>
+                </a><a href="">
+                    <li>購物條款</li>
+                </a><a href="">
+                    <li>付款方式</li>
+                </a>
+            </ul>
+            <p class="footerCopyRight">&copy;copy right by nobody.Please don'tsue me.</p>
+        </section>
+    </footer>
+    <div class="froLoginBG" id="froLoginBG">
+        <section class="froLoginBlock" id="froLoginBlock">
+            <!-- 取消按鈕 -->
+            <div class="froLoginCancel">
+                <button><i class="bi bi-x-circle-fill"></i></button>
+            </div>
+            <!-- 註冊/登入 -->
+            <div class="froLoginSwitch">
+                <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
+                    登入
+                </div>
+                <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
+                    註冊
+                </div>
+            </div>
+            <!-- 表單區 -->
+            <div class="froLoginForm_wrap">
+                <transition name="frologintransition" mode="out-in">
+                    <keep-alive>
+                        <component :is='content'></component>
+                    </keep-alive>
+                </transition>
+            </div>
+            <transition name="mascottransition">
+                <component :is='content2'></component>
+            </transition>
+        </section>
+    </div>
+
+
     <!-- 封面JS區 -->
     <script>
-        function init(){
-            var dropZone =document.getElementById('dropZone');
+        function init() {
+            var dropZone = document.getElementById('dropZone');
             var uploadBtn = document.getElementById('uploadBtn');
 
             dropZone.ondragover = dragOver;
             dropZone.ondrop = dropped;
             uploadBtn.onchange = previewImg;
         }
-        function dragOver(e){
+        function dragOver(e) {
             e.preventDefault();
         }
-        function dropped(e){
+        function dropped(e) {
             e.preventDefault();
             let file = e.dataTransfer.files[0];
-            let readfile= new FileReader();
+            let readfile = new FileReader();
             readfile.readAsDataURL(file);
-            readfile.addEventListener('load', function(){
+            readfile.addEventListener('load', function () {
                 let coverImg = document.getElementById('coverImg')
                 coverImg.src = readfile.result;
             });
         }
-        function previewImg(){
+        function previewImg() {
             let file = uploadBtn.files[0];
+            let fileSize = uploadBtn.files[0].size;
+            console.log(fileSize);
             let readFile = new FileReader();
             readFile.readAsDataURL(file);
-            readFile.addEventListener('load', function(){
+            readFile.addEventListener('load', function () {
                 let coverImg = document.getElementById('coverImg')
+                // if(file[0].size > 20 * 1024){
+                //     coverImg.innerText = '上傳失敗，請上傳2MB以內的照片';
+                //     return;
+                // }else{
                 coverImg.src = readFile.result;
+                // }
+
             })
         }
         window.addEventListener('load', init);
     </script>
-    <!-- date picker -->
+    <!-- disable past dates -->
     <script>
-        $('.datepicker').datepicker({
-            dateFormat: 'yy/mm/dd',
-            minDate:new Date(),
-            showOn: "both",
-            buttonImage : "./images/groupform_calendar.png",
-            buttonText: '',
-        });
-
+        let today = new Date().toISOString().split('T')[0];
+        let diablePastDate = document.querySelectorAll('.diablePastDate');
+        for(let i=0; i<diablePastDate.length; i++){
+            diablePastDate[i].setAttribute('min', today);
+        }
+        
     </script>
+    <!-- VUE出數量加減 -->
+    <script>
+        new Vue({
+            el: '#groupform_wrap',
+            data: {
+                total: 0,
+                selectedMethod: '',
+                ways: ['免費', '各自負擔', '先付訂金'],
+            },
+            methods: {
+                subtract() {
+                    if (this.total > 0) {
+                        this.total -= 1;
+                    } else {
+                        this.total = 0;
+                    }
+                },
+                add() {
+                    this.total += 1;
+                },
+            },
+        });
+    </script>
+    <script src="js/forlogin.js"></script>
+
 </body>
+
 </html>

@@ -1,15 +1,6 @@
 // 首頁個別設定 (蘇)
 
-.main-title {
-    font-size: 85px;
-    font-weight: 700;
-    color: transparent;
-    -webkit-text-stroke: 2px #007183;
-    letter-spacing: 10px;
-    
-}
-
-.second-title {
+.homeSecond-title {
     font-size: 9vh;
     font-weight: 700;
     line-height: 1.2;
@@ -29,12 +20,10 @@
     
 }
 
-.t-right {
-    text-align: right;
-}
 
 
 
+// 開頭動畫
 .overlay {
     position: fixed;
     width: 100%;

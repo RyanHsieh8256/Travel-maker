@@ -1,4 +1,7 @@
 /* ---團封面照--- */
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap{
+    padding-top: 100px;
+}
 .groupdetailCoverInfo .groupdetailCoverInfo_wrap .cover_wrap{
     display: flex;
     align-items: center;
@@ -81,30 +84,6 @@
         background: #FFFFFF;
     }
 }
-
-/*網頁本身的捲軸*/
-/* 網頁捲軸【寬度】 */
-::-webkit-scrollbar {
-    width: 15px;
-}
-
-/* 網頁捲軸【背景】顏色 */
-::-webkit-scrollbar-track {
-    background-color: rgba(255, 255, 255, .4);;
-    // background: #007183;
-}
-
-/* 網頁捲軸【把手】顏色 */
-::-webkit-scrollbar-thumb {
-    background: #007183;
-    border-radius: 100px;
-}
-
-/* 網頁捲軸【滑過時】把手的顏色 */
-::-webkit-scrollbar-thumb:hover {
-    background: rgb(240, 105, 42);
-}
-
 .groupdetailInfo .groupdetailInfo_wrap .message {
     height: 500px;
     overflow-y: scroll;

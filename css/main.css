@@ -77,6 +77,28 @@ img {
      object-fit: cover;
 }
 
+/*網頁本身的捲軸*/
+/* 網頁捲軸【寬度】 */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* 網頁捲軸【背景】顏色 */
+::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* 網頁捲軸【把手】顏色 */
+::-webkit-scrollbar-thumb {
+  background: #007183;
+  border-radius: 100px;
+}
+
+/* 網頁捲軸【滑過時】把手的顏色 */
+::-webkit-scrollbar-thumb:hover {
+  background: #f0692a;
+}
+
 body {
   font-family: 'Noto Sans TC', sans-serif;
   line-height: 1.5;
@@ -84,6 +106,62 @@ body {
   font-weight: 500;
   color: #333;
   background-color: #f0eee7;
+}
+
+.main-title {
+  font-family: 'Caveat',serif;
+  font-size: 85px;
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 2px #007183;
+  letter-spacing: 10px;
+  padding: 10px;
+}
+
+.second-title {
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  padding: 10px;
+  font-size: 35px;
+  line-height: 1.5;
+  color: #007183;
+  position: relative;
+}
+
+.second-title:before {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  content: '';
+  top: 20%;
+  left: 0;
+  background-color: #FF7E29aa;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.second-title span {
+  display: block;
+  font-size: 60px;
+}
+
+.p-text {
+  font-weight: 600;
+  color: #463828;
+}
+
+.t-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.t-right {
+  text-align: right;
 }
 
 @-webkit-keyframes groupMarquee_move {
@@ -7526,7 +7604,7 @@ body {
 }
 
 .footer_Wrap {
-  background-color: #007183;
+  background-color: #81d8d1;
   padding: 20px 0;
   max-width: 1920px;
   margin: auto;
@@ -7774,18 +7852,48 @@ body {
 
 .btn {
   font-family: 'Caveat',serif;
-  padding: 10px;
   border-radius: 100px;
+  font-weight: 600;
+  padding: 5px 10px;
 }
 
 .btn--cart {
   background-color: #fff;
+  color: #5C5041;
+  border: 1px solid #aaa;
 }
 
 .btn--main {
   background-color: #007183;
   font-size: 20px;
   color: #FEBC9F;
+}
+
+.btn--cancel {
+  border: 1px solid #aaa;
+  background-color: #fff;
+}
+
+.btn--close {
+  width: 30px;
+  height: 30px;
+  background-color: #007183;
+  color: #FEBC9F;
+  font-size: 25px;
+  position: relative;
+}
+
+.btn--close .bi.bi-x {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.btn--chip {
+  background-color: #E3DCD4;
+  color: #463828;
 }
 
 .timeline {
@@ -7943,15 +8051,7 @@ body {
   color: #007183;
 }
 
-.main-title {
-  font-size: 85px;
-  font-weight: 700;
-  color: transparent;
-  -webkit-text-stroke: 2px #007183;
-  letter-spacing: 10px;
-}
-
-.second-title {
+.homeSecond-title {
   font-size: 9vh;
   font-weight: 700;
   line-height: 1.2;
@@ -7967,10 +8067,6 @@ body {
 .p-span {
   font-size: 20px;
   font-weight: 600;
-}
-
-.t-right {
-  text-align: right;
 }
 
 .overlay {
@@ -8998,7 +9094,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   margin: 20px auto 0 auto;
   padding: 5px 0;
   border-radius: 10px;
-  background-color: #007183;
+  background-color: #81d8d1;
   color: #fff;
   text-align: center;
 }
@@ -9034,6 +9130,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 /* ---流動圖片區--- */
 .groupMarquee_wrap {
   overflow: hidden;
+  padding-top: 100px;
 }
 
 .groupMarquee .pic {
@@ -9056,6 +9153,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 .groupCities_wrap h2 {
   padding-bottom: 30px;
   text-align: center;
+  font-size: 30px;
 }
 
 .groupCities_wrap .row .pic {
@@ -9224,6 +9322,10 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 }
 
 /* ---團封面照--- */
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap {
+  padding-top: 100px;
+}
+
 .groupdetailCoverInfo .groupdetailCoverInfo_wrap .cover_wrap {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9324,28 +9426,6 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   background: #FFFFFF;
 }
 
-/*網頁本身的捲軸*/
-/* 網頁捲軸【寬度】 */
-::-webkit-scrollbar {
-  width: 15px;
-}
-
-/* 網頁捲軸【背景】顏色 */
-::-webkit-scrollbar-track {
-  background-color: rgba(255, 255, 255, 0.4);
-}
-
-/* 網頁捲軸【把手】顏色 */
-::-webkit-scrollbar-thumb {
-  background: #007183;
-  border-radius: 100px;
-}
-
-/* 網頁捲軸【滑過時】把手的顏色 */
-::-webkit-scrollbar-thumb:hover {
-  background: #f0692a;
-}
-
 .groupdetailInfo .groupdetailInfo_wrap .message {
   height: 500px;
   overflow-y: scroll;
@@ -9435,20 +9515,30 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   }
 }
 
-h3 {
-  font-size: 30px;
-  margin-bottom: 30px;
-}
-
 /*揪團清單大標題*/
 .grouplistTitle .grouplistTitle_wrap h2 {
+  padding-top: 100px;
   text-align: center;
-  font-size: 40px;
+  font-size: 30px;
+}
+
+.subtitle_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
 }
 
 /*我的收藏行程*/
 .grouplistContent .grouplistCollect_wrap {
-  margin: 30px 0;
+  margin: 90px auto;
+}
+
+.grouplistContent .grouplistCollect_wrap h3 {
+  font-size: 20px;
 }
 
 .grouplistContent .grouplistCollect_wrap .grouplistOwl {
@@ -9464,6 +9554,7 @@ h3 {
   font-size: 30px;
   position: absolute;
   top: 50%;
+  font-size: 50px;
 }
 
 .grouplistContent .grouplistCollect_wrap .grouplistOwl .owl-prev {
@@ -9484,6 +9575,14 @@ h3 {
 }
 
 /*我的建立行程*/
+.grouplistContent .grouplistBuildList_wrap {
+  padding-bottom: 100px;
+}
+
+.grouplistContent .grouplistBuildList_wrap h3 {
+  font-size: 20px;
+}
+
 .grouplistContent .grouplistBuildList_wrap .myTour {
   border: #3333 1px solid;
   border-radius: 10px;
@@ -9500,9 +9599,26 @@ h3 {
   height: 150px;
 }
 
+.groupform_body {
+  background: url(../../images/groupform/groupform_BG.jpg) no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.groupform {
+  padding-top: 100px;
+}
+
 .groupform .groupform_wrap {
   width: 80%;
   margin: auto;
+  padding: 0px 30px;
+  background-color: #F0EEE7;
+  border-radius: 10px;
+}
+
+.groupform .groupform_wrap .title {
+  padding: 10px 0;
 }
 
 .groupform .groupform_wrap .uploadCover {
@@ -9527,7 +9643,7 @@ h3 {
   position: relative;
   width: 90%;
   border: #3333 1px solid;
-  margin: auto;
+  margin: 15px auto;
   overflow: hidden;
 }
 
@@ -9546,8 +9662,25 @@ h3 {
   left: 0;
 }
 
+.groupform .groupform_wrap .uploadCover .dropZone_title {
+  color: #aaa9;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.groupform .uploadBtn {
+  cursor: pointer;
+  background-color: #007183;
+  color: #fff;
+  border-radius: 10px;
+  padding: 5px;
+}
+
 .groupform .groupform_wrap .fieldSection {
-  margin: 20px 0;
+  margin: 30px 0;
 }
 
 .groupform_desc {
@@ -9556,6 +9689,7 @@ h3 {
 
 .groupform_desc .desc {
   width: 100%;
+  resize: none;
 }
 
 .groupform_date {
@@ -9566,6 +9700,10 @@ h3 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.date_wrap {
+  margin: 10px 0;
 }
 
 .datepicker_wrap {
@@ -9583,13 +9721,40 @@ h3 {
           transform: translateY(-40%);
 }
 
+.groupform_peopleNum .numBtn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #007183;
+  color: #fff;
+}
+
+.btnSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-bottom: 30px;
+}
+
+.btnSection .cancel, .btnSection .publish {
+  width: 70px;
+  border-radius: 100px;
+  margin: 0px 15px;
+  background-color: #007183;
+  cursor: pointer;
+  color: #fff;
+}
+
 @media screen and (min-width: 768px) {
   .groupform .groupform_wrap {
     width: 60%;
   }
 }
 
-h2 {
+.shopType, .shopHotCity, .shopProduct h2 {
   font-size: 40px;
   text-align: center;
 }
@@ -9714,7 +9879,6 @@ h2 {
 .owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev {
   font-size: 3rem;
   color: #f5f5f5;
-  background-color: #ccc;
 }
 
 .owl-theme .owl-nav [class*=owl-]:hover {
@@ -9758,7 +9922,7 @@ h2 {
 
 .bi.bi-plus-circle-fill, .bi.bi-dash-circle-fill {
   color: #007183;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .shopspotInfo .sub {
@@ -9775,6 +9939,7 @@ h2 {
   width: 30px;
   border: none;
   text-align: center;
+  background-color: none;
 }
 
 .shopspotInfo .button-container {
@@ -9789,10 +9954,7 @@ h2 {
 .shopspotInfo .cart-qty-minus, .cart-qty-plus {
   border: none;
   background-color: none;
-}
-
-.shopspotInfo .cart-qty-plus img, .cart-qty-minus img {
-  width: 20px;
+  cursor: pointer;
 }
 
 .shopspotInfo .qty {
@@ -9817,31 +9979,45 @@ h2 {
 
 .sub_wrap .subbtn {
   text-align: center;
-}
-
-.sub_wrap .subbtn > * {
-  padding: 10px 20px;
-  border: 1px solid #007183;
-  background-color: #007183;
-  border-radius: 10px;
-  color: #fff;
   margin-top: 30px;
 }
 
-.shopspotContent {
-  /* width: 80%; */
-  /* margin: auto; */
+.sub_wrap .subbtn .tocart, .subbtn .topay {
+  background-color: #007183;
+  border-radius: 10px;
+  padding: 7px 10px;
+  color: #f5f5f5;
+  border: none;
+  cursor: pointer;
+}
+
+.shopspotContent_wrap {
+  width: 90%;
+  margin: auto;
+}
+
+.shopspotDescription {
   position: relative;
 }
 
-.contentTitle {
+.shopspotDescription > * {
   padding: 10px;
-  padding-left: 30px;
-  display: inline-block;
-  margin-left: 10px;
 }
 
-.shopspotContentMark {
+.shopspotDescription > * > * {
+  margin: 30px auto;
+  border: 1.5px solid black;
+  border-radius: 10px;
+  padding: 35px;
+  line-height: 20px;
+  position: relative;
+}
+
+.shopspotFeature img {
+  margin: 30px 0;
+}
+
+.spot_mark {
   background-color: #f0eee7;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9851,7 +10027,14 @@ h2 {
   left: 1.5rem;
 }
 
-.bi.bi-building {
+.spot_title {
+  padding: 10px;
+  padding-left: 30px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.bi.bi-building, .bi.bi-ticket-perforated, .bi.bi-basket, .bi.bi-question-octagon, .bi.bi-exclamation-lg {
   position: absolute;
   left: -10px;
   top: 0;
@@ -9861,15 +10044,6 @@ h2 {
   margin-bottom: 0;
   padding: 5px;
   border-radius: 50%;
-}
-
-.shopspotContent > * {
-  margin: 30px auto;
-  border: 1.5px solid black;
-  border-radius: 10px;
-  padding: 35px;
-  line-height: 20px;
-  position: relative;
 }
 
 .shopspotSelect {
@@ -9897,6 +10071,9 @@ h2 {
     /* margin: 20px 0px 60px 100px; */
     width: 60%;
   }
+  .bi.bi-plus-circle-fill, .bi.bi-dash-circle-fill {
+    font-size: 20px;
+  }
   .shopspotInfo .sub {
     width: 40%;
     margin-left: 0;
@@ -9908,16 +10085,20 @@ h2 {
   .shopspotInfo .sub_wrap table {
     width: 100%;
   }
-  .button-container {
-    width: 100%;
-  }
   .shopspotSelect {
+    margin-top: 60px;
     padding: 50px;
     display: block;
     position: -webkit-sticky;
     position: sticky;
     top: 0;
     height: 100px;
+  }
+  .shopspotSelect a {
+    color: black;
+  }
+  .shopspotSelect a:hover {
+    color: #007183;
   }
 }
 

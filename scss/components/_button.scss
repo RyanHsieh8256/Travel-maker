@@ -1,17 +1,50 @@
 .btn {
     font-family: 'Caveat',serif;
-    padding: 10px;
     border-radius: 100px;
+    font-weight: 600;
+    padding: 5px 10px;
 
     &--cart {
         background-color: #fff;
-       
+        color: #5C5041;
+        border: 1px solid #aaa;
         
     }
 
+    // 第一級按鈕
     &--main {
         background-color: #007183;
         font-size: 20px;
         color: #FEBC9F;
     }
+
+    // 取消按鈕
+    &--cancel {
+        border: 1px solid #aaa;
+        background-color: #fff;
+    }
+
+    // 燈箱關閉按鈕
+    &--close {
+        width: 30px;
+        height: 30px;
+        background-color: #007183;
+        color: #FEBC9F;
+        font-size: 25px;
+        position: relative;
+
+        .bi.bi-x {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    }
+
+    // 標籤按鈕
+    &--chip {
+        background-color: #E3DCD4;
+        color: #463828;
+    }
+
 }
