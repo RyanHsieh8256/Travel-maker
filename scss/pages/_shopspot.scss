@@ -16,7 +16,7 @@
   .owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev{
   font-size: 3rem;
   color: #f5f5f5;
-  background-color: #ccc;
+  // background-color: #ccc;
   }
   
   
@@ -65,7 +65,7 @@
 
 .bi.bi-plus-circle-fill,.bi.bi-dash-circle-fill{
   color: #007183;
-  font-size: 20px;
+  font-size: 30px;
   
 }
 
@@ -79,12 +79,14 @@
 
 .shopspotInfo .price_wrap{
   margin: 10px;
+  
 }
 
 .shopspotInfo .price{
   width: 30px;
   border: none;
   text-align: center;
+  background-color: none;
 
 }
 
@@ -97,15 +99,13 @@
 .shopspotInfo .cart-qty-minus,.cart-qty-plus{
   border: none;
   background-color: none;
-}
-
-.shopspotInfo .cart-qty-plus img,.cart-qty-minus img{
-  width: 20px;
+  cursor: pointer;
 }
 
 .shopspotInfo .qty{
   width: 50px;
   margin: 5px;
+ 
 }
 
 
@@ -127,34 +127,49 @@
 
 .sub_wrap .subbtn{
   text-align: center;
-}
-
-.sub_wrap .subbtn>*{
-  padding: 10px 20px;
-  border: 1px solid #007183;
-  background-color: #007183;
-  border-radius: 10px;
-  color: #fff;
   margin-top: 30px;
   
 }
 
-  .shopspotContent{
-      /* width: 80%; */
-      /* margin: auto; */
+.sub_wrap .subbtn .tocart,.subbtn .topay{
+  background-color: #007183;
+  border-radius: 10px;
+  padding: 7px 10px;
+  color: #f5f5f5;
+  border: none;
+  cursor: pointer;
+}
+
+
+
+.shopspotContent_wrap{
+  width: 90%;
+  margin: auto;
+}
+
+  .shopspotDescription{
       position: relative;
   }
 
-  .contentTitle{
-      padding: 10px;
-      padding-left: 30px;
-      display: inline-block;
-      margin-left: 10px;
-      
-     
+  .shopspotDescription>*{
+    padding: 10px;
   }
 
-  .shopspotContentMark{
+.shopspotDescription>*>*{
+  margin: 30px auto;
+  border: 1.5px solid black;
+  border-radius: 10px;
+  padding: 35px;
+  line-height: 20px;
+  position: relative;
+
+}
+
+.shopspotFeature img{
+  margin: 30px 0;
+}
+
+.spot_mark{
       background-color: $bodyBGcolor;
       display: flex;
       position: absolute;
@@ -163,7 +178,17 @@
 
   }
 
-  .bi.bi-building{
+  .spot_title{
+      padding: 10px;
+      padding-left: 30px;
+      display: inline-block;
+      margin-left: 10px;
+      
+      
+     
+  }
+
+  .bi.bi-building,.bi.bi-ticket-perforated,.bi.bi-basket,.bi.bi-question-octagon,.bi.bi-exclamation-lg{
       position: absolute;
       left: -10px;
       top: 0;
@@ -175,14 +200,7 @@
       border-radius: 50%;
   }
 
-  .shopspotContent>*{
-      margin: 30px auto;
-      border: 1.5px solid black;
-      border-radius: 10px;
-      padding: 35px;
-      line-height: 20px;
-      position: relative;
-  }
+ 
    
   .shopspotSelect{
     display: none;
@@ -216,6 +234,11 @@
     width: 60%;
 }
 
+.bi.bi-plus-circle-fill,.bi.bi-dash-circle-fill{
+  font-size: 20px;
+  
+}
+
 .shopspotInfo .sub{
   width: 40%;
   margin-left: 0;
@@ -231,17 +254,23 @@
   width: 100%;
 }
 
-.button-container{
-  width: 100%;
-}
-
 .shopspotSelect{
+  margin-top: 60px;
   padding: 50px;
   display: block;
   position: sticky;
   top: 0;
   height: 100px;
   
+  
+}
+
+.shopspotSelect a{
+  color: black;
+}
+
+.shopspotSelect a:hover{
+  color: #007183;
 }
 
 }
