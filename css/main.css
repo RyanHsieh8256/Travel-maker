@@ -86,6 +86,62 @@ body {
   background-color: #f0eee7;
 }
 
+.main-title {
+  font-family: 'Caveat',serif;
+  font-size: 85px;
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 2px #007183;
+  letter-spacing: 10px;
+  padding: 10px;
+}
+
+.second-title {
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  padding: 10px;
+  font-size: 35px;
+  line-height: 1.5;
+  color: #007183;
+  position: relative;
+}
+
+.second-title:before {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  content: '';
+  top: 20%;
+  left: 0;
+  background-color: #FF7E29aa;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.second-title span {
+  display: block;
+  font-size: 60px;
+}
+
+.p-text {
+  font-weight: 600;
+  color: #463828;
+}
+
+.t-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.t-right {
+  text-align: right;
+}
+
 @-webkit-keyframes groupMarquee_move {
   from {
     -webkit-transform: translateX(0);
@@ -7720,18 +7776,48 @@ body {
 
 .btn {
   font-family: 'Caveat',serif;
-  padding: 10px;
   border-radius: 100px;
+  font-weight: 600;
+  padding: 5px 10px;
 }
 
 .btn--cart {
   background-color: #fff;
+  color: #5C5041;
+  border: 1px solid #aaa;
 }
 
 .btn--main {
   background-color: #007183;
   font-size: 20px;
   color: #FEBC9F;
+}
+
+.btn--cancel {
+  border: 1px solid #aaa;
+  background-color: #fff;
+}
+
+.btn--close {
+  width: 30px;
+  height: 30px;
+  background-color: #007183;
+  color: #FEBC9F;
+  font-size: 25px;
+  position: relative;
+}
+
+.btn--close .bi.bi-x {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.btn--chip {
+  background-color: #E3DCD4;
+  color: #463828;
 }
 
 .timeline {
@@ -7889,15 +7975,7 @@ body {
   color: #007183;
 }
 
-.main-title {
-  font-size: 85px;
-  font-weight: 700;
-  color: transparent;
-  -webkit-text-stroke: 2px #007183;
-  letter-spacing: 10px;
-}
-
-.second-title {
+.homeSecond-title {
   font-size: 9vh;
   font-weight: 700;
   line-height: 1.2;
@@ -7913,10 +7991,6 @@ body {
 .p-span {
   font-size: 20px;
   font-weight: 600;
-}
-
-.t-right {
-  text-align: right;
 }
 
 .overlay {
