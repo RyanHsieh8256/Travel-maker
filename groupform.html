@@ -65,19 +65,19 @@
                     <div class="date_wrap startDate_wrap">
                         <label for="startDate">揪團出發日期</label>
                         <div class="datepicker_wrap align">
-                            <input type="text" id="startDate" class="datepicker">
+                            <input type="date" id="startDate">
                         </div>
                     </div>
                     <div class="date_wrap endDate_wrap">
                         <label for="endDate">揪團結束日期</label>
                         <div class="datepicker_wrap align">
-                            <input type="text" id="endDate" class="datepicker">
+                            <input type="date" id="endDate">
                         </div>
                     </div>
                     <div class="date_wrap deadline_wrap">
                         <label for="deadline">報名截止日期</label>
                         <div class="datepicker_wrap">
-                            <input type="text" id="deadline" class="datepicker">
+                            <input type="date" id="deadline">
                         </div>
                     </div>
                 </div>
@@ -119,6 +119,34 @@
             <p class="footerCopyRight">&copy;copy right by nobody.Please don'tsue me.</p>
         </section>
     </footer>
+    <div class="froLoginBG" id="froLoginBG">
+        <section class="froLoginBlock" id="froLoginBlock">
+            <!-- 取消按鈕 -->
+            <div class="froLoginCancel">
+                <button><i class="bi bi-x-circle-fill"></i></button>
+            </div>
+            <!-- 註冊/登入 -->
+            <div class="froLoginSwitch">
+                <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
+                    登入
+                </div>
+                <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
+                    註冊
+                </div>
+            </div> 
+            <!-- 表單區 -->
+            <div class="froLoginForm_wrap">
+                <transition name="frologintransition" mode="out-in">
+                    <keep-alive>
+                        <component :is='content'></component>
+                    </keep-alive>
+                </transition>
+            </div>
+            <transition name="mascottransition">
+                <component :is='content2'></component>
+            </transition>
+        </section>
+    </div>
 
     
     <!-- 封面JS區 -->
@@ -157,6 +185,7 @@
     </script>
     <!-- date picker -->
     <script>
+        $("#ui-datepicker-div").remove();
         $('.datepicker').datepicker({
             dateFormat: 'yy/mm/dd',
             minDate: new Date(),
@@ -188,6 +217,8 @@
             },
         });
     </script>
+    <script src="js/forlogin.js"></script>
+
 </body>
 
 </html>
