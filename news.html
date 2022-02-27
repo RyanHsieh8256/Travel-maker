@@ -9,49 +9,38 @@
     <link rel="stylesheet" href="css/main.css">
     <script src="js/jquery.js"></script>
 
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
     <!-- owl.carousel -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"></link>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"></link>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
-    <!-- googleicon -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
 
-    <!-- ionicon -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-    <script src="js/headercontrol.js"></script>
 
 </head>
 <body>
-    <nav>
-        <section class="nav_Wrap">
-            <div class="navLogin">
-                <a href=""><h1 class="logo"><img src="images/logo/logo_84x50.png" alt="TravelMaker"></h1></a>
-                <ul class="navMember">
-                    <a href=""><li><span class="material-icons-sharp">shopping_cart</span></li></a>
-                    <a href=""><li><span class="material-icons-sharp">account_circle</span></ion-icon></li></a>
-                    <a href=""><li><span class="material-icons-sharp">menu</span></li></a>
-                </ul>
-            </div>
-            <div class="mainNav" id="mainNav">
-                <ul class="mainNavList">
-                    <a href=""><li>行程規劃</li></a>
-                    <a href=""><li>揪團旅行</li></a>
-                    <a href=""><li>商城</li></a>
-                    <a href=""><li>旅遊資訊</li></a>
-                    <a href=""><li>關於我們</li></a>
-                    <a href=""><li>明信片</li></a>
-                </ul>
-            </div>            
-        </section>
+    <nav class="nav_Wrap">
+        <section class="navBlock">
+            <a href="">
+                <h1 class="navLogo">
+                    <img src="images/logo/logo_84x50.png" alt="TravelMaker">
+                </h1>
+            </a>
+            <ul class="mainNav">
+                <a href=""><li>行程規劃</li></a>
+                <a href=""><li>揪團旅行</li></a>
+                <a href=""><li>商城</li></a>
+            </ul>
+            <ul class="navMember">
+                <a href=""><li><i class="bi bi-minecart-loaded"></i></li></a>
+                <a><li><i class="bi bi-person-circle"></i></li></a>
+                <a href=""><li><i class="bi bi-list"></i></li></a>
+            </ul>
+        </section>          
     </nav>
     <header>
         <section class="newsSlider">
-            <div class="owl-carousel owl-theme owl-loaded">
+            <div class="owl-carousel owl-theme owl-loaded newsOwl">
                 <div class="owl-stage-outer">
                     <div class="owl-stage">
                         <div class="owl-item sliderItem">
@@ -422,18 +411,19 @@
             </div>
         </section>
     </main>
-    <footer>
-        <section class="footer_Wrap">
+    <footer class="footer_Wrap">
+        <section class="footerBlock">
             <ul class="footerMedia">
-                <a href=""><li><ion-icon name="logo-facebook"></ion-icon></li></a>
-                <a href=""><li><ion-icon name="logo-instagram"></ion-icon></li></a>
-                <a href=""><li><ion-icon name="logo-twitter"></ion-icon></li></a>
+                <a href=""><li><i class="bi bi-facebook"></i></li></a>
+                <a href=""><li><i class="bi bi-instagram"></i></li></a>
+                <a href=""><li><i class="bi bi-line"></i>
+                </ion-icon></li></a>
             </ul>
             <ul class="footerContect">
-                <li><ion-icon name="call-outline"></ion-icon>電話:03-1234567</li>
-                <li><ion-icon name="mail-outline"></ion-icon>服務信箱:<a href="mailto:abc12345@gmail.com">abc12345@gmail.com</a></li>
-                <li><ion-icon name="time-outline"></ion-icon>營業時間:09:00 ~ 18:00(一)~(五)</li>
-                <li><ion-icon name="location-outline"></ion-icon>地址:桃園市桃園區中正路99999號</li>
+                <li><i class="bi bi-telephone"></i>電話:03-1234567</li>
+                <li><i class="bi bi-envelope"></i>服務信箱:<a href="mailto:abc12345@gmail.com">abc12345@gmail.com</a></li>
+                <li><i class="bi bi-clock"></i>營業時間:09:00 ~ 18:00(一)~(五)</li>
+                <li><i class="bi bi-pin-map"></i>地址:桃園市桃園區中正路99999號</li>
             </ul>
             <ul class="footerTerms">
                 <a href=""><li>服務條款</li></a><a href=""><li>購物條款</li></a><a href=""><li>付款方式</li></a>
@@ -443,7 +433,7 @@
     </footer>
 </body>
 <script>
-    $('.owl-carousel').owlCarousel({
+    $('.newsOwl').owlCarousel({
         margin:10,
         loop:true,
         items:1,

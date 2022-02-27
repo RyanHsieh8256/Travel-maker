@@ -48,12 +48,58 @@
         display: flex;
         align-items: center;
         a{
-            padding-left:20px;
-            font-size:24px;
             color: $black;
-            &:hover{
-                color: $accentColor;
-            }
+        }
+        &>li{
+            padding-left:20px;
+            color: $black;
+            cursor: pointer;
         }
     }
+}
+
+// 會員資訊下拉選單
+.navDropdownMenu{
+    display: none;
+
+    position: absolute;
+    top: 130%;
+    right:5%;
+    background-color: $white;
+
+    border-radius: 5px;
+
+    box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 5px;
+    .navDropdownMenuItem{
+        padding:10px 45px;
+        border-bottom: 1px solid #3335;
+        &+.navDropdownMenuItem{
+            border-bottom:none;
+            border-top:1px solid #3332;
+        }
+    }
+    .navMemProfile{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .navDropdownMenuPhoto{
+            width: 50px;
+            overflow: hidden;
+            border-radius:50% ;
+        }
+        .navDropdownMenuTitle{
+            width: 70%;
+            padding-left: 10px;
+        }
+    }
+}
+.navDropdownMenu::before{
+    content: '';
+    display: block;
+    border-bottom: 10px solid $white;
+    border-right: 5px solid #0000;
+    border-left: 5px solid #0000;
+    position: absolute;
+    right: 20%;
+    top:-10px;
 }
