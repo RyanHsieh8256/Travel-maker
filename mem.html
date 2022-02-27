@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>會員專區</title>
+    <title>會員中心</title>
+    <link rel="shortcut icon" href="images/all/logo-icon.png" type="image/png">
 
     <link rel="stylesheet" href="css/main.css">
     <script src="js/jquery.js"></script>
+    <script src="js/vue.js"></script>
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -298,6 +300,34 @@
                 </div>
             </div>
         </section>
+        <div class="froLoginBG" id="froLoginBG">
+            <section class="froLoginBlock" id="froLoginBlock">
+                <!-- 取消按鈕 -->
+                <div class="froLoginCancel">
+                    <button><i class="bi bi-x-circle-fill"></i></button>
+                </div>
+                <!-- 註冊/登入 -->
+                <div class="froLoginSwitch">
+                    <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
+                        登入
+                    </div>
+                    <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
+                        註冊
+                    </div>
+                </div> 
+                <!-- 表單區 -->
+                <div class="froLoginForm_wrap">
+                    <transition name="frologintransition" mode="out-in">
+                        <keep-alive>
+                            <component :is='content'></component>
+                        </keep-alive>
+                    </transition>
+                </div>
+                <transition name="mascottransition">
+                    <component :is='content2'></component>
+                </transition>
+            </section>
+        </div>
     </main>
     <footer class="footer_Wrap">
         <section class="footerBlock">
@@ -344,4 +374,5 @@
     }
     window.addEventListener('load',mem_sectionControl)
 </script>
+<script src="js/forlogin.js"></script>
 </html>

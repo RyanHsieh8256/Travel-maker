@@ -77,6 +77,28 @@ img {
      object-fit: cover;
 }
 
+/*網頁本身的捲軸*/
+/* 網頁捲軸【寬度】 */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* 網頁捲軸【背景】顏色 */
+::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* 網頁捲軸【把手】顏色 */
+::-webkit-scrollbar-thumb {
+  background: #007183;
+  border-radius: 100px;
+}
+
+/* 網頁捲軸【滑過時】把手的顏色 */
+::-webkit-scrollbar-thumb:hover {
+  background: #f0692a;
+}
+
 body {
   font-family: 'Noto Sans TC', sans-serif;
   line-height: 1.5;
@@ -7582,7 +7604,7 @@ body {
 }
 
 .footer_Wrap {
-  background-color: #007183;
+  background-color: #81d8d1;
   padding: 20px 0;
   max-width: 1920px;
   margin: auto;
@@ -8029,7 +8051,196 @@ body {
   color: #007183;
 }
 
+<<<<<<< HEAD
+.froBackBanner {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.froBackBtn_wrap {
+  position: fixed;
+  width: 100%;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.froBackBtn_wrap .froBackBtn {
+  background-color: #007183;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+  text-align: center;
+  font-size: 40px;
+  color: #fff;
+  -webkit-box-shadow: 3px 3px 5px #3335;
+          box-shadow: 3px 3px 5px #3335;
+}
+
+/* 動畫 */
+.hero {
+  width: 100%;
+  height: 100%;
+  min-height: 450px;
+  position: relative;
+  top: 0;
+  left: 0;
+  background-color: #d9edfd;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+.layer-1 {
+  -webkit-animation: parallax_fg linear 20s infinite both;
+          animation: parallax_fg linear 20s infinite both;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/24650/1.png) 0 100% repeat-x;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: auto 136px;
+}
+
+.layer-2 {
+  -webkit-animation: parallax_fg linear 30s infinite both;
+          animation: parallax_fg linear 30s infinite both;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/24650/2.png) 0 100% repeat-x;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: auto 145px;
+}
+
+.layer-3 {
+  -webkit-animation: parallax_fg linear 55s infinite both;
+          animation: parallax_fg linear 55s infinite both;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/24650/3.png) 0 100% repeat-x;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: auto 158px;
+}
+
+.layer-4 {
+  -webkit-animation: parallax_fg linear 75s infinite both;
+          animation: parallax_fg linear 75s infinite both;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/24650/4.png) 0 100% repeat-x;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: auto 468px;
+}
+
+.layer-5 {
+  -webkit-animation: parallax_fg linear 95s infinite both;
+          animation: parallax_fg linear 95s infinite both;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/24650/5.png) 0 100% repeat-x;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: auto 311px;
+}
+
+.layer-6 {
+  -webkit-animation: parallax_fg linear 120s infinite both;
+          animation: parallax_fg linear 120s infinite both;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/24650/6.png) 0 100% repeat-x;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: auto 222px;
+}
+
+.bear-1, .bear-2 {
+  background: url(../../images/mascot/bear01.png) 0 100% no-repeat;
+  z-index: 1;
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: auto 75px;
+  -webkit-animation: parallax_bike linear 10s infinite both;
+          animation: parallax_bike linear 10s infinite both;
+}
+
+.bear-2 {
+  -webkit-animation: parallax_bike linear 15s infinite both;
+          animation: parallax_bike linear 15s infinite both;
+}
+
+@-webkit-keyframes parallax_fg {
+  0% {
+    background-position: 2765px 100%;
+  }
+  100% {
+    background-position: 550px 100%;
+  }
+}
+
+@keyframes parallax_fg {
+  0% {
+    background-position: 2765px 100%;
+  }
+  100% {
+    background-position: 550px 100%;
+  }
+}
+
+@-webkit-keyframes parallax_bike {
+  0% {
+    background-position: -300px 100%;
+  }
+  100% {
+    background-position: 2000px 100%;
+  }
+}
+
+@keyframes parallax_bike {
+  0% {
+    background-position: -300px 100%;
+  }
+  100% {
+    background-position: 2000px 100%;
+  }
+}
+
+.main-title {
+  font-size: 85px;
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 2px #007183;
+  letter-spacing: 10px;
+}
+
+.second-title {
+=======
 .homeSecond-title {
+>>>>>>> dev
   font-size: 9vh;
   font-weight: 700;
   line-height: 1.2;
@@ -8548,7 +8759,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 
 .froLoginBlock {
   width: 300px;
-  height: 400px;
+  height: 420px;
   position: fixed;
   top: 20%;
   left: 50%;
@@ -9072,7 +9283,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   margin: 20px auto 0 auto;
   padding: 5px 0;
   border-radius: 10px;
-  background-color: #007183;
+  background-color: #81d8d1;
   color: #fff;
   text-align: center;
 }
@@ -9108,6 +9319,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 /* ---流動圖片區--- */
 .groupMarquee_wrap {
   overflow: hidden;
+  padding-top: 100px;
 }
 
 .groupMarquee .pic {
@@ -9130,6 +9342,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 .groupCities_wrap h2 {
   padding-bottom: 30px;
   text-align: center;
+  font-size: 30px;
 }
 
 .groupCities_wrap .row .pic {
@@ -9298,6 +9511,10 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 }
 
 /* ---團封面照--- */
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap {
+  padding-top: 100px;
+}
+
 .groupdetailCoverInfo .groupdetailCoverInfo_wrap .cover_wrap {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9398,28 +9615,6 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   background: #FFFFFF;
 }
 
-/*網頁本身的捲軸*/
-/* 網頁捲軸【寬度】 */
-::-webkit-scrollbar {
-  width: 15px;
-}
-
-/* 網頁捲軸【背景】顏色 */
-::-webkit-scrollbar-track {
-  background-color: rgba(255, 255, 255, 0.4);
-}
-
-/* 網頁捲軸【把手】顏色 */
-::-webkit-scrollbar-thumb {
-  background: #007183;
-  border-radius: 100px;
-}
-
-/* 網頁捲軸【滑過時】把手的顏色 */
-::-webkit-scrollbar-thumb:hover {
-  background: #f0692a;
-}
-
 .groupdetailInfo .groupdetailInfo_wrap .message {
   height: 500px;
   overflow-y: scroll;
@@ -9509,20 +9704,30 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   }
 }
 
-h3 {
-  font-size: 30px;
-  margin-bottom: 30px;
-}
-
 /*揪團清單大標題*/
 .grouplistTitle .grouplistTitle_wrap h2 {
+  padding-top: 100px;
   text-align: center;
-  font-size: 40px;
+  font-size: 30px;
+}
+
+.subtitle_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
 }
 
 /*我的收藏行程*/
 .grouplistContent .grouplistCollect_wrap {
-  margin: 30px 0;
+  margin: 90px auto;
+}
+
+.grouplistContent .grouplistCollect_wrap h3 {
+  font-size: 20px;
 }
 
 .grouplistContent .grouplistCollect_wrap .grouplistOwl {
@@ -9538,6 +9743,7 @@ h3 {
   font-size: 30px;
   position: absolute;
   top: 50%;
+  font-size: 50px;
 }
 
 .grouplistContent .grouplistCollect_wrap .grouplistOwl .owl-prev {
@@ -9558,6 +9764,14 @@ h3 {
 }
 
 /*我的建立行程*/
+.grouplistContent .grouplistBuildList_wrap {
+  padding-bottom: 100px;
+}
+
+.grouplistContent .grouplistBuildList_wrap h3 {
+  font-size: 20px;
+}
+
 .grouplistContent .grouplistBuildList_wrap .myTour {
   border: #3333 1px solid;
   border-radius: 10px;
@@ -9574,9 +9788,26 @@ h3 {
   height: 150px;
 }
 
+.groupform_body {
+  background: url(../../images/groupform/groupform_BG.jpg) no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.groupform {
+  padding-top: 100px;
+}
+
 .groupform .groupform_wrap {
   width: 80%;
   margin: auto;
+  padding: 0px 30px;
+  background-color: #F0EEE7;
+  border-radius: 10px;
+}
+
+.groupform .groupform_wrap .title {
+  padding: 10px 0;
 }
 
 .groupform .groupform_wrap .uploadCover {
@@ -9601,7 +9832,7 @@ h3 {
   position: relative;
   width: 90%;
   border: #3333 1px solid;
-  margin: auto;
+  margin: 15px auto;
   overflow: hidden;
 }
 
@@ -9620,8 +9851,25 @@ h3 {
   left: 0;
 }
 
+.groupform .groupform_wrap .uploadCover .dropZone_title {
+  color: #aaa9;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.groupform .uploadBtn {
+  cursor: pointer;
+  background-color: #007183;
+  color: #fff;
+  border-radius: 10px;
+  padding: 5px;
+}
+
 .groupform .groupform_wrap .fieldSection {
-  margin: 20px 0;
+  margin: 30px 0;
 }
 
 .groupform_desc {
@@ -9630,6 +9878,7 @@ h3 {
 
 .groupform_desc .desc {
   width: 100%;
+  resize: none;
 }
 
 .groupform_date {
@@ -9640,6 +9889,10 @@ h3 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.date_wrap {
+  margin: 10px 0;
 }
 
 .datepicker_wrap {
@@ -9655,6 +9908,33 @@ h3 {
   top: 50%;
   -webkit-transform: translateY(-40%);
           transform: translateY(-40%);
+}
+
+.groupform_peopleNum .numBtn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #007183;
+  color: #fff;
+}
+
+.btnSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-bottom: 30px;
+}
+
+.btnSection .cancel, .btnSection .publish {
+  width: 70px;
+  border-radius: 100px;
+  margin: 0px 15px;
+  background-color: #007183;
+  cursor: pointer;
+  color: #fff;
 }
 
 @media screen and (min-width: 768px) {

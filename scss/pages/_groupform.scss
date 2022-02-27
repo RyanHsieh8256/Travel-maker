@@ -1,7 +1,22 @@
+.groupform_body{
+    // background:url(http://thekitemap.com/images/feedback-img.jpg) no-repeat;
+    background: url(../../images/groupform/groupform_BG.jpg) no-repeat;
+    background-size: cover;
+    height:100%;
+}
 // 上傳封面區
+.groupform{
+    padding-top: 100px;
+}
 .groupform .groupform_wrap{
     width: 80%;
     margin: auto;
+    padding: 0px 30px;
+    background-color: #F0EEE7;
+    border-radius: 10px;
+    .title{
+        padding: 10px 0;
+    }
 }
 .groupform .groupform_wrap .uploadCover{
     border: #3333 1px solid;
@@ -16,9 +31,8 @@
     .dropZone{
         position: relative;
         width: 90%;
-        
         border: #3333 1px solid;
-        margin: auto;
+        margin: 15px auto;
         overflow: hidden;
         &::before{
             content: "";
@@ -34,18 +48,34 @@
             left: 0;
 
         }
+        &_title{
+            color: #aaa9;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     }
 }
+//input修改樣式
+.groupform .uploadBtn{
+    cursor: pointer;
+    background-color: #007183;
+    color: #fff;
+    border-radius: 10px;
+    padding: 5px;
+}
+
 //開始填表單區
 .groupform .groupform_wrap .fieldSection{
-    // display: flex;
-    margin: 20px 0;
+    margin: 30px 0;
 }
 .groupform {
     &_desc{
         display: block;
         .desc{
             width: 100%;
+            resize: none;
         }
     }
     &_date{
@@ -53,8 +83,10 @@
         flex-direction: column;
     }
 }
-
 //針對日曆
+.date_wrap{
+    margin: 10px 0;
+}
 .datepicker_wrap{
     position: relative;
     display: initial;
@@ -67,8 +99,28 @@
     top: 50%;
     transform: translateY(-40%);
 }
-
-
+//人數加減按鈕
+.groupform_peopleNum .numBtn{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #007183;
+    color: #fff;
+}
+//針對送出區的按鈕
+.btnSection{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+    .cancel, .publish{
+        width: 70px;
+        border-radius: 100px;
+        margin: 0px 15px;
+        background-color: #007183;
+        cursor: pointer;
+        color: #fff;
+    }
+}
 
 @media screen and (min-width: 768px) {
     .groupform .groupform_wrap{
