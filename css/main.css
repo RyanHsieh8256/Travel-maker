@@ -9589,7 +9589,7 @@ h3 {
   }
 }
 
-h2 {
+.shopType, .shopHotCity, .shopProduct h2 {
   font-size: 40px;
   text-align: center;
 }
