@@ -1,15 +1,21 @@
-h3{
-    font-size: $third-title;
-    margin-bottom: 30px;
-}
 /*揪團清單大標題*/
 .grouplistTitle .grouplistTitle_wrap h2{
+    padding-top: 100px;
     text-align: center;
-    font-size: $second-title;
+    font-size: 30px;
+}
+// 揪團清單副標題
+.subtitle_wrap{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 /*我的收藏行程*/
 .grouplistContent .grouplistCollect_wrap{
-    margin: 30px 0;
+    margin: 90px auto;
+    h3{
+        font-size: 20px;
+    }
 }
 .grouplistContent .grouplistCollect_wrap .grouplistOwl
 {
@@ -22,6 +28,7 @@ h3{
         font-size: 30px;
         position: absolute;
         top: 50%;
+        font-size: 50px;
     }
     .owl-prev{
         left: 0;
@@ -39,6 +46,10 @@ h3{
 } 
 /*我的建立行程*/
 .grouplistContent .grouplistBuildList_wrap{
+    padding-bottom: 100px;
+    h3{
+        font-size: 20px;
+    }
     .myTour{
         border: #3333 1px solid;
         border-radius: 10px;
