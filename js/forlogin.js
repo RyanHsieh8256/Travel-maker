@@ -33,6 +33,9 @@ Vue.component('signin',{
                     <th>確認密碼:</th><td><input type="password"></td>
                 </tr>
                 <tr class="froLoginFormItem">
+                    <th>姓名:</th><td><input type="test"></td>
+                </tr>
+                <tr class="froLoginFormItem">
                     <th>電話:</th><td><input type="tel"></td>
                 </tr>
                 <tr class="froLoginFormItem">
