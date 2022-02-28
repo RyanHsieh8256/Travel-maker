@@ -4,20 +4,147 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首頁</title>
+    <title>建立行程</title>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
     <link rel="stylesheet" href="css/main.css">
 
 </head>
 <body>
-    <header></header>
+    <header>
+      <!-- 宸哥的導覽列 -->
+      <nav class="nav_Wrap">
+        <section class="navBlock">
+            <a href="home.html">
+                <h1 class="navLogo">
+                    <img src="images/logo/logo_84x50.png" alt="TravelMaker">
+                </h1>
+            </a>
+            <ul class="mainNav">
+                <a href="tour.html"><li>行程規劃</li></a>
+                <a href="group.html"><li>揪團旅行</li></a>
+                <a href="shop.html"><li>商城</li></a>
+            </ul>
+            <ul class="navMember">
+                <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
+                <li>
+                    <i class="bi bi-person-circle" id="loginBoxBtn"><span>登入/註冊</span></i>
+                    <!-- 登入後的會員選單-->
+                    <ul class="navDropdownMenu">
+                        <li class="navDropdownMenuItem navMemProfile">
+                            <div class="navDropdownMenuPhoto">
+                                <img src="https://picsum.photos/200/200/?random=10">
+                            </div>
+                            <div class="navDropdownMenuTitle">
+                                <span>張小明</span>
+                            </div>
+                        </li>
+                        <li class="navDropdownMenuItem"><i class="bi bi-gear"></i> 帳號設定</li>
+                        <li class="navDropdownMenuItem"><i class="bi bi-calendar2"></i> 我的行程</li>
+                        <li class="navDropdownMenuItem"><i class="bi bi-bookmark-heart"></i> 我的收藏</li>
+                        <li class="navDropdownMenuItem"><i class="bi bi-file-person"></i> 我的揪團</li>
+                        <li class="navDropdownMenuItem"><i class="bi bi-bag"></i> 我的訂單</li>
+                    </ul>
+                </li>
+                <li><div class="burger-toggle">
+                    <span class="burger-line"></span>
+                </div></li>
+            </ul>
+        </section>          
+      </nav>
+      <!-- 漢堡 -->
+      <div class="navPage">
+          <button class="navPage--close">
+              <span class="close_line"></span>
+              <span class="close_line"></span>
+            </button>
+          <div class="navPage_wrap">
+          <!--     <div class="navPage_header"></div> -->
+              <div class="navPage_content">
+          <!--       <div class="navPage_logo"></div> -->
+                  <div class="navPage_box">
+                      <nav class="navPage_nav">
+                          <ul class="navPage_list">
+                              <li class="navPage_item is_active">
+                                  <div class="navPage_header">
+                                  <span class="navPage_header--num">01</span>
+                                  <span class="navPage_header--line"></span>
+                                  </div>
+                                  <div class="navPage_text">
+                                  <span class="navPage_text--en">Home</span>
+                                  <span class="navPage_text--ch">首頁</span>
+                                  </div>
+                                  <a href="home.html" class="navPage_link"></a>
+                              </li>
+                              <li class="navPage_item">
+                                  <div class="navPage_header">
+                                  <span class="navPage_header--num">02</span>
+                                  <span class="navPage_header--line"></span>
+                                  </div>
+                                  <div class="navPage_text">
+                                  <span class="navPage_text--en">Plan journey</span>
+                                  <span class="navPage_text--ch">行程規劃</span>
+                                  </div>
+                                  <a href="tour.html" class="navPage_link"></a>
+                              </li>
+                              <li class="navPage_item">
+                                  <div class="navPage_header">
+                                  <span class="navPage_header--num">03</span>
+                                  <span class="navPage_header--line"></span>
+                                  </div>
+                                  <div class="navPage_text">
+                                  <span class="navPage_text--en">All together</span>
+                                  <span class="navPage_text--ch">揪團去</span>
+                                  </div>
+                                  <a href="group.html" class="navPage_link"></a>
+                              </li>
+                              <li class="navPage_item">
+                                  <div class="navPage_header">
+                                  <span class="navPage_header--num">04</span>
+                                  <span class="navPage_header--line"></span>
+                                  </div>
+                                  <div class="navPage_text">
+                                  <span class="navPage_text--en">Shop</span>
+                                  <span class="navPage_text--ch">商城</span>
+                                  </div>
+                                  <a href="shop.html" class="navPage_link"></a>
+                              </li>
+                              <li class="navPage_item">
+                                  <div class="navPage_header">
+                                      <span class="navPage_header--num">05</span>
+                                      <span class="navPage_header--line"></span>
+                                  </div>
+                                  <div class="navPage_text">
+                                      <span class="navPage_text--en">Cart</span>
+                                      <span class="navPage_text--ch">購物車</span>
+                                  </div>
+                                  <a href="shopcart.html" class="navPage_link"></a>
+                              </li>
+                              <li class="navPage_item">
+                                  <div class="navPage_header">
+                                      <span class="navPage_header--num">06</span>
+                                      <span class="navPage_header--line"></span>
+                                  </div>
+                                  <div class="navPage_text">
+                                      <span class="navPage_text--en">Member</span>
+                                      <span class="navPage_text--ch">會員</span>
+                                  </div>
+                                  <a href="mem.html" class="navPage_link"></a>
+                              </li>
+                          </ul>
+                      </nav>
+
+                  </div>
+              </div>  
+          </div>
+      </div>
+    </header>
     <main>
         <div class="tourBuild_wrap">
-            <div id="map"></div>
+          <div id="map"></div>
           <!--  行程景點列表   -->
-            <div class="tourBuild_box">
-              <div class="tourBuild_container">
+          <div class="tourBuild_box">
+            <div class="tourBuild_container">
                 <div class="tourBuild_inner">
                   <div class="tourBuild_img">
                 <img src="https://images.pexels.com/photos/414144/pexels-photo-414144.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
@@ -28,10 +155,8 @@
                       <form action="##" class="tourBuild_revise">
                           <input type="text" id="tourName" class="tourBuild_name" value="美好幸福之旅">
                           <label for="tourName" class="tourBuild_pen">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-                    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
-                  </svg>
-                        </label>
+                            <i class="bi bi-pencil-fill"></i> 
+                          </label>
                       </form>
                       <div class="tourBuild_time">
                         <p class="tourBuild_days">
@@ -47,6 +172,119 @@
                       <div class="tourBuild_news">
                         <button class="tourBuild_newSpot">新增景點</button>     
                       </div>
+                      <div class="timeline">
+                        <!-- 時間軸tab按鈕 -->
+                            <div class="timeline_nav">
+                              <div class="timeline_box">
+                                <div class="timeline_tab timeline_tab--1 timeline_tab--active" data-tab="1">第1天</div>
+                                <div class="timeline_tab timeline_tab--2" data-tab="2">第2天</div>
+                                <div class="timeline_tab timeline_tab--3" data-tab="3">第3天</div>
+                              </div>
+                            </div>
+                            <ul class="timeline_list">
+                            
+                                <!--   分頁第一頁   -->
+                              <div class="timeline_page timeline_page--1 timeline_page--active">
+                                <li class="timeline_item tourBuild_item">
+                                <div class="timeline_text">
+                                  <div class="timeline_num">1</div>
+                                  <div class="timeline_name">中正紀念堂</div>
+                                </div>
+                                <div class="timeline_img">
+                                  <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                </div>
+                              </li>
+                                <li class="timeline_item tourBuild_item">
+                                  <div class="timeline_text">
+                                    <div class="timeline_num">2</div>
+                                    <div class="timeline_name">中正紀念堂</div>
+                                  </div>
+                                  <div class="timeline_img">
+                                    <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                  </div>
+                                </li>
+                                <li class="timeline_item tourBuild_item">
+                                  <div class="timeline_text">
+                                    <div class="timeline_num">3</div>
+                                    <div class="timeline_name">中正紀念堂</div>
+                                  </div>
+                                  <div class="timeline_img">
+                                    <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                  </div>
+                                </li>
+                                <li class="timeline_item tourBuild_item">
+                                  <div class="timeline_text">
+                                    <div class="timeline_num">4</div>
+                                    <div class="timeline_name">中正紀念堂</div>
+                                  </div>
+                                  <div class="timeline_img">
+                                    <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                  </div>
+                                </li>
+                              </div>
+                              
+                              <!--   分頁第二頁   -->
+                              <div class="timeline_page timeline_page--2">
+                                <li class="timeline_item tourBuild_item">
+                                  <div class="timeline_text">
+                                    <div class="timeline_num">1</div>
+                                    <div class="timeline_name">美術館</div>
+                                  </div>
+                                  <div class="timeline_img">
+                                    <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                  </div>
+                                </li>
+                                <li class="timeline_item tourBuild_item">
+                                  <div class="timeline_text">
+                                    <div class="timeline_num">2</div>
+                                    <div class="timeline_name">中正紀念堂</div>
+                                  </div>
+                                  <div class="timeline_img">
+                                    <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                  </div>
+                                </li>
+                                <li class="timeline_item tourBuild_item">
+                                  <div class="timeline_text">
+                                    <div class="timeline_num">3</div>
+                                    <div class="timeline_name">中正紀念堂</div>
+                                  </div>
+                                  <div class="timeline_img">
+                                    <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                  </div>
+                                </li>
+                              </div>
+                            <!--    分頁第三頁    -->
+                              <div class="timeline_page timeline_page--3">
+                                <li class="timeline_item tourBuild_item">
+                                  <div class="timeline_text">
+                                    <div class="timeline_num">1</div>
+                                    <div class="timeline_name">故宮</div>
+                                  </div>
+                                  <div class="timeline_img">
+                                    <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                  </div>
+                                </li>
+                                <li class="timeline_item tourBuild_item">
+                                  <div class="timeline_text">
+                                    <div class="timeline_num">2</div>
+                                    <div class="timeline_name">中正紀念堂</div>
+                                  </div>
+                                  <div class="timeline_img">
+                                    <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                  </div>
+                                </li>
+                                <li class="timeline_item tourBuild_item">
+                                  <div class="timeline_text">
+                                    <div class="timeline_num">3</div>
+                                    <div class="timeline_name">中正紀念堂</div>
+                                  </div>
+                                  <div class="timeline_img">
+                                    <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                  </div>
+                                </li>
+                              </div>
+                            </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -54,8 +292,13 @@
                   <!-- 搜尋box(放入搜尋列表) -->
                   <div class="tourSearch_box">
                     <div class="tourSearch_header">
-                  <!--   input search   -->
-                  <!--  下拉式選單    -->
+                      <button class="btn btn--arrow" id="arrowBtn">
+                        <i class="bi bi-arrow-left-short"></i>
+                      </button>
+                      <input type="text" class="tourForm_input" name="tourName" placeholder="搜尋" value="桃園市">
+                      <div class="tourForm_clear">
+                          <i class="bi bi-x"></i>
+                      </div>
                     </div>
                   <!--  search推薦縣市呈現(innerHTML)  -->
                     <div class="tourSearch_content">
@@ -187,36 +430,53 @@
                 </div>
               </div>
               
-            </div>
-          
-          
+            </div>        
           </div>
-          <!-- <div class="tourSpot">
+          <!-- 景點資訊 -->
+          <div class="tourSpot">
             <div class="tourSpot_wrap">
+              <button class="btn btn--close tourSpot_close">
+                <i class="bi bi-x"></i>
+              </button>
               <div class="tourSpot_img">
                 <img src="https://www.eastcoast-nsa.gov.tw/image/426/640x480" alt="">
               </div>
-              <h3>逢甲夜市</h3>
-              <div class="tourSpot_info">
-                <div class="tourSpot_btnBox">
-                  <button class="btn btn--main">加入景點</button>   
-                  <button class="btn btn--cancel">取消加入</button>
+              <div class="tourSpot_text">
+                <h3 class="third-title">花蓮車站</h3>
+                <div class="tourSpot_info">
+                  <div class="tourSpot_btnBox">
+                    <button class="btn btn--main">加入景點</button>   
+                    <button class="btn btn--cancel">取消加入</button>
+                  </div>
+                  <p class="p-text tourSpot_addr">
+                    花蓮縣花蓮市國聯一路100號
+                  </p>
                 </div>
-                <p class="tourSpot_addr">
-                  花蓮縣花蓮市國聯一路100號
+                <p class="p-text tourSpot_bewrite">
+                  各級現場系列最近機制堅持看起來影視我看要去因此，物理功夫周邊同時隱藏兩種一遍畢業生開發者大會威望表達，雙手通用我這有限公司勝利有個我一獎勵，容量無聊維護投資者素質印象股權鈴聲下載熱線湖口，台鐵男孩擁有體內事項反應，遭遇這就是如下文明更好上漲遊客資本應用都。
                 </p>
               </div>
-              <p class="tourSpot_bewrite">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos similique non ipsum modi aut animi velit odio doloremque id quisquam. Laborum totam voluptatem, eum quo nulla aut et, eaque quaerat voluptatibus quam facere illo debitis facilis temporibus repellat quas saepe laboriosam minus hic laudantium! Quaerat numquam ea cumque beatae fuga!
-              </p>
             </div>
-          </div> -->
+          </div>
+          <!-- 小導覽列 -->
+          <div class="tour_btnBox">
+            <button class="btn btn--chip toggleMap">
+              <i class="bi bi-map"></i>
+            </button>
+            <button class="btn btn--main">儲存</button>
+            <button class="btn btn--main">
+              <a href="groupform.html">公開揪團</a>
+            </button>
+            <button class="btn btn--main">分享</button>
+          </div>
         </div>
     </main>
     <footer></footer>
     
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="js/burger.js"></script>
     <script>
+
         function mainMap() {
             // 取得用戶位置
             navigator.geolocation.getCurrentPosition(
@@ -232,15 +492,116 @@
 
 
             var map = L.map('map');
-            map.setView([24.98921012878418, 121.31353759765625], 14);
+            map.setView([24.98921012878418, 121.31353759765625], 13);
 
 
             var Stadia_AlidadeSmooth = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
                 maxZoom: 20,
                 attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
             }).addTo(map);
+
+            var greenIcon = new L.Icon({
+              iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
+              shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+              iconSize: [25, 41],
+              iconAnchor: [12, 41],
+              popupAnchor: [1, -34],
+              shadowSize: [41, 41]
+            });
+
+            var data = [
+              {'name':'景福宮',lat:24.994680404663086,lng:121.31101989746094},
+              {'name':'宏亞食品巧克力觀光工廠',lat:24.94332504272461,lng:21.29718780517578},
+              {'name':'桃園火車站前商圈',lat:24.98921012878418,lng:121.31353759765625},
+              {'name':'奧爾森林學堂',lat:25.001850128173828,lng:121.32756042480469},
+              {'name':'中央大學',lat:24.968429565429688,lng:121.19593048095703},
+              
+
+            ]
+            for(var i =0;data.length>i;i++){
+              L.marker([data[i].lat,data[i].lng], {icon: greenIcon}).addTo(map)
+                .bindPopup(
+                  L.popup({
+                    maxWidth: 300,
+                    minWidth:100,
+                    autoClose: true,
+                    closeOnClick: false,
+                    className: 'tourBuild_popup'
+                  })
+                )
+                .setPopupContent(`景點: ${data[i].name}`)
+                .openPopup();
+            }
         }
         mainMap();
+
+        function slideAdd() {
+          // 滑動
+          let newSpotBtn = document.querySelector('.tourBuild_newSpot');
+          let arrowBtn = document.querySelector('#arrowBtn');
+          let container = document.querySelector('.tourBuild_container');
+
+          newSpotBtn.addEventListener('click',() => {
+            container.style.transform = `translateX(-100%)`;
+          })
+
+          arrowBtn.addEventListener('click',() => {
+            container.style.transform = `translateX(0%)`;
+          })
+
+
+        }
+        slideAdd();
+
+        function closePopup() {
+          let closeBtn = document.querySelector('.btn--close');
+          let box = document.querySelector('.tourSpot');
+
+          closeBtn.addEventListener('click',(e) => {
+            console.log(e.target);
+            box.style.display = 'none';
+          })
+        }
+
+        closePopup();
+
+        function changeTab() {
+        tabs = document.querySelectorAll('.timeline_tab');
+        pages = document.querySelectorAll('.timeline_page');
+        tabs.forEach(tab => tab.addEventListener('click',changePage));
+
+        function changePage(e) {
+        tabs.forEach(tab => tab.classList.remove('timeline_tab--active'));
+        pages.forEach(page => page.classList.remove('timeline_page--active'));
+
+        let curPage = Number(e.target.dataset['tab']);
+        let tab = document.querySelector(`.timeline_tab--${curPage}`);
+        let page = document.querySelector(`.timeline_page--${curPage}`);
+
+        if(!tab || !page) return;
+        tab.classList.add('timeline_tab--active');
+        page.classList.add('timeline_page--active');
+        }
+    }
+        changeTab();
+
+        function displayContent() {
+          let tourBuildItems = document.querySelectorAll('.tourBuild_item');
+          let spot = document.querySelector('.tourSpot');
+          let toggleMap = document.querySelector('.toggleMap');
+          let tourBuildBox = document.querySelector('.tourBuild_box');
+          
+          tourBuildItems.forEach(item => item.addEventListener('click',() => { 
+            spot.style.display = 'block';
+          }))
+
+          toggleMap.addEventListener('click',() => {
+            tourBuildBox.classList.toggle('is_active');
+          })
+        }
+
+        displayContent();
+
     </script>
 </body>
 </html>
