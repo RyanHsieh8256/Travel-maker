@@ -519,6 +519,22 @@
     }
     sortTour();
 
+    function slideContent() {
+      let seeDetailBtn = document.querySelector('#seeDetail');
+      let box = document.querySelector('.tour_box');
+
+      seeDetailBtn.addEventListener('click',() => {
+        
+        box.style.transform = `translateX(calc(-100% + 15px))`;
+      })
+
+      let arrowBtn = document.querySelector('#arrowBtn');
+      arrowBtn.addEventListener('click',() => {
+        box.style.transform = `translateX(0%)`;
+      })
+    }
+    slideContent();
+    
   </script>
 </body>
 </html>
