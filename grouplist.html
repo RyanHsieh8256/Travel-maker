@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="./css/owl.theme.default.min.css">
     <script src="./js/owl.carousel.js"></script>
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/TextPlugin.min.js"></script>
+
 
 </head>
 
@@ -38,7 +41,8 @@
         </nav>
         <section class="l-full grouplistTitle">
             <div class="l-medium grouplistTitle_wrap">
-                <h2>選擇行程以建立揪團......</h2>
+                <span class="h2"></span>
+                <span class="cursor"></span>
             </div>
         </section>
     </header>
@@ -204,6 +208,7 @@
         </section>
     </footer>
 
+    <!-- slider -->
     <script>
         $(document).ready(function () {
             $('.grouplistOwl').owlCarousel({
@@ -227,6 +232,19 @@
                     }
                 }
             })
+        });
+    </script>
+
+    <!-- animation -->
+    <script>
+        const words = ["選擇行程", "以建立揪團......"];
+        let cursor = gsap.to('.cursor', {opacity: 0, ease: "power2.inOut", repeat: -1})
+
+        let masterTl = gsap.timeline({repeat: -1})
+        words.forEach(word => {
+            let tl = gsap.timeline({repeat: 1, yoyo: true, repeatDelay: 1})
+            tl.to('.h2', {duration: 1, text: word})
+            masterTl.add(tl)
         });
     </script>
 </body>
