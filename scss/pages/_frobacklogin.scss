@@ -22,7 +22,15 @@
         box-shadow: 3px 3px 5px #3335;
     }
 }
+.froBackLogo{
+  position: fixed;
+  top:0 ;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 200px;
 
+}
 
 /* 動畫 */
 .hero {
@@ -36,15 +44,15 @@
     transform: translate3d(0,0,0); 
   }
   
-  @each $index, $speed, $height in (1, 20s, 136px),
-                                   (2, 30s, 145px),
-                                   (3, 55s, 158px),
-                                   (4, 75s, 468px),
-                                   (5, 95s, 311px),
-                                   (6, 120s, 222px) {
+  @each $index, $speed, $height in (1, 20s, 600px),
+                                   (2, 30s, 600px),
+                                   (3, 55s, 600px),
+                                   (4, 75s, 600px),
+                                   (5, 95s, 600px),
+                                   (6, 120s, 900px) {
     .layer-#{$index} {
       animation: parallax_fg linear $speed infinite both;
-      background:  url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/24650/#{$index}.png) 0 100% repeat-x;
+      background:  url(../../images/frobacklogin/#{$index}.png) 0 100% repeat-x;
       z-index: 1;
       position: absolute;
       bottom: 0;
@@ -55,22 +63,41 @@
     }
   }
   
-  .bear-1, .bear-2 {
+  .bear-1 {
     background:  url(../../images/mascot/bear01.png) 0 100% no-repeat;
     z-index: 1;
     position: absolute;
-    bottom: 100px;
+    bottom: 60px;
     left: 0;
     width: 100%;
     height: 100%;
-    background-size:  auto 75px;
+    background-size:  auto 90px;
     animation: parallax_bike linear 10s infinite both;
   }
   
   .bear-2 {
+    background:  url(../../images/mascot/bear02.png) 0 100% no-repeat;
+    z-index: 1;
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size:  auto 90px;
     animation: parallax_bike linear 15s infinite both;
   }
   
+  .boat-1 {
+    background:  url(../../images/frobacklogin/boat_1.png) 0 100% no-repeat;
+    z-index: 1;
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size:  auto 90px;
+    animation: parallax_bike linear 8s infinite both;
+  }
   @keyframes parallax_fg {  
     0% { background-position: 2765px 100%;} 
     100% {background-position: 550px 100%; } 
