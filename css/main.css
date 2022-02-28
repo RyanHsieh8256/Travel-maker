@@ -85,18 +85,18 @@ img {
 
 /* 網頁捲軸【背景】顏色 */
 ::-webkit-scrollbar-track {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(223, 223, 223, 0.836);
 }
 
 /* 網頁捲軸【把手】顏色 */
 ::-webkit-scrollbar-thumb {
-  background: #007183;
+  background: #46c5c5;
   border-radius: 100px;
 }
 
 /* 網頁捲軸【滑過時】把手的顏色 */
 ::-webkit-scrollbar-thumb:hover {
-  background: #f0692a;
+  background: #007183;
 }
 
 input:focus {
@@ -130,6 +130,7 @@ body {
   line-height: 1.5;
   color: #007183;
   position: relative;
+  z-index: 2;
 }
 
 .second-title:before {
@@ -141,7 +142,7 @@ body {
   left: 0;
   background-color: #FF7E29aa;
   border-radius: 50%;
-  z-index: -1;
+  z-index: 1;
 }
 
 .second-title span {
@@ -7814,7 +7815,7 @@ body {
 .footerMedia li {
   font-size: 30px;
   padding: 0 20px;
-  color: white;
+  color: #333;
 }
 
 .footerMedia li:hover {
@@ -7833,7 +7834,7 @@ body {
       justify-content: space-around;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  color: #fff;
+  color: #333;
   text-align: center;
   font-size: 14px;
   padding: 5px 0;
@@ -7853,7 +7854,7 @@ body {
 }
 
 .footerContect a {
-  color: #fff;
+  color: #333;
 }
 
 .footerTerms {
@@ -7863,11 +7864,7 @@ body {
 }
 
 .footerTerms a {
-  color: #fff;
-}
-
-.footerTerms a li:hover {
-  color: #ff7e29;
+  color: #333;
 }
 
 .footerTerms a + a li::before {
@@ -7877,7 +7874,7 @@ body {
 
 .footerCopyRight {
   text-align: center;
-  color: #ccc;
+  color: #999;
   font-size: 8px;
 }
 
@@ -8279,8 +8276,17 @@ body {
           box-shadow: 3px 3px 5px #3335;
 }
 
+.froBackLogo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 200px;
+}
+
 /* 動畫 */
-.hero {
+.froBackAnimation {
   width: 100%;
   height: 100%;
   min-height: 450px;
@@ -8295,97 +8301,118 @@ body {
 .layer-1 {
   -webkit-animation: parallax_fg linear 20s infinite both;
           animation: parallax_fg linear 20s infinite both;
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/24650/1.png) 0 100% repeat-x;
+  background: url(../../images/frobacklogin/1.png) 0 100% repeat-x;
   z-index: 1;
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: auto 136px;
+  background-size: auto 600px;
 }
 
 .layer-2 {
   -webkit-animation: parallax_fg linear 30s infinite both;
           animation: parallax_fg linear 30s infinite both;
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/24650/2.png) 0 100% repeat-x;
+  background: url(../../images/frobacklogin/2.png) 0 100% repeat-x;
   z-index: 1;
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: auto 145px;
+  background-size: auto 600px;
 }
 
 .layer-3 {
   -webkit-animation: parallax_fg linear 55s infinite both;
           animation: parallax_fg linear 55s infinite both;
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/24650/3.png) 0 100% repeat-x;
+  background: url(../../images/frobacklogin/3.png) 0 100% repeat-x;
   z-index: 1;
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: auto 158px;
+  background-size: auto 600px;
 }
 
 .layer-4 {
   -webkit-animation: parallax_fg linear 75s infinite both;
           animation: parallax_fg linear 75s infinite both;
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/24650/4.png) 0 100% repeat-x;
+  background: url(../../images/frobacklogin/4.png) 0 100% repeat-x;
   z-index: 1;
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: auto 468px;
+  background-size: auto 600px;
 }
 
 .layer-5 {
   -webkit-animation: parallax_fg linear 95s infinite both;
           animation: parallax_fg linear 95s infinite both;
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/24650/5.png) 0 100% repeat-x;
+  background: url(../../images/frobacklogin/5.png) 0 100% repeat-x;
   z-index: 1;
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: auto 311px;
+  background-size: auto 600px;
 }
 
 .layer-6 {
   -webkit-animation: parallax_fg linear 120s infinite both;
           animation: parallax_fg linear 120s infinite both;
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/24650/6.png) 0 100% repeat-x;
+  background: url(../../images/frobacklogin/6.png) 0 100% repeat-x;
   z-index: 1;
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: auto 222px;
+  background-size: auto 900px;
 }
 
-.bear-1, .bear-2 {
+.bear-1 {
   background: url(../../images/mascot/bear01.png) 0 100% no-repeat;
   z-index: 1;
   position: absolute;
-  bottom: 100px;
+  bottom: 60px;
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: auto 75px;
+  background-size: auto 90px;
   -webkit-animation: parallax_bike linear 10s infinite both;
           animation: parallax_bike linear 10s infinite both;
 }
 
 .bear-2 {
+  background: url(../../images/mascot/bear02.png) 0 100% no-repeat;
+  z-index: 1;
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: auto 90px;
   -webkit-animation: parallax_bike linear 15s infinite both;
           animation: parallax_bike linear 15s infinite both;
+}
+
+.boat-1 {
+  background: url(../../images/frobacklogin/boat_1.png) 0 100% no-repeat;
+  z-index: 1;
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: auto 90px;
+  -webkit-animation: parallax_bike linear 8s infinite both;
+          animation: parallax_bike linear 8s infinite both;
 }
 
 @-webkit-keyframes parallax_fg {
@@ -8946,6 +8973,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   height: 100vh;
   display: none;
   overflow: auto;
+  z-index: 500;
 }
 
 .froLoginBlock_warp {
@@ -9335,7 +9363,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 
 .sendButton input {
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 50px;
   border: none;
   background-color: #ff7e29;
   color: #fff;
@@ -9478,7 +9506,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   margin: 20px auto 0 auto;
   padding: 5px 0;
   border-radius: 10px;
-  background-color: #81d8d1;
+  background-color: #ff7e29;
   color: #fff;
   text-align: center;
 }
@@ -9514,7 +9542,6 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 .tour {
   font-family: 'Caveat',serif;
   width: 100%;
-  height: 100vh;
   max-width: 1920px;
   background-color: #f5f5f5;
   padding: 5% 0;
@@ -9527,6 +9554,8 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 5% 0;
+  position: relative;
 }
 
 .tour_main {
@@ -9542,6 +9571,17 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  display: none;
+}
+
+.tour_main--active {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .tour_main {
+    width: 100%;
+  }
 }
 
 .tour_header {
@@ -9597,16 +9637,25 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   color: #FEBC9F;
 }
 
+.tour_btn {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .tour_btn {
+    display: block;
+  }
+}
+
 .tour_slider {
   width: 90%;
-  height: 40vh;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 .tour_sort {
@@ -9616,14 +9665,48 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 60%;
+  margin: 3% auto;
+  overflow-x: auto;
 }
 
 .tour_side {
   width: 30%;
-  padding: 5% 2%;
+  padding: 2%;
+  height: 100vh;
+  display: none;
+}
+
+.tour_side--active {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .tour_side {
+    position: fixed;
+    top: 10%;
+    right: 0;
+    width: 100%;
+    z-index: 3;
+    height: 80vh;
+  }
+}
+
+.tour_close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .tour_close {
+    display: block;
+  }
 }
 
 .tour_content {
+  position: relative;
   width: 100%;
   height: 100%;
   background-color: #F0EEE7;
@@ -9727,6 +9810,19 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   border-radius: 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
           box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .slider_item {
+    width: 31.333%;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .slider_item {
+    width: 48%;
+  }
 }
 
 .slider_img {
@@ -9752,6 +9848,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   font-weight: 500;
   margin: 1%;
   width: 18%;
+  min-width: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10086,8 +10183,25 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 }
 
 .tourBuild_wrap {
+  font-family: 'Caveat',serif;
   position: relative;
   margin: auto;
+}
+
+.tourBuild_wrap .leaflet-popup-content-wrapper {
+  background-color: #E3DCD4;
+  color: #007183;
+  font-weight: 600;
+}
+
+.tourBuild_wrap .leaflet-popup-tip {
+  background: #E3DCD4;
+}
+
+input[type="button"] {
+  background-color: transparent;
+  border: none;
+  font-family: 'Caveat',serif;
 }
 
 #map {
@@ -10096,21 +10210,37 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 }
 
 .tourBuild_box {
-  width: 40%;
+  width: 35%;
   max-width: 400px;
   min-width: 300px;
-  height: calc(100% - 50px);
+  height: calc(100% - 100px);
   background-color: #f5f5f5;
   position: fixed;
   z-index: 1000;
-  top: 50%;
+  top: 54%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  left: 3%;
+  left: 1%;
   border-radius: 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
           box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .tourBuild_box {
+    border-radius: 0;
+    max-width: none;
+    width: 100%;
+    height: calc(100% - 50px);
+    left: 0;
+  }
+}
+
+.tourBuild_box.is_active {
+  display: none;
 }
 
 .tourBuild_container {
@@ -10147,8 +10277,6 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   background-color: #F0EEE7;
   margin: 0 auto;
   border-radius: 10px;
-  height: 100vh;
-  overflow-y: auto;
   padding: 15px;
 }
 
@@ -10219,9 +10347,18 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   border-radius: 100px;
 }
 
-.btn--chip {
-  padding: 5px 10px;
-  background-color: #E3DCD4;
+.tourSearch_header {
+  position: relative;
+}
+
+.tourSearch_header::after {
+  position: absolute;
+  content: '';
+  bottom: -5px;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #ccc;
 }
 
 .tourSearch_content {
@@ -10260,52 +10397,114 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   font-size: 12px;
 }
 
-.btn--main {
-  margin: 0 5px;
-  padding: 5px 10px;
-  color: #FEBC9F;
-  background-color: #007183;
-}
-
-.btn--cancel {
-  font-size: 14px;
-  background-color: #fff;
-  border: 1px solid #aaa;
-}
-
 .tourSearch_btnBox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
+  margin: 5% 0;
 }
 
 .tourSpot {
   width: 40%;
   max-width: 350px;
   min-width: 300px;
-  height: calc(100% - 50px);
+  height: calc(100% - 100px);
   background-color: #F0EEE7;
   position: fixed;
   z-index: 1000;
-  top: 50%;
+  top: 54%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  left: 460px;
+  left: 430px;
   border-radius: 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
           box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
-  overflow: hidden;
+  overflow-y: auto;
+  display: none;
+}
+
+.tourSpot_wrap {
+  position: relative;
+}
+
+.tourSpot_close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.tourSpot_text {
+  padding: 10px;
+}
+
+.tourSpot_btnBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.tourSpot_btnBox > .btn {
+  width: 40%;
+  margin: 5%;
+}
+
+@media screen and (max-width: 768px) {
+  .tourSpot {
+    left: 0;
+    width: 100%;
+    height: calc(100% - 50px);
+    max-width: none;
+    z-index: 1001;
+  }
 }
 
 .tourSpot_info p {
   margin-top: 10px;
 }
 
-.tourSpot_info, tourSpot_bewrite {
+.tourSpot_info, .tourSpot_bewrite {
   padding: 20px 0;
+}
+
+.tour_btnBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  z-index: 1200;
+  bottom: 10px;
+  right: 10px;
+}
+
+.tour_btnBox > button {
+  margin: 10px;
+}
+
+.tour_btnBox > button a {
+  color: #FEBC9F;
+}
+
+.tour_btnBox > button:first-child {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .tour_btnBox {
+    bottom: 0;
+    left: 0;
+    background-color: #f5f5f5;
+    height: 56px;
+    width: 100%;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .tour_btnBox > button:first-child {
+    display: block;
+  }
 }
 
 /* ---流動圖片區--- */
