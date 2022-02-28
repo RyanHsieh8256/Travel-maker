@@ -144,6 +144,34 @@
                 </div>  
             </div>
         </div>
+        <div class="froLoginBG" id="froLoginBG">
+            <section class="froLoginBlock" id="froLoginBlock">
+                <!-- 取消按鈕 -->
+                <div class="froLoginCancel">
+                    <button><i class="bi bi-x-circle-fill"></i></button>
+                </div>
+                <!-- 註冊/登入 -->
+                <div class="froLoginSwitch">
+                    <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
+                        登入
+                    </div>
+                    <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
+                        註冊
+                    </div>
+                </div> 
+                <!-- 表單區 -->
+                <div class="froLoginForm_wrap">
+                    <transition name="frologintransition" mode="out-in">
+                        <keep-alive>
+                            <component :is='content'></component>
+                        </keep-alive>
+                    </transition>
+                </div>
+                <transition name="mascottransition">
+                    <component :is='content2'></component>
+                </transition>
+            </section>
+        </div>
     </header>
     <main  class="l-full">
         <section class="memberInfoBlock">
@@ -388,34 +416,6 @@
                 </div>
             </div>
         </section>
-        <div class="froLoginBG" id="froLoginBG">
-            <section class="froLoginBlock" id="froLoginBlock">
-                <!-- 取消按鈕 -->
-                <div class="froLoginCancel">
-                    <button><i class="bi bi-x-circle-fill"></i></button>
-                </div>
-                <!-- 註冊/登入 -->
-                <div class="froLoginSwitch">
-                    <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
-                        登入
-                    </div>
-                    <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
-                        註冊
-                    </div>
-                </div> 
-                <!-- 表單區 -->
-                <div class="froLoginForm_wrap">
-                    <transition name="frologintransition" mode="out-in">
-                        <keep-alive>
-                            <component :is='content'></component>
-                        </keep-alive>
-                    </transition>
-                </div>
-                <transition name="mascottransition">
-                    <component :is='content2'></component>
-                </transition>
-            </section>
-        </div>
     </main>
     <footer class="footer_Wrap">
         <section class="footerBlock">
