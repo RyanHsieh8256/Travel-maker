@@ -3,7 +3,6 @@
     text-align: center;
 }
 
-
 .shopType .item .parttxt{
     padding: 40%;
     
@@ -18,8 +17,12 @@
     
 }
 
+.shopType{
+    margin-top: 50px;
+}
+
 .shopType .col-6{
-    padding: .2rem .2rem;
+    padding: .1rem .1rem;
     margin: 0;
     
 }
@@ -108,8 +111,7 @@
     .shopType .col-md-3{
         padding: 0rem;
         margin: 0;
-        overflow-x: hidden;
-        overflow-y: hidden;
+        overflow: hidden;
     }
 
     .shopType .item{

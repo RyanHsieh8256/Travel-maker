@@ -82,87 +82,86 @@
  </div>
 
     <main>
-        <section class="l-full shoppayinfo">
+        <div class="shoppay_bg">
+            <section class="l-full shoppayinfo">
+                <div class="l-medium personal_info">
+                    <h2>訂購人資料</h2>
+                    <hr>
+                    <div class="name">
+                        <div class="first">名字: <br><input type="text"></div>
+                        <div class="last">姓氏: <br><input type="text"></div>
+                    </div>
+                    <div class="contact">
+                        <div class="phone">電話: <br><input type="text"></div>
+                        <div class="adress">地址: <br><input type="text"></div>
+                    </div>
+                </div>
+            </section>
             
-            <div class="l-medium personal_info">
-                <h2>訂購人資料</h2>
-                <hr>
-                <div class="name">
-                    <div class="first">名字: <br><input type="text"></div>
-                    <div class="last">姓氏: <br><input type="text"></div>
-                </div>
-                <div class="contact">
-                    <div class="phone">電話: <br><input type="text"></div>
-                    <div class="adress">地址: <br><input type="text"></div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="l-full shoppaymethod">
-            <div class="l-medium shoppaycredit">
-                 <h2>付款方式</h2>
-                <hr>
-                <div class="shoppaycredit_info">
-                    <div class="number">卡號: <br><input type="text"></div>
-                    <div class="deadline">有效期限:  <br><input type="date"></div>
-                    <div class="pass">驗證碼:  <br><input type="text"></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="l-full shoppaydetail">
-            <div class="l-medium detail">
-                <h2>消費明細</h2>
-                <hr>
-                <div class="shoplist">
-                    <div class="proimg">
-                        <img src="images/shop/shopType_north.jpg">
+            <section class="l-full shoppaymethod">
+                <div class="l-medium shoppaycredit">
+                     <h2>付款方式</h2>
+                    <hr>
+                    <div class="shoppaycredit_info">
+                        <div class="number">卡號: <br><input type="text"></div>
+                        <div class="deadline">有效期限:  <br><input type="date"></div>
+                        <div class="pass">驗證碼:  <br><input type="text"></div>
                     </div>
-                    <div class="shoplist_text">
-                        <h3>商品名稱</h3>
-                        <div class="content_wrap">
-                            <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
-                            <span class="sub">$1234</span>
+                </div>
+            </section>
+            <section class="l-full shoppaydetail">
+                <div class="l-medium detail">
+                    <h2>消費明細</h2>
+                    <hr>
+                    <div class="shoplist">
+                        <div class="proimg">
+                            <img src="images/shop/shopType_north.jpg">
+                        </div>
+                        <div class="shoplist_text">
+                            <h3>商品名稱</h3>
+                            <div class="content_wrap">
+                                <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
+                                <span class="sub">$1234</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <hr>
-                <div class="shoplist">
-                    <div class="proimg">
-                        <img src="images/shop/shopType_north.jpg">
-                    </div>
-                    <div class="shoplist_text">
-                        <h3>商品名稱</h3>
-                        <div class="content_wrap">
-                            <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
-                            <span class="sub">$1234</span>
+                    <hr>
+                    <div class="shoplist">
+                        <div class="proimg">
+                            <img src="images/shop/shopType_north.jpg">
+                        </div>
+                        <div class="shoplist_text">
+                            <h3>商品名稱</h3>
+                            <div class="content_wrap">
+                                <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
+                                <span class="sub">$1234</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <hr>
-                <div class="shoplist">
-                    <div class="proimg">
-                        <img src="images/shop/shopType_north.jpg">
-                    </div>
-                    <div class="shoplist_text">
-                        <h3>商品名稱</h3>
-                        <div class="content_wrap">
-                            <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
-                            <span class="sub">$1234</span>
+                    <hr>
+                    <div class="shoplist">
+                        <div class="proimg">
+                            <img src="images/shop/shopType_north.jpg">
+                        </div>
+                        <div class="shoplist_text">
+                            <h3>商品名稱</h3>
+                            <div class="content_wrap">
+                                <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
+                                <span class="sub">$1234</span>
+                            </div>
                         </div>
                     </div>
+                    <hr>
+                        <div class="shoplist_total">
+                            <p >有效期限<span class="deadline"></span></p>
+                            <p class="shoptotal">總金額 TWD &emsp;<span id="shoptotal">$12345</span> </p>
+                        </div>
                 </div>
-                <hr>
-                    <div class="shoplist_total">
-                        <p >有效期限<span class="deadline"></span></p>
-                        <p class="shoptotal">總金額 TWD &emsp;<span id="shoptotal">$12345</span> </p>
-                    </div>
-            </div>
-        </section>
-
-        <section class="l-full shoppayconfirm">
-            <a href="#"><button class="btn btn--cart confirm">確認付款</button></a>
-        </section>
+            </section>
+            <section class="l-full shoppayconfirm">
+                <a href="#"><button class="btn btn--cart confirm">確認付款</button></a>
+            </section>
+        </div>
 
         <footer class="footer_Wrap">
             <section class="footerBlock">
