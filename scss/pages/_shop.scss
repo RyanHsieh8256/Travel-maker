@@ -1,4 +1,4 @@
-.shopType, .shopHotCity, .shopProduct h2{
+.shopType h2, .shopHotCity h2, .shopProduct h2{
     font-size: $second-title;
     text-align: center;
 }
@@ -70,22 +70,26 @@
 
 }
 
-.bi.bi-search{
+.shopSearch .bi.bi-search{
     color: aliceblue;
     font-size: 20px;    
 }
 
-.shopHotCity{
-    text-align: center;
+// .shopHotCity{
+//     text-align: center;
 
- }
+//  }
 
- .shopHotCity h2{
-     margin: 30px 0;
- }
+//  .shopHotCity h2{
+//      margin: 30px 0;
+//  }
 
-.shopHotCity .city img{
-    border-radius: 50% 0;
+// .shopHotCity .city img{
+//     border-radius: 50% 0;
+// }
+
+.shopProduct{
+    margin-bottom: 60px;
 }
 
 .shopProduct .card_content{
@@ -102,14 +106,18 @@
     }
 
     .shopType .col-md-3{
-        padding: .1rem .1rem;
+        padding: 0rem;
         margin: 0;
         overflow-x: hidden;
         overflow-y: hidden;
     }
 
+    .shopType .item{
+        transition: all .5s ease-out;
+    }
+
     .shopType .item:hover{
-        transform:scale(1.02,1.02);
+        transform:scale(1.05,1.05);
         
     }
 

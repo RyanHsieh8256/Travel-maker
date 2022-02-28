@@ -47,6 +47,7 @@
                 </div>
             </div>
         </ul>
+        
         <!-- 進度條 (蘇) -->
         <div class="progress_bar">
             <div class="progress_barNav"></div>
@@ -438,6 +439,7 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script></script>
 
     <script>
     
@@ -476,9 +478,9 @@
     }
 
     window.addEventListener('wheel',(e) => {
-    console.log(window.scrollX)
+   
 
-    if(e.deltaY != 0) 
+    if(e.deltaY != 0 && window.innerWidth >= 1200) 
     window.scroll(window.scrollX + e.deltaY * 1, window.scrollY);
 
 

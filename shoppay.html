@@ -8,8 +8,79 @@
     <!-- <link rel="stylesheet" href="shoppay.css"> -->
     <!-- <link rel="stylesheet" href="reset.css"> -->
     <title>Document</title>
+ <!--放在head裡-->
+ <script src="js/jquery.js"></script>
+ <script src="js/vue.js"></script>
 </head>
 <body>
+    <header>
+     <nav class="nav_Wrap">
+         <section class="navBlock">
+             <a href="home.html">
+                 <h1 class="navLogo">
+                     <img src="images/logo/logo_84x50.png" alt="TravelMaker">
+                 </h1>
+             </a>
+             <ul class="mainNav">
+                 <a href="tour.html"><li>行程規劃</li></a>
+                 <a href="group.html"><li>揪團旅行</li></a>
+                 <a href="shop.html"><li>商城</li></a>
+             </ul>
+             <ul class="navMember">
+                 <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
+                 <li>
+                     <i class="bi bi-person-circle" id="loginBoxBtn"><span>登入/註冊</span></i>
+                     <!-- 登入後,會員按鈕的下拉選單,目前設定display:none-->
+                     <ul class="navDropdownMenu">
+                         <li class="navDropdownMenuItem navMemProfile">
+                             <div class="navDropdownMenuPhoto">
+                                 <img src="https://picsum.photos/200/200/?random=10">
+                             </div>
+                             <div class="navDropdownMenuTitle">
+                                 <span>張小明</span>
+                             </div>
+                         </li>
+                         <li class="navDropdownMenuItem"><i class="bi bi-gear"></i> 帳號設定</li>
+                         <li class="navDropdownMenuItem"><i class="bi bi-calendar2"></i> 我的行程</li>
+                         <li class="navDropdownMenuItem"><i class="bi bi-bookmark-heart"></i> 我的收藏</li>
+                         <li class="navDropdownMenuItem"><i class="bi bi-file-person"></i> 我的揪團</li>
+                         <li class="navDropdownMenuItem"><i class="bi bi-bag"></i> 我的訂單</li>
+                     </ul>
+                 </li>
+                 <li><i class="bi bi-list"></i></li>
+             </ul>
+         </section>          
+     </nav>
+
+     <div class="froLoginBG" id="froLoginBG">
+     <section class="froLoginBlock" id="froLoginBlock">
+         <!-- 取消按鈕 -->
+         <div class="froLoginCancel">
+             <button><i class="bi bi-x-circle-fill"></i></button>
+         </div>
+         <!-- 註冊/登入 -->
+         <div class="froLoginSwitch">
+             <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
+                 登入
+             </div>
+             <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
+                 註冊
+             </div>
+         </div> 
+         <!-- 表單區 -->
+         <div class="froLoginForm_wrap">
+             <transition name="frologintransition" mode="out-in">
+                 <keep-alive>
+                     <component :is='content'></component>
+                 </keep-alive>
+             </transition>
+         </div>
+         <transition name="mascottransition">
+             <component :is='content2'></component>
+         </transition>
+     </section>
+ </div>
+
     <main>
         <section class="l-full shoppayinfo">
             
@@ -51,7 +122,6 @@
                         <h3>商品名稱</h3>
                         <div class="content_wrap">
                             <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
-                            <p >有效期限<span class="deadline"></span></p>
                             <span class="sub">$1234</span>
                         </div>
                     </div>
@@ -65,7 +135,6 @@
                         <h3>商品名稱</h3>
                         <div class="content_wrap">
                             <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
-                            <p >有效期限<span class="deadline"></span></p>
                             <span class="sub">$1234</span>
                         </div>
                     </div>
@@ -79,20 +148,61 @@
                         <h3>商品名稱</h3>
                         <div class="content_wrap">
                             <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
-                            <p >有效期限<span class="deadline"></span></p>
                             <span class="sub">$1234</span>
                         </div>
                     </div>
                 </div>
                 <hr>
                     <div class="shoplist_total">
-                        <p>總金額 TWD &emsp;<span id="shoptotal">$12345</span> </p>
+                        <p >有效期限<span class="deadline"></span></p>
+                        <p class="shoptotal">總金額 TWD &emsp;<span id="shoptotal">$12345</span> </p>
                     </div>
             </div>
         </section>
+
         <section class="l-full shoppayconfirm">
-            <input type="submit" value="確認付款" class="confirm">
+            <a href="#"><button class="btn btn--cart confirm">確認付款</button></a>
         </section>
-    </main>
+
+        <footer class="footer_Wrap">
+            <section class="footerBlock">
+                <ul class="footerMedia">
+                    <a href=""><li><i class="bi bi-facebook"></i></li></a>
+                    <a href=""><li><i class="bi bi-instagram"></i></li></a>
+                    <a href=""><li><i class="bi bi-line"></i>
+                    </ion-icon></li></a>
+                </ul>
+                <ul class="footerContect">
+                    <li><i class="bi bi-telephone"></i>電話:03-1234567</li>
+                    <li><i class="bi bi-envelope"></i>服務信箱:<a href="mailto:abc12345@gmail.com">abc12345@gmail.com</a></li>
+                    <li><i class="bi bi-clock"></i>營業時間:09:00 ~ 18:00(一)~(五)</li>
+                    <li><i class="bi bi-pin-map"></i>地址:桃園市桃園區中正路99999號</li>
+                </ul>
+                <ul class="footerTerms">
+                    <a href=""><li>服務條款</li></a><a href=""><li>購物條款</li></a><a href=""><li>付款方式</li></a>
+                </ul>
+                <p class="footerCopyRight">&copy;本網站為緯育TibaMe_前端設計工程師班第73期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[緯育TibaMe]，後續會由專人協助處理。</p>
+            </section>
+        </footer>
+        <script src="js/forlogin.js"></script>
+        <script>
+            //deadline
+                let deadline = document.querySelectorAll('.deadline');
+                
+                
+                console.log(deadline);
+                var myDate = new Date()
+                myDate.setMonth(myDate.getMonth() + 3);
+                // console.log(myDate);
+                let year = myDate.getFullYear();
+                let month = myDate.getMonth()+1;
+                let date = myDate.getDate();
+                
+                for(let i =0;i<deadline.length;i++){
+                 deadline[i].innerText = `${year} / ${month} / ${date}`;   
+                }
+                // console.log(year, month, date);
+                // console.log(`${year} / ${month}/ ${date}`);
+                </script>
 </body>
 </html>

@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="css/main.css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <!-- <script src="js/headercontrol.js"></script> -->
+    <!--放在head裡-->
+    <script src="js/jquery.js"></script>
+    <script src="js/vue.js"></script>
 </head>
 <body>
        <header>
@@ -50,36 +52,62 @@
             </section>          
         </nav>
 
-        <!--放在head裡-->
-        <script src="js/jquery.js"></script>
-        <script src="js/vue.js"></script>
+        <div class="froLoginBG" id="froLoginBG">
+        <section class="froLoginBlock" id="froLoginBlock">
+            <!-- 取消按鈕 -->
+            <div class="froLoginCancel">
+                <button><i class="bi bi-x-circle-fill"></i></button>
+            </div>
+            <!-- 註冊/登入 -->
+            <div class="froLoginSwitch">
+                <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
+                    登入
+                </div>
+                <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
+                    註冊
+                </div>
+            </div> 
+            <!-- 表單區 -->
+            <div class="froLoginForm_wrap">
+                <transition name="frologintransition" mode="out-in">
+                    <keep-alive>
+                        <component :is='content'></component>
+                    </keep-alive>
+                </transition>
+            </div>
+            <transition name="mascottransition">
+                <component :is='content2'></component>
+            </transition>
+        </section>
+    </div>
+        
 
         <section class="l-full shopType">
             <div class="shopType_wrap">
                 <div class="row">
                     <div class="col-6 col-md-3">
-                        <div class="item north" style="background-image: url('images/shop/shopType_north.jpg');">
+                        <div class="item" style="background-image: url('images/shop/shopType_north.jpg');">
                             <div class="parttxt">
                                 <h2>北部</h2>
                             </div>
                         </div>
                     </div>
                     <div class="col-6 col-md-3">
-                        <div class="item middle" style="background-image: url('images/shop/shopType_middle.jpg');">
+                        <div class="item" style="background-image: url('images/shop/shopType_middle.jpg');">
                             <div class="parttxt">
                                 <h2>中部</h2>
                             </div>
                         </div>
                     </div>
                     <div class="col-6 col-md-3">
-                        <div class="item south" style="background-image: url('images/shop/shopType_south.jpg');">
+                        <div class="item" style="background-image: url('images/shop/shopType_south.jpg');">
                         <div class="parttxt">
                             <h2>南部</h2>
                         </div>
                         </div>
                     </div>
                     <div class="col-6 col-md-3">
-                        <div class="item east" style="background-image: url('images/shop/shopType_east.jpg');">
+                        <div class="item" style="background-image: url('images/shop/shopType_east.jpg');">
                         <div class="parttxt">
                             <h2>東部</h2>
                         </div>
@@ -88,7 +116,7 @@
                 </div>
             </div>
         </section>
-        <section class="l-full shopHotCity">
+        <!-- <section class="l-full shopHotCity">
             <div class="l-large shopHotCity_wrap"></div>
                 <h2>熱門城市</h2>
                 <div class="row">
@@ -130,7 +158,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <section class="l-full shopSearch">
             <div class="l-large shopSearch_wrap">
                 <input type="search">

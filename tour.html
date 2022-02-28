@@ -4,15 +4,521 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首頁</title>
+    <title>行程總覽</title>
 
     <link rel="stylesheet" href="css/main.css">
 
 </head>
 <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <!-- 宸哥的導覽列 -->
+  <nav class="nav_Wrap">
+      <section class="navBlock">
+          <a href="home.html">
+              <h1 class="navLogo">
+                  <img src="images/logo/logo_84x50.png" alt="TravelMaker">
+              </h1>
+          </a>
+          <ul class="mainNav">
+              <a href="tour.html"><li>行程規劃</li></a>
+              <a href="group.html"><li>揪團旅行</li></a>
+              <a href="shop.html"><li>商城</li></a>
+          </ul>
+          <ul class="navMember">
+              <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
+              <li>
+                  <i class="bi bi-person-circle" id="loginBoxBtn"><span>登入/註冊</span></i>
+                  <!-- 登入後的會員選單-->
+                  <ul class="navDropdownMenu">
+                      <li class="navDropdownMenuItem navMemProfile">
+                          <div class="navDropdownMenuPhoto">
+                              <img src="https://picsum.photos/200/200/?random=10">
+                          </div>
+                          <div class="navDropdownMenuTitle">
+                              <span>張小明</span>
+                          </div>
+                      </li>
+                      <li class="navDropdownMenuItem"><i class="bi bi-gear"></i> 帳號設定</li>
+                      <li class="navDropdownMenuItem"><i class="bi bi-calendar2"></i> 我的行程</li>
+                      <li class="navDropdownMenuItem"><i class="bi bi-bookmark-heart"></i> 我的收藏</li>
+                      <li class="navDropdownMenuItem"><i class="bi bi-file-person"></i> 我的揪團</li>
+                      <li class="navDropdownMenuItem"><i class="bi bi-bag"></i> 我的訂單</li>
+                  </ul>
+              </li>
+              <li><div class="burger-toggle">
+                  <span class="burger-line"></span>
+              </div></li>
+          </ul>
+      </section>          
+  </nav>
+  <!-- 漢堡 -->
+  <div class="navPage">
+      <button class="navPage--close">
+          <span class="close_line"></span>
+          <span class="close_line"></span>
+        </button>
+      <div class="navPage_wrap">
+      <!--     <div class="navPage_header"></div> -->
+          <div class="navPage_content">
+      <!--       <div class="navPage_logo"></div> -->
+              <div class="navPage_box">
+                  <nav class="navPage_nav">
+                      <ul class="navPage_list">
+                          <li class="navPage_item is_active">
+                              <div class="navPage_header">
+                              <span class="navPage_header--num">01</span>
+                              <span class="navPage_header--line"></span>
+                              </div>
+                              <div class="navPage_text">
+                              <span class="navPage_text--en">Home</span>
+                              <span class="navPage_text--ch">首頁</span>
+                              </div>
+                              <a href="home.html" class="navPage_link"></a>
+                          </li>
+                          <li class="navPage_item">
+                              <div class="navPage_header">
+                              <span class="navPage_header--num">02</span>
+                              <span class="navPage_header--line"></span>
+                              </div>
+                              <div class="navPage_text">
+                              <span class="navPage_text--en">Plan journey</span>
+                              <span class="navPage_text--ch">行程規劃</span>
+                              </div>
+                              <a href="tour.html" class="navPage_link"></a>
+                          </li>
+                          <li class="navPage_item">
+                              <div class="navPage_header">
+                              <span class="navPage_header--num">03</span>
+                              <span class="navPage_header--line"></span>
+                              </div>
+                              <div class="navPage_text">
+                              <span class="navPage_text--en">All together</span>
+                              <span class="navPage_text--ch">揪團去</span>
+                              </div>
+                              <a href="group.html" class="navPage_link"></a>
+                          </li>
+                          <li class="navPage_item">
+                              <div class="navPage_header">
+                              <span class="navPage_header--num">04</span>
+                              <span class="navPage_header--line"></span>
+                              </div>
+                              <div class="navPage_text">
+                              <span class="navPage_text--en">Shop</span>
+                              <span class="navPage_text--ch">商城</span>
+                              </div>
+                              <a href="shop.html" class="navPage_link"></a>
+                          </li>
+                          <li class="navPage_item">
+                              <div class="navPage_header">
+                                  <span class="navPage_header--num">05</span>
+                                  <span class="navPage_header--line"></span>
+                              </div>
+                              <div class="navPage_text">
+                                  <span class="navPage_text--en">Cart</span>
+                                  <span class="navPage_text--ch">購物車</span>
+                              </div>
+                              <a href="shopcart.html" class="navPage_link"></a>
+                          </li>
+                          <li class="navPage_item">
+                              <div class="navPage_header">
+                                  <span class="navPage_header--num">06</span>
+                                  <span class="navPage_header--line"></span>
+                              </div>
+                              <div class="navPage_text">
+                                  <span class="navPage_text--en">Member</span>
+                                  <span class="navPage_text--ch">會員</span>
+                              </div>
+                              <a href="mem.html" class="navPage_link"></a>
+                          </li>
+                      </ul>
+                  </nav>
+
+              </div>
+          </div>  
+      </div>
+  </div>
+
+  <main>
+      <div class="l-full tour">
+        <div class="t-center">
+          <h2 class="second-title">
+              <span>journey overview</span>
+              行程總覽
+          </h2>
+        </div>
+        <div class="tour_sort">
+          <div class="sort_item" data-sort="pei">
+            <div class="sort-title">
+              台北市
+            </div>
+          </div>
+          <div class="sort_item" data-sort="chung">
+            <div class="sort-title">
+              台中市
+            </div>
+          </div>
+          <div class="sort_item" data-sort="nan">
+            <div class="sort-title">
+              台南市
+            </div>
+          </div>
+          <div class="sort_item" data-sort="kao">
+            <div class="sort-title">
+              高雄市
+            </div>
+          </div>
+          <div class="sort_item">
+            <div class="sort-title" data-sort="hua">
+              花蓮市
+            </div>
+          </div>
+        </div>
+          <div class="l-large tour_wrap">
+            <div class="tour_main tour_main--pei tour_main--active">
+              <div class="tour_header">
+                <div class="tour_img">
+                  <img src="https://images.pexels.com/photos/2215380/pexels-photo-2215380.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                </div>
+                <div class="tour_title">
+                  <span># 台北市</span>
+                  美好幸福之旅
+                </div>
+                <button class="btn btn--main tour_btn">詳細資訊</button>
+              </div>
+              <div class="tour_select">
+                <div class="tour_slider">
+                  <div class="slider_item">
+                    <div class="slider_img">
+                      <img src="https://images.pexels.com/photos/872514/pexels-photo-872514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                    </div>
+                    <div class="slider_title">耍廢放空之旅</div>
+                  </div>
+                  <div class="slider_item">
+                    <div class="slider_img">
+                      <img src="https://images.pexels.com/photos/872514/pexels-photo-872514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                    </div>
+                    <div class="slider_title">沒有空玩之旅</div>
+                  </div>
+                  <div class="slider_item">
+                    <div class="slider_img">
+                      <img src="https://images.pexels.com/photos/872514/pexels-photo-872514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                    </div>
+                    <div class="slider_title">去看101</div>
+                  </div>
+                  <div class="slider_item">
+                    <div class="slider_img">
+                      <img src="https://images.pexels.com/photos/872514/pexels-photo-872514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                    </div>
+                    <div class="slider_title">散心假日遊</div>
+                  </div>
+                  <div class="slider_item">
+                    <div class="slider_img">
+                      <img src="https://images.pexels.com/photos/872514/pexels-photo-872514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                    </div>
+                    <div class="slider_title">故宮知性之旅</div>
+                  </div>
+                  <div class="slider_item">
+                    <div class="slider_img">
+                      <img src="https://images.pexels.com/photos/872514/pexels-photo-872514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                    </div>
+                    <div class="slider_title">士林夜市美食趣</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tour_main tour_main--chung">
+              <div class="tour_header">
+                <div class="tour_img">
+                  <img src="https://images.pexels.com/photos/2894944/pexels-photo-2894944.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                </div>
+                <div class="tour_title">
+                  <span># 台中市</span>
+                  享受溫泉之旅
+                </div>
+              </div>
+              <div class="tour_select">
+                <div class="tour_slider">
+                  <div class="slider_item">
+                    <div class="slider_img">
+                      <img src="https://images.pexels.com/photos/872514/pexels-photo-872514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                    </div>
+                    <div class="slider_title">高美濕地生態遊</div>
+                  </div>
+                  <div class="slider_item">
+                    <div class="slider_img">
+                      <img src="https://images.pexels.com/photos/872514/pexels-photo-872514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                    </div>
+                    <div class="slider_title">谷關空氣之旅</div>
+                  </div>
+                  <div class="slider_item">
+                    <div class="slider_img">
+                      <img src="https://images.pexels.com/photos/872514/pexels-photo-872514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                    </div>
+                    <div class="slider_title">台中街道巡禮</div>
+                  </div>
+                  <div class="slider_item">
+                    <div class="slider_img">
+                      <img src="https://images.pexels.com/photos/872514/pexels-photo-872514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                    </div>
+                    <div class="slider_title">只是旅遊</div>
+                  </div>
+                  <div class="slider_item">
+                    <div class="slider_img">
+                      <img src="https://images.pexels.com/photos/872514/pexels-photo-872514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                    </div>
+                    <div class="slider_title">台中半日遊</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tour_side tour_side--pei tour_side--active">
+              <div class="tour_content">
+                <button class="btn btn--close tour_close">
+                  <i class="bi bi-x"></i>
+                </button>
+                <div class="tour_box">
+                  <div class="tour_describe">
+                    <p class="p-text">行程介紹</p>
+                    <div class="tour_name">美好幸福之旅</div>
+                    <p class="p-text">
+                      新技術光臨場所你怎不來就能時尚不願，第一章尤其是，僅僅不願生意一邊很少能學到造成，到我希望，不多走向開關過去課程，面臨調查青年利潤此處非常討論審核透露瞬間警告地址夫人完全，二人英語中文版說什麼點這裡下載網頁資本精神是一個暴力網頁課程，對不起故事晶片時候條。
+                    </p>
+                    <div class="tour_person">
+                      <div class="tour_img tour_img--person">
+                        <img src="https://images.pexels.com/photos/2785021/pexels-photo-2785021.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                      </div>
+                      <p class="p-text">人才丁丁</p>
+                    </div>
+                    <div class="btn_box">
+                      <button class="btn btn--chip" id="seeDetail">觀看詳細內容</button>
+                      <button class="btn btn--main">加入行程</button>
+                    </div>
+                  </div>
+                  <div class="tour_detail">
+                    <div class="tour_top">
+                      <div class="btn_arrow" id="arrowBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+        </svg>
+                      </div>
+                      <button class="btn btn--main">加入行程</d>
+                    </div>
+                    <div class="timeline">
+                      <div class="timeline_nav">
+                        <div class="timeline_box">
+                          <div class="timeline_tab">第1天</div>
+                          <div class="timeline_tab">第2天</div>
+                          <div class="timeline_tab">第3天</div>
+                        </div>
+                      </div>
+                      <ul class="timeline_list">
+                        <li class="timeline_item">
+                          <div class="timeline_text">
+                            <div class="timeline_num">1</div>
+                            <div class="timeline_name">中正紀念堂</div>
+                          </div>
+                          <div class="timeline_img">
+                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                          </div>
+                        </li>
+                        <li class="timeline_item">
+                          <div class="timeline_text">
+                            <div class="timeline_num">1</div>
+                            <div class="timeline_name">中正紀念堂</div>
+                          </div>
+                          <div class="timeline_img">
+                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                          </div>
+                        </li>
+                        <li class="timeline_item">
+                          <div class="timeline_text">
+                            <div class="timeline_num">1</div>
+                            <div class="timeline_name">中正紀念堂</div>
+                          </div>
+                          <div class="timeline_img">
+                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                          </div>
+                        </li>
+                        <li class="timeline_item">
+                          <div class="timeline_text">
+                            <div class="timeline_num">1</div>
+                            <div class="timeline_name">中正紀念堂</div>
+                          </div>
+                          <div class="timeline_img">
+                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                          </div>
+                        </li>
+                        <li class="timeline_item">
+                          <div class="timeline_text">
+                            <div class="timeline_num">1</div>
+                            <div class="timeline_name">中正紀念堂</div>
+                          </div>
+                          <div class="timeline_img">
+                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                          </div>
+                        </li>
+                        <li class="timeline_item">
+                          <div class="timeline_text">
+                            <div class="timeline_num">1</div>
+                            <div class="timeline_name">中正紀念堂</div>
+                          </div>
+                          <div class="timeline_img">
+                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tour_side tour_side--chung">
+              <div class="tour_content">
+                <div class="tour_box">
+                  <div class="tour_describe">
+                    <p class="p-text">行程介紹</p>
+                    <div class="tour_name">美好幸福之旅</div>
+                    <p class="p-text">
+                      新技術光臨場所你怎不來就能時尚不願，第一章尤其是，僅僅不願生意一邊很少能學到造成，到我希望，不多走向開關過去課程，面臨調查青年利潤此處非常討論審核透露瞬間警告地址夫人完全，二人英語中文版說什麼點這裡下載網頁資本精神是一個暴力網頁課程，對不起故事晶片時候條。
+                    </p>
+                    <div class="tour_person">
+                      <div class="tour_img tour_img--person">
+                        <img src="https://images.pexels.com/photos/2785021/pexels-photo-2785021.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                      </div>
+                      <p class="p-text">人才丁丁</p>
+                    </div>
+                    <div class="btn_box">
+                      <button class="btn btn--chip" id="seeDetail">觀看詳細內容</button>
+                      <button class="btn btn--main">加入行程</button>
+                    </div>
+                  </div>
+                  <div class="tour_detail">
+                    <div class="tour_top">
+                      <div class="btn_arrow" id="arrowBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+        </svg>
+                      </div>
+                      <button class="btn btn--main">加入行程</d>
+                    </div>
+                    <div class="timeline">
+                      <div class="timeline_nav">
+                        <div class="timeline_box">
+                          <div class="timeline_tab">第1天</div>
+                          <div class="timeline_tab">第2天</div>
+                          <div class="timeline_tab">第3天</div>
+                        </div>
+                      </div>
+                      <ul class="timeline_list">
+                        <li class="timeline_item">
+                          <div class="timeline_text">
+                            <div class="timeline_num">1</div>
+                            <div class="timeline_name">中正紀念堂</div>
+                          </div>
+                          <div class="timeline_img">
+                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                          </div>
+                        </li>
+                        <li class="timeline_item">
+                          <div class="timeline_text">
+                            <div class="timeline_num">1</div>
+                            <div class="timeline_name">中正紀念堂</div>
+                          </div>
+                          <div class="timeline_img">
+                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                          </div>
+                        </li>
+                        <li class="timeline_item">
+                          <div class="timeline_text">
+                            <div class="timeline_num">1</div>
+                            <div class="timeline_name">中正紀念堂</div>
+                          </div>
+                          <div class="timeline_img">
+                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                          </div>
+                        </li>
+                        <li class="timeline_item">
+                          <div class="timeline_text">
+                            <div class="timeline_num">1</div>
+                            <div class="timeline_name">中正紀念堂</div>
+                          </div>
+                          <div class="timeline_img">
+                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                          </div>
+                        </li>
+                        <li class="timeline_item">
+                          <div class="timeline_text">
+                            <div class="timeline_num">1</div>
+                            <div class="timeline_name">中正紀念堂</div>
+                          </div>
+                          <div class="timeline_img">
+                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                          </div>
+                        </li>
+                        <li class="timeline_item">
+                          <div class="timeline_text">
+                            <div class="timeline_num">1</div>
+                            <div class="timeline_name">中正紀念堂</div>
+                          </div>
+                          <div class="timeline_img">
+                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+  </main>
+  <!-- footer -->
+  <footer class="footer_Wrap">
+  <section class="footerBlock">
+      <ul class="footerMedia">
+          <a href=""><li><i class="bi bi-facebook"></i></li></a>
+          <a href=""><li><i class="bi bi-instagram"></i></li></a>
+          <a href=""><li><i class="bi bi-line"></i>
+          </ion-icon></li></a>
+      </ul>
+      <ul class="footerContect">
+          <li><i class="bi bi-telephone"></i>電話:03-1234567</li>
+          <li><i class="bi bi-envelope"></i>服務信箱:<a href="mailto:abc12345@gmail.com">abc12345@gmail.com</a></li>
+          <li><i class="bi bi-clock"></i>營業時間:09:00 ~ 18:00(一)~(五)</li>
+          <li><i class="bi bi-pin-map"></i>地址:桃園市桃園區中正路99999號</li>
+      </ul>
+      <ul class="footerTerms">
+          <a href=""><li>服務條款</li></a><a href=""><li>購物條款</li></a><a href=""><li>付款方式</li></a>
+      </ul>
+      <p class="footerCopyRight">&copy;本網站為緯育TibaMe_前端設計工程師班第73期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[緯育TibaMe]，後續會由專人協助處理。</p>
+  </section>
+  </footer>
     
+  <script src="js/burger.js"></script>
+  <script>
+
+    function sortTour() {
+        sorts = document.querySelectorAll('.sort_item');
+        mains = document.querySelectorAll('.tour_main');
+        sorts.forEach(sort => sort.addEventListener('click',changeCity));
+        
+          function changeCity(e) {
+            if(!e.target.classList.contains('sort_item')) return;
+          sorts.forEach(tab => tab.classList.remove('tour_sort--active'));
+          mains.forEach(page => page.classList.remove('tour_main--active'));
+
+          let curCity = e.target.dataset['sort'];
+          let sort = document.querySelector(`.tour_sort--${curCity}`);
+          let mainPage = document.querySelector(`.tour_main--${curCity}`);
+
+         
+          sort.classList.add('tour_sort--active');
+          mainPage.classList.add('tour_main--active');
+          
+      }
+    }
+    sortTour();
+
+  </script>
 </body>
 </html>

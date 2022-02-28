@@ -18,6 +18,7 @@
     height: 100vh;
     display: none;
     overflow: auto;
+    z-index: 500;
 }
 
 
@@ -27,7 +28,7 @@
 //登入
 .froLoginBlock{
     width: 300px;
-    height: 400px;
+    height: 420px;
 
     position: fixed;
     top:20%;

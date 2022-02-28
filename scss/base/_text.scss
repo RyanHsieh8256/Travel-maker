@@ -27,10 +27,11 @@ body {
     font-family: 'Caveat',serif;
    font-weight: 600;
    padding: 10px;
-   font-size: 35px;
+   font-size: 30px;
    line-height: 1.5;
    color: #007183;
    position: relative;
+   z-index: 2;
    
    
    &:before {
@@ -42,7 +43,7 @@ body {
      left: 0;
      background-color: #FF7E29aa;
      border-radius: 50%;
-     z-index: -1;
+     z-index: 1;
    }
    
    span {
