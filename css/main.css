@@ -8594,7 +8594,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 
 .froLoginBlock .froLoginCancel .bi-x-circle-fill {
   font-size: 25px;
-  color: #007183;
+  color: #81d8d1;
 }
 
 .froLoginSwitch {
@@ -8672,7 +8672,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 }
 
 .froLoginForm_wrap .froLoginForm .froLoginBtn input {
-  background-color: #007183;
+  background-color: #81d8d1;
   color: #fff;
   border: none;
   border-radius: 25px;
@@ -9405,8 +9405,11 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 }
 
 .groupdetailInfo .groupdetailInfo_wrap .tourInfo {
-  height: 500px;
   border: 1px solid darkcyan;
+}
+
+.groupdetailInfo .groupdetailInfo_wrap .tourInfo .timeline {
+  width: 100%;
 }
 
 .groupdetailInfo .groupdetailInfo_wrap .message {
