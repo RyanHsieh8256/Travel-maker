@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>景點票券</title>
     <link rel="stylesheet" href="css/main.css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -53,34 +53,33 @@
         </nav>
 
         <div class="froLoginBG" id="froLoginBG">
-        <section class="froLoginBlock" id="froLoginBlock">
-            <!-- 取消按鈕 -->
-            <div class="froLoginCancel">
-                <button><i class="bi bi-x-circle-fill"></i></button>
-            </div>
-            <!-- 註冊/登入 -->
-            <div class="froLoginSwitch">
-                <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
-                    登入
+            <section class="froLoginBlock" id="froLoginBlock">
+                <!-- 取消按鈕 -->
+                <div class="froLoginCancel">
+                    <button><i class="bi bi-x-circle-fill"></i></button>
                 </div>
-                <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
-                    註冊
+                <!-- 註冊/登入 -->
+                <div class="froLoginSwitch">
+                    <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
+                        登入
+                    </div>
+                    <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
+                        註冊
+                    </div>
+                </div> 
+                <!-- 表單區 -->
+                <div class="froLoginForm_wrap">
+                    <transition name="frologintransition" mode="out-in">
+                        <keep-alive>
+                            <component :is='content'></component>
+                        </keep-alive>
+                    </transition>
                 </div>
-            </div> 
-            <!-- 表單區 -->
-            <div class="froLoginForm_wrap">
-                <transition name="frologintransition" mode="out-in">
-                    <keep-alive>
-                        <component :is='content'></component>
-                    </keep-alive>
+                <transition name="mascottransition">
+                    <component :is='content2'></component>
                 </transition>
-            </div>
-            <transition name="mascottransition">
-                <component :is='content2'></component>
-            </transition>
-        </section>
-    </div>
-        
+            </section>
+        </div>
 
         <section class="l-full shopType">
             <div class="shopType_wrap">
@@ -116,49 +115,7 @@
                 </div>
             </div>
         </section>
-        <!-- <section class="l-full shopHotCity">
-            <div class="l-large shopHotCity_wrap"></div>
-                <h2>熱門城市</h2>
-                <div class="row">
-                    <div class="col-4 col-md-2">
-                        <div class="city">
-                            <img src="images/group/groupCities_taipei.jpg">
-                            <div class="txt">台北市</div>
-                        </div>
-                    </div>
-                    <div class="col-4 col-md-2">
-                        <div class="city">
-                            <img src="images/group/groupCities_taoyuan.jpg">
-                            <div class="txt">桃園市</div>
-                        </div>
-                    </div>
-                    <div class="col-4 col-md-2">
-                        <div class="city">
-                            <img src="images/group/groupCities_taichung.jpg">
-                            <div class="txt">台中市</div>
-                        </div>
-                    </div>
-                    <div class="col-4 col-md-2">
-                        <div class="city">
-                            <img src="images/group/groupCities_kaohsiung.jpg">
-                            <div class="txt">高雄市</div>
-                        </div>
-                    </div>
-                    <div class="col-4 col-md-2">
-                        <div class="city">
-                            <img src="images/group/groupCities_taitung.jpg">
-                            <div class="txt">台東市</div>
-                        </div>
-                    </div>
-                    <div class="col-4 col-md-2">
-                        <div class="city">
-                            <img src="images/group/groupCities_hualian.jpg">
-                            <div class="txt">花蓮市</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
+    
         <section class="l-full shopSearch">
             <div class="l-large shopSearch_wrap">
                 <input type="search">
@@ -166,13 +123,14 @@
             </div>
         </section>
     </header>
+
     <main>
         <section class="l-full shopProduct">
             <h2>台北景點</h2>
             <div class="l-medium shopSort_wrap">
                 <div class="row">
                     <div class="card col-12 col-lg-6 col-xl-4">
-                        <a href="">
+                        <a href="shopspot.html">
                             <!-- 卡片內容 -->
                             <div class="card_content">
                                 <div class="card_body">
@@ -200,7 +158,7 @@
                     </div>
 
                     <div class="card col-12 col-lg-6 col-xl-4">
-                        <a href="">
+                        <a href="shopspot.html">
                             <!-- 卡片內容 -->
                             <div class="card_content">
                                 <div class="card_body">
@@ -227,7 +185,7 @@
                         </a>
                     </div>
                     <div class="card col-12 col-lg-6 col-xl-4">
-                        <a href="">
+                        <a href="shopspot.html">
                             <!-- 卡片內容 -->
                             <div class="card_content">
                                 <div class="card_body">
@@ -254,7 +212,7 @@
                         </a>
                     </div>
                     <div class="card col-12 col-lg-6 col-xl-4">
-                        <a href="">
+                        <a href="shopspot.html">
                             <!-- 卡片內容 -->
                             <div class="card_content">
                                 <div class="card_body">
@@ -281,7 +239,7 @@
                         </a>
                     </div>
                     <div class="card col-12 col-lg-6 col-xl-4">
-                        <a href="">
+                        <a href="shopspot.html">
                             <!-- 卡片內容 -->
                             <div class="card_content">
                                 <div class="card_body">
@@ -308,7 +266,7 @@
                         </a>
                     </div>
                     <div class="card col-12 col-lg-6 col-xl-4">
-                        <a href="">
+                        <a href="shopspot.html">
                             <!-- 卡片內容 -->
                             <div class="card_content">
                                 <div class="card_body">
@@ -335,7 +293,7 @@
                         </a>
                     </div>
                     <div class="card col-12 col-lg-6 col-xl-4">
-                        <a href="">
+                        <a href="shopspot.html">
                             <!-- 卡片內容 -->
                             <div class="card_content">
                                 <div class="card_body">
@@ -362,7 +320,7 @@
                         </a>
                     </div>
                     <div class="card col-12 col-lg-6 col-xl-4">
-                        <a href="">
+                        <a href="shopspot.html">
                             <!-- 卡片內容 -->
                             <div class="card_content">
                                 <div class="card_body">
@@ -389,7 +347,7 @@
                         </a>
                     </div>
                     <div class="card col-12 col-lg-6 col-xl-4">
-                        <a href="">
+                        <a href="shopspot.html">
                             <!-- 卡片內容 -->
                             <div class="card_content">
                                 <div class="card_body">
@@ -417,9 +375,9 @@
                     </div>
                 </div>
             </div>
-
         </section>
     </main>
+
     <footer class="footer_Wrap">
         <section class="footerBlock">
             <ul class="footerMedia">
@@ -440,6 +398,7 @@
             <p class="footerCopyRight">&copy;本網站為緯育TibaMe_前端設計工程師班第73期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[緯育TibaMe]，後續會由專人協助處理。</p>
         </section>
     </footer>
+
     <script src="js/forlogin.js"></script>
     
 </body>

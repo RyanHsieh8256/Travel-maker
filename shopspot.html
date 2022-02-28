@@ -4,83 +4,80 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>景點</title>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
-    <script src="js/jquery.js"></script>
-    <script src="js/vue.js"></script>
-    <script src="js/owl.carousel.js"></script>
      
  </head>
+
  <body>
-        <header>
-         <nav class="nav_Wrap">
-             <section class="navBlock">
-                 <a href="home.html">
-                     <h1 class="navLogo">
-                         <img src="images/logo/logo_84x50.png" alt="TravelMaker">
-                     </h1>
-                 </a>
-                 <ul class="mainNav">
-                     <a href="tour.html"><li>行程規劃</li></a>
-                     <a href="group.html"><li>揪團旅行</li></a>
-                     <a href="shop.html"><li>商城</li></a>
-                 </ul>
-                 <ul class="navMember">
-                     <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
-                     <li>
-                         <i class="bi bi-person-circle" id="loginBoxBtn"><span>登入/註冊</span></i>
-                         <!-- 登入後,會員按鈕的下拉選單,目前設定display:none-->
-                         <ul class="navDropdownMenu">
-                             <li class="navDropdownMenuItem navMemProfile">
-                                 <div class="navDropdownMenuPhoto">
-                                     <img src="https://picsum.photos/200/200/?random=10">
-                                 </div>
-                                 <div class="navDropdownMenuTitle">
-                                     <span>張小明</span>
-                                 </div>
-                             </li>
-                             <li class="navDropdownMenuItem"><i class="bi bi-gear"></i> 帳號設定</li>
-                             <li class="navDropdownMenuItem"><i class="bi bi-calendar2"></i> 我的行程</li>
-                             <li class="navDropdownMenuItem"><i class="bi bi-bookmark-heart"></i> 我的收藏</li>
-                             <li class="navDropdownMenuItem"><i class="bi bi-file-person"></i> 我的揪團</li>
-                             <li class="navDropdownMenuItem"><i class="bi bi-bag"></i> 我的訂單</li>
-                         </ul>
-                     </li>
-                     <li><i class="bi bi-list"></i></li>
-                 </ul>
-             </section>          
-         </nav>
- 
-         <div class="froLoginBG" id="froLoginBG">
-         <section class="froLoginBlock" id="froLoginBlock">
-             <!-- 取消按鈕 -->
-             <div class="froLoginCancel">
-                 <button><i class="bi bi-x-circle-fill"></i></button>
-             </div>
-             <!-- 註冊/登入 -->
-             <div class="froLoginSwitch">
-                 <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
-                     登入
-                 </div>
-                 <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
-                     註冊
-                 </div>
-             </div> 
-             <!-- 表單區 -->
-             <div class="froLoginForm_wrap">
-                 <transition name="frologintransition" mode="out-in">
-                     <keep-alive>
-                         <component :is='content'></component>
-                     </keep-alive>
-                 </transition>
-             </div>
-             <transition name="mascottransition">
-                 <component :is='content2'></component>
-             </transition>
-         </section>
-     </div>
+    <header>
+        <nav class="nav_Wrap">
+            <section class="navBlock">
+                <a href="home.html">
+                    <h1 class="navLogo">
+                        <img src="images/logo/logo_84x50.png" alt="TravelMaker">
+                    </h1>
+                </a>
+                <ul class="mainNav">
+                    <a href="tour.html"><li>行程規劃</li></a>
+                    <a href="group.html"><li>揪團旅行</li></a>
+                    <a href="shop.html"><li>商城</li></a>
+                </ul>
+                <ul class="navMember">
+                    <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
+                    <li>
+                        <i class="bi bi-person-circle" id="loginBoxBtn"><span>登入/註冊</span></i>
+                        <!-- 登入後,會員按鈕的下拉選單,目前設定display:none-->
+                        <ul class="navDropdownMenu">
+                            <li class="navDropdownMenuItem navMemProfile">
+                                <div class="navDropdownMenuPhoto">
+                                    <img src="https://picsum.photos/200/200/?random=10">
+                                </div>
+                                <div class="navDropdownMenuTitle">
+                                    <span>張小明</span>
+                                </div>
+                            </li>
+                            <li class="navDropdownMenuItem"><i class="bi bi-gear"></i> 帳號設定</li>
+                            <li class="navDropdownMenuItem"><i class="bi bi-calendar2"></i> 我的行程</li>
+                            <li class="navDropdownMenuItem"><i class="bi bi-bookmark-heart"></i> 我的收藏</li>
+                            <li class="navDropdownMenuItem"><i class="bi bi-file-person"></i> 我的揪團</li>
+                            <li class="navDropdownMenuItem"><i class="bi bi-bag"></i> 我的訂單</li>
+                        </ul>
+                    </li>
+                    <li><i class="bi bi-list"></i></li>
+                </ul>
+            </section>          
+        </nav>
+         
+        <div class="froLoginBG" id="froLoginBG">
+            <section class="froLoginBlock" id="froLoginBlock">
+                <!-- 取消按鈕 -->
+                <div class="froLoginCancel">
+                    <button><i class="bi bi-x-circle-fill"></i></button>
+                </div>
+                <!-- 註冊/登入 -->
+                <div class="froLoginSwitch">
+                    <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
+                        登入
+                    </div>
+                    <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
+                        註冊
+                    </div>
+                </div> 
+                <!-- 表單區 -->
+                <div class="froLoginForm_wrap">
+                    <transition name="frologintransition" mode="out-in">
+                        <keep-alive>
+                            <component :is='content'></component>
+                        </keep-alive>
+                    </transition>
+                </div>
+                <transition name="mascottransition">
+                    <component :is='content2'></component>
+                </transition>
+            </section>
+        </div>
 
         <section class="l-full shopspotSlide">
             <div class="shopspotSlide_wrap">
@@ -92,13 +89,13 @@
             </div>
         </section>
     </header>
+
     <main>
         <section class="l-full shopspotInfo">
             <h2>景點名稱</h2>
             <div class="shopspotInfo_wrap">
                 <div class="info">
                     <div class="title">
-                        
                         <p><i class="bi bi-geo-alt"></i>city</p>
                     </div>
                     <div class="text">
@@ -109,77 +106,68 @@
                     <div class="sub_wrap">
                         <p>選擇數量</p>
                         <hr>
-                            <table id="myTable" class="table">
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <p class="type">全票</p>
-                                        </td>
-                                        <td>
-                                            <div class="price_wrap">TWD<input type="text" value="550" class="price form-control" disabled>/每人</div>
-                                        </td>
-                                        <td>
-                                            <div class="button-container">
-                                                <button class="cart-qty-minus" type="button" value="-"><i class="bi bi-dash-circle-fill"></i></button>
-                                                <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
-                                                <button class="cart-qty-plus" type="button" value="+"><i class="bi bi-plus-circle-fill"></i></button>
-                                            </div>
-                                        </td>
-                                       
-                                        <!-- <td align="right">$ <span id="amount" class="amount">0</span></td> -->
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="type">半票</p>
-                                        </td>
-                                        <td>
-                                            <div class="price_wrap">TWD<input type="text" value="350" class="price form-control" disabled>/每人</div>
-                                        </td>
-                                        <td>
-                                            <div class="button-container">
-                                                <button class="cart-qty-minus" type="button" value="-"><i class="bi bi-dash-circle-fill"></i></button>
-                                                <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
-                                                <button class="cart-qty-plus" type="button" value="+"><i class="bi bi-plus-circle-fill"></i></button>
-                                            </div>
-                                        </td>
-                                       
-                                        <!-- <td align="right">$ <span id="amount" class="amount">0</span></td> -->
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="type">優待票</p>
-                                        </td>
-                                        <td>
-                                            <div class="price_wrap">TWD<input type="text" value="150" class="price form-control" disabled>/每人</div>
-                                        </td>
-                                        <td>
-                                            <div class="button-container">
-                                                <button class="cart-qty-minus" type="button" value="-"><i class="bi bi-dash-circle-fill"></i></button>
-                                                <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
-                                                <button class="cart-qty-plus" type="button" value="+"><i class="bi bi-plus-circle-fill"></i></button>
-                                            </div>
-                                        </td>
-                                        
-                                        <!-- <td align="right">$ <span id="amount" class="amount">0</span></td> -->
-                                    </tr>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <td colspan="4"><strong>總金額 = TWD  <span id="total" class="total">0</span>元</strong></td>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                            <div class="subbtn">
-                                <button class="btn btn--cart tocart">加入購物車</button>
-                                <button class="btn btn--cart topay">立即訂購</button>
+                        <table id="myTable" class="table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p class="type">全票</p>
+                                    </td>
+                                    <td>
+                                        <div class="price_wrap">TWD<input type="text" value="550" class="price form-control" disabled>/每人</div>
+                                    </td>
+                                    <td>
+                                        <div class="button-container">
+                                            <button class="cart-qty-minus" type="button" value="-"><i class="bi bi-dash-circle-fill"></i></button>
+                                            <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
+                                            <button class="cart-qty-plus" type="button" value="+"><i class="bi bi-plus-circle-fill"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="type">半票</p>
+                                    </td>
+                                    <td>
+                                        <div class="price_wrap">TWD<input type="text" value="350" class="price form-control" disabled>/每人</div>
+                                    </td>
+                                    <td>
+                                        <div class="button-container">
+                                            <button class="cart-qty-minus" type="button" value="-"><i class="bi bi-dash-circle-fill"></i></button>
+                                            <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
+                                            <button class="cart-qty-plus" type="button" value="+"><i class="bi bi-plus-circle-fill"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="type">優待票</p>
+                                    </td>
+                                    <td>
+                                        <div class="price_wrap">TWD<input type="text" value="150" class="price form-control" disabled>/每人</div>
+                                    </td>
+                                    <td>
+                                        <div class="button-container">
+                                            <button class="cart-qty-minus" type="button" value="-"><i class="bi bi-dash-circle-fill"></i></button>
+                                            <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
+                                            <button class="cart-qty-plus" type="button" value="+"><i class="bi bi-plus-circle-fill"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="4"><strong>總金額 = TWD  <span id="total" class="total">0</span>元</strong></td>
+                                </tr>
+                            </tfoot>
+                        </table>
 
-
-                               
-                            </div>
+                        <div class="subbtn">
+                            <button class="btn btn--cart tocart">加入購物車</button>
+                            <a href="shopcart.html"><button class="btn btn--cart topay">立即訂購</button></a>  
+                        </div>
                     </div>
                 </div>
-            </div>
-                        
+            </div>     
         </section>
 
         <section class="l-full shopspotOverview">
@@ -190,7 +178,7 @@
                             <div class="shopspotFeature">
                                 <div class="spot_mark">
                                     <i class="bi bi-building"></i>
-                                <h2 class="spot_title">景點特色</h2>
+                                    <h2 class="spot_title">景點特色</h2>
                                 </div>
                                 <div class="feature">
                                     <img class="feature_img" src="https://picsum.photos/600/350/?random=10">
@@ -218,8 +206,8 @@
                         <div class="shopspotDetail_wrap" id="shopspotDetail">
                             <div class="shopspotDetail">
                                 <div class="spot_mark">
-                                <i class="bi bi-ticket-perforated"></i>
-                                <h2 class="spot_title">票券說明</h2>
+                                    <i class="bi bi-ticket-perforated"></i>
+                                    <h2 class="spot_title">票券說明</h2>
                                 </div>
                                <div class="shopspotText">
                                    <p>分析做法便利商店有些說過圖書館會在統計實在全身臺灣加速近日，百度那種怎麼高考形象日韓沒想到，寬頻不但就能瞬間書庫內存滿意，第一個低價提示發揮一張效益排名無限一笑，創造城市其中世界的說身邊部分貼布，裝備出發大約早已效果在這小七圖片正好，都不追求較大情形天下。</p>
@@ -230,8 +218,8 @@
                         <div class="shopspotGuide_wrap"  id="shopspotGuide">
                             <div class="shopspotGuide">
                                 <div class="spot_mark">
-                                <i class="bi bi-cart3"></i>
-                                <h2 class="spot_title">購買須知</h2>
+                                    <i class="bi bi-cart3"></i>
+                                    <h2 class="spot_title">購買須知</h2>
                                 </div>
                                <div class="shopspotText">
                                    <p>分析做法便利商店有些說過圖書館會在統計實在全身臺灣加速近日，百度那種怎麼高考形象日韓沒想到，寬頻不但就能瞬間書庫內存滿意，第一個低價提示發揮一張效益排名無限一笑，創造城市其中世界的說身邊部分貼布，裝備出發大約早已效果在這小七圖片正好，都不追求較大情形天下。</p>
@@ -243,7 +231,7 @@
                             <div class="shopspotDirection">
                                 <div class="spot_mark">
                                     <i class="bi bi-question-octagon"></i>
-                                <h2 class="spot_title">使用方法</h2>
+                                    <h2 class="spot_title">使用方法</h2>
                                 </div>
                                <div class="shopspotText">
                                    <p>分析做法便利商店有些說過圖書館會在統計實在全身臺灣加速近日，百度那種怎麼高考形象日韓沒想到，寬頻不但就能瞬間書庫內存滿意，第一個低價提示發揮一張效益排名無限一笑，創造城市其中世界的說身邊部分貼布，裝備出發大約早已效果在這小七圖片正好，都不追求較大情形天下。</p>
@@ -268,141 +256,144 @@
                              </div>
                         </div>
                     </div>
+
                     <div class="shopspotSelect col-12 col-lg-3">
-                            <ul class="scoll">
-                                <li><a href="#shopspotFeature">景點特色</a></li>
-                                <li><a href="#shopspotDetail">票券說明</a></li>
-                                <li><a href="#shopspotGuide">購買須知</a></li>
-                                <li><a href="#shopspotDirection">使用方法</a></li>
-                                <li><a href="#shopspotNotice">注意事項</a></li>
-                            </ul>
+                        <ul class="scoll">
+                            <li><a href="#shopspotFeature">景點特色</a></li>
+                            <li><a href="#shopspotDetail">票券說明</a></li>
+                            <li><a href="#shopspotGuide">購買須知</a></li>
+                            <li><a href="#shopspotDirection">使用方法</a></li>
+                            <li><a href="#shopspotNotice">注意事項</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>           
         </section>
-        <footer class="footer_Wrap">
-            <section class="footerBlock">
-                <ul class="footerMedia">
-                    <a href=""><li><i class="bi bi-facebook"></i></li></a>
-                    <a href=""><li><i class="bi bi-instagram"></i></li></a>
-                    <a href=""><li><i class="bi bi-line"></i>
-                    </ion-icon></li></a>
-                </ul>
-                <ul class="footerContect">
-                    <li><i class="bi bi-telephone"></i>電話:03-1234567</li>
-                    <li><i class="bi bi-envelope"></i>服務信箱:<a href="mailto:abc12345@gmail.com">abc12345@gmail.com</a></li>
-                    <li><i class="bi bi-clock"></i>營業時間:09:00 ~ 18:00(一)~(五)</li>
-                    <li><i class="bi bi-pin-map"></i>地址:桃園市桃園區中正路99999號</li>
-                </ul>
-                <ul class="footerTerms">
-                    <a href=""><li>服務條款</li></a><a href=""><li>購物條款</li></a><a href=""><li>付款方式</li></a>
-                </ul>
-                <p class="footerCopyRight">&copy;本網站為緯育TibaMe_前端設計工程師班第73期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[緯育TibaMe]，後續會由專人協助處理。</p>
-            </section>
-        </footer>
-        <script src="js/forlogin.js"></script>
+    </main>
+
+    <footer class="footer_Wrap">
+        <section class="footerBlock">
+            <ul class="footerMedia">
+                <a href=""><li><i class="bi bi-facebook"></i></li></a>
+                <a href=""><li><i class="bi bi-instagram"></i></li></a>
+                <a href=""><li><i class="bi bi-line"></i>
+                </ion-icon></li></a>
+            </ul>
+            <ul class="footerContect">
+                <li><i class="bi bi-telephone"></i>電話:03-1234567</li>
+                <li><i class="bi bi-envelope"></i>服務信箱:<a href="mailto:abc12345@gmail.com">abc12345@gmail.com</a></li>
+                <li><i class="bi bi-clock"></i>營業時間:09:00 ~ 18:00(一)~(五)</li>
+                <li><i class="bi bi-pin-map"></i>地址:桃園市桃園區中正路99999號</li>
+            </ul>
+            <ul class="footerTerms">
+                <a href=""><li>服務條款</li></a><a href=""><li>購物條款</li></a><a href=""><li>付款方式</li></a>
+            </ul>
+            <p class="footerCopyRight">&copy;本網站為緯育TibaMe_前端設計工程師班第73期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[緯育TibaMe]，後續會由專人協助處理。</p>
+        </section>
+    </footer>
+
+    <script src="js/forlogin.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/owl.carousel.js"></script>
         
     <script>
         $(document).ready(function(){
- //slide
- var shopspotSlide = $("#shopspotSlide");
- 
-
-function isMobileDevice(){
-  let mobileDevices = ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone']
-  let isMobileDevice=false
-  for(let i=0;i<mobileDevices.length;i++){
-      if(navigator.userAgent.match(mobileDevices[i])){
-          isMobileDevice=true
-      }
-  }
-  return isMobileDevice
-}
-
-if(isMobileDevice() != true){
-// 桌機的話執行
-shopspotSlide.owlCarousel({
-  center: true,
-  items:1.5,
-  loop:true,
-  margin:10,
-  nav:true
-
-});
-}else{
-  //手機的話
-  shopspotSlide.owlCarousel({
-    items: 1,
-    autoplay: true,
-    loop:true,
-    nav:true,
-  });
-};
+        //-------------------slide---------------------
+         var shopspotSlide = $("#shopspotSlide");
 
 
-  //  -----------------for-Shopping-cart-------------
-$(document).ready(function(){
-  update_amounts();
-  $('.qty, .price').on('keyup keypress blur change', function(e) {
-    update_amounts();
-  });
-});
-function update_amounts(){
-var sum = 0.0;
-    $('#myTable > tbody  > tr').each(function() {
-    var qty = $(this).find('.qty').val();
-      var price = $(this).find('.price').val();
-      var amount = (qty*price)
-      sum+=amount;
-      $(this).find('.amount').text(''+amount);
-    });
-     
-$('.total').text(sum);
-}
+        function isMobileDevice(){
+            let mobileDevices = ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone']
+            let isMobileDevice=false
+            for(let i=0;i<mobileDevices.length;i++){
+                if(navigator.userAgent.match(mobileDevices[i])){
+                    isMobileDevice=true
+                }
+            }
+            return isMobileDevice
+        }
+
+        if(isMobileDevice() != true){
+            // 桌機的話執行
+            shopspotSlide.owlCarousel({
+            center: true,
+            items:1.5,
+            loop:true,
+            margin:10,
+            nav:true
+
+        });
+        }else{
+            //手機的話
+            shopspotSlide.owlCarousel({
+            items: 1,
+            autoplay: true,
+            loop:true,
+            nav:true,
+
+          });
+        };
 
 
 
-// ----------------for quantity-increment-or-decrement-------
-var incrementQty;
-var decrementQty;
-var plusBtn  = $(".cart-qty-plus");
-var minusBtn = $(".cart-qty-minus");
-var incrementQty = plusBtn.click(function() {
-var $n = $(this)
-  .parent(".button-container")
-  .find(".qty");
-$n.val(Number($n.val())+1 );
-update_amounts();
-});
-
-var decrementQty = minusBtn.click(function() {
-  var $n = $(this)
-  .parent(".button-container")
-  .find(".qty");
-var QtyVal = Number($n.val());
-if (QtyVal > 0) {
-  $n.val(QtyVal-1);
-}
-update_amounts();
-});
-
-});
-
-
-
-
-    </script>
-
-<script type='text/javascript'>
-    $(document).ready(function (){// ready 事件
-        $("li").each(function(index){//便利物件
-            $(this).click(function(){//點選觸發事件
-                $("li").removeClass("active");//刪除當前元素的樣式
-                $("li").eq(index).addClass("active");//添加當前元素的樣式
+        //  ----------------Shopping-cart-------------
+        $(document).ready(function(){
+             update_amounts();
+            $('.qty, .price').on('keyup keypress blur change', function(e) {
+              update_amounts();
             });
         });
-    });
-</script>
+        function update_amounts(){
+        var sum = 0.0;
+            $('#myTable > tbody  > tr').each(function() {
+            var qty = $(this).find('.qty').val();
+              var price = $(this).find('.price').val();
+              var amount = (qty*price)
+              sum+=amount;
+              $(this).find('.amount').text(''+amount);
+            });
+
+        $('.total').text(sum);
+        }
+
+        //for quantity-increment-or-decrement
+        var incrementQty;
+        var decrementQty;
+        var plusBtn  = $(".cart-qty-plus");
+        var minusBtn = $(".cart-qty-minus");
+        var incrementQty = plusBtn.click(function() {
+        var $n = $(this)
+          .parent(".button-container")
+          .find(".qty");
+        $n.val(Number($n.val())+1 );
+        update_amounts();
+        });
+
+        var decrementQty = minusBtn.click(function() {
+          var $n = $(this)
+          .parent(".button-container")
+          .find(".qty");
+        var QtyVal = Number($n.val());
+        if (QtyVal > 0) {
+          $n.val(QtyVal-1);
+        }
+        update_amounts();
+        });
+
+        });
+
+
+        //-------------Select click color---------------
+        $(document).ready(function (){
+            $("li").each(function(index){
+                $(this).click(function(){  //點選觸發事件
+                    $("li").removeClass("active");  //刪除當前元素的樣式
+                    $("li").eq(index).addClass("active");  //添加當前元素的樣式
+                });
+            });
+        });
+    </script>
     
 </body>
 </html>

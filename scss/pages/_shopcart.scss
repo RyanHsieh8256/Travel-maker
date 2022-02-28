@@ -9,7 +9,7 @@
     border-radius: 30px;
     margin: auto;
     margin-top: 80px;
-     background-color: #f5f5f5;
+    background-color: #f5f5f5;
     
 }
 
@@ -18,6 +18,8 @@
     font-size:$second-title ;
     
 }
+
+
 
 .shoplist{
     margin: 10px;
@@ -33,30 +35,51 @@
     
 }
 
-.shoplist .content{
-    width: 80%;
+.shoplist .text p{
+    margin: 10px auto;
     
 }
 
 .shoplist h3{
     font-size: $third-title;
     margin-top: 10px;
-}
-
-.shoplist .text p{
-    margin: 10px auto;
     
 }
+
+.shoplist .content{
+    width: 80%;
+    
+}
+
+
 
 .shoplist_total{
     margin: 15px;
     text-align: right;
+
+}
+
+.shoplist_total p{
+    margin: 10px;
+    color: rgb(139, 139, 139);
+
+}
+
+.shoplist_total .deadline{
+    margin-left: 5px; 
+    
+}
+
+.shoplist_total .shoptotal{
+    color: #007183;
+
 }
 
 .shopcart .shopbtn{
     margin: auto;
     width: 80%;
     text-align: right;
+
 }
 
 .shopcart .shopbtn .keep{
@@ -65,31 +88,20 @@
     padding: 10px;
     border: none;
     background: none;
+
 }
 
-.shoplist_total p{
-    margin: 10px;
-    color: rgb(139, 139, 139);
-}
 
-.shoplist_total .shoptotal{
-    color: #007183;
-}
-
-.shoplist_total .deadline{
-    margin-left: 5px; 
-    
-}
 
 @media screen and (min-width:768px){
-    .shoplist .proimg{
+    .shoplist .pro_img{
         width: 20%;
+
     }
 
     .shoplist img{
         width: 80%;
         height: auto;
-        /* overflow: hidden; */
         margin: 10px;
         
     }
@@ -97,30 +109,23 @@
     .shoplist_text{
         width: 90%;
         
-        
+    }
+
+    .shoplist_text>*{
+        margin: auto;
+
     }
 
     .shoplist_text .content_wrap{
         display: flex;
-        /* margin: auto; */
         justify-content: space-between;
         margin-left: 0;
        
     }
 
-    .shoplist_text>*{
-        margin: auto;
-    }
-
     .shoplist .content{
         width: 40%;
         
-        
     }
-
-    .shoplist .sub{
-        // margin: 0px;
-    }
-    
     
 }

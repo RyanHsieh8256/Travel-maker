@@ -11243,6 +11243,11 @@ input[type="button"] {
   text-align: center;
 }
 
+.shopspotSlide_wrap {
+  margin: 40px auto;
+  width: 100%;
+}
+
 .shopspotSlide .owl-theme .owl-nav {
   position: absolute;
   width: 100%;
@@ -11264,11 +11269,6 @@ input[type="button"] {
 .shopspotSlide .owl-theme .owl-nav [class*=owl-]:hover {
   background: none;
   color: #aaa;
-}
-
-.shopspotSlide_wrap {
-  margin: 40px auto;
-  width: 100%;
 }
 
 .shopspotSlide_wrap .owl-dots {
@@ -11295,20 +11295,29 @@ input[type="button"] {
   margin: auto;
 }
 
-.shopspotInfo .text {
-  margin: 20px auto 60px auto;
-  width: 80%;
-}
-
 .shopspotInfo .bi.bi-plus-circle-fill, .shopspotInfo .bi.bi-dash-circle-fill {
   color: #007183;
   font-size: 30px;
+}
+
+.shopspotInfo .text {
+  margin: 20px auto 60px auto;
+  width: 80%;
 }
 
 .shopspotInfo .sub {
   margin: 0 auto;
   margin-bottom: 70px;
   width: 85%;
+}
+
+.sub_wrap {
+  width: 95%;
+  margin: auto;
+}
+
+.shopspotInfo .type {
+  margin-right: 10px;
 }
 
 .shopspotInfo .price_wrap {
@@ -11342,19 +11351,9 @@ input[type="button"] {
   margin: 5px;
 }
 
-.shopspotInfo .type {
-  /* width: 100px; */
-  margin-right: 10px;
-}
-
 .shopspotInfo .total {
   display: inline-block;
   margin-top: 20px;
-}
-
-.sub_wrap {
-  width: 95%;
-  margin: auto;
 }
 
 .sub_wrap .subbtn {
@@ -11369,27 +11368,6 @@ input[type="button"] {
 .shopspotContent_wrap {
   width: 90%;
   margin: auto;
-}
-
-.shopspotDescription {
-  position: relative;
-}
-
-.shopspotDescription > * {
-  padding-top: 60px;
-}
-
-.shopspotDescription > * > * {
-  margin: 10px auto;
-  border: 1.5px solid black;
-  border-radius: 10px;
-  padding: 35px;
-  line-height: 20px;
-  position: relative;
-}
-
-.shopspotFeature img {
-  margin: 30px 0;
 }
 
 .spot_mark {
@@ -11421,6 +11399,27 @@ input[type="button"] {
   border-radius: 50%;
 }
 
+.shopspotDescription {
+  position: relative;
+}
+
+.shopspotDescription > * {
+  padding-top: 60px;
+}
+
+.shopspotDescription > * > * {
+  margin: 10px auto;
+  border: 1.5px solid black;
+  border-radius: 10px;
+  padding: 35px;
+  line-height: 20px;
+  position: relative;
+}
+
+.shopspotFeature img {
+  margin: 30px 0;
+}
+
 .shopspotSelect {
   display: none;
 }
@@ -11428,7 +11427,6 @@ input[type="button"] {
 @media screen and (min-width: 768px) {
   .shopspotSlide_wrap {
     margin: 40px auto;
-    /* width: 60%; */
     width: 80%;
   }
   .shopspotInfo_wrap {
@@ -11443,7 +11441,6 @@ input[type="button"] {
     width: 60%;
   }
   .shopspotInfo .text {
-    /* margin: 20px 0px 60px 100px; */
     width: 60%;
   }
   .shopspotInfo .bi.bi-plus-circle-fill, .shopspotInfo .bi.bi-dash-circle-fill {
@@ -11455,7 +11452,6 @@ input[type="button"] {
   }
   .shopspotInfo .sub_wrap {
     width: 80%;
-    /* margin: auto; */
   }
   .shopspotInfo .sub_wrap table {
     width: 100%;
@@ -11467,7 +11463,7 @@ input[type="button"] {
     position: -webkit-sticky;
     position: sticky;
     top: 60px;
-    height: 100px;
+    height: 200px;
   }
   .shopspotSelect a {
     color: black;
@@ -11516,8 +11512,8 @@ input[type="button"] {
   margin: 10px;
 }
 
-.shoplist .content {
-  width: 80%;
+.shoplist .text p {
+  margin: 10px auto;
 }
 
 .shoplist h3 {
@@ -11525,13 +11521,26 @@ input[type="button"] {
   margin-top: 10px;
 }
 
-.shoplist .text p {
-  margin: 10px auto;
+.shoplist .content {
+  width: 80%;
 }
 
 .shoplist_total {
   margin: 15px;
   text-align: right;
+}
+
+.shoplist_total p {
+  margin: 10px;
+  color: #8b8b8b;
+}
+
+.shoplist_total .deadline {
+  margin-left: 5px;
+}
+
+.shoplist_total .shoptotal {
+  color: #007183;
 }
 
 .shopcart .shopbtn {
@@ -11548,44 +11557,29 @@ input[type="button"] {
   background: none;
 }
 
-.shoplist_total p {
-  margin: 10px;
-  color: #8b8b8b;
-}
-
-.shoplist_total .shoptotal {
-  color: #007183;
-}
-
-.shoplist_total .deadline {
-  margin-left: 5px;
-}
-
 @media screen and (min-width: 768px) {
-  .shoplist .proimg {
+  .shoplist .pro_img {
     width: 20%;
   }
   .shoplist img {
     width: 80%;
     height: auto;
-    /* overflow: hidden; */
     margin: 10px;
   }
   .shoplist_text {
     width: 90%;
   }
+  .shoplist_text > * {
+    margin: auto;
+  }
   .shoplist_text .content_wrap {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    /* margin: auto; */
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
     margin-left: 0;
-  }
-  .shoplist_text > * {
-    margin: auto;
   }
   .shoplist .content {
     width: 40%;
@@ -11611,51 +11605,34 @@ input[type="button"] {
   background-color: #f5f5f5;
 }
 
+.personal_info > * {
+  margin: 20px;
+}
+
 .personal_info .name {
   margin-bottom: 0;
+}
+
+.personal_info .name > * {
+  margin: 10px;
+  margin-right: 2rem;
 }
 
 .personal_info .contact {
   margin-top: 0;
 }
 
-.personal_info .name > * {
-  /* display: block; */
-  margin: 10px;
-}
-
 .personal_info .contact > * {
-  /* display: block; */
   margin: 10px;
-}
-
-.personal_info > * {
-  margin: 20px;
-}
-
-.personal_info input {
-  /* margin-left: 10px; */
-}
-
-.personal_info .name > * {
   margin-right: 2rem;
-}
-
-.personal_info .contact > * {
-  margin-right: 2rem;
-}
-
-.shoppaycredit_info > * {
-  /* display: block; */
-  margin: 10px;
 }
 
 .shoppaycredit > * {
   margin: 20px;
 }
 
-.shoppaycredit_info input {
-  /* margin-left: 10px; */
+.shoppaycredit_info > * {
+  margin: 10px;
 }
 
 .shoplist {
@@ -11685,10 +11662,6 @@ input[type="button"] {
   margin: 10px auto;
 }
 
-.shoplist .deadline {
-  margin-left: 5px;
-}
-
 .shoplist .sub {
   margin: 0 10px;
   display: block;
@@ -11705,14 +11678,12 @@ input[type="button"] {
   color: #8b8b8b;
 }
 
-.shoplist_total .shoptotal {
-  color: #007183;
+.shoplist .deadline {
+  margin-left: 5px;
 }
 
-.shopcart .shopbtn {
-  margin: auto;
-  width: 80%;
-  text-align: right;
+.shoplist_total .shoptotal {
+  color: #007183;
 }
 
 .shoppayconfirm {
@@ -11721,6 +11692,7 @@ input[type="button"] {
 
 .shoppayconfirm .confirm {
   margin-bottom: 50px;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
@@ -11749,9 +11721,6 @@ input[type="button"] {
     width: 40%;
     margin: 5px 10px;
   }
-  .shoppaycredit_info > * {
-    margin: 5px 10px;
-  }
   .shoppaycredit_info {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -11759,17 +11728,22 @@ input[type="button"] {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-  .shoplist .proimg {
+  .shoppaycredit_info > * {
+    margin: 5px 10px;
+  }
+  .shoplist .pro_img {
     width: 20%;
   }
   .shoplist img {
     width: 80%;
     height: auto;
-    /* overflow: hidden; */
     margin: 10px;
   }
   .shoplist_text {
     width: 90%;
+  }
+  .shoplist_text > * {
+    margin: auto;
   }
   .shoplist_text .content_wrap {
     display: -webkit-box;
@@ -11778,10 +11752,6 @@ input[type="button"] {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    margin-left: 0;
-  }
-  .shoplist_text > * {
-    margin: auto;
   }
   .shoplist .content {
     width: 40%;
