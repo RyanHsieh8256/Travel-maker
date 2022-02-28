@@ -1,0 +1,210 @@
+// 行程總覽
+
+.tour {
+    font-family: 'Caveat',serif;
+    width: 100%;
+    height: 100vh;
+    max-width: 1920px;
+    background-color: #f5f5f5;
+    padding: 5% 0;
+
+    &_wrap {
+        width: 100%;
+      height: 100%;
+        max-width: 1440px;
+        display: flex;
+        
+    }
+    
+    &_main {
+      padding: 20px;
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    &_header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      
+    }
+    
+    &_img {
+      width: 30%;
+      border-radius: 50%;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        vertical-align: top;
+        object-fit: cover;
+      }
+      
+      &--person {
+        width: 20%;
+      }
+    }
+    
+    &_person {
+      display: flex;
+      align-items: center;
+    }
+    
+    &_title {
+      width: 65%;
+      font-size: 40px;
+      font-weight: 600;
+      line-height: 1.5;
+      color: #007183;
+      
+      span {
+        display: block;
+        font-size: 16px;
+        color: #FEBC9F;
+      }
+    }
+    
+    &_select {
+    }
+    
+    &_slider {
+      width: 90%;
+      height: 40vh;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+    }
+    
+    &_sort {
+      display: flex;
+      align-items: center;
+    }
+    
+    &_side {
+      width: 30%;
+      padding: 5% 2%;
+    }
+    
+    &_content {
+      width: 100%;
+      height: 100%;
+      background-color: #F0EEE7;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    
+    &_box {
+      height: 100%;
+      width: 100%;
+      padding: 20px 10px;
+      display: flex;
+      transition: .2s ease-out;
+    }
+    
+    &_describe {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-shrink: 0;
+      padding-right: 10px;
+    }
+    
+    &_detail {
+      padding-left: 10px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    &_box {
+      width: 100%;
+      flex-shrink: 0;
+      padding-left: 10px;
+    }
+    
+    &_name {
+      font-size: 22px;
+      font-weight: 600;
+      color: #007183;
+    }
+    
+    &_text {
+      color: #463828;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    
+    &_top {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  
+  
+  
+  .slider {
+    &_item {
+      width: 23%;
+      margin: 0 1%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      padding: 20px 10px;
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
+    }
+    
+    &_img {
+      width: 60%;
+      border-radius: 50%;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+      }
+    }
+    
+    &_title {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: 500;
+      color: #007183;
+    }
+    
+    
+    
+  }
+  
+  .sort {
+    &_item {
+      font-size: 14px;
+      font-weight: 500;
+      margin: 1%;
+      width: 18%;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      background-color: #E3DCD4;
+      padding: 8px 10px;
+      color: #000;
+      border-radius: 100px;
+    }
+    
+    
+  }
+
+  .btn_box {
+    display: flex;
+    justify-content: space-around;
+  }

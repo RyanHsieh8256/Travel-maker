@@ -1,4 +1,4 @@
-.shopType, .shopHotCity, .shopProduct h2{
+.shopType h2, .shopHotCity h2, .shopProduct h2{
     font-size: $second-title;
     text-align: center;
 }
@@ -70,7 +70,7 @@
 
 }
 
-.bi.bi-search{
+.shopSearch .bi.bi-search{
     color: aliceblue;
     font-size: 20px;    
 }

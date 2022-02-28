@@ -37,3 +37,7 @@ img {
 ::-webkit-scrollbar-thumb:hover {
     background: #007183;
 }
+
+input:focus {
+    outline: none;
+  }
