@@ -9762,7 +9762,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   width: 100%;
   max-width: 1920px;
   background-color: #f5f5f5;
-  padding: 5% 0;
+  padding: 10% 0;
 }
 
 .tour_wrap {
@@ -9862,6 +9862,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 @media screen and (max-width: 768px) {
   .tour_btn {
     display: block;
+    margin: 10px auto;
   }
 }
 
@@ -9902,11 +9903,14 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 @media screen and (max-width: 768px) {
   .tour_side {
     position: fixed;
-    top: 10%;
+    top: 6%;
     right: 0;
     width: 100%;
     z-index: 3;
-    height: 80vh;
+    height: 95vh;
+  }
+  .tour_side--active {
+    display: none;
   }
 }
 
@@ -9915,6 +9919,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   top: 5px;
   right: 5px;
   display: none;
+  z-index: 3;
 }
 
 @media screen and (max-width: 768px) {
@@ -10031,6 +10036,10 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   margin-bottom: 10px;
 }
 
+.slider_item--active {
+  background-color: #83D8D1aa;
+}
+
 @media screen and (max-width: 768px) {
   .slider_item {
     width: 31.333%;
@@ -10080,6 +10089,12 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   padding: 8px 10px;
   color: #000;
   border-radius: 100px;
+}
+
+.sort_item--active {
+  background-color: #83D8D1;
+  color: #007183;
+  font-weight: 600;
 }
 
 .btn_box {

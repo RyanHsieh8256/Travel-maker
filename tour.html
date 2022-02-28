@@ -146,31 +146,46 @@
           </h2>
         </div>
         <div class="tour_sort">
-          <div class="sort_item" data-sort="pei">
-            <div class="sort-title">
+          <button class="sort_item" data-sort="mine">
+            <span class="sort-title">
+              我的行程
+            </span>
+          </button>
+          <button class="sort_item" data-sort="newpei">
+            <span class="sort-title">
+              新北市
+            </span>
+          </button>
+          <button class="sort_item sort_item--active" data-sort="pei">
+            <span class="sort-title">
               台北市
-            </div>
-          </div>
-          <div class="sort_item" data-sort="chung">
-            <div class="sort-title">
+            </span>
+          </button>
+          <button class="sort_item" data-sort="chung">
+            <span class="sort-title">
               台中市
-            </div>
-          </div>
-          <div class="sort_item" data-sort="nan">
-            <div class="sort-title">
+            </span>
+          </button>
+          <button class="sort_item" data-sort="nan">
+            <span class="sort-title">
               台南市
-            </div>
-          </div>
-          <div class="sort_item" data-sort="kao">
-            <div class="sort-title">
+            </span>
+          </button>
+          <button class="sort_item" data-sort="kao">
+            <span class="sort-title">
               高雄市
-            </div>
-          </div>
-          <div class="sort_item">
-            <div class="sort-title" data-sort="hua">
+            </span>
+          </button>
+          <button class="sort_item" data-sort="hua">
+            <span class="sort-title" data-sort="hua">
               花蓮市
-            </div>
-          </div>
+            </span>
+          </button>
+          <button class="sort_item" data-sort="spanArea">
+            <span class="sort-title" data-sort="hua">
+              跨區旅遊
+            </span>
+          </button>
         </div>
           <div class="l-large tour_wrap">
             <div class="tour_main tour_main--pei tour_main--active">
@@ -182,15 +197,15 @@
                   <span># 台北市</span>
                   美好幸福之旅
                 </div>
-                <button class="btn btn--main tour_btn">詳細資訊</button>
               </div>
+              <button class="btn btn--main tour_btn">詳細資訊</button>
               <div class="tour_select">
                 <div class="tour_slider">
-                  <div class="slider_item">
+                  <div class="slider_item slider_item--active">
                     <div class="slider_img">
                       <img src="https://images.pexels.com/photos/872514/pexels-photo-872514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
                     </div>
-                    <div class="slider_title">耍廢放空之旅</div>
+                    <div class="slider_title">美好幸福之旅</div>
                   </div>
                   <div class="slider_item">
                     <div class="slider_img">
@@ -303,69 +318,117 @@
                       <button class="btn btn--main">加入行程</d>
                     </div>
                     <div class="timeline">
-                      <div class="timeline_nav">
-                        <div class="timeline_box">
-                          <div class="timeline_tab">第1天</div>
-                          <div class="timeline_tab">第2天</div>
-                          <div class="timeline_tab">第3天</div>
-                        </div>
-                      </div>
-                      <ul class="timeline_list">
-                        <li class="timeline_item">
-                          <div class="timeline_text">
-                            <div class="timeline_num">1</div>
-                            <div class="timeline_name">中正紀念堂</div>
+                      <!-- 時間軸tab按鈕 -->
+                          <div class="timeline_nav">
+                            <div class="timeline_box">
+                              <div class="timeline_tab timeline_tab--1 timeline_tab--active" data-tab="1">第1天</div>
+                              <div class="timeline_tab timeline_tab--2" data-tab="2">第2天</div>
+                              <div class="timeline_tab timeline_tab--3" data-tab="3">第3天</div>
+                            </div>
                           </div>
-                          <div class="timeline_img">
-                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-                          </div>
-                        </li>
-                        <li class="timeline_item">
-                          <div class="timeline_text">
-                            <div class="timeline_num">1</div>
-                            <div class="timeline_name">中正紀念堂</div>
-                          </div>
-                          <div class="timeline_img">
-                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-                          </div>
-                        </li>
-                        <li class="timeline_item">
-                          <div class="timeline_text">
-                            <div class="timeline_num">1</div>
-                            <div class="timeline_name">中正紀念堂</div>
-                          </div>
-                          <div class="timeline_img">
-                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-                          </div>
-                        </li>
-                        <li class="timeline_item">
-                          <div class="timeline_text">
-                            <div class="timeline_num">1</div>
-                            <div class="timeline_name">中正紀念堂</div>
-                          </div>
-                          <div class="timeline_img">
-                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-                          </div>
-                        </li>
-                        <li class="timeline_item">
-                          <div class="timeline_text">
-                            <div class="timeline_num">1</div>
-                            <div class="timeline_name">中正紀念堂</div>
-                          </div>
-                          <div class="timeline_img">
-                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-                          </div>
-                        </li>
-                        <li class="timeline_item">
-                          <div class="timeline_text">
-                            <div class="timeline_num">1</div>
-                            <div class="timeline_name">中正紀念堂</div>
-                          </div>
-                          <div class="timeline_img">
-                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-                          </div>
-                        </li>
-                      </ul>
+                          <ul class="timeline_list">
+                          
+                              <!--   分頁第一頁   -->
+                            <div class="timeline_page timeline_page--1 timeline_page--active">
+                              <li class="timeline_item tourBuild_item">
+                              <div class="timeline_text">
+                                <div class="timeline_num">1</div>
+                                <div class="timeline_name">中正紀念堂</div>
+                              </div>
+                              <div class="timeline_img">
+                                <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                              </div>
+                            </li>
+                              <li class="timeline_item tourBuild_item">
+                                <div class="timeline_text">
+                                  <div class="timeline_num">2</div>
+                                  <div class="timeline_name">中正紀念堂</div>
+                                </div>
+                                <div class="timeline_img">
+                                  <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                </div>
+                              </li>
+                              <li class="timeline_item tourBuild_item">
+                                <div class="timeline_text">
+                                  <div class="timeline_num">3</div>
+                                  <div class="timeline_name">中正紀念堂</div>
+                                </div>
+                                <div class="timeline_img">
+                                  <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                </div>
+                              </li>
+                              <li class="timeline_item tourBuild_item">
+                                <div class="timeline_text">
+                                  <div class="timeline_num">4</div>
+                                  <div class="timeline_name">中正紀念堂</div>
+                                </div>
+                                <div class="timeline_img">
+                                  <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                </div>
+                              </li>
+                            </div>
+                            
+                            <!--   分頁第二頁   -->
+                            <div class="timeline_page timeline_page--2">
+                              <li class="timeline_item tourBuild_item">
+                                <div class="timeline_text">
+                                  <div class="timeline_num">1</div>
+                                  <div class="timeline_name">美術館</div>
+                                </div>
+                                <div class="timeline_img">
+                                  <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                </div>
+                              </li>
+                              <li class="timeline_item tourBuild_item">
+                                <div class="timeline_text">
+                                  <div class="timeline_num">2</div>
+                                  <div class="timeline_name">中正紀念堂</div>
+                                </div>
+                                <div class="timeline_img">
+                                  <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                </div>
+                              </li>
+                              <li class="timeline_item tourBuild_item">
+                                <div class="timeline_text">
+                                  <div class="timeline_num">3</div>
+                                  <div class="timeline_name">中正紀念堂</div>
+                                </div>
+                                <div class="timeline_img">
+                                  <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                </div>
+                              </li>
+                            </div>
+                          <!--    分頁第三頁    -->
+                            <div class="timeline_page timeline_page--3">
+                              <li class="timeline_item tourBuild_item">
+                                <div class="timeline_text">
+                                  <div class="timeline_num">1</div>
+                                  <div class="timeline_name">故宮</div>
+                                </div>
+                                <div class="timeline_img">
+                                  <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                </div>
+                              </li>
+                              <li class="timeline_item tourBuild_item">
+                                <div class="timeline_text">
+                                  <div class="timeline_num">2</div>
+                                  <div class="timeline_name">中正紀念堂</div>
+                                </div>
+                                <div class="timeline_img">
+                                  <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                </div>
+                              </li>
+                              <li class="timeline_item tourBuild_item">
+                                <div class="timeline_text">
+                                  <div class="timeline_num">3</div>
+                                  <div class="timeline_name">中正紀念堂</div>
+                                </div>
+                                <div class="timeline_img">
+                                  <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                </div>
+                              </li>
+                            </div>
+                          </ul>
                     </div>
                   </div>
                 </div>
@@ -393,78 +456,124 @@
                   </div>
                   <div class="tour_detail">
                     <div class="tour_top">
-                      <div class="btn_arrow" id="arrowBtn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
-        </svg>
-                      </div>
+                      <button class="btn_arrow" id="arrowBtn">
+                        <i class="bi bi-arrow-left-short"></i>
+                      </button>
                       <button class="btn btn--main">加入行程</d>
                     </div>
                     <div class="timeline">
-                      <div class="timeline_nav">
-                        <div class="timeline_box">
-                          <div class="timeline_tab">第1天</div>
-                          <div class="timeline_tab">第2天</div>
-                          <div class="timeline_tab">第3天</div>
-                        </div>
-                      </div>
-                      <ul class="timeline_list">
-                        <li class="timeline_item">
-                          <div class="timeline_text">
-                            <div class="timeline_num">1</div>
-                            <div class="timeline_name">中正紀念堂</div>
+                      <!-- 時間軸tab按鈕 -->
+                          <div class="timeline_nav">
+                            <div class="timeline_box">
+                              <div class="timeline_tab timeline_tab--1 timeline_tab--active" data-tab="1">第1天</div>
+                              <div class="timeline_tab timeline_tab--2" data-tab="2">第2天</div>
+                              <div class="timeline_tab timeline_tab--3" data-tab="3">第3天</div>
+                            </div>
                           </div>
-                          <div class="timeline_img">
-                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                          <ul class="timeline_list">
+                          
+                              <!--   分頁第一頁   -->
+                            <div class="timeline_page timeline_page--1 timeline_page--active">
+                              <li class="timeline_item">
+                              <div class="timeline_text">
+                                <div class="timeline_num">1</div>
+                                <div class="timeline_name">中正紀念堂</div>
+                              </div>
+                              <div class="timeline_img">
+                                <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                              </div>
+                            </li>
+                              <li class="timeline_item">
+                                <div class="timeline_text">
+                                  <div class="timeline_num">2</div>
+                                  <div class="timeline_name">中正紀念堂</div>
+                                </div>
+                                <div class="timeline_img">
+                                  <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                </div>
+                              </li>
+                              <li class="timeline_item">
+                                <div class="timeline_text">
+                                  <div class="timeline_num">3</div>
+                                  <div class="timeline_name">中正紀念堂</div>
+                                </div>
+                                <div class="timeline_img">
+                                  <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                </div>
+                              </li>
+                              <li class="timeline_item">
+                                <div class="timeline_text">
+                                  <div class="timeline_num">4</div>
+                                  <div class="timeline_name">中正紀念堂</div>
+                                </div>
+                                <div class="timeline_img">
+                                  <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                </div>
+                              </li>
+                            </div>
+                            
+                            <!--   分頁第二頁   -->
+                            <div class="timeline_page timeline_page--2">
+                              <li class="timeline_item">
+                                <div class="timeline_text">
+                                  <div class="timeline_num">1</div>
+                                  <div class="timeline_name">美術館</div>
+                                </div>
+                                <div class="timeline_img">
+                                  <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                </div>
+                              </li>
+                              <li class="timeline_item">
+                                <div class="timeline_text">
+                                  <div class="timeline_num">2</div>
+                                  <div class="timeline_name">中正紀念堂</div>
+                                </div>
+                                <div class="timeline_img">
+                                  <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                </div>
+                              </li>
+                              <li class="timeline_item">
+                                <div class="timeline_text">
+                                  <div class="timeline_num">3</div>
+                                  <div class="timeline_name">中正紀念堂</div>
+                                </div>
+                                <div class="timeline_img">
+                                  <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                </div>
+                              </li>
+                            </div>
+                          <!--    分頁第三頁    -->
+                            <div class="timeline_page timeline_page--3">
+                              <li class="timeline_item">
+                                <div class="timeline_text">
+                                  <div class="timeline_num">1</div>
+                                  <div class="timeline_name">故宮</div>
+                                </div>
+                                <div class="timeline_img">
+                                  <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                </div>
+                              </li>
+                              <li class="timeline_item">
+                                <div class="timeline_text">
+                                  <div class="timeline_num">2</div>
+                                  <div class="timeline_name">中正紀念堂</div>
+                                </div>
+                                <div class="timeline_img">
+                                  <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                </div>
+                              </li>
+                              <li class="timeline_item">
+                                <div class="timeline_text">
+                                  <div class="timeline_num">3</div>
+                                  <div class="timeline_name">中正紀念堂</div>
+                                </div>
+                                <div class="timeline_img">
+                                  <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                </div>
+                              </li>
+                            </div>
+                          </ul>
                           </div>
-                        </li>
-                        <li class="timeline_item">
-                          <div class="timeline_text">
-                            <div class="timeline_num">1</div>
-                            <div class="timeline_name">中正紀念堂</div>
-                          </div>
-                          <div class="timeline_img">
-                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-                          </div>
-                        </li>
-                        <li class="timeline_item">
-                          <div class="timeline_text">
-                            <div class="timeline_num">1</div>
-                            <div class="timeline_name">中正紀念堂</div>
-                          </div>
-                          <div class="timeline_img">
-                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-                          </div>
-                        </li>
-                        <li class="timeline_item">
-                          <div class="timeline_text">
-                            <div class="timeline_num">1</div>
-                            <div class="timeline_name">中正紀念堂</div>
-                          </div>
-                          <div class="timeline_img">
-                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-                          </div>
-                        </li>
-                        <li class="timeline_item">
-                          <div class="timeline_text">
-                            <div class="timeline_num">1</div>
-                            <div class="timeline_name">中正紀念堂</div>
-                          </div>
-                          <div class="timeline_img">
-                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-                          </div>
-                        </li>
-                        <li class="timeline_item">
-                          <div class="timeline_text">
-                            <div class="timeline_num">1</div>
-                            <div class="timeline_name">中正紀念堂</div>
-                          </div>
-                          <div class="timeline_img">
-                            <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -502,23 +611,92 @@
         mains = document.querySelectorAll('.tour_main');
         sorts.forEach(sort => sort.addEventListener('click',changeCity));
         
+        
           function changeCity(e) {
             if(!e.target.classList.contains('sort_item')) return;
-          sorts.forEach(tab => tab.classList.remove('tour_sort--active'));
+          sorts.forEach(tab => tab.classList.remove('sort_item--active'));
           mains.forEach(page => page.classList.remove('tour_main--active'));
 
           let curCity = e.target.dataset['sort'];
-          let sort = document.querySelector(`.tour_sort--${curCity}`);
+          let sort = document.querySelector(`.tour_side--${curCity}`);
           let mainPage = document.querySelector(`.tour_main--${curCity}`);
-
+          
          
-          sort.classList.add('tour_sort--active');
+          e.target.classList.add('sort_item--active');
           mainPage.classList.add('tour_main--active');
           
       }
     }
     sortTour();
 
+    function slideContent() {
+      let seeDetailBtn = document.querySelector('#seeDetail');
+      let box = document.querySelector('.tour_box');
+
+      seeDetailBtn.addEventListener('click',() => {
+        
+        box.style.transform = `translateX(calc(-100% + 15px))`;
+      })
+
+      let arrowBtn = document.querySelector('#arrowBtn');
+      arrowBtn.addEventListener('click',() => {
+        box.style.transform = `translateX(0%)`;
+      })
+    }
+    slideContent();
+
+    function changeTab() {
+    tabs = document.querySelectorAll('.timeline_tab');
+    pages = document.querySelectorAll('.timeline_page');
+    tabs.forEach(tab => tab.addEventListener('click',changePage));
+
+        function changePage(e) {
+        tabs.forEach(tab => tab.classList.remove('timeline_tab--active'));
+        pages.forEach(page => page.classList.remove('timeline_page--active'));
+
+        let curPage = Number(e.target.dataset['tab']);
+        let tab = document.querySelector(`.timeline_tab--${curPage}`);
+        let page = document.querySelector(`.timeline_page--${curPage}`);
+
+        if(!tab || !page) return;
+        tab.classList.add('timeline_tab--active');
+        page.classList.add('timeline_page--active');
+        }
+    }
+
+    changeTab();
+
+    function changeItem() {
+      let sliderItem = document.querySelectorAll('.slider_item');
+      
+      sliderItem.forEach(item => item.addEventListener('click', turnActive));
+
+      function turnActive(e) {
+        sliderItem.forEach(item => item.classList.remove('slider_item--active'));
+
+        if(!e.target.classList.contains('slider_item')) return;
+        e.target.classList.add('slider_item--active');
+      }
+    
+    }
+
+    changeItem();
+
+    function closePopup() {
+          let closeBtn = document.querySelector('.btn--close');
+          let tourBtn = document.querySelector('.tour_btn');
+          let box = document.querySelector('.tour_side');
+
+          closeBtn.addEventListener('click',(e) => {
+            box.style.display = 'none';
+          })
+
+          tourBtn.addEventListener('click',() => {
+            box.style.display = 'block';
+          })
+    }
+
+    closePopup();
   </script>
 </body>
 </html>
