@@ -9,14 +9,17 @@
 .popup {
     width: 100vw;
     height: 100vh;
-    background-color: #ccc;
+    background-color: #b3b1b1aa;
+    backdrop-filter: blur(5px);
     position: fixed;
     top: 0;
     left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    z-index: 2000;
+  
+    display: none;
     
     
     &_box {
@@ -67,6 +70,10 @@
       align-content: center;
       padding: 10px;
     }
+
+    &_date {
+      margin: auto;
+    }
     
     &_btnBox {
       display: flex;
@@ -76,6 +83,13 @@
         width: 45%;
       }
     }
+
+    &_link {
+      width: 100%;
+      color: #FEBC9F;
+    }
+
+    
     
     
   }

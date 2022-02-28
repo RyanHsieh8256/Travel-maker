@@ -10115,7 +10115,9 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 .popup {
   width: 100vw;
   height: 100vh;
-  background-color: #ccc;
+  background-color: #b3b1b1aa;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
   position: fixed;
   top: 0;
   left: 0;
@@ -10128,6 +10130,8 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  z-index: 2000;
+  display: none;
 }
 
 .popup_box {
@@ -10199,6 +10203,10 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   padding: 10px;
 }
 
+.popup_date {
+  margin: auto;
+}
+
 .popup_btnBox {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10210,6 +10218,11 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 
 .popup_btnBox > button {
   width: 45%;
+}
+
+.popup_link {
+  width: 100%;
+  color: #FEBC9F;
 }
 
 .tourForm_box {
