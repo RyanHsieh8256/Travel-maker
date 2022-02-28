@@ -10444,6 +10444,12 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   background: #E3DCD4;
 }
 
+.tourBuild_wrap .leaflet-touch .leaflet-bar {
+  position: fixed;
+  bottom: 10%;
+  right: 2%;
+}
+
 input[type="button"] {
   background-color: transparent;
   border: none;
