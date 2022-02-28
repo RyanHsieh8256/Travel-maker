@@ -1,3 +1,7 @@
+.shopcart{
+    margin-top: 80px;
+}
+
 .shopcart_wrap{
     width: 80%;
     border: 1px solid black;
@@ -32,21 +36,13 @@
 }
 
 .shoplist h3{
+    font-size: $third-title;
     margin-top: 10px;
 }
 
 .shoplist .text p{
     margin: 10px auto;
     
-}
-
-
-
-
-.shoplist .sub{
-    margin: 0 10px;
-    display: block;
-    text-align: right;
 }
 
 .shoplist_total{
@@ -119,8 +115,8 @@
         
     }
 
-    .shoplist_text .sub{
-        margin: 20px;
+    .shoplist .sub{
+        // margin: 0px;
     }
     
     

@@ -122,7 +122,6 @@
                         <h3>商品名稱</h3>
                         <div class="content_wrap">
                             <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
-                            <p >有效期限<span class="deadline"></span></p>
                             <span class="sub">$1234</span>
                         </div>
                     </div>
@@ -136,7 +135,6 @@
                         <h3>商品名稱</h3>
                         <div class="content_wrap">
                             <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
-                            <p >有效期限<span class="deadline"></span></p>
                             <span class="sub">$1234</span>
                         </div>
                     </div>
@@ -150,20 +148,22 @@
                         <h3>商品名稱</h3>
                         <div class="content_wrap">
                             <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
-                            <p >有效期限<span class="deadline"></span></p>
                             <span class="sub">$1234</span>
                         </div>
                     </div>
                 </div>
                 <hr>
                     <div class="shoplist_total">
-                        <p>總金額 TWD &emsp;<span id="shoptotal">$12345</span> </p>
+                        <p >有效期限<span class="deadline"></span></p>
+                        <p class="shoptotal">總金額 TWD &emsp;<span id="shoptotal">$12345</span> </p>
                     </div>
             </div>
         </section>
+
         <section class="l-full shoppayconfirm">
-            <input type="submit" value="確認付款" class="confirm">
+            <a href="#"><button class="btn btn--cart confirm">確認付款</button></a>
         </section>
+
         <footer class="footer_Wrap">
             <section class="footerBlock">
                 <ul class="footerMedia">
@@ -185,6 +185,24 @@
             </section>
         </footer>
         <script src="js/forlogin.js"></script>
-        
+        <script>
+            //deadline
+                let deadline = document.querySelectorAll('.deadline');
+                
+                
+                console.log(deadline);
+                var myDate = new Date()
+                myDate.setMonth(myDate.getMonth() + 3);
+                // console.log(myDate);
+                let year = myDate.getFullYear();
+                let month = myDate.getMonth()+1;
+                let date = myDate.getDate();
+                
+                for(let i =0;i<deadline.length;i++){
+                 deadline[i].innerText = `${year} / ${month} / ${date}`;   
+                }
+                // console.log(year, month, date);
+                // console.log(`${year} / ${month}/ ${date}`);
+                </script>
 </body>
 </html>

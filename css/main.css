@@ -8051,7 +8051,6 @@ body {
   color: #007183;
 }
 
-<<<<<<< HEAD
 .froBackBanner {
   width: 100%;
   height: 100vh;
@@ -8229,18 +8228,7 @@ body {
   }
 }
 
-.main-title {
-  font-size: 85px;
-  font-weight: 700;
-  color: transparent;
-  -webkit-text-stroke: 2px #007183;
-  letter-spacing: 10px;
-}
-
-.second-title {
-=======
 .homeSecond-title {
->>>>>>> dev
   font-size: 9vh;
   font-weight: 700;
   line-height: 1.2;
@@ -8783,7 +8771,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 
 .froLoginBlock .froLoginCancel .bi-x-circle-fill {
   font-size: 25px;
-  color: #007183;
+  color: #81d8d1;
 }
 
 .froLoginSwitch {
@@ -8861,7 +8849,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 }
 
 .froLoginForm_wrap .froLoginForm .froLoginBtn input {
-  background-color: #007183;
+  background-color: #81d8d1;
   color: #fff;
   border: none;
   border-radius: 25px;
@@ -10012,16 +10000,8 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   font-size: 20px;
 }
 
-.shopHotCity {
-  text-align: center;
-}
-
-.shopHotCity h2 {
-  margin: 30px 0;
-}
-
-.shopHotCity .city img {
-  border-radius: 50% 0;
+.shopProduct {
+  margin-bottom: 60px;
 }
 
 .shopProduct .card_content {
@@ -10037,14 +10017,18 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
     padding: 60% 40%;
   }
   .shopType .col-md-3 {
-    padding: .1rem .1rem;
+    padding: 0rem;
     margin: 0;
     overflow-x: hidden;
     overflow-y: hidden;
   }
+  .shopType .item {
+    -webkit-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+  }
   .shopType .item:hover {
-    -webkit-transform: scale(1.02, 1.02);
-            transform: scale(1.02, 1.02);
+    -webkit-transform: scale(1.05, 1.05);
+            transform: scale(1.05, 1.05);
   }
 }
 
@@ -10294,6 +10278,10 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   }
 }
 
+.shopcart {
+  margin-top: 80px;
+}
+
 .shopcart_wrap {
   width: 80%;
   border: 1px solid black;
@@ -10326,17 +10314,12 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 }
 
 .shoplist h3 {
+  font-size: 30px;
   margin-top: 10px;
 }
 
 .shoplist .text p {
   margin: 10px auto;
-}
-
-.shoplist .sub {
-  margin: 0 10px;
-  display: block;
-  text-align: right;
 }
 
 .shoplist_total {
@@ -10400,9 +10383,10 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   .shoplist .content {
     width: 40%;
   }
-  .shoplist_text .sub {
-    margin: 20px;
-  }
+}
+
+.shoppayinfo {
+  margin-top: 80px;
 }
 
 .personal_info, .shoppaycredit, .detail {
@@ -10480,6 +10464,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 
 .shoplist h3 {
   margin-top: 10px;
+  font-size: 30px;
 }
 
 .shoplist .text p {
@@ -10501,6 +10486,15 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   text-align: right;
 }
 
+.shoplist_total p {
+  margin: 10px;
+  color: #8b8b8b;
+}
+
+.shoplist_total .shoptotal {
+  color: #007183;
+}
+
 .shopcart .shopbtn {
   margin: auto;
   width: 80%;
@@ -10512,11 +10506,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 }
 
 .shoppayconfirm .confirm {
-  border-radius: 10px;
-  padding: 10px 20px;
-  background-color: #37b4b4;
-  border: 1px solid #37b4b4;
-  border: 0;
+  margin-bottom: 50px;
 }
 
 @media screen and (min-width: 768px) {
@@ -10571,7 +10561,6 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    /* margin: auto; */
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -10582,9 +10571,6 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   }
   .shoplist .content {
     width: 40%;
-  }
-  .shoplist_text .sub {
-    margin: 20px;
   }
 }
 
