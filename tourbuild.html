@@ -6,13 +6,241 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>首頁</title>
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
     <link rel="stylesheet" href="css/main.css">
 
 </head>
 <body>
     <header></header>
-    <main></main>
+    <main>
+        <div class="tourBuild_wrap">
+            <div id="map"></div>
+          <!--  行程景點列表   -->
+            <div class="tourBuild_box">
+              <div class="tourBuild_container">
+                <div class="tourBuild_inner">
+                  <div class="tourBuild_img">
+                <img src="https://images.pexels.com/photos/414144/pexels-photo-414144.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+              </div>
+                  <div class="tourBuild_empty"></div>
+                  <div class="tourBuild_content">
+                    <div class="tourBuild_header">
+                      <form action="##" class="tourBuild_revise">
+                          <input type="text" id="tourName" class="tourBuild_name" value="美好幸福之旅">
+                          <label for="tourName" class="tourBuild_pen">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                  </svg>
+                        </label>
+                      </form>
+                      <div class="tourBuild_time">
+                        <p class="tourBuild_days">
+                        <span>1</span>
+                        天
+                      </p>
+                        <input type="button" class="tourBuild_date" value="2022.02.24">
+                          
+                        </input>
+                      </div>
+                    </div>
+                    <div class="tourBuild_body">
+                      <div class="tourBuild_news">
+                        <button class="tourBuild_newSpot">新增景點</button>     
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tourBuild_inner tourBuild_inner--bg">
+                  <!-- 搜尋box(放入搜尋列表) -->
+                  <div class="tourSearch_box">
+                    <div class="tourSearch_header">
+                  <!--   input search   -->
+                  <!--  下拉式選單    -->
+                    </div>
+                  <!--  search推薦縣市呈現(innerHTML)  -->
+                    <div class="tourSearch_content">
+                      <h3>熱門城市:</h3>
+                      <div class="tourSearch_btnBox">
+                        <button class="btn btn--chip">台北</button>
+                        <button class="btn btn--chip">台南</button>
+                        <button class="btn btn--chip">高雄</button>
+                        <button class="btn btn--chip">花蓮</button>
+                        <button class="btn btn--chip">台東</button>
+                      </div>
+                    <!--      1個景點        -->
+                      <div class="tourSearch_spot">
+                        <div class="tourSearch_ex">
+                          <div class="tourSearch_img">
+                            <img src="https://obs.line-scdn.net/r/travel/content/26f7cec2-9c9d-4c16-a207-8ad27e6ac263t0e649ec9/w280" alt="">
+                          </div>
+                          <div class="tourSearch_text">
+                            <h4>逢甲夜市</h4>
+                            <p>
+                              <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+            <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+          </svg>
+                              </span>
+                              台中市
+                            </p>
+                          </div>
+                        </div>
+                        <div class="tourSearch_btnBox">
+                          <button class="btn btn--main">加入景點</button>
+                          <button class="btn btn--cancel">取消加入</button>
+                        </div>
+                      </div>
+                      <div class="tourSearch_spot">
+                        <div class="tourSearch_ex">
+                          <div class="tourSearch_img">
+                            <img src="https://obs.line-scdn.net/r/travel/content/26f7cec2-9c9d-4c16-a207-8ad27e6ac263t0e649ec9/w280" alt="">
+                          </div>
+                          <div class="tourSearch_text">
+                            <h4>逢甲夜市</h4>
+                            <p>
+                              <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+            <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+          </svg>
+                              </span>
+                              台中市
+                            </p>
+                          </div>
+                        </div>
+                        <div class="tourSearch_btnBox">
+                          <button class="btn btn--main">加入景點</button>
+                          <button class="btn btn--cancel">取消加入</button>
+                        </div>
+                      </div>
+                      <div class="tourSearch_spot">
+                        <div class="tourSearch_ex">
+                          <div class="tourSearch_img">
+                            <img src="https://obs.line-scdn.net/r/travel/content/26f7cec2-9c9d-4c16-a207-8ad27e6ac263t0e649ec9/w280" alt="">
+                          </div>
+                          <div class="tourSearch_text">
+                            <h4>逢甲夜市</h4>
+                            <p>
+                              <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+            <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+          </svg>
+                              </span>
+                              台中市
+                            </p>
+                          </div>
+                        </div>
+                        <div class="tourSearch_btnBox">
+                          <button class="btn btn--main">加入景點</button>
+                          <button class="btn btn--cancel">取消加入</button>
+                        </div>
+                      </div>
+                      <div class="tourSearch_spot">
+                        <div class="tourSearch_ex">
+                          <div class="tourSearch_img">
+                            <img src="https://obs.line-scdn.net/r/travel/content/26f7cec2-9c9d-4c16-a207-8ad27e6ac263t0e649ec9/w280" alt="">
+                          </div>
+                          <div class="tourSearch_text">
+                            <h4>逢甲夜市</h4>
+                            <p>
+                              <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+            <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+          </svg>
+                              </span>
+                              台中市
+                            </p>
+                          </div>
+                        </div>
+                        <div class="tourSearch_btnBox">
+                          <button class="btn btn--main">加入景點</button>
+                          <button class="btn btn--cancel">取消加入</button>
+                        </div>
+                      </div>
+                      <div class="tourSearch_spot">
+                        <div class="tourSearch_ex">
+                          <div class="tourSearch_img">
+                            <img src="https://obs.line-scdn.net/r/travel/content/26f7cec2-9c9d-4c16-a207-8ad27e6ac263t0e649ec9/w280" alt="">
+                          </div>
+                          <div class="tourSearch_text">
+                            <h4>逢甲夜市</h4>
+                            <p>
+                              <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+            <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+          </svg>
+                              </span>
+                              台中市
+                            </p>
+                          </div>
+                        </div>
+                        <div class="tourSearch_btnBox">
+                          <button class="btn btn--main">加入景點</button>
+                          <button class="btn btn--cancel">取消加入</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              
+            </div>
+          
+          
+          </div>
+          <!-- <div class="tourSpot">
+            <div class="tourSpot_wrap">
+              <div class="tourSpot_img">
+                <img src="https://www.eastcoast-nsa.gov.tw/image/426/640x480" alt="">
+              </div>
+              <h3>逢甲夜市</h3>
+              <div class="tourSpot_info">
+                <div class="tourSpot_btnBox">
+                  <button class="btn btn--main">加入景點</button>   
+                  <button class="btn btn--cancel">取消加入</button>
+                </div>
+                <p class="tourSpot_addr">
+                  花蓮縣花蓮市國聯一路100號
+                </p>
+              </div>
+              <p class="tourSpot_bewrite">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos similique non ipsum modi aut animi velit odio doloremque id quisquam. Laborum totam voluptatem, eum quo nulla aut et, eaque quaerat voluptatibus quam facere illo debitis facilis temporibus repellat quas saepe laboriosam minus hic laudantium! Quaerat numquam ea cumque beatae fuga!
+              </p>
+            </div>
+          </div> -->
+        </div>
+    </main>
     <footer></footer>
     
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        function mainMap() {
+            // 取得用戶位置
+            navigator.geolocation.getCurrentPosition(
+            //   如果正確獲取
+            function(pos) {
+            let {latitude,longitude} = pos.coords;
+            console.log(latitude,longitude);
+            },
+            function() {
+            alert('請開啟定位謝謝~');
+            },
+            {enableHighAccuracy: true,  timeout: 5000});
+
+
+            var map = L.map('map');
+            map.setView([24.98921012878418, 121.31353759765625], 14);
+
+
+            var Stadia_AlidadeSmooth = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
+                maxZoom: 20,
+                attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+            }).addTo(map);
+        }
+        mainMap();
+    </script>
 </body>
 </html>

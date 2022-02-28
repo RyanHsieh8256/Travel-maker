@@ -47,6 +47,114 @@
                 </div>
             </div>
         </ul>
+        <!-- 漢堡 -->
+        <div class="navPage">
+            <button class="navPage--close">
+                <span class="close_line"></span>
+                <span class="close_line"></span>
+            </button>
+            <div class="navPage_wrap">
+            <!--     <div class="navPage_header"></div> -->
+                <div class="navPage_content">
+            <!--       <div class="navPage_logo"></div> -->
+                    <div class="navPage_box">
+                        <nav class="navPage_nav">
+                            <ul class="navPage_list">
+                                <li class="navPage_item is_active">
+                                    <div class="navPage_header">
+                                    <span class="navPage_header--num">01</span>
+                                    <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                    <span class="navPage_text--en">Home</span>
+                                    <span class="navPage_text--ch">首頁</span>
+                                    </div>
+                                    <a href="##" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                    <span class="navPage_header--num">02</span>
+                                    <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                    <span class="navPage_text--en">Plan journey</span>
+                                    <span class="navPage_text--ch">行程規劃</span>
+                                    </div>
+                                    <a href="##" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                    <span class="navPage_header--num">03</span>
+                                    <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                    <span class="navPage_text--en">All together</span>
+                                    <span class="navPage_text--ch">揪團去</span>
+                                    </div>
+                                    <a href="##" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                    <span class="navPage_header--num">04</span>
+                                    <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                    <span class="navPage_text--en">Shop</span>
+                                    <span class="navPage_text--ch">商城</span>
+                                    </div>
+                                    <a href="##" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                    <span class="navPage_header--num">05</span>
+                                    <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                    <span class="navPage_text--en">Teaching</span>
+                                    <span class="navPage_text--ch">使用教學</span>
+                                    </div>
+                                    <a href="##" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                    <span class="navPage_header--num">06</span>
+                                    <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                    <span class="navPage_text--en">About</span>
+                                    <span class="navPage_text--ch">關於我們</span>
+                                    </div>
+                                    <a href="##" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                        <span class="navPage_header--num">07</span>
+                                        <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                        <span class="navPage_text--en">Cart</span>
+                                        <span class="navPage_text--ch">購物車</span>
+                                    </div>
+                                    <a href="##" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                        <span class="navPage_header--num">08</span>
+                                        <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                        <span class="navPage_text--en">Member</span>
+                                        <span class="navPage_text--ch">會員</span>
+                                    </div>
+                                    <a href="##" class="navPage_link"></a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </div>  
+            </div>
+        </div>
         <!-- 進度條 (蘇) -->
         <div class="progress_bar">
             <div class="progress_barNav"></div>
@@ -438,6 +546,7 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="js/burger.js"></script>
 
     <script>
     
@@ -476,9 +585,9 @@
     }
 
     window.addEventListener('wheel',(e) => {
-    console.log(window.scrollX)
+   
 
-    if(e.deltaY != 0) 
+    if(e.deltaY != 0 && window.innerWidth >= 1200) 
     window.scroll(window.scrollX + e.deltaY * 1, window.scrollY);
 
 

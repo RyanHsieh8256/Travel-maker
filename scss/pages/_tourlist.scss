@@ -1,7 +1,7 @@
 
 .third-title {
     font-family: 'Caveat',serif;
-    color: $FooterBGColor;
+    color: $FooterSubColor;
     font-weight: 600;
     font-size: 20px;
 }
@@ -34,7 +34,7 @@
       justify-content: center;
        overflow: hidden;
        font-family: 'Caveat',serif;
-       color: $FooterBGColor;
+       color: $FooterSubColor;
        font-weight: 600;
        
       
@@ -50,7 +50,7 @@
       right: 5px;
       width: 30px;
       height: 30px;
-      background-color: $FooterBGColor;
+      background-color: $FooterSubColor;
       border-radius: 50%;
     }
     
@@ -136,7 +136,7 @@
       transform: translateY(-50%);
       width: 16px;
       height: 16px;
-      background-color: #000;
+      background-color: #E3DCD4;
       border-radius: 50%;
     }
     
@@ -204,7 +204,7 @@
           right: 0;
           top: 0;
           bottom: 0;
-          background-color: $FooterBGColor;
+          background-color: $FooterSubColor;
           z-index: -1;
           border-radius: 50%;
         }
