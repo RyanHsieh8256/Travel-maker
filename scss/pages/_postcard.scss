@@ -1,0 +1,139 @@
+canvas{
+    display: none;
+}
+.postcardBlock{
+    padding-top: 50px;
+}
+.postcardTtile{
+    font-size:$second-title;
+    text-align: center;
+    padding: 20px 0;
+}
+.postcard_wrap{
+    padding: 0 10px;
+}
+
+.postcardContainer{
+    position: relative;
+    width:100%;
+    padding: 30px;
+    margin: auto;
+    background-color:$white;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px #3336;
+    #deletStamp{
+        display: none;
+        position: absolute;
+        right: 3%;
+        bottom: 0;
+        font-size: 50px;
+    }
+}
+.postcardBox{
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow:1px 1px  5px #333;
+    border:#3335 1px solid;
+    width: 80%;
+    .postcardStampContainer{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        .postcardStampBox{
+            width: 70px;
+            min-height: 70px;
+            border: 3px dashed #007183;
+            position: absolute;
+            top:10%;
+            right: 10%;
+        }
+    }
+    //文字
+    .postcardText{
+        position: absolute;
+        bottom: 25%;
+        right: 10%;
+    }
+}
+.postcardTextInput{
+    width:80%;
+    height: 100px;
+    margin:10px auto 0 auto;
+    textarea{
+        resize: none;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        box-shadow: 3px 3px 5px #3336;
+        padding: 20px;
+    }
+}
+
+
+// 元件區
+.postcardRightBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+.postcardElements_warp{
+    display: flex;
+    flex-wrap:nowrap;
+    align-items: flex-start;
+    .postcardTags{
+        .postcardTag{
+            background-color: rgb(129,216,209);
+            padding: 10px 5px;
+            margin: 5px 0;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            writing-mode: vertical-lr;
+            cursor: pointer;
+        }
+    }
+    .postcardElements{
+        flex-grow: 1;
+        background-color: $white;
+        border-radius: 10px;
+        box-shadow: 3px 3px 5px #3336;
+        height: 450px;
+        overflow-y: scroll;
+
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        &+.postcardElements{
+            display: none;
+        }
+        .postcardElement{
+            margin: 10px auto;
+            border: #333 2px dashed;
+            border-radius: 5px;
+            width: 100px;
+        }
+    }
+}
+.postcardBtns{
+    padding: 40px 0;
+    display: flex;
+    justify-content: space-around;
+    button{
+        font-size: 20px;
+        padding: 5px 20px;
+        background-color: #007183;
+        color: #fff;
+        border-radius:50px ;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+}
