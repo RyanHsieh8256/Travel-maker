@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>購物車</title>
+    <link rel="shortcut icon" href="images/logo/logo_84x50.png" type="image/png">
     <link rel="stylesheet" href="css/main.css">
      <!--放在head裡-->
      <script src="js/jquery.js"></script>
@@ -12,6 +13,7 @@
  </head>
  <body>
     <header>
+        <!-- 宸哥的導覽列 -->
         <nav class="nav_Wrap">
             <section class="navBlock">
                 <a href="home.html">
@@ -22,13 +24,14 @@
                 <ul class="mainNav">
                     <a href="tour.html"><li>行程規劃</li></a>
                     <a href="group.html"><li>揪團旅行</li></a>
-                    <a href="shop.html"><li>商城</li></a>
+                    <a href="shop.html"><li>景點門票</li></a>
+                    <a href="postcard.html"><li>客製明信片</li></a>
                 </ul>
                 <ul class="navMember">
                     <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
                     <li>
                         <i class="bi bi-person-circle" id="loginBoxBtn"><span>登入/註冊</span></i>
-                        <!-- 登入後,會員按鈕的下拉選單,目前設定display:none-->
+                        <!-- 登入後的會員選單-->
                         <ul class="navDropdownMenu">
                             <li class="navDropdownMenuItem navMemProfile">
                                 <div class="navDropdownMenuPhoto">
@@ -45,10 +48,78 @@
                             <li class="navDropdownMenuItem"><i class="bi bi-bag"></i> 我的訂單</li>
                         </ul>
                     </li>
-                    <li><i class="bi bi-list"></i></li>
+                    <li>
+                        <div class="burger-toggle">
+                            <i class="bi bi-list"></i>
+                        </div>
+                    </li>
                 </ul>
             </section>          
         </nav>
+        <!-- 漢堡 -->
+        <div class="navPage">
+            <button class="navPage--close">
+                <span class="close_line"></span>
+                <span class="close_line"></span>
+            </button>
+            <div class="navPage_wrap">
+            <!--     <div class="navPage_header"></div> -->
+                <div class="navPage_content">
+            <!--       <div class="navPage_logo"></div> -->
+                    <div class="navPage_box">
+                        <nav class="navPage_nav">
+                            <ul class="navPage_list">
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                    <span class="navPage_header--num">01</span>
+                                    <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                    <span class="navPage_text--en">Plan journey</span>
+                                    <span class="navPage_text--ch">行程規劃</span>
+                                    </div>
+                                    <a href="tour.html" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                    <span class="navPage_header--num">02</span>
+                                    <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                    <span class="navPage_text--en">All together</span>
+                                    <span class="navPage_text--ch">揪團旅行</span>
+                                    </div>
+                                    <a href="group.html" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                    <span class="navPage_header--num">03</span>
+                                    <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                    <span class="navPage_text--en">Shop</span>
+                                    <span class="navPage_text--ch">景點門票</span>
+                                    </div>
+                                    <a href="shop.html" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                    <span class="navPage_header--num">04</span>
+                                    <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                    <span class="navPage_text--en">Postcard</span>
+                                    <span class="navPage_text--ch">客製明信片</span>
+                                    </div>
+                                    <a href="postcard.html" class="navPage_link"></a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </div>  
+            </div>
+        </div>
 
         <div class="froLoginBG" id="froLoginBG">
             <section class="froLoginBlock" id="froLoginBlock">
@@ -155,6 +226,7 @@
         </section>
     </footer>
 
+    <script src="js/burger.js"></script>
     <script src="js/forlogin.js"></script>
         
    
