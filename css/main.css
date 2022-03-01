@@ -62,12 +62,14 @@ table {
 a {
   text-decoration: none;
   display: inline-block;
+  cursor: pointer;
 }
 
 button {
   border: none;
   background-color: transparent;
   font-family: serif;
+  cursor: pointer;
 }
 
 img {
@@ -90,7 +92,7 @@ img {
 
 /* 網頁捲軸【把手】顏色 */
 ::-webkit-scrollbar-thumb {
-  background: #46c5c5;
+  background: #007183;
   border-radius: 100px;
 }
 
@@ -153,6 +155,7 @@ body {
 .p-text {
   font-weight: 600;
   color: #463828;
+  font-size: 16px;
 }
 
 .t-center {
@@ -7507,13 +7510,12 @@ body {
 
 .navBlock .mainNav a {
   height: 100%;
-  padding: 0 20px;
+  padding: 0 7px;
   color: #333;
 }
 
 .navBlock .mainNav a:hover {
-  background-color: #ff7e29;
-  color: #fff;
+  color: #ff7e29;
 }
 
 .navBlock .mainNav a li {
@@ -8046,15 +8048,15 @@ body {
 }
 
 .btn--cart {
-  background-color: #fff;
-  color: #5C5041;
+  background-color: #007183;
+  color: #fff;
   border: 1px solid #aaa;
 }
 
 .btn--main {
   background-color: #007183;
-  font-size: 20px;
-  color: #FEBC9F;
+  font-size: 16px;
+  color: #fff;
 }
 
 .btn--cancel {
@@ -8066,7 +8068,7 @@ body {
   width: 30px;
   height: 30px;
   background-color: #007183;
-  color: #FEBC9F;
+  color: #fff;
   font-size: 25px;
   position: relative;
 }
@@ -8128,7 +8130,7 @@ body {
 
 .timeline_tab--active {
   background-color: #007183;
-  color: #FEBC9F;
+  color: #fff;
 }
 
 .timeline_list {
@@ -8141,7 +8143,7 @@ body {
   content: '';
   width: 2px;
   height: 100%;
-  background-color: #FEBC9F;
+  background-color: #81d8d1;
   position: absolute;
   z-index: -1;
   left: -1px;
@@ -8205,7 +8207,7 @@ body {
 
 .timeline_num {
   font-size: 14px;
-  color: #FEBC9F;
+  color: #fff;
   position: relative;
   z-index: 2;
   width: 20px;
@@ -8232,7 +8234,7 @@ body {
   content: '';
   width: 25px;
   height: 2px;
-  background-color: #FEBC9F;
+  background-color: #81d8d1;
   position: absolute;
   top: 50%;
   left: -25px;
@@ -8502,7 +8504,7 @@ body {
   display: flex;
   margin: auto;
   width: 100%;
-  padding: 5% 1%;
+  padding: 5% 2%;
 }
 
 @media screen and (min-width: 1200px) {
@@ -8616,6 +8618,10 @@ body {
   }
 }
 
+.burger-toggle {
+  cursor: pointer;
+}
+
 .burger-toggle .bi {
   font-size: 30px;
 }
@@ -8639,7 +8645,8 @@ body {
   .imageMap_card {
     display: block;
     position: absolute;
-    width: 200px;
+    width: 30vh;
+    max-width: 200px;
     padding: 8px 8px 50px 8px;
     background-color: #fdf5f5;
     -webkit-box-shadow: rgba(55, 93, 136, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
@@ -8676,7 +8683,7 @@ body {
             transform: rotate(-5deg);
   }
   .imageMap_card:nth-child(4) {
-    top: 15%;
+    top: 10%;
     right: 6%;
     -webkit-transform: rotate(-3deg);
             transform: rotate(-3deg);
@@ -8720,6 +8727,15 @@ body {
 .home_logo {
   width: 5%;
   min-width: 50px;
+  position: relative;
+}
+
+.home_logo--link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .home_flex {
@@ -8789,6 +8805,12 @@ body {
   }
 }
 
+.homeTour_row {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 @media screen and (max-width: 768px) {
   .homeTour_order {
     -webkit-box-ordinal-group: 2;
@@ -8808,7 +8830,7 @@ body {
 
 .homeTour_point {
   position: relative;
-  height: 45vh;
+  height: 40vh;
 }
 
 .homeTour_point::before {
@@ -8981,7 +9003,6 @@ body {
 
 .homeShop_box {
   margin: 0 auto;
-  background-image: url("https://images.pexels.com/photos/6554687/pexels-photo-6554687.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
   background-size: cover;
   width: 60%;
 }
@@ -8989,6 +9010,7 @@ body {
 @media screen and (max-width: 768px) {
   .homeShop_box {
     width: 100%;
+    padding: 3%;
   }
 }
 
@@ -9176,7 +9198,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   border-radius: 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
           box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
-  background-color: #fff;
+  background-color: #f0eee7;
 }
 
 .froLoginBlock .froLoginCancel {
@@ -9190,7 +9212,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 
 .froLoginBlock .froLoginCancel .bi-x-circle-fill {
   font-size: 25px;
-  color: #81d8d1;
+  color: #007183;
 }
 
 .froLoginSwitch {
@@ -9205,14 +9227,14 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 
 .froLoginSwitch .froLoginSwitch_btn {
   width: 50%;
-  background-color: #d6d6d6;
+  background-color: #bebebe;
   padding: 5px 0;
   font-size: 20px;
   font-weight: 600;
 }
 
 .froLoginSwitch .froLoginSwitch_active {
-  background-color: #fff;
+  background-color: #f0eee7;
 }
 
 .froLoginForm_wrap {
@@ -9268,7 +9290,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 }
 
 .froLoginForm_wrap .froLoginForm .froLoginBtn input {
-  background-color: #81d8d1;
+  background-color: #007183;
   color: #fff;
   border: none;
   border-radius: 25px;
@@ -9432,8 +9454,8 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 }
 
 .memberAccountWarp .memberAccount {
-  -webkit-box-shadow: 0 1px 5px 0 #999;
-          box-shadow: 0 1px 5px 0 #999;
+  -webkit-box-shadow: 1px 1px 3px #aaa;
+          box-shadow: 1px 1px 3px #aaa;
   border-radius: 10px;
   padding: 10px;
   background-color: #fff;
@@ -9463,8 +9485,8 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-shadow: 0 1px 5px 0 #999;
-          box-shadow: 0 1px 5px 0 #999;
+  -webkit-box-shadow: 1px 1px 3px #aaa;
+          box-shadow: 1px 1px 3px #aaa;
   border-radius: 10px;
   padding: 10px 0;
   background-color: #fff;
@@ -9473,7 +9495,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 
 .memberAccountWarp .memberAccountSetting li {
   color: #fff;
-  background-color: #ff7e29;
+  background-color: #007183;
   padding: 10px 30px;
   cursor: pointer;
   border-radius: 10px;
@@ -9508,8 +9530,8 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 }
 
 .mem_sectionBG {
-  -webkit-box-shadow: 0 1px 5px 0 #999;
-          box-shadow: 0 1px 5px 0 #999;
+  -webkit-box-shadow: 1px 1px 3px #aaa;
+          box-shadow: 1px 1px 3px #aaa;
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 20px;
@@ -9549,7 +9571,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   padding: 10px 20px;
   border-radius: 50px;
   border: none;
-  background-color: #ff7e29;
+  background-color: #007183;
   color: #fff;
 }
 
@@ -9637,7 +9659,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 }
 
 .horizontalcard .horizontalcard_footer a {
-  color: #ff7e29;
+  color: #007183;
 }
 
 @media screen and (min-width: 768px) {
@@ -9690,7 +9712,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   margin: 20px auto 0 auto;
   padding: 5px 0;
   border-radius: 10px;
-  background-color: #ff7e29;
+  background-color: #007183;
   color: #fff;
   text-align: center;
 }
@@ -9727,7 +9749,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   font-family: 'Caveat',serif;
   width: 100%;
   max-width: 1920px;
-  background-color: #f5f5f5;
+  background-color: #F0EEE7;
   padding: 10% 0;
 }
 
@@ -9898,7 +9920,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: #F0EEE7;
+  background-color: #f5f5f5;
   border-radius: 20px;
   overflow: hidden;
 }
@@ -10141,6 +10163,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   height: 30px;
   background-color: #007183;
   border-radius: 50%;
+  z-index: 2;
 }
 
 .popup_header {
@@ -10256,8 +10279,9 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
           transform: translateY(-50%);
   width: 16px;
   height: 16px;
-  background-color: #E3DCD4;
+  background-color: #83D8D1aa;
   border-radius: 50%;
+  line-height: 16px;
 }
 
 .tourForm_calendar {
@@ -10447,6 +10471,10 @@ input[type="button"] {
   display: block;
 }
 
+.tourBuild_box::-webkit-scrollbar {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .tourBuild_box {
     border-radius: 0;
@@ -10550,15 +10578,9 @@ input[type="button"] {
 .tourBuild_news {
   width: 100%;
   padding: 20px;
-  background-color: #E3DCD4;
+  background-color: #83D8D1aa;
   text-align: center;
-}
-
-.tourBuild_newSpot {
-  background-color: #007183;
-  padding: 10px;
-  border-radius: 100px;
-  color: #FEBC9F;
+  border-radius: 10px;
 }
 
 .btn {
@@ -10567,6 +10589,7 @@ input[type="button"] {
 
 .tourSearch_header {
   position: relative;
+  margin-bottom: 5%;
 }
 
 .tourSearch_header::after {
@@ -10619,7 +10642,11 @@ input[type="button"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 5% 0;
+  margin: 6% 0;
+}
+
+.tourSearch_btnBox > button {
+  margin-right: 10px;
 }
 
 .tourSpot {
@@ -10629,7 +10656,7 @@ input[type="button"] {
   height: calc(100% - 100px);
   background-color: #F0EEE7;
   position: fixed;
-  z-index: 1000;
+  z-index: 1001;
   top: 54%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -10638,6 +10665,10 @@ input[type="button"] {
   -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
           box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
   overflow-y: auto;
+  display: none;
+}
+
+.tourSpot::-webkit-scrollbar {
   display: none;
 }
 
@@ -10702,7 +10733,7 @@ input[type="button"] {
 }
 
 .tour_btnBox > button a {
-  color: #FEBC9F;
+  color: #fff;
 }
 
 .tour_btnBox > button:first-child {
@@ -11388,20 +11419,13 @@ input[type="button"] {
 }
 
 .shopType h2, .shopHotCity h2, .shopProduct h2 {
-  font-size: 40px;
   text-align: center;
-}
-
-.shopType .item .parttxt {
-  padding: 40%;
-}
-
-.shopType .item h2 {
-  color: white;
-  border: 1px solid white;
-  border-radius: 50% 0;
-  padding: 5px;
-  display: inline-block;
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  padding: 10px;
+  font-size: 30px;
+  line-height: 1.5;
+  color: #007183;
 }
 
 .shopType {
@@ -11417,6 +11441,18 @@ input[type="button"] {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.shopType .item .parttxt {
+  padding: 40%;
+}
+
+.shopType .item h2 {
+  color: white;
+  border: 1px solid white;
+  border-radius: 50% 0;
+  padding: 5px;
+  display: inline-block;
 }
 
 .shopSearch {
@@ -11473,9 +11509,6 @@ input[type="button"] {
 }
 
 @media screen and (min-width: 768px) {
-  .shopType .item h3 {
-    padding: 60% 40%;
-  }
   .shopType .col-md-3 {
     padding: 0rem;
     margin: 0;
@@ -11489,11 +11522,17 @@ input[type="button"] {
     -webkit-transform: scale(1.05, 1.05);
             transform: scale(1.05, 1.05);
   }
+  .shopType .item h2 {
+    padding: 60% 40%;
+  }
 }
 
 .shopspotInfo h2, .shopspotOverview h2 {
-  font-size: 40px;
   text-align: center;
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  font-size: 30px;
+  color: #007183;
 }
 
 .shopspotSlide_wrap {
@@ -11644,7 +11683,8 @@ input[type="button"] {
   position: absolute;
   left: -10px;
   top: 0;
-  border: 1.5px solid black;
+  border: 1.5px solid #007183;
+  color: #007183;
   background-color: #f0eee7;
   font-size: 30px;
   margin-bottom: 0;
@@ -11662,7 +11702,7 @@ input[type="button"] {
 
 .shopspotDescription > * > * {
   margin: 10px auto;
-  border: 1.5px solid black;
+  border: 1.5px solid #007183;
   border-radius: 10px;
   padding: 35px;
   line-height: 20px;
@@ -11710,13 +11750,16 @@ input[type="button"] {
     width: 100%;
   }
   .shopspotSelect {
-    margin-top: 60px;
-    padding: 50px;
+    margin: 80px auto 0 auto;
+    padding: 30px;
     display: block;
     position: -webkit-sticky;
     position: sticky;
     top: 60px;
     height: 200px;
+    width: 150px;
+    border: 1.5px solid #007183;
+    border-radius: 10px;
   }
   .shopspotSelect a {
     color: black;
@@ -11730,6 +11773,41 @@ input[type="button"] {
   .shopspotSelect .scoll .active a:before {
     content: "▎";
     color: #007183;
+  }
+  .select_bear {
+    position: absolute;
+    right: -10px;
+    width: 50px;
+    -webkit-animation: bear_dance 2s infinite;
+            animation: bear_dance 2s infinite;
+  }
+  @-webkit-keyframes bear_dance {
+    0% {
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+    }
+    50% {
+      -webkit-transform: rotateY(180deg);
+              transform: rotateY(180deg);
+    }
+    100% {
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+    }
+  }
+  @keyframes bear_dance {
+    0% {
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+    }
+    50% {
+      -webkit-transform: rotateY(180deg);
+              transform: rotateY(180deg);
+    }
+    100% {
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+    }
   }
 }
 
@@ -11748,7 +11826,12 @@ input[type="button"] {
 
 .shopcart h2 {
   margin: 15px;
-  font-size: 40px;
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  padding: 10px;
+  font-size: 30px;
+  line-height: 1.5;
+  color: #007183;
 }
 
 .shoplist {
@@ -11765,13 +11848,10 @@ input[type="button"] {
   margin: 10px;
 }
 
-.shoplist .text p {
-  margin: 10px auto;
-}
-
-.shoplist h3 {
-  font-size: 30px;
-  margin-top: 10px;
+.shoplist_text h3 {
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .shoplist .content {
@@ -11808,6 +11888,7 @@ input[type="button"] {
   padding: 10px;
   border: none;
   background: none;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
@@ -11840,13 +11921,16 @@ input[type="button"] {
 }
 
 .shoppay_bg {
-  width: 100%;
-  height: 100%;
   background-image: url(/images/shop/shoppay_bg.JPG);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 10px;
+}
+
+.filter {
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
 }
 
 .personal_info, .shoppaycredit, .detail {
@@ -11909,9 +11993,11 @@ input[type="button"] {
   width: 80%;
 }
 
-.shoplist h3 {
+.shoplist_text h3 {
   margin-top: 10px;
-  font-size: 30px;
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .shoplist .text p {
@@ -12023,9 +12109,13 @@ canvas {
 }
 
 .postcardTtile {
-  font-size: 40px;
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  padding: 10px;
+  font-size: 30px;
+  line-height: 1.5;
+  color: #007183;
   text-align: center;
-  padding: 20px 0;
 }
 
 .postcard_wrap {
@@ -12140,7 +12230,8 @@ canvas {
 }
 
 .postcardElements_warp .postcardTags .postcardTag {
-  background-color: #81d8d1;
+  background-color: #E3DCD4;
+  color: #463828;
   padding: 10px 5px;
   margin: 5px 0;
   border-top-left-radius: 10px;

@@ -5,9 +5,13 @@ canvas{
     padding-top: 50px;
 }
 .postcardTtile{
-    font-size:$second-title;
+    font-family: 'Caveat',serif;
+    font-weight: 600;
+    padding: 10px;
+    font-size: 30px;
+    line-height: 1.5;
+    color: #007183;
     text-align: center;
-    padding: 20px 0;
 }
 .postcard_wrap{
     padding: 0 10px;
@@ -92,7 +96,8 @@ canvas{
     align-items: flex-start;
     .postcardTags{
         .postcardTag{
-            background-color: rgb(129,216,209);
+            background-color: #E3DCD4;
+            color: #463828;
             padding: 10px 5px;
             margin: 5px 0;
             border-top-left-radius: 10px;

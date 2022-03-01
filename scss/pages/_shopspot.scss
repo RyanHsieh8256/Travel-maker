@@ -1,6 +1,9 @@
 .shopspotInfo h2, .shopspotOverview h2{
-  font-size: $second-title;
   text-align: center;
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  font-size: 30px;
+  color: #007183;
 
 }
 
@@ -169,7 +172,8 @@
   position: absolute;
   left: -10px;
   top: 0;
-  border: 1.5px solid black;
+  border: 1.5px solid #007183;
+  color: #007183;
   background-color: $bodyBGcolor;
   font-size: 30px;
   margin-bottom: 0;
@@ -190,7 +194,7 @@
 
 .shopspotDescription>*>*{
   margin: 10px auto;
-  border: 1.5px solid black;
+  border: 1.5px solid #007183;
   border-radius: 10px;
   padding: 35px;
   line-height: 20px;
@@ -262,12 +266,16 @@
   
 
   .shopspotSelect{
-    margin-top: 60px;
-    padding: 50px;
+    margin: 80px auto 0 auto;
+    // margin-top: 80px;
+    padding: 30px;
     display: block;
     position: sticky;
     top: 60px;
     height: 200px;
+    width: 150px;
+    border: 1.5px solid #007183;
+    border-radius: 10px;
 
   }
 
@@ -289,6 +297,31 @@
   .shopspotSelect .scoll .active a:before{
     content:"▎"; color:#007183;
 
+  }
+
+  .select_bear{
+    position: absolute;
+    right: -10px;
+    // left: 80px;
+    width: 50px;
+    animation: bear_dance 2s infinite;
+   
+  }
+
+  @keyframes bear_dance{
+    0% {
+      transform: rotateY(0deg);
+      
+    }
+    50% {
+      transform: rotateY(180deg);
+      
+    }
+
+    100% {
+      transform: rotateY(0deg);
+      
+    }
   }
 
 }

@@ -5,12 +5,14 @@
 a {
     text-decoration: none;
     display: inline-block;
+    cursor: pointer;
 }
 
 button {
     border: none;
     background-color: transparent;
     font-family: serif;
+    cursor: pointer;
 }
 
 img {
@@ -30,7 +32,7 @@ img {
 }
 /* 網頁捲軸【把手】顏色 */
 ::-webkit-scrollbar-thumb {
-    background: rgb(70, 197, 197);
+    background: #007183;
     border-radius: 100px;
 }
 /* 網頁捲軸【滑過時】把手的顏色 */

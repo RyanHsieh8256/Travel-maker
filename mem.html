@@ -29,7 +29,8 @@
                 <ul class="mainNav">
                     <a href="tour.html"><li>行程規劃</li></a>
                     <a href="group.html"><li>揪團旅行</li></a>
-                    <a href="shop.html"><li>商城</li></a>
+                    <a href="shop.html"><li>景點門票</li></a>
+                    <a href="postcard.html"><li>客製明信片</li></a>
                 </ul>
                 <ul class="navMember">
                     <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
@@ -52,9 +53,11 @@
                             <li class="navDropdownMenuItem"><i class="bi bi-bag"></i> 我的訂單</li>
                         </ul>
                     </li>
-                    <li><div class="burger-toggle">
-                        <span class="burger-line"></span>
-                    </div></li>
+                    <li>
+                        <div class="burger-toggle">
+                            <i class="bi bi-list"></i>
+                        </div>
+                    </li>
                 </ul>
             </section>          
         </nav>
@@ -71,20 +74,9 @@
                     <div class="navPage_box">
                         <nav class="navPage_nav">
                             <ul class="navPage_list">
-                                <li class="navPage_item is_active">
-                                    <div class="navPage_header">
-                                    <span class="navPage_header--num">01</span>
-                                    <span class="navPage_header--line"></span>
-                                    </div>
-                                    <div class="navPage_text">
-                                    <span class="navPage_text--en">Home</span>
-                                    <span class="navPage_text--ch">首頁</span>
-                                    </div>
-                                    <a href="home.html" class="navPage_link"></a>
-                                </li>
                                 <li class="navPage_item">
                                     <div class="navPage_header">
-                                    <span class="navPage_header--num">02</span>
+                                    <span class="navPage_header--num">01</span>
                                     <span class="navPage_header--line"></span>
                                     </div>
                                     <div class="navPage_text">
@@ -95,14 +87,25 @@
                                 </li>
                                 <li class="navPage_item">
                                     <div class="navPage_header">
-                                    <span class="navPage_header--num">03</span>
+                                    <span class="navPage_header--num">02</span>
                                     <span class="navPage_header--line"></span>
                                     </div>
                                     <div class="navPage_text">
                                     <span class="navPage_text--en">All together</span>
-                                    <span class="navPage_text--ch">揪團去</span>
+                                    <span class="navPage_text--ch">揪團旅行</span>
                                     </div>
                                     <a href="group.html" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                    <span class="navPage_header--num">03</span>
+                                    <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                    <span class="navPage_text--en">Shop</span>
+                                    <span class="navPage_text--ch">景點門票</span>
+                                    </div>
+                                    <a href="shop.html" class="navPage_link"></a>
                                 </li>
                                 <li class="navPage_item">
                                     <div class="navPage_header">
@@ -110,32 +113,10 @@
                                     <span class="navPage_header--line"></span>
                                     </div>
                                     <div class="navPage_text">
-                                    <span class="navPage_text--en">Shop</span>
-                                    <span class="navPage_text--ch">商城</span>
+                                    <span class="navPage_text--en">Postcard</span>
+                                    <span class="navPage_text--ch">客製明信片</span>
                                     </div>
-                                    <a href="shop.html" class="navPage_link"></a>
-                                </li>
-                                <li class="navPage_item">
-                                    <div class="navPage_header">
-                                        <span class="navPage_header--num">05</span>
-                                        <span class="navPage_header--line"></span>
-                                    </div>
-                                    <div class="navPage_text">
-                                        <span class="navPage_text--en">Cart</span>
-                                        <span class="navPage_text--ch">購物車</span>
-                                    </div>
-                                    <a href="shopcart.html" class="navPage_link"></a>
-                                </li>
-                                <li class="navPage_item">
-                                    <div class="navPage_header">
-                                        <span class="navPage_header--num">06</span>
-                                        <span class="navPage_header--line"></span>
-                                    </div>
-                                    <div class="navPage_text">
-                                        <span class="navPage_text--en">Member</span>
-                                        <span class="navPage_text--ch">會員</span>
-                                    </div>
-                                    <a href="mem.html" class="navPage_link"></a>
+                                    <a href="postcard.html" class="navPage_link"></a>
                                 </li>
                             </ul>
                         </nav>
@@ -143,34 +124,6 @@
                     </div>
                 </div>  
             </div>
-        </div>
-        <div class="froLoginBG" id="froLoginBG">
-            <section class="froLoginBlock" id="froLoginBlock">
-                <!-- 取消按鈕 -->
-                <div class="froLoginCancel">
-                    <button><i class="bi bi-x-circle-fill"></i></button>
-                </div>
-                <!-- 註冊/登入 -->
-                <div class="froLoginSwitch">
-                    <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
-                        登入
-                    </div>
-                    <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
-                        註冊
-                    </div>
-                </div> 
-                <!-- 表單區 -->
-                <div class="froLoginForm_wrap">
-                    <transition name="frologintransition" mode="out-in">
-                        <keep-alive>
-                            <component :is='content'></component>
-                        </keep-alive>
-                    </transition>
-                </div>
-                <transition name="mascottransition">
-                    <component :is='content2'></component>
-                </transition>
-            </section>
         </div>
     </header>
     <main  class="l-full">
@@ -452,7 +405,7 @@
                     member_SectionControlor[a].style.color = '#333';
                 }
                 memberProfile[i].style.display = "block";
-                member_SectionControlor[i].style.backgroundColor = 'rgb(255, 126, 41)';
+                member_SectionControlor[i].style.backgroundColor = '#007183';
                 member_SectionControlor[i].style.color = '#fff';
                 
                 console.log(memberProfile[i].offsetHeight);

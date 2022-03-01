@@ -21,9 +21,9 @@ table.dataTable tbody tr{
 /* table 按鍵 */
 table tbody button{
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
-    padding: 3px 5px;
+    padding: 3px 10px;
 }
 /* =========================== */
 
@@ -37,9 +37,13 @@ table tbody button{
 .spot-table .add-btn .spot-add-btn,
 .ticket-table .add-btn .ticket-add-btn
 {
-    border-radius: 5px ;
+    
+    color: #fff;
+    background: #007183;
     cursor: pointer;
-    background: rgb(94, 246, 5);
+    border-radius: 10px;
+    border: none;
+    padding: 3px 10px;
 }
 /*============================================*/
 
@@ -62,7 +66,7 @@ table tbody button{
     width: 300px;
     height: 300px;
     border-radius: 10px;
-    background-color:#ccc;
+    background-color:#ddd;
     position: absolute;
     top:50%;
     left: 50%;
