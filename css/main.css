@@ -10583,6 +10583,7 @@ input[type="button"] {
 
 .tourSearch_header {
   position: relative;
+  margin-bottom: 5%;
 }
 
 .tourSearch_header::after {
@@ -10635,7 +10636,7 @@ input[type="button"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 5% 0;
+  margin: 6% 0;
 }
 
 .tourSearch_btnBox > button {

@@ -163,6 +163,7 @@
   
   .tourSearch_header {
     position: relative;
+    margin-bottom: 5%;
 
     &::after {
       position: absolute;
@@ -212,7 +213,7 @@
   
   .tourSearch_btnBox {
     display: flex;
-    margin: 5% 0;
+    margin: 6% 0;
 
     & > button {
       margin-right: 10px;
