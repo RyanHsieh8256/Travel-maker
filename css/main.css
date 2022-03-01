@@ -10938,6 +10938,19 @@ input[type="button"] {
   border-radius: 10px;
 }
 
+.groupCard {
+  position: relative;
+}
+
+.groupCard .link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
 /* only for width above 768px */
 @media screen and (min-width: 768px) {
   /* 圓圓的篩選器消失 */
@@ -11111,7 +11124,7 @@ input[type="button"] {
 }
 
 .groupdetailInfo .groupdetailInfo_wrap .message .leaveMessage #inputBox {
-  background-color: #fff;
+  background-color: #ddd;
   color: black;
   width: 100%;
   resize: none;
@@ -11129,15 +11142,15 @@ input[type="button"] {
 /* ---參團懸浮按紐--- */
 .joinBtn {
   border: none;
-  width: 40px;
-  height: 40px;
+  width: 55px;
+  height: 55px;
   text-align: center;
   border-radius: 50%;
   position: fixed;
   top: 50%;
   right: 1%;
   cursor: pointer;
-  background-color: #007183;
+  background-color: #ff7e29;
   color: #ffffff;
   display: none;
 }
@@ -11175,6 +11188,7 @@ input[type="button"] {
 
 .grouplistTitle .grouplistTitle_wrap .h2 {
   font-size: 30px;
+  line-height: 30px;
 }
 
 .grouplistTitle .grouplistTitle_wrap .cursor {
@@ -11303,6 +11317,10 @@ input[type="button"] {
   margin: auto;
 }
 
+.groupform .groupform_wrap .uploadCover .header .btn {
+  cursor: pointer;
+}
+
 .groupform .groupform_wrap .uploadCover .dropZone {
   position: relative;
   width: 90%;
@@ -11333,14 +11351,6 @@ input[type="button"] {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-}
-
-.groupform .uploadBtn {
-  cursor: pointer;
-  background-color: #007183;
-  color: #fff;
-  border-radius: 10px;
-  padding: 5px;
 }
 
 .groupform .groupform_wrap .fieldSection {
@@ -11393,6 +11403,10 @@ input[type="button"] {
   color: #fff;
 }
 
+.groupform_peopleNum input[type=text] {
+  text-align: center;
+}
+
 .btnSection {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11403,13 +11417,8 @@ input[type="button"] {
   padding-bottom: 30px;
 }
 
-.btnSection .cancel, .btnSection .publish {
-  width: 70px;
-  border-radius: 100px;
-  margin: 0px 15px;
-  background-color: #007183;
-  cursor: pointer;
-  color: #fff;
+.btnSection .btn {
+  margin: 0px 10px;
 }
 
 @media screen and (min-width: 768px) {

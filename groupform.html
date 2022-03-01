@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/main.css">
     <script src="./js/jquery.js"></script>
     <script src='./js/vue.js'></script>
+    <link rel="shortcut icon" href="images/logo/logo_84x50.png" type="image/png">
 </head>
 
 <body class="groupform_body">
@@ -24,13 +25,14 @@
                 <ul class="mainNav">
                     <a href="tour.html"><li>行程規劃</li></a>
                     <a href="group.html"><li>揪團旅行</li></a>
-                    <a href="shop.html"><li>商城</li></a>
+                    <a href="shop.html"><li>景點門票</li></a>
+                    <a href="postcard.html"><li>客製明信片</li></a>
                 </ul>
                 <ul class="navMember">
                     <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
                     <li>
                         <i class="bi bi-person-circle" id="loginBoxBtn"><span>登入/註冊</span></i>
-                        <!-- 登入後,會員按鈕的下拉選單,目前設定display:none-->
+                        <!-- 登入後的會員選單-->
                         <ul class="navDropdownMenu">
                             <li class="navDropdownMenuItem navMemProfile">
                                 <div class="navDropdownMenuPhoto">
@@ -49,18 +51,18 @@
                     </li>
                     <li>
                         <div class="burger-toggle">
-                        <span class="burger-line"></span>
+                            <i class="bi bi-list"></i>
                         </div>
                     </li>
                 </ul>
             </section>          
         </nav>
-        <!-- 漢堡選單 -->
+        <!-- 漢堡 -->
         <div class="navPage">
             <button class="navPage--close">
                 <span class="close_line"></span>
                 <span class="close_line"></span>
-            </button>
+              </button>
             <div class="navPage_wrap">
             <!--     <div class="navPage_header"></div> -->
                 <div class="navPage_content">
@@ -68,20 +70,9 @@
                     <div class="navPage_box">
                         <nav class="navPage_nav">
                             <ul class="navPage_list">
-                                <li class="navPage_item is_active">
-                                    <div class="navPage_header">
-                                    <span class="navPage_header--num">01</span>
-                                    <span class="navPage_header--line"></span>
-                                    </div>
-                                    <div class="navPage_text">
-                                    <span class="navPage_text--en">Home</span>
-                                    <span class="navPage_text--ch">首頁</span>
-                                    </div>
-                                    <a href="home.html" class="navPage_link"></a>
-                                </li>
                                 <li class="navPage_item">
                                     <div class="navPage_header">
-                                    <span class="navPage_header--num">02</span>
+                                    <span class="navPage_header--num">01</span>
                                     <span class="navPage_header--line"></span>
                                     </div>
                                     <div class="navPage_text">
@@ -92,14 +83,25 @@
                                 </li>
                                 <li class="navPage_item">
                                     <div class="navPage_header">
-                                    <span class="navPage_header--num">03</span>
+                                    <span class="navPage_header--num">02</span>
                                     <span class="navPage_header--line"></span>
                                     </div>
                                     <div class="navPage_text">
                                     <span class="navPage_text--en">All together</span>
-                                    <span class="navPage_text--ch">揪團去</span>
+                                    <span class="navPage_text--ch">揪團旅行</span>
                                     </div>
                                     <a href="group.html" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                    <span class="navPage_header--num">03</span>
+                                    <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                    <span class="navPage_text--en">Shop</span>
+                                    <span class="navPage_text--ch">景點門票</span>
+                                    </div>
+                                    <a href="shop.html" class="navPage_link"></a>
                                 </li>
                                 <li class="navPage_item">
                                     <div class="navPage_header">
@@ -107,35 +109,14 @@
                                     <span class="navPage_header--line"></span>
                                     </div>
                                     <div class="navPage_text">
-                                    <span class="navPage_text--en">Shop</span>
-                                    <span class="navPage_text--ch">商城</span>
+                                    <span class="navPage_text--en">Postcard</span>
+                                    <span class="navPage_text--ch">客製明信片</span>
                                     </div>
-                                    <a href="shop.html" class="navPage_link"></a>
-                                </li>
-                                <li class="navPage_item">
-                                    <div class="navPage_header">
-                                        <span class="navPage_header--num">05</span>
-                                        <span class="navPage_header--line"></span>
-                                    </div>
-                                    <div class="navPage_text">
-                                        <span class="navPage_text--en">Cart</span>
-                                        <span class="navPage_text--ch">購物車</span>
-                                    </div>
-                                    <a href="shopcart.html" class="navPage_link"></a>
-                                </li>
-                                <li class="navPage_item">
-                                    <div class="navPage_header">
-                                        <span class="navPage_header--num">06</span>
-                                        <span class="navPage_header--line"></span>
-                                    </div>
-                                    <div class="navPage_text">
-                                        <span class="navPage_text--en">Member</span>
-                                        <span class="navPage_text--ch">會員</span>
-                                    </div>
-                                    <a href="mem.html" class="navPage_link"></a>
+                                    <a href="postcard.html" class="navPage_link"></a>
                                 </li>
                             </ul>
                         </nav>
+    
                     </div>
                 </div>  
             </div>
@@ -147,11 +128,10 @@
                 <div class="title">封面圖片</div>
                 <div class="uploadCover">
                     <div class="header">
-                        <label class="uploadBtn">
+                        <label class="btn btn--main">
                             <input id="uploadBtn" style="display:none;" type="file">
                             <i class="bi bi-image">上傳圖片</i>
                         </label>
-                        <!-- <input type="file" id="uploadBtn"> -->
                     </div>
                     <div class="dropZone" id="dropZone">
                         <div class="dropZone_title">限制大小最多2MB</div>
@@ -198,8 +178,8 @@
                     </select>
                 </div>
                 <div class="fieldSection btnSection">
-                    <button class="cancel">取消</button>
-                    <button class="publish">公開揪團</button>
+                    <button class="btn btn--main">取消</button>
+                    <button class="btn btn--main" id="publish">公開揪團</button>
                 </div>
             </div>
         </section>
@@ -299,18 +279,20 @@
             readFile.addEventListener('load', function () {
                 let coverImg = document.getElementById('coverImg');
                 let dropZone_title = document.querySelector('.dropZone_title');
-                // if(file[0].size > 20 * 1024){
-                //     coverImg.innerText = '上傳失敗，請上傳2MB以內的照片';
-                //     return;
-                // }else{
+                if(fileSize > 2 * 1024 * 1024){
+                    dropZone_title.innerText = '上傳失敗，請上傳2MB以內的照片';
+                    console.log("HI");
+                    return;
+                }else{
                 coverImg.src = readFile.result;
                 dropZone_title.style.display="none";
-                // }
+                }
 
             })
         }
         window.addEventListener('load', init);
     </script>
+
     <!-- disable past dates -->
     <script>
         let today = new Date().toISOString().split('T')[0];
@@ -322,7 +304,7 @@
     </script>
     <!-- VUE出數量加減 -->
     <script>
-        new Vue({
+        let vm = new Vue({
             el: '#groupform_wrap',
             data: {
                 total: 0,
@@ -343,8 +325,14 @@
             },
         });
     </script>
+
+    
+
     <script src="js/forlogin.js"></script>
     <script src="../js/burger.js"></script>
+
+
+
 </body>
 
 </html>
