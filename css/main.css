@@ -8131,7 +8131,7 @@ body {
 
 .timeline_tab--active {
   background-color: #007183;
-  color: #FEBC9F;
+  color: #fff;
 }
 
 .timeline_list {
@@ -8144,7 +8144,7 @@ body {
   content: '';
   width: 2px;
   height: 100%;
-  background-color: #FEBC9F;
+  background-color: #81d8d1;
   position: absolute;
   z-index: -1;
   left: -1px;
@@ -8208,7 +8208,7 @@ body {
 
 .timeline_num {
   font-size: 14px;
-  color: #FEBC9F;
+  color: #fff;
   position: relative;
   z-index: 2;
   width: 20px;
@@ -8235,7 +8235,7 @@ body {
   content: '';
   width: 25px;
   height: 2px;
-  background-color: #FEBC9F;
+  background-color: #81d8d1;
   position: absolute;
   top: 50%;
   left: -25px;
