@@ -1,62 +1,72 @@
-.shoppayinfo{
-    margin-top: 80px;
+.shoppay_bg{
+    width: 100%;
+    height: 100%;
+    background-image: url(/images/shop/shoppay_bg.JPG);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 10px;
+    
 }
+
+
 
 .personal_info,.shoppaycredit,.detail{
     width: 80%;
-    border: 1px solid black;
+    border: 1px solid #aaa;
     border-radius: 10px;
     margin: 20px auto;
-    padding: 20px;
-}
-
-.personal_info .name{
-    margin-bottom: 0;
-}
-
-.personal_info .contact{
-    margin-top: 0;
-}
-
-.personal_info .name>*{
-    /* display: block; */
-    margin: 10px;
+    background-color: #f5f5f5;
    
 }
 
-.personal_info .contact>*{
-    /* display: block; */
-    margin: 10px;
+.personal_info{
+    margin-top: 80px;
 }
 
 .personal_info>*{
     margin: 20px;
+
 }
 
-.personal_info input{
-    /* margin-left: 10px; */
+.personal_info .name{
+    margin-bottom: 10px;
+
 }
 
 .personal_info .name>*{
+    margin: 10px;
     margin-right: 2rem;
+   
+}
+
+.personal_info .contact{
+    margin-top: 0;
+
 }
 
 .personal_info .contact>*{
+    margin: 10px;
     margin-right: 2rem;
+
 }
 
-.shoppaycredit_info>*{
-    /* display: block; */
-    margin: 10px;
-}
+
 
 .shoppaycredit>*{
     margin: 20px;
+
 }
 
-.shoppaycredit_info input{
-    /* margin-left: 10px; */
+.shoppaycredit_info>*{
+    margin: 10px;
+
 }
+
+
+// .shoppaydetail h2{
+//     padding: 15px;
+// }
 
 .shoplist{
     margin: 10px;
@@ -80,6 +90,7 @@
 .shoplist h3{
     margin-top: 10px;
     font-size: $third-title;
+
 }
 
 .shoplist .text p{
@@ -87,36 +98,33 @@
     
 }
 
+.shoplist .sub{
+    margin: 0 10px;
+    display: block;
+    text-align: right;
+
+}
+
+.shoplist_total{
+    margin: 15px;
+    text-align: right;
+
+}
+
+.shoplist_total p{
+    margin: 10px;
+    color: rgb(139, 139, 139);
+
+}
 
 .shoplist .deadline{
     margin-left: 5px;
     
 }
 
-.shoplist .sub{
-    margin: 0 10px;
-    display: block;
-    text-align: right;
-}
-
-.shoplist_total{
-    margin: 15px;
-    text-align: right;
-}
-
-.shoplist_total p{
-    margin: 10px;
-    color: rgb(139, 139, 139);
-}
-
 .shoplist_total .shoptotal{
     color: #007183;
-}
 
-.shopcart .shopbtn{
-    margin: auto;
-    width: 80%;
-    text-align: right;
 }
 
 .shoppayconfirm{
@@ -126,6 +134,7 @@
 
 .shoppayconfirm .confirm{
     margin-bottom: 50px;
+    cursor: pointer;
     
 }
 
@@ -134,29 +143,30 @@
 @media screen and (min-width:768px){
     .personal_info,.shoppaycredit,.detail{
         width: 60%;
+
     }
 
     .personal_info .name{
         display: flex;
         flex-wrap: wrap;
+
     }
     .personal_info .name>*{
         width: 40%;
         margin: 5px 10px;
+
     }
 
     .personal_info .contact{
         display: flex;
         flex-wrap: wrap;
+
     }
     
     .personal_info .contact>*{
         width: 40%;
         margin: 5px 10px;
-    }
-    
-    .shoppaycredit_info>*{
-        margin: 5px 10px;
+
     }
 
     .shoppaycredit_info{
@@ -165,33 +175,39 @@
         
     }
 
-    .shoplist .proimg{
+    .shoppaycredit_info>*{
+        margin: 5px 10px;
+
+    }
+
+    
+
+    .shoplist .pro_img{
         width: 20%;
+
     }
 
     .shoplist img{
         width: 80%;
         height: auto;
-        /* overflow: hidden; */
         margin: 10px;
         
     }
     
     .shoplist_text{
         width: 90%;
-        
-        
+         
+    }
+
+    .shoplist_text>*{
+        margin: auto;
+
     }
 
     .shoplist_text .content_wrap{
         display: flex;
         justify-content: space-between;
-        margin-left: 0;
        
-    }
-
-    .shoplist_text>*{
-        margin: auto;
     }
 
     .shoplist .content{

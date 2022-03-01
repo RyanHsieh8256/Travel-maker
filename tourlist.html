@@ -56,12 +56,23 @@
                     <p class="tourForm_theDate">2022.2.22</p>
                     </div>
                 </div>
-                <div class="popup_inner">
-                    
+                <div class="popup_inner popup_date">
+                    <div class="tourform_group">
+                        <label for="start-date" class="tourform_label">出發日</label>
+                        <input type="date" name="start-date" id="start-date">
+                    </div>
+                    <div class="tourform_group">
+                        <label for="end-date" class="tourform_label">返回日</label>
+                        <input type="date" name="end-date" id="end-date">
+                    </div>
                 </div>
                 <div class="popup_btnBox">
                     <button class="btn btn--cancel">略過</button>
-                    <button class="btn btn--main">確定</button> 
+                    <button class="btn btn--main">
+                        <a href="tourbuild.html" class="popup_link">
+                            確定
+                        </a>
+                    </button> 
                 </div>
             </div>
             </div> 
@@ -89,6 +100,17 @@
         }
 
         slidePage();
+
+        function popupSwitch() {
+            let closeBtn = document.querySelector('.popup_close');
+            let popup = document.querySelector('.popup');
+
+            closeBtn.addEventListener('click',() => {
+                popup.style.display = 'none';
+            })
+        }
+        popupSwitch();
+
     </script>
 </body>
 </html>
