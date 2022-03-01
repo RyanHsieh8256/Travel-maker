@@ -53,7 +53,7 @@ top: 66.6%;
     display: flex;
     margin: auto;
     width: 100%;
-    padding: 5% 1%;
+    padding: 5% 2%;
     
     @media screen and (min-width: 1200px) {
         height: 100%;
@@ -337,6 +337,10 @@ top: 66.6%;
         }
     }
 
+    &_row {
+        align-items: center;
+    }
+
     &_order {
 
         @media screen and (max-width: 768px) {
@@ -354,7 +358,7 @@ top: 66.6%;
 
     &_point {
         position: relative;
-        height: 45vh;
+        height: 40vh;
     
     
         &::before {

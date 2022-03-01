@@ -8504,7 +8504,7 @@ body {
   display: flex;
   margin: auto;
   width: 100%;
-  padding: 5% 1%;
+  padding: 5% 2%;
 }
 
 @media screen and (min-width: 1200px) {
@@ -8805,6 +8805,12 @@ body {
   }
 }
 
+.homeTour_row {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 @media screen and (max-width: 768px) {
   .homeTour_order {
     -webkit-box-ordinal-group: 2;
@@ -8824,7 +8830,7 @@ body {
 
 .homeTour_point {
   position: relative;
-  height: 45vh;
+  height: 40vh;
 }
 
 .homeTour_point::before {
