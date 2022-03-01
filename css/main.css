@@ -8481,7 +8481,7 @@ body {
   height: 100%;
   left: 0%;
   z-index: 3000;
-  background-color: #007183;
+  background-color: #81d8d1;
 }
 
 .first {
@@ -8603,7 +8603,6 @@ body {
 
 .iconNav-item .bi {
   font-size: 23px;
-  color: #007183;
 }
 
 .iconNav-link {
@@ -8617,41 +8616,8 @@ body {
   }
 }
 
-.burger-toggle {
-  position: relative;
-  background-color: #007183;
-  border-radius: 50%;
-  padding-bottom: 100%;
-  width: 40px;
-}
-
-.burger-toggle::before {
-  content: '';
-  position: absolute;
-  top: 30%;
-  right: 5px;
-  width: 30%;
-  height: 2px;
-  background-color: #FFC3A5;
-}
-
-.burger-toggle::after {
-  content: '';
-  position: absolute;
-  top: 70%;
-  right: 5px;
-  width: 75%;
-  height: 2px;
-  background-color: #FFC3A5;
-}
-
-.burger-line {
-  position: absolute;
-  top: 50%;
-  right: 5px;
-  width: 45%;
-  height: 2px;
-  background-color: #FFC3A5;
+.burger-toggle .bi {
+  font-size: 30px;
 }
 
 /* image Map */
