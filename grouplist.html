@@ -20,25 +20,133 @@
 <body>
     <!-- 揪團清單大標題 -->
     <header>
+        <!-- nav -->
         <nav class="nav_Wrap">
             <section class="navBlock">
-                <a href="">
+                <a href="home.html">
                     <h1 class="navLogo">
                         <img src="images/logo/logo_84x50.png" alt="TravelMaker">
                     </h1>
                 </a>
                 <ul class="mainNav">
-                    <a href=""><li>行程規劃</li></a>
-                    <a href=""><li>揪團旅行</li></a>
-                    <a href=""><li>商城</li></a>
+                    <a href="tour.html"><li>行程規劃</li></a>
+                    <a href="group.html"><li>揪團旅行</li></a>
+                    <a href="shop.html"><li>商城</li></a>
                 </ul>
                 <ul class="navMember">
-                    <a href=""><li><i class="bi bi-minecart-loaded"></i></li></a>
-                    <a><li><i class="bi bi-person-circle"></i></li></a>
-                    <a href=""><li><i class="bi bi-list"></i></li></a>
+                    <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
+                    <li>
+                        <i class="bi bi-person-circle" id="loginBoxBtn"><span>登入/註冊</span></i>
+                        <!-- 登入後,會員按鈕的下拉選單,目前設定display:none-->
+                        <ul class="navDropdownMenu">
+                            <li class="navDropdownMenuItem navMemProfile">
+                                <div class="navDropdownMenuPhoto">
+                                    <img src="https://picsum.photos/200/200/?random=10">
+                                </div>
+                                <div class="navDropdownMenuTitle">
+                                    <span>張小明</span>
+                                </div>
+                            </li>
+                            <li class="navDropdownMenuItem"><i class="bi bi-gear"></i> 帳號設定</li>
+                            <li class="navDropdownMenuItem"><i class="bi bi-calendar2"></i> 我的行程</li>
+                            <li class="navDropdownMenuItem"><i class="bi bi-bookmark-heart"></i> 我的收藏</li>
+                            <li class="navDropdownMenuItem"><i class="bi bi-file-person"></i> 我的揪團</li>
+                            <li class="navDropdownMenuItem"><i class="bi bi-bag"></i> 我的訂單</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="burger-toggle">
+                        <span class="burger-line"></span>
+                        </div>
+                    </li>
                 </ul>
             </section>          
         </nav>
+        <!-- 漢堡選單 -->
+        <div class="navPage">
+            <button class="navPage--close">
+                <span class="close_line"></span>
+                <span class="close_line"></span>
+            </button>
+            <div class="navPage_wrap">
+            <!--     <div class="navPage_header"></div> -->
+                <div class="navPage_content">
+            <!--       <div class="navPage_logo"></div> -->
+                    <div class="navPage_box">
+                        <nav class="navPage_nav">
+                            <ul class="navPage_list">
+                                <li class="navPage_item is_active">
+                                    <div class="navPage_header">
+                                    <span class="navPage_header--num">01</span>
+                                    <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                    <span class="navPage_text--en">Home</span>
+                                    <span class="navPage_text--ch">首頁</span>
+                                    </div>
+                                    <a href="home.html" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                    <span class="navPage_header--num">02</span>
+                                    <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                    <span class="navPage_text--en">Plan journey</span>
+                                    <span class="navPage_text--ch">行程規劃</span>
+                                    </div>
+                                    <a href="tour.html" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                    <span class="navPage_header--num">03</span>
+                                    <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                    <span class="navPage_text--en">All together</span>
+                                    <span class="navPage_text--ch">揪團去</span>
+                                    </div>
+                                    <a href="group.html" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                    <span class="navPage_header--num">04</span>
+                                    <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                    <span class="navPage_text--en">Shop</span>
+                                    <span class="navPage_text--ch">商城</span>
+                                    </div>
+                                    <a href="shop.html" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                        <span class="navPage_header--num">05</span>
+                                        <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                        <span class="navPage_text--en">Cart</span>
+                                        <span class="navPage_text--ch">購物車</span>
+                                    </div>
+                                    <a href="shopcart.html" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                        <span class="navPage_header--num">06</span>
+                                        <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                        <span class="navPage_text--en">Member</span>
+                                        <span class="navPage_text--ch">會員</span>
+                                    </div>
+                                    <a href="mem.html" class="navPage_link"></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>  
+            </div>
+        </div>
         <section class="l-full grouplistTitle">
             <div class="l-medium grouplistTitle_wrap">
                 <span class="h2"></span>
@@ -237,16 +345,17 @@
 
     <!-- animation -->
     <script>
-        const words = ["選擇行程", "以建立揪團......"];
+        const words = ["選擇行程以建立揪團......"];
         let cursor = gsap.to('.cursor', {opacity: 0, ease: "power2.inOut", repeat: -1})
 
         let masterTl = gsap.timeline({repeat: -1})
         words.forEach(word => {
             let tl = gsap.timeline({repeat: 1, yoyo: true, repeatDelay: 1})
-            tl.to('.h2', {duration: 1, text: word})
+            tl.to('.h2', {duration: 3, text: word})
             masterTl.add(tl)
         });
     </script>
+    <script src="../js/burger.js"></script>
 </body>
 
 </html>
