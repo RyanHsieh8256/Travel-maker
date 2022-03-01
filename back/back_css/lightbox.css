@@ -55,7 +55,7 @@ main .recent-orders .search-btn button:hover{
     z-index: 4;
     top: -12px;
     right: -10px;
-    background-color: #aaa;
+    background-color: #007183;
     border-radius: 50%;
     cursor: pointer;
     width: 2rem;
@@ -79,7 +79,7 @@ main .recent-orders .search-btn button:hover{
 
     border-radius: 10px;
 
-    background: #ccc;
+    background: #f0eee7;
     position: absolute;
     top:50%;
     left: 50%;
@@ -119,6 +119,8 @@ main .recent-orders .search-btn button:hover{
 }
 
 .btn-area button{
+    color: #fff;
+    background: #007183;
     border-radius: 10px;
     margin-right: 5px;
     display: inline-block;
