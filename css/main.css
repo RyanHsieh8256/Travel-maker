@@ -10938,6 +10938,19 @@ input[type="button"] {
   border-radius: 10px;
 }
 
+.groupCard {
+  position: relative;
+}
+
+.groupCard .link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
 /* only for width above 768px */
 @media screen and (min-width: 768px) {
   /* 圓圓的篩選器消失 */
@@ -11029,44 +11042,57 @@ input[type="button"] {
 }
 
 /* ---團的旅程資訊和留言區--- */
-.groupdetailInfo .groupdetailInfo_wrap .title {
-  text-align: center;
-}
-
-.groupdetailInfo .groupdetailInfo_wrap .tourInfo {
-  border: 1px solid darkcyan;
-}
-
-.groupdetailInfo .groupdetailInfo_wrap .tourInfo .timeline {
-  width: 100%;
-}
-
-.groupdetailInfo .groupdetailInfo_wrap .message {
+.groupdetailInfo .groupdetailInfo_wrap .messageScrollbar {
+  /* 捲軸寬度設定 */
   /* 捲軸把手顏色 */
   /* 捲軸背景顏色 */
 }
 
-.groupdetailInfo .groupdetailInfo_wrap .message::-webkit-scrollbar-thumb {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#007183), color-stop(99%, #ffc3a5));
-  background-image: linear-gradient(180deg, #007183 0%, #ffc3a5 99%);
+.groupdetailInfo .groupdetailInfo_wrap .messageScrollbar ::-webkit-scrollbar {
+  width: 5px;
+  height: 2px;
+}
+
+.groupdetailInfo .groupdetailInfo_wrap .messageScrollbar ::-webkit-scrollbar-thumb {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#007183), color-stop(99%, #fff));
+  background-image: linear-gradient(180deg, #007183 0%, #fff 99%);
   -webkit-box-shadow: inset 2px 2px 5px 0 rgba(255, 255, 255, 0.5);
           box-shadow: inset 2px 2px 5px 0 rgba(255, 255, 255, 0.5);
   border-radius: 100px;
 }
 
-.groupdetailInfo .groupdetailInfo_wrap .message::-webkit-scrollbar-track {
-  background: #FFFFFF;
+.groupdetailInfo .groupdetailInfo_wrap .messageScrollbar ::-webkit-scrollbar-track {
+  background: #E2E1E0;
+}
+
+.groupdetailInfo .groupdetailInfo_wrap .title {
+  text-align: center;
+  font-weight: 900;
+  font-size: 30px;
+}
+
+.groupdetailInfo .groupdetailInfo_wrap .tourInfo .timeline {
+  width: 100%;
+  margin-top: 0px;
+  padding: 0px 20px 0px 20px;
+}
+
+.groupdetailInfo .groupdetailInfo_wrap .second-title {
+  margin: 30px 0;
 }
 
 .groupdetailInfo .groupdetailInfo_wrap .message {
   height: 500px;
   overflow-y: scroll;
   position: relative;
+  background: #fff;
+  border-radius: 10px;
 }
 
 .groupdetailInfo .groupdetailInfo_wrap .message .message_wrap {
-  background-color: #DBD3D1;
-  margin-bottom: 30px;
+  background-color: #fff;
+  padding: 10px 10px;
+  border-bottom: 1px solid #aaa;
 }
 
 .groupdetailInfo .groupdetailInfo_wrap .message .message_wrap .header {
@@ -11089,7 +11115,6 @@ input[type="button"] {
 }
 
 .groupdetailInfo .groupdetailInfo_wrap .message .leaveMessage {
-  background-color: #ffc3a5;
   position: -webkit-sticky;
   position: sticky;
   bottom: 0;
@@ -11099,30 +11124,33 @@ input[type="button"] {
 }
 
 .groupdetailInfo .groupdetailInfo_wrap .message .leaveMessage #inputBox {
-  background-color: #007183;
-  color: #FFFFFF;
+  background-color: #ddd;
+  color: black;
   width: 100%;
   resize: none;
   border: none;
+  border-radius: 10px 0px 0px 10px;
 }
 
 .groupdetailInfo .groupdetailInfo_wrap .message .leaveMessage #leaveMessageBtn {
   border: none;
   cursor: pointer;
+  background: #007183;
+  color: #fff;
 }
 
 /* ---參團懸浮按紐--- */
 .joinBtn {
   border: none;
-  width: 40px;
-  height: 40px;
+  width: 55px;
+  height: 55px;
   text-align: center;
   border-radius: 50%;
   position: fixed;
   top: 50%;
   right: 1%;
   cursor: pointer;
-  background-color: deepskyblue;
+  background-color: #ff7e29;
   color: #ffffff;
   display: none;
 }
@@ -11160,6 +11188,7 @@ input[type="button"] {
 
 .grouplistTitle .grouplistTitle_wrap .h2 {
   font-size: 30px;
+  line-height: 30px;
 }
 
 .grouplistTitle .grouplistTitle_wrap .cursor {
@@ -11250,8 +11279,6 @@ input[type="button"] {
   background: url(../../images/groupform/groupform_BG.jpg) no-repeat;
   background-size: cover;
   height: 100%;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
 }
 
 .groupform {
@@ -11290,6 +11317,10 @@ input[type="button"] {
   margin: auto;
 }
 
+.groupform .groupform_wrap .uploadCover .header .btn {
+  cursor: pointer;
+}
+
 .groupform .groupform_wrap .uploadCover .dropZone {
   position: relative;
   width: 90%;
@@ -11320,14 +11351,6 @@ input[type="button"] {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-}
-
-.groupform .uploadBtn {
-  cursor: pointer;
-  background-color: #007183;
-  color: #fff;
-  border-radius: 10px;
-  padding: 5px;
 }
 
 .groupform .groupform_wrap .fieldSection {
@@ -11380,6 +11403,10 @@ input[type="button"] {
   color: #fff;
 }
 
+.groupform_peopleNum input[type=text] {
+  text-align: center;
+}
+
 .btnSection {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11390,13 +11417,8 @@ input[type="button"] {
   padding-bottom: 30px;
 }
 
-.btnSection .cancel, .btnSection .publish {
-  width: 70px;
-  border-radius: 100px;
-  margin: 0px 15px;
-  background-color: #007183;
-  cursor: pointer;
-  color: #fff;
+.btnSection .btn {
+  margin: 0px 10px;
 }
 
 @media screen and (min-width: 768px) {

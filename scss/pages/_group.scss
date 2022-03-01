@@ -148,6 +148,18 @@
 
     }
 }
+//針對卡片的連結處理
+.groupCard {
+    position: relative;
+    .link{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+}
 /* only for width above 768px */
 @media screen and (min-width: 768px) {
     /* 圓圓的篩選器消失 */

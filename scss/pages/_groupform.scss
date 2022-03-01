@@ -3,7 +3,6 @@
     background: url(../../images/groupform/groupform_BG.jpg) no-repeat;
     background-size: cover;
     height:100%;
-    backdrop-filter: blur(5px);
 }
 // 上傳封面區
 .groupform{
@@ -29,6 +28,9 @@
     padding: 15px 0;
     .header{
         margin: auto;
+        .btn{
+            cursor: pointer;
+        }
     }
     .dropZone{
         position: relative;
@@ -58,14 +60,6 @@
             transform: translateX(-50%);
         }
     }
-}
-//input修改樣式
-.groupform .uploadBtn{
-    cursor: pointer;
-    background-color: #007183;
-    color: #fff;
-    border-radius: 10px;
-    padding: 5px;
 }
 
 //開始填表單區
@@ -102,25 +96,26 @@
     transform: translateY(-40%);
 }
 //人數加減按鈕
-.groupform_peopleNum .numBtn{
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #007183;
-    color: #fff;
+.groupform_peopleNum{
+    .numBtn{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #007183;
+        color: #fff;
+    }
+    input[type=text]{
+        text-align: center;
+    }
+
 }
 //針對送出區的按鈕
 .btnSection{
     display: flex;
     justify-content: center;
     padding-bottom: 30px;
-    .cancel, .publish{
-        width: 70px;
-        border-radius: 100px;
-        margin: 0px 15px;
-        background-color: #007183;
-        cursor: pointer;
-        color: #fff;
+    .btn{
+        margin: 0px 10px;
     }
 }
 
