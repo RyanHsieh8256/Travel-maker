@@ -8048,7 +8048,7 @@ body {
 }
 
 .btn--cart {
-  background-color: #fff;
+  background-color: #007183;
   color: #5C5041;
   border: 1px solid #aaa;
 }
@@ -8056,7 +8056,7 @@ body {
 .btn--main {
   background-color: #007183;
   font-size: 20px;
-  color: #FEBC9F;
+  color: #fff;
 }
 
 .btn--cancel {
