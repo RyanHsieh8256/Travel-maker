@@ -15,7 +15,12 @@
 
 .shopcart h2{
     margin: 15px;
-    font-size:$second-title ;
+    font-family: 'Caveat',serif;
+    font-weight: 600;
+    padding: 10px;
+    font-size: 30px;
+    line-height: 1.5;
+    color: #007183;
     
 }
 
@@ -35,14 +40,10 @@
     
 }
 
-.shoplist .text p{
-    margin: 10px auto;
-    
-}
-
-.shoplist h3{
-    font-size: $third-title;
-    margin-top: 10px;
+.shoplist_text h3{
+    font-family: 'Caveat',serif;
+    font-weight: 600;
+    font-size: 18px;
     
 }
 
