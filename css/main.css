@@ -62,12 +62,14 @@ table {
 a {
   text-decoration: none;
   display: inline-block;
+  cursor: pointer;
 }
 
 button {
   border: none;
   background-color: transparent;
   font-family: serif;
+  cursor: pointer;
 }
 
 img {
@@ -8047,7 +8049,11 @@ body {
 
 .btn--cart {
   background-color: #007183;
+<<<<<<< HEAD
   color: #fff;
+=======
+  color: #5C5041;
+>>>>>>> dev
   border: 1px solid #aaa;
 }
 
@@ -8481,7 +8487,7 @@ body {
   height: 100%;
   left: 0%;
   z-index: 3000;
-  background-color: #007183;
+  background-color: #81d8d1;
 }
 
 .first {
@@ -8603,7 +8609,6 @@ body {
 
 .iconNav-item .bi {
   font-size: 23px;
-  color: #007183;
 }
 
 .iconNav-link {
@@ -8618,40 +8623,11 @@ body {
 }
 
 .burger-toggle {
-  position: relative;
-  background-color: #007183;
-  border-radius: 50%;
-  padding-bottom: 100%;
-  width: 40px;
+  cursor: pointer;
 }
 
-.burger-toggle::before {
-  content: '';
-  position: absolute;
-  top: 30%;
-  right: 5px;
-  width: 30%;
-  height: 2px;
-  background-color: #FFC3A5;
-}
-
-.burger-toggle::after {
-  content: '';
-  position: absolute;
-  top: 70%;
-  right: 5px;
-  width: 75%;
-  height: 2px;
-  background-color: #FFC3A5;
-}
-
-.burger-line {
-  position: absolute;
-  top: 50%;
-  right: 5px;
-  width: 45%;
-  height: 2px;
-  background-color: #FFC3A5;
+.burger-toggle .bi {
+  font-size: 30px;
 }
 
 /* image Map */
@@ -8754,6 +8730,15 @@ body {
 .home_logo {
   width: 5%;
   min-width: 50px;
+  position: relative;
+}
+
+.home_logo--link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .home_flex {
@@ -9507,7 +9492,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 
 .memberAccountWarp .memberAccountSetting li {
   color: #fff;
-  background-color: #ff7e29;
+  background-color: #007183;
   padding: 10px 30px;
   cursor: pointer;
   border-radius: 10px;
@@ -9583,7 +9568,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   padding: 10px 20px;
   border-radius: 50px;
   border: none;
-  background-color: #ff7e29;
+  background-color: #007183;
   color: #fff;
 }
 
@@ -9671,7 +9656,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 }
 
 .horizontalcard .horizontalcard_footer a {
-  color: #ff7e29;
+  color: #007183;
 }
 
 @media screen and (min-width: 768px) {
@@ -9724,7 +9709,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   margin: 20px auto 0 auto;
   padding: 5px 0;
   border-radius: 10px;
-  background-color: #ff7e29;
+  background-color: #007183;
   color: #fff;
   text-align: center;
 }
@@ -11037,8 +11022,11 @@ input[type="button"] {
 }
 
 .groupdetailInfo .groupdetailInfo_wrap .tourInfo {
-  height: 500px;
   border: 1px solid darkcyan;
+}
+
+.groupdetailInfo .groupdetailInfo_wrap .tourInfo .timeline {
+  width: 100%;
 }
 
 .groupdetailInfo .groupdetailInfo_wrap .message {
@@ -11148,10 +11136,25 @@ input[type="button"] {
 }
 
 /*揪團清單大標題*/
-.grouplistTitle .grouplistTitle_wrap h2 {
+.grouplistTitle .grouplistTitle_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding-top: 100px;
-  text-align: center;
+}
+
+.grouplistTitle .grouplistTitle_wrap .h2 {
   font-size: 30px;
+}
+
+.grouplistTitle .grouplistTitle_wrap .cursor {
+  margin-top: 30px;
+  width: 20px;
+  height: 5px;
+  background: coral;
 }
 
 .subtitle_wrap {
@@ -11235,10 +11238,14 @@ input[type="button"] {
   background: url(../../images/groupform/groupform_BG.jpg) no-repeat;
   background-size: cover;
   height: 100%;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
 }
 
 .groupform {
   padding-top: 100px;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
 }
 
 .groupform .groupform_wrap {
