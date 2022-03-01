@@ -10572,8 +10572,9 @@ input[type="button"] {
 .tourBuild_news {
   width: 100%;
   padding: 20px;
-  background-color: #E3DCD4;
+  background-color: #83D8D1aa;
   text-align: center;
+  border-radius: 10px;
 }
 
 .btn {
