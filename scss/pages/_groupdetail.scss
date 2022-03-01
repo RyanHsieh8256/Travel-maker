@@ -66,8 +66,10 @@
     }
 
     .tourInfo {
-        height: 500px;
         border: 1px solid darkcyan;
+        .timeline{
+            width: 100%;
+        }
     }
 }
 .groupdetailInfo .groupdetailInfo_wrap .message {
