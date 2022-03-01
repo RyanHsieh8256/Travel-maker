@@ -10274,8 +10274,9 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
           transform: translateY(-50%);
   width: 16px;
   height: 16px;
-  background-color: #E3DCD4;
+  background-color: #83D8D1aa;
   border-radius: 50%;
+  line-height: 16px;
 }
 
 .tourForm_calendar {
