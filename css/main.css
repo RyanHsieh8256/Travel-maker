@@ -155,6 +155,7 @@ body {
 .p-text {
   font-weight: 600;
   color: #463828;
+  font-size: 16px;
 }
 
 .t-center {
@@ -8055,7 +8056,7 @@ body {
 
 .btn--main {
   background-color: #007183;
-  font-size: 20px;
+  font-size: 16px;
   color: #fff;
 }
 
@@ -9743,7 +9744,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   font-family: 'Caveat',serif;
   width: 100%;
   max-width: 1920px;
-  background-color: #f5f5f5;
+  background-color: #F0EEE7;
   padding: 10% 0;
 }
 
@@ -9914,7 +9915,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: #F0EEE7;
+  background-color: #f5f5f5;
   border-radius: 20px;
   overflow: hidden;
 }
@@ -10157,6 +10158,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   height: 30px;
   background-color: #007183;
   border-radius: 50%;
+  z-index: 2;
 }
 
 .popup_header {
@@ -10463,6 +10465,10 @@ input[type="button"] {
   display: block;
 }
 
+.tourBuild_box::-webkit-scrollbar {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .tourBuild_box {
     border-radius: 0;
@@ -10654,6 +10660,10 @@ input[type="button"] {
   -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
           box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
   overflow-y: auto;
+  display: none;
+}
+
+.tourSpot::-webkit-scrollbar {
   display: none;
 }
 

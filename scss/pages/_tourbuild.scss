@@ -53,6 +53,10 @@
     overflow-x: hidden;
     display: block;
 
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
     @media screen and (max-width: 768px) {
       border-radius: 0;
       max-width: none;
@@ -233,6 +237,10 @@
     box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
     overflow-y: auto;
     display: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
    
     &_wrap {
       position: relative;

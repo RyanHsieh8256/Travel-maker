@@ -40,7 +40,6 @@
        color: $FooterSubColor;
        font-weight: 600;
        
-      
       &.none {
         animation: 1s displayNone ease-out;
          animation-fill-mode: both;
@@ -55,6 +54,7 @@
       height: 30px;
       background-color: $FooterSubColor;
       border-radius: 50%;
+      z-index: 2;
     }
     
     &_header {
