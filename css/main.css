@@ -218,7 +218,7 @@ body {
 
 @font-face {
   font-family: "bootstrap-icons";
-  src: url("../../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2") format("woff2"), url("../../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff?524846017b983fc8ded9325d94ed40f3") format("woff");
+  src: url("../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2") format("woff2"), url("../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff?524846017b983fc8ded9325d94ed40f3") format("woff");
 }
 
 .bi::before,
@@ -8303,7 +8303,7 @@ body {
 .layer-1 {
   -webkit-animation: parallax_fg linear 20s infinite both;
           animation: parallax_fg linear 20s infinite both;
-  background: url(../../images/frobacklogin/1.png) 0 100% repeat-x;
+  background: url(../images/frobacklogin/1.png) 0 100% repeat-x;
   z-index: 1;
   position: absolute;
   bottom: 0;
@@ -8316,7 +8316,7 @@ body {
 .layer-2 {
   -webkit-animation: parallax_fg linear 30s infinite both;
           animation: parallax_fg linear 30s infinite both;
-  background: url(../../images/frobacklogin/2.png) 0 100% repeat-x;
+  background: url(../images/frobacklogin/2.png) 0 100% repeat-x;
   z-index: 1;
   position: absolute;
   bottom: 0;
@@ -8329,7 +8329,7 @@ body {
 .layer-3 {
   -webkit-animation: parallax_fg linear 55s infinite both;
           animation: parallax_fg linear 55s infinite both;
-  background: url(../../images/frobacklogin/3.png) 0 100% repeat-x;
+  background: url(../images/frobacklogin/3.png) 0 100% repeat-x;
   z-index: 1;
   position: absolute;
   bottom: 0;
@@ -8342,7 +8342,7 @@ body {
 .layer-4 {
   -webkit-animation: parallax_fg linear 75s infinite both;
           animation: parallax_fg linear 75s infinite both;
-  background: url(../../images/frobacklogin/4.png) 0 100% repeat-x;
+  background: url(../images/frobacklogin/4.png) 0 100% repeat-x;
   z-index: 1;
   position: absolute;
   bottom: 0;
@@ -8355,7 +8355,7 @@ body {
 .layer-5 {
   -webkit-animation: parallax_fg linear 95s infinite both;
           animation: parallax_fg linear 95s infinite both;
-  background: url(../../images/frobacklogin/5.png) 0 100% repeat-x;
+  background: url(../images/frobacklogin/5.png) 0 100% repeat-x;
   z-index: 1;
   position: absolute;
   bottom: 0;
@@ -8368,7 +8368,7 @@ body {
 .layer-6 {
   -webkit-animation: parallax_fg linear 120s infinite both;
           animation: parallax_fg linear 120s infinite both;
-  background: url(../../images/frobacklogin/6.png) 0 100% repeat-x;
+  background: url(../images/frobacklogin/6.png) 0 100% repeat-x;
   z-index: 1;
   position: absolute;
   bottom: 0;
@@ -8379,7 +8379,7 @@ body {
 }
 
 .bear-1 {
-  background: url(../../images/mascot/bear01.png) 0 100% no-repeat;
+  background: url(../images/mascot/bear01.png) 0 100% no-repeat;
   z-index: 1;
   position: absolute;
   bottom: 60px;
@@ -8392,7 +8392,7 @@ body {
 }
 
 .bear-2 {
-  background: url(../../images/mascot/bear02.png) 0 100% no-repeat;
+  background: url(../images/mascot/bear02.png) 0 100% no-repeat;
   z-index: 1;
   position: absolute;
   bottom: 60px;
@@ -8405,7 +8405,7 @@ body {
 }
 
 .boat-1 {
-  background: url(../../images/frobacklogin/boat_1.png) 0 100% no-repeat;
+  background: url(../images/frobacklogin/boat_1.png) 0 100% no-repeat;
   z-index: 1;
   position: absolute;
   bottom: 50px;
@@ -11276,7 +11276,7 @@ input[type="button"] {
 }
 
 .groupform_body {
-  background: url(../../images/groupform/groupform_BG.jpg) no-repeat;
+  background: url(../images/groupform/groupform_BG.jpg) no-repeat;
   background-size: cover;
   height: 100%;
 }
@@ -11930,7 +11930,7 @@ input[type="button"] {
 }
 
 .shoppay_bg {
-  background-image: url(/images/shop/shoppay_bg.JPG);
+  background-image: url(../images/shop/shoppay_bg.JPG);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
