@@ -500,12 +500,12 @@ top: 66.6%;
 
     &_box {
         margin: 0 auto;
-        background-image: url('https://images.pexels.com/photos/6554687/pexels-photo-6554687.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
         background-size: cover;
         width: 60%;
 
         @media screen and (max-width:768px) {
             width: 100%;
+            padding: 3%;
             
         }
     }

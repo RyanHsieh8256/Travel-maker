@@ -8069,7 +8069,7 @@ body {
   width: 30px;
   height: 30px;
   background-color: #007183;
-  color: #FEBC9F;
+  color: #fff;
   font-size: 25px;
   position: relative;
 }
@@ -8998,7 +8998,6 @@ body {
 
 .homeShop_box {
   margin: 0 auto;
-  background-image: url("https://images.pexels.com/photos/6554687/pexels-photo-6554687.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
   background-size: cover;
   width: 60%;
 }
@@ -9006,6 +9005,7 @@ body {
 @media screen and (max-width: 768px) {
   .homeShop_box {
     width: 100%;
+    padding: 3%;
   }
 }
 
