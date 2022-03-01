@@ -11401,8 +11401,13 @@ input[type="button"] {
 }
 
 .shopType h2, .shopHotCity h2, .shopProduct h2 {
-  font-size: 40px;
   text-align: center;
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  padding: 10px;
+  font-size: 30px;
+  line-height: 1.5;
+  color: #007183;
 }
 
 .shopType {
@@ -11505,8 +11510,11 @@ input[type="button"] {
 }
 
 .shopspotInfo h2, .shopspotOverview h2 {
-  font-size: 40px;
   text-align: center;
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  font-size: 30px;
+  color: #007183;
 }
 
 .shopspotSlide_wrap {
@@ -11800,7 +11808,18 @@ input[type="button"] {
 
 .shopcart h2 {
   margin: 15px;
-  font-size: 40px;
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  padding: 10px;
+  font-size: 30px;
+  line-height: 1.5;
+  color: #007183;
+}
+
+.shopcart h3 {
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .shoplist {
