@@ -24,12 +24,6 @@
     
 }
 
-.shopcart h3{
-    font-family: 'Caveat',serif;
-    font-weight: 600;
-    font-size: 18px;
-}
-
 
 
 .shoplist{
@@ -46,14 +40,10 @@
     
 }
 
-.shoplist .text p{
-    margin: 10px auto;
-    
-}
-
-.shoplist h3{
-    font-size: $third-title;
-    margin-top: 10px;
+.shoplist_text h3{
+    font-family: 'Caveat',serif;
+    font-weight: 600;
+    font-size: 18px;
     
 }
 
