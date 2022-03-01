@@ -21,9 +21,9 @@ table.dataTable tbody tr{
 /* table 按鍵 */
 table tbody button{
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
-    padding: 3px 5px;
+    padding: 3px 10px;
 }
 /* =========================== */
 
