@@ -92,7 +92,7 @@ img {
 
 /* 網頁捲軸【把手】顏色 */
 ::-webkit-scrollbar-thumb {
-  background: #46c5c5;
+  background: #007183;
   border-radius: 100px;
 }
 
@@ -7510,13 +7510,12 @@ body {
 
 .navBlock .mainNav a {
   height: 100%;
-  padding: 0 20px;
+  padding: 0 7px;
   color: #333;
 }
 
 .navBlock .mainNav a:hover {
-  background-color: #ff7e29;
-  color: #fff;
+  color: #ff7e29;
 }
 
 .navBlock .mainNav a li {
@@ -8050,7 +8049,7 @@ body {
 
 .btn--cart {
   background-color: #007183;
-  color: #5C5041;
+  color: #fff;
   border: 1px solid #aaa;
 }
 
@@ -9193,7 +9192,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   border-radius: 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
           box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
-  background-color: #fff;
+  background-color: #f0eee7;
 }
 
 .froLoginBlock .froLoginCancel {
@@ -9207,7 +9206,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 
 .froLoginBlock .froLoginCancel .bi-x-circle-fill {
   font-size: 25px;
-  color: #81d8d1;
+  color: #007183;
 }
 
 .froLoginSwitch {
@@ -9222,14 +9221,14 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 
 .froLoginSwitch .froLoginSwitch_btn {
   width: 50%;
-  background-color: #d6d6d6;
+  background-color: #bebebe;
   padding: 5px 0;
   font-size: 20px;
   font-weight: 600;
 }
 
 .froLoginSwitch .froLoginSwitch_active {
-  background-color: #fff;
+  background-color: #f0eee7;
 }
 
 .froLoginForm_wrap {
@@ -9285,7 +9284,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 }
 
 .froLoginForm_wrap .froLoginForm .froLoginBtn input {
-  background-color: #81d8d1;
+  background-color: #007183;
   color: #fff;
   border: none;
   border-radius: 25px;
@@ -11401,20 +11400,13 @@ input[type="button"] {
 }
 
 .shopType h2, .shopHotCity h2, .shopProduct h2 {
-  font-size: 40px;
   text-align: center;
-}
-
-.shopType .item .parttxt {
-  padding: 40%;
-}
-
-.shopType .item h2 {
-  color: white;
-  border: 1px solid white;
-  border-radius: 50% 0;
-  padding: 5px;
-  display: inline-block;
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  padding: 10px;
+  font-size: 30px;
+  line-height: 1.5;
+  color: #007183;
 }
 
 .shopType {
@@ -11430,6 +11422,18 @@ input[type="button"] {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.shopType .item .parttxt {
+  padding: 40%;
+}
+
+.shopType .item h2 {
+  color: white;
+  border: 1px solid white;
+  border-radius: 50% 0;
+  padding: 5px;
+  display: inline-block;
 }
 
 .shopSearch {
@@ -11486,9 +11490,6 @@ input[type="button"] {
 }
 
 @media screen and (min-width: 768px) {
-  .shopType .item h3 {
-    padding: 60% 40%;
-  }
   .shopType .col-md-3 {
     padding: 0rem;
     margin: 0;
@@ -11502,11 +11503,17 @@ input[type="button"] {
     -webkit-transform: scale(1.05, 1.05);
             transform: scale(1.05, 1.05);
   }
+  .shopType .item h2 {
+    padding: 60% 40%;
+  }
 }
 
 .shopspotInfo h2, .shopspotOverview h2 {
-  font-size: 40px;
   text-align: center;
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  font-size: 30px;
+  color: #007183;
 }
 
 .shopspotSlide_wrap {
@@ -11657,7 +11664,8 @@ input[type="button"] {
   position: absolute;
   left: -10px;
   top: 0;
-  border: 1.5px solid black;
+  border: 1.5px solid #007183;
+  color: #007183;
   background-color: #f0eee7;
   font-size: 30px;
   margin-bottom: 0;
@@ -11675,7 +11683,7 @@ input[type="button"] {
 
 .shopspotDescription > * > * {
   margin: 10px auto;
-  border: 1.5px solid black;
+  border: 1.5px solid #007183;
   border-radius: 10px;
   padding: 35px;
   line-height: 20px;
@@ -11723,13 +11731,16 @@ input[type="button"] {
     width: 100%;
   }
   .shopspotSelect {
-    margin-top: 60px;
-    padding: 50px;
+    margin: 80px auto 0 auto;
+    padding: 30px;
     display: block;
     position: -webkit-sticky;
     position: sticky;
     top: 60px;
     height: 200px;
+    width: 150px;
+    border: 1.5px solid #007183;
+    border-radius: 10px;
   }
   .shopspotSelect a {
     color: black;
@@ -11743,6 +11754,41 @@ input[type="button"] {
   .shopspotSelect .scoll .active a:before {
     content: "▎";
     color: #007183;
+  }
+  .select_bear {
+    position: absolute;
+    right: -10px;
+    width: 50px;
+    -webkit-animation: bear_dance 2s infinite;
+            animation: bear_dance 2s infinite;
+  }
+  @-webkit-keyframes bear_dance {
+    0% {
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+    }
+    50% {
+      -webkit-transform: rotateY(180deg);
+              transform: rotateY(180deg);
+    }
+    100% {
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+    }
+  }
+  @keyframes bear_dance {
+    0% {
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+    }
+    50% {
+      -webkit-transform: rotateY(180deg);
+              transform: rotateY(180deg);
+    }
+    100% {
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+    }
   }
 }
 
@@ -11761,7 +11807,12 @@ input[type="button"] {
 
 .shopcart h2 {
   margin: 15px;
-  font-size: 40px;
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  padding: 10px;
+  font-size: 30px;
+  line-height: 1.5;
+  color: #007183;
 }
 
 .shoplist {
@@ -11778,13 +11829,10 @@ input[type="button"] {
   margin: 10px;
 }
 
-.shoplist .text p {
-  margin: 10px auto;
-}
-
-.shoplist h3 {
-  font-size: 30px;
-  margin-top: 10px;
+.shoplist_text h3 {
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .shoplist .content {
@@ -11821,6 +11869,7 @@ input[type="button"] {
   padding: 10px;
   border: none;
   background: none;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
@@ -11853,13 +11902,16 @@ input[type="button"] {
 }
 
 .shoppay_bg {
-  width: 100%;
-  height: 100%;
   background-image: url(/images/shop/shoppay_bg.JPG);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 10px;
+}
+
+.filter {
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
 }
 
 .personal_info, .shoppaycredit, .detail {
@@ -11922,9 +11974,11 @@ input[type="button"] {
   width: 80%;
 }
 
-.shoplist h3 {
+.shoplist_text h3 {
   margin-top: 10px;
-  font-size: 30px;
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .shoplist .text p {
@@ -12036,9 +12090,13 @@ canvas {
 }
 
 .postcardTtile {
-  font-size: 40px;
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  padding: 10px;
+  font-size: 30px;
+  line-height: 1.5;
+  color: #007183;
   text-align: center;
-  padding: 20px 0;
 }
 
 .postcard_wrap {
@@ -12153,7 +12211,8 @@ canvas {
 }
 
 .postcardElements_warp .postcardTags .postcardTag {
-  background-color: #81d8d1;
+  background-color: #E3DCD4;
+  color: #463828;
   padding: 10px 5px;
   margin: 5px 0;
   border-top-left-radius: 10px;
