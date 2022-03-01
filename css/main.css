@@ -8049,11 +8049,7 @@ body {
 
 .btn--cart {
   background-color: #007183;
-<<<<<<< HEAD
   color: #fff;
-=======
-  color: #5C5041;
->>>>>>> dev
   border: 1px solid #aaa;
 }
 
@@ -11398,18 +11394,6 @@ input[type="button"] {
   text-align: center;
 }
 
-.shopType .item .parttxt {
-  padding: 40%;
-}
-
-.shopType .item h2 {
-  color: white;
-  border: 1px solid white;
-  border-radius: 50% 0;
-  padding: 5px;
-  display: inline-block;
-}
-
 .shopType {
   margin-top: 50px;
 }
@@ -11423,6 +11407,18 @@ input[type="button"] {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.shopType .item .parttxt {
+  padding: 40%;
+}
+
+.shopType .item h2 {
+  color: white;
+  border: 1px solid white;
+  border-radius: 50% 0;
+  padding: 5px;
+  display: inline-block;
 }
 
 .shopSearch {
@@ -11479,9 +11475,6 @@ input[type="button"] {
 }
 
 @media screen and (min-width: 768px) {
-  .shopType .item h3 {
-    padding: 60% 40%;
-  }
   .shopType .col-md-3 {
     padding: 0rem;
     margin: 0;
@@ -11494,6 +11487,9 @@ input[type="button"] {
   .shopType .item:hover {
     -webkit-transform: scale(1.05, 1.05);
             transform: scale(1.05, 1.05);
+  }
+  .shopType .item h2 {
+    padding: 60% 40%;
   }
 }
 
@@ -11743,10 +11739,38 @@ input[type="button"] {
   }
   .select_bear {
     position: absolute;
-    right: 0;
+    right: -10px;
     width: 50px;
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
+    -webkit-animation: bear_dance 2s infinite;
+            animation: bear_dance 2s infinite;
+  }
+  @-webkit-keyframes bear_dance {
+    0% {
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+    }
+    50% {
+      -webkit-transform: rotateY(180deg);
+              transform: rotateY(180deg);
+    }
+    100% {
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+    }
+  }
+  @keyframes bear_dance {
+    0% {
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+    }
+    50% {
+      -webkit-transform: rotateY(180deg);
+              transform: rotateY(180deg);
+    }
+    100% {
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+    }
   }
 }
 
