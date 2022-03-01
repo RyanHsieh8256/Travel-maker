@@ -9488,7 +9488,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 
 .memberAccountWarp .memberAccountSetting li {
   color: #fff;
-  background-color: #ff7e29;
+  background-color: #007183;
   padding: 10px 30px;
   cursor: pointer;
   border-radius: 10px;
@@ -9564,7 +9564,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   padding: 10px 20px;
   border-radius: 50px;
   border: none;
-  background-color: #ff7e29;
+  background-color: #007183;
   color: #fff;
 }
 
@@ -9652,7 +9652,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 }
 
 .horizontalcard .horizontalcard_footer a {
-  color: #ff7e29;
+  color: #007183;
 }
 
 @media screen and (min-width: 768px) {
@@ -9705,7 +9705,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   margin: 20px auto 0 auto;
   padding: 5px 0;
   border-radius: 10px;
-  background-color: #ff7e29;
+  background-color: #007183;
   color: #fff;
   text-align: center;
 }
