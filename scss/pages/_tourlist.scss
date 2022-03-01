@@ -40,7 +40,6 @@
        color: $FooterSubColor;
        font-weight: 600;
        
-      
       &.none {
         animation: 1s displayNone ease-out;
          animation-fill-mode: both;
@@ -55,6 +54,7 @@
       height: 30px;
       background-color: $FooterSubColor;
       border-radius: 50%;
+      z-index: 2;
     }
     
     &_header {
@@ -150,8 +150,9 @@
       transform: translateY(-50%);
       width: 16px;
       height: 16px;
-      background-color: #E3DCD4;
+      background-color: #83D8D1aa;
       border-radius: 50%;
+      line-height: 16px;
     }
     
     &_calendar {
