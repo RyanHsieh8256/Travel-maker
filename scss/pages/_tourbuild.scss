@@ -154,14 +154,6 @@
     text-align: center;
   }
   
-  .tourBuild_newSpot {
-    background-color: #007183;
-    padding: 10px;
-    border-radius: 100px;
-    color: #FEBC9F;
-  }
-
-  
 
   
   .btn {
@@ -220,6 +212,10 @@
   .tourSearch_btnBox {
     display: flex;
     margin: 5% 0;
+
+    & > button {
+      margin-right: 10px;
+    }
   }
   
   .tourSpot {
@@ -295,7 +291,7 @@
       margin: 10px;
 
       a {
-        color: #FEBC9F;
+        color: #fff;
       }
 
       &:first-child {

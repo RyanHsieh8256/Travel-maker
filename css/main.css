@@ -10576,13 +10576,6 @@ input[type="button"] {
   text-align: center;
 }
 
-.tourBuild_newSpot {
-  background-color: #007183;
-  padding: 10px;
-  border-radius: 100px;
-  color: #FEBC9F;
-}
-
 .btn {
   border-radius: 100px;
 }
@@ -10642,6 +10635,10 @@ input[type="button"] {
   display: -ms-flexbox;
   display: flex;
   margin: 5% 0;
+}
+
+.tourSearch_btnBox > button {
+  margin-right: 10px;
 }
 
 .tourSpot {
@@ -10728,7 +10725,7 @@ input[type="button"] {
 }
 
 .tour_btnBox > button a {
-  color: #FEBC9F;
+  color: #fff;
 }
 
 .tour_btnBox > button:first-child {
