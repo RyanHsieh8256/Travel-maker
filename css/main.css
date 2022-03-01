@@ -92,7 +92,7 @@ img {
 
 /* 網頁捲軸【把手】顏色 */
 ::-webkit-scrollbar-thumb {
-  background: #46c5c5;
+  background: #007183;
   border-radius: 100px;
 }
 
@@ -7510,13 +7510,12 @@ body {
 
 .navBlock .mainNav a {
   height: 100%;
-  padding: 0 20px;
+  padding: 0 7px;
   color: #333;
 }
 
 .navBlock .mainNav a:hover {
-  background-color: #ff7e29;
-  color: #fff;
+  color: #ff7e29;
 }
 
 .navBlock .mainNav a li {
@@ -9193,7 +9192,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   border-radius: 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
           box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
-  background-color: #fff;
+  background-color: #f0eee7;
 }
 
 .froLoginBlock .froLoginCancel {
@@ -9207,7 +9206,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 
 .froLoginBlock .froLoginCancel .bi-x-circle-fill {
   font-size: 25px;
-  color: #81d8d1;
+  color: #007183;
 }
 
 .froLoginSwitch {
@@ -9222,14 +9221,14 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 
 .froLoginSwitch .froLoginSwitch_btn {
   width: 50%;
-  background-color: #d6d6d6;
+  background-color: #bebebe;
   padding: 5px 0;
   font-size: 20px;
   font-weight: 600;
 }
 
 .froLoginSwitch .froLoginSwitch_active {
-  background-color: #fff;
+  background-color: #f0eee7;
 }
 
 .froLoginForm_wrap {
@@ -9285,7 +9284,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 }
 
 .froLoginForm_wrap .froLoginForm .froLoginBtn input {
-  background-color: #81d8d1;
+  background-color: #007183;
   color: #fff;
   border: none;
   border-radius: 25px;
