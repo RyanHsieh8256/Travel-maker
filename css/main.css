@@ -12078,9 +12078,13 @@ canvas {
 }
 
 .postcardTtile {
-  font-size: 40px;
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  padding: 10px;
+  font-size: 30px;
+  line-height: 1.5;
+  color: #007183;
   text-align: center;
-  padding: 20px 0;
 }
 
 .postcard_wrap {
@@ -12195,7 +12199,8 @@ canvas {
 }
 
 .postcardElements_warp .postcardTags .postcardTag {
-  background-color: #81d8d1;
+  background-color: #E3DCD4;
+  color: #463828;
   padding: 10px 5px;
   margin: 5px 0;
   border-top-left-radius: 10px;
