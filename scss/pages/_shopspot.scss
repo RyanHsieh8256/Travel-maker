@@ -169,7 +169,8 @@
   position: absolute;
   left: -10px;
   top: 0;
-  border: 1.5px solid black;
+  border: 1.5px solid #007183;
+  color: #007183;
   background-color: $bodyBGcolor;
   font-size: 30px;
   margin-bottom: 0;
@@ -190,7 +191,7 @@
 
 .shopspotDescription>*>*{
   margin: 10px auto;
-  border: 1.5px solid black;
+  border: 1.5px solid #007183;
   border-radius: 10px;
   padding: 35px;
   line-height: 20px;
@@ -262,12 +263,16 @@
   
 
   .shopspotSelect{
-    margin-top: 60px;
-    padding: 50px;
+    margin: 80px auto 0 auto;
+    // margin-top: 80px;
+    padding: 30px;
     display: block;
     position: sticky;
     top: 60px;
     height: 200px;
+    width: 150px;
+    border: 1.5px solid #007183;
+    border-radius: 10px;
 
   }
 
@@ -288,6 +293,14 @@
 
   .shopspotSelect .scoll .active a:before{
     content:"▎"; color:#007183;
+
+  }
+
+  .select_bear{
+    position: absolute;
+    right: 0;
+    width: 50px;
+    transform: rotateY(180deg);
 
   }
 
