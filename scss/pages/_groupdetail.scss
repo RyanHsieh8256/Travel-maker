@@ -1,14 +1,16 @@
 /* ---團封面照--- */
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap{
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap {
     padding-top: 100px;
 }
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .cover_wrap{
+
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .cover_wrap {
     display: flex;
     align-items: center;
+
     img {
         border-radius: 10px;
     }
-} 
+}
 
 /* ---團主大頭貼和名字--- */
 .groupdetailCoverInfo .groupdetailCoverInfo_wrap .info {
@@ -59,41 +61,61 @@
         }
     }
 }
+
 /* ---團的旅程資訊和留言區--- */
 .groupdetailInfo .groupdetailInfo_wrap {
+    .messageScrollbar {
+
+        /* 捲軸寬度設定 */
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 2px;
+        }
+
+        /* 捲軸把手顏色 */
+        ::-webkit-scrollbar-thumb {
+            background-image: linear-gradient(180deg, #007183 0%, #fff 99%);
+            box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+            border-radius: 100px;
+        }
+
+        /* 捲軸背景顏色 */
+        ::-webkit-scrollbar-track {
+            background: #E2E1E0;
+        }
+    }
+
     .title {
         text-align: center;
+        // margin-bottom: 30px;
+        font-weight: 900;
+        font-size: 30px;
     }
 
     .tourInfo {
-        border: 1px solid darkcyan;
-        .timeline{
+        .timeline {
             width: 100%;
+            margin-top: 0px;
+            padding: 0px 20px 0px 20px;
         }
     }
-}
-.groupdetailInfo .groupdetailInfo_wrap .message {
 
-    /* 捲軸把手顏色 */
-    &::-webkit-scrollbar-thumb {
-        background-image: linear-gradient(180deg, #007183 0%, #ffc3a5 99%);
-        box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
-        border-radius: 100px;
-    }
-
-    /* 捲軸背景顏色 */
-    &::-webkit-scrollbar-track {
-        background: #FFFFFF;
+    .second-title {
+        margin: 30px 0;
     }
 }
+
 .groupdetailInfo .groupdetailInfo_wrap .message {
     height: 500px;
     overflow-y: scroll;
     position: relative;
+    background: #fff;
+    border-radius: 10px;
 
     .message_wrap {
-        background-color: #DBD3D1;
-        margin-bottom: 30px;
+        background-color: #fff;
+        padding: 10px 10px;
+        border-bottom: 1px solid #aaa;
 
         .header {
             display: flex;
@@ -115,22 +137,24 @@
 }
 
 .groupdetailInfo .groupdetailInfo_wrap .message .leaveMessage {
-    background-color: #ffc3a5;
     position: sticky;
     bottom: 0;
     display: flex;
 
     #inputBox {
-        background-color: #007183;
-        color: #FFFFFF;
+        background-color: #fff;
+        color: black;
         width: 100%;
         resize: none;
         border: none;
+        border-radius: 10px 0px 0px 10px;
     }
 
     #leaveMessageBtn {
         border: none;
         cursor: pointer;
+        background: #007183;
+        color: #fff;
     }
 }
 
@@ -145,7 +169,7 @@
     top: 50%;
     right: 1%;
     cursor: pointer;
-    background-color: deepskyblue;
+    background-color: #007183;
     color: #ffffff;
     display: none;
 }
@@ -162,7 +186,8 @@
     .groupdetailInfo .groupdetailInfo_wrap .col-12 {
         margin-top: 30px;
     }
-    .groupdetailCoverInfo .groupdetailCoverInfo_wrap .cover_wrap{
+
+    .groupdetailCoverInfo .groupdetailCoverInfo_wrap .cover_wrap {
         margin-bottom: 30px;
     }
 }
