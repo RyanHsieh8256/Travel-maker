@@ -92,7 +92,7 @@ img {
 
 /* 網頁捲軸【把手】顏色 */
 ::-webkit-scrollbar-thumb {
-  background: #46c5c5;
+  background: #007183;
   border-radius: 100px;
 }
 
@@ -7510,13 +7510,12 @@ body {
 
 .navBlock .mainNav a {
   height: 100%;
-  padding: 0 20px;
+  padding: 0 7px;
   color: #333;
 }
 
 .navBlock .mainNav a:hover {
-  background-color: #ff7e29;
-  color: #fff;
+  color: #ff7e29;
 }
 
 .navBlock .mainNav a li {
@@ -9193,7 +9192,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   border-radius: 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
           box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
-  background-color: #fff;
+  background-color: #f0eee7;
 }
 
 .froLoginBlock .froLoginCancel {
@@ -9207,7 +9206,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 
 .froLoginBlock .froLoginCancel .bi-x-circle-fill {
   font-size: 25px;
-  color: #81d8d1;
+  color: #007183;
 }
 
 .froLoginSwitch {
@@ -9222,14 +9221,14 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 
 .froLoginSwitch .froLoginSwitch_btn {
   width: 50%;
-  background-color: #d6d6d6;
+  background-color: #bebebe;
   padding: 5px 0;
   font-size: 20px;
   font-weight: 600;
 }
 
 .froLoginSwitch .froLoginSwitch_active {
-  background-color: #fff;
+  background-color: #f0eee7;
 }
 
 .froLoginForm_wrap {
@@ -9285,7 +9284,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 }
 
 .froLoginForm_wrap .froLoginForm .froLoginBtn input {
-  background-color: #81d8d1;
+  background-color: #007183;
   color: #fff;
   border: none;
   border-radius: 25px;
@@ -9449,8 +9448,8 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 }
 
 .memberAccountWarp .memberAccount {
-  -webkit-box-shadow: 0 1px 5px 0 #999;
-          box-shadow: 0 1px 5px 0 #999;
+  -webkit-box-shadow: 1px 1px 3px #aaa;
+          box-shadow: 1px 1px 3px #aaa;
   border-radius: 10px;
   padding: 10px;
   background-color: #fff;
@@ -9480,8 +9479,8 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-shadow: 0 1px 5px 0 #999;
-          box-shadow: 0 1px 5px 0 #999;
+  -webkit-box-shadow: 1px 1px 3px #aaa;
+          box-shadow: 1px 1px 3px #aaa;
   border-radius: 10px;
   padding: 10px 0;
   background-color: #fff;
@@ -9525,8 +9524,8 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 }
 
 .mem_sectionBG {
-  -webkit-box-shadow: 0 1px 5px 0 #999;
-          box-shadow: 0 1px 5px 0 #999;
+  -webkit-box-shadow: 1px 1px 3px #aaa;
+          box-shadow: 1px 1px 3px #aaa;
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 20px;
@@ -11401,8 +11400,13 @@ input[type="button"] {
 }
 
 .shopType h2, .shopHotCity h2, .shopProduct h2 {
-  font-size: 40px;
   text-align: center;
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  padding: 10px;
+  font-size: 30px;
+  line-height: 1.5;
+  color: #007183;
 }
 
 .shopType {
@@ -11505,8 +11509,11 @@ input[type="button"] {
 }
 
 .shopspotInfo h2, .shopspotOverview h2 {
-  font-size: 40px;
   text-align: center;
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  font-size: 30px;
+  color: #007183;
 }
 
 .shopspotSlide_wrap {
@@ -11800,7 +11807,12 @@ input[type="button"] {
 
 .shopcart h2 {
   margin: 15px;
-  font-size: 40px;
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  padding: 10px;
+  font-size: 30px;
+  line-height: 1.5;
+  color: #007183;
 }
 
 .shoplist {
@@ -11817,13 +11829,10 @@ input[type="button"] {
   margin: 10px;
 }
 
-.shoplist .text p {
-  margin: 10px auto;
-}
-
-.shoplist h3 {
-  font-size: 30px;
-  margin-top: 10px;
+.shoplist_text h3 {
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .shoplist .content {
@@ -11965,9 +11974,11 @@ input[type="button"] {
   width: 80%;
 }
 
-.shoplist h3 {
+.shoplist_text h3 {
   margin-top: 10px;
-  font-size: 30px;
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .shoplist .text p {
@@ -12079,9 +12090,13 @@ canvas {
 }
 
 .postcardTtile {
-  font-size: 40px;
+  font-family: 'Caveat',serif;
+  font-weight: 600;
+  padding: 10px;
+  font-size: 30px;
+  line-height: 1.5;
+  color: #007183;
   text-align: center;
-  padding: 20px 0;
 }
 
 .postcard_wrap {
@@ -12196,7 +12211,8 @@ canvas {
 }
 
 .postcardElements_warp .postcardTags .postcardTag {
-  background-color: #81d8d1;
+  background-color: #E3DCD4;
+  color: #463828;
   padding: 10px 5px;
   margin: 5px 0;
   border-top-left-radius: 10px;
