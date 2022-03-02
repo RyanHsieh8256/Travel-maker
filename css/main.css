@@ -7959,10 +7959,10 @@ body {
   position: absolute;
   top: -30px;
   left: 18px;
-  border-bottom: 20px solid #fff;
+  border-bottom: 25px solid #fff;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 10px solid transparent;
+  border-top: 5px solid transparent;
 }
 
 .card_body {
@@ -8038,6 +8038,12 @@ body {
 
 .card_date, .card_title, .card_footer {
   margin-top: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    margin: 30px 0;
+  }
 }
 
 .btn {
