@@ -58,10 +58,10 @@
                 top: -30px;
                 left: 18px;
 
-                border-bottom: 20px solid $card-color;
+                border-bottom: 25px solid $card-color;
                 border-left: 10px solid transparent;
                 border-right: 10px solid transparent;
-                border-top: 10px solid transparent;
+                border-top: 5px solid transparent;
             }
         }
     }
@@ -146,4 +146,10 @@
         margin-top: 15px;
     }
 
+}
+//針對手機版調整卡片間的邊距(柯)
+@media screen and (max-width: 768px) {
+    .card{
+        margin: 30px 0;
+    }
 }
