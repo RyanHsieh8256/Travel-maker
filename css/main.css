@@ -12115,6 +12115,8 @@ canvas {
 
 .postcardBlock {
   padding-top: 50px;
+  width: 95%;
+  margin: auto;
 }
 
 .postcardTtile {
@@ -12138,8 +12140,8 @@ canvas {
   margin: auto;
   background-color: #fff;
   border-radius: 10px;
-  -webkit-box-shadow: 3px 3px 5px #3336;
-          box-shadow: 3px 3px 5px #3336;
+  -webkit-box-shadow: 1px 1px 3px #3333;
+          box-shadow: 1px 1px 3px #3333;
 }
 
 .postcardContainer #deletStamp {
@@ -12155,9 +12157,9 @@ canvas {
   margin: auto;
   overflow: hidden;
   border-radius: 5px;
-  -webkit-box-shadow: 1px 1px  5px #333;
-          box-shadow: 1px 1px  5px #333;
-  border: #3335 1px solid;
+  -webkit-box-shadow: 1px 1px  3px #3333;
+          box-shadow: 1px 1px  3px #3333;
+  border: .5px solid #3333;
   width: 80%;
 }
 
@@ -12205,10 +12207,11 @@ canvas {
   resize: none;
   width: 100%;
   height: 100%;
-  border-radius: 10px;
-  -webkit-box-shadow: 3px 3px 5px #3336;
-          box-shadow: 3px 3px 5px #3336;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 3px #3333;
+          box-shadow: 1px 1px 3px #3333;
   padding: 20px;
+  border: .5px solid #3333;
 }
 
 .postcardRightBox {
@@ -12257,8 +12260,8 @@ canvas {
           flex-grow: 1;
   background-color: #fff;
   border-radius: 10px;
-  -webkit-box-shadow: 3px 3px 5px #3336;
-          box-shadow: 3px 3px 5px #3336;
+  -webkit-box-shadow: 1px 1px 3px #3333;
+          box-shadow: 1px 1px 3px #3333;
   height: 450px;
   overflow-y: scroll;
   display: -webkit-box;
@@ -12277,9 +12280,10 @@ canvas {
 
 .postcardElements_warp .postcardElements .postcardElement {
   margin: 10px auto;
-  border: #333 2px dashed;
+  border: #3339 1.5px dashed;
   border-radius: 5px;
   width: 100px;
+  padding: 3px;
 }
 
 .postcardBtns {
@@ -12287,8 +12291,9 @@ canvas {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .postcardBtns button {

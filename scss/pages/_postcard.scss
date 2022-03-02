@@ -3,6 +3,8 @@ canvas{
 }
 .postcardBlock{
     padding-top: 50px;
+    width: 95%;
+    margin: auto;
 }
 .postcardTtile{
     font-family: 'Caveat',serif;
@@ -24,7 +26,7 @@ canvas{
     margin: auto;
     background-color:$white;
     border-radius: 10px;
-    box-shadow: 3px 3px 5px #3336;
+    box-shadow: 1px 1px 3px #3333;
     #deletStamp{
         display: none;
         position: absolute;
@@ -38,8 +40,8 @@ canvas{
     margin: auto;
     overflow: hidden;
     border-radius: 5px;
-    box-shadow:1px 1px  5px #333;
-    border:#3335 1px solid;
+    box-shadow:1px 1px  3px #3333;
+    border: .5px solid #3333;
     width: 80%;
     .postcardStampContainer{
         position: absolute;
@@ -75,9 +77,10 @@ canvas{
         resize: none;
         width: 100%;
         height: 100%;
-        border-radius: 10px;
-        box-shadow: 3px 3px 5px #3336;
+        border-radius: 5px;
+        box-shadow: 1px 1px 3px #3333;
         padding: 20px;
+        border: .5px solid #3333;
     }
 }
 
@@ -110,7 +113,7 @@ canvas{
         flex-grow: 1;
         background-color: $white;
         border-radius: 10px;
-        box-shadow: 3px 3px 5px #3336;
+        box-shadow: 1px 1px 3px #3333;
         height: 450px;
         overflow-y: scroll;
 
@@ -122,16 +125,17 @@ canvas{
         }
         .postcardElement{
             margin: 10px auto;
-            border: #333 2px dashed;
+            border: #3339 1.5px dashed;
             border-radius: 5px;
             width: 100px;
+            padding: 3px;
         }
     }
 }
 .postcardBtns{
     padding: 40px 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     button{
         font-size: 20px;
         padding: 5px 20px;
