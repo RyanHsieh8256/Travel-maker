@@ -1,9 +1,9 @@
 .groupform_body{
-    // background:url(http://thekitemap.com/images/feedback-img.jpg) no-repeat;
     background: url(../images/groupform/groupform_BG.jpg) no-repeat;
     background-size: cover;
     height:100%;
 }
+
 // 上傳封面區
 .groupform{
     padding-top: 100px;
@@ -79,6 +79,12 @@
         flex-direction: column;
     }
 }
+
+//必填欄位設定區
+.must{
+    color: #f00;
+}
+
 //針對日曆
 .date_wrap{
     margin: 10px 0;
@@ -95,6 +101,7 @@
     top: 50%;
     transform: translateY(-40%);
 }
+
 //人數加減按鈕
 .groupform_peopleNum{
     .numBtn{
@@ -107,8 +114,8 @@
     input[type=text]{
         text-align: center;
     }
-
 }
+
 //針對送出區的按鈕
 .btnSection{
     display: flex;
