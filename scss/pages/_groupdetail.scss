@@ -33,33 +33,8 @@
 }
 
 /* ---團的熱門搜尋關鍵字和剩餘名額--- */
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .keywordSpot_wrap {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-
-    ul {
-        display: flex;
-
-        li .tag {
-            border-radius: 5px;
-            background: #007183;
-            color: #FFFFFF;
-            position: relative;
-            margin-right: 20px;
-
-            &:after {
-                content: '';
-                display: block;
-                position: absolute;
-                left: 120%;
-                bottom: 0;
-                width: 2px;
-                height: 15px;
-                background: #ccc;
-            }
-        }
-    }
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .spot_wrap {
+    text-align: end;
 }
 
 /* ---團的旅程資訊和留言區--- */

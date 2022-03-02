@@ -125,7 +125,7 @@
     <main>
         <section class="l-full groupform">
             <div class="groupform_wrap" id="groupform_wrap">
-                <div class="title">封面圖片</div>
+                <div class="title"><span class="must">*</span>封面圖片</div>
                 <div class="uploadCover">
                     <div class="header">
                         <label class="btn btn--main">
@@ -139,39 +139,39 @@
                     </div>
                 </div>
                 <div class="fieldSection">
-                    <label for="groupTitle">揪團名稱</label>
+                    <label for="groupTitle"><span class="must">*</span>揪團名稱</label>
                     <input type="text" id="groupTitle">
                 </div>
                 <div class="fieldSection groupform_desc">
-                    <label for="groupDesc">揪團描述</label>
+                    <label for="groupDesc"><span class="must">*</span>揪團描述</label>
                     <textarea name="" id="groupDesc" cols="30" rows="10" class="desc"></textarea>
                 </div>
                 <div class="fieldSection groupform_date">
                     <div class="date_wrap startDate_wrap">
-                        <label for="startDate">揪團出發日期</label>
+                        <label for="startDate"><span class="must">*</span>揪團出發日期</label>
                         <div class="datepicker_wrap align">
                             <input type="date" class="diablePastDate">
                         </div>
                     </div>
                     <div class="date_wrap endDate_wrap">
-                        <label for="endDate">揪團結束日期</label>
+                        <label for="endDate"><span class="must">*</span>揪團結束日期</label>
                         <div class="datepicker_wrap align">
                             <input type="date" class="diablePastDate">
                         </div>
                     </div>
                     <div class="date_wrap deadline_wrap">
-                        <label for="deadline">報名截止日期</label>
+                        <label for="deadline"><span class="must">*</span>報名截止日期</label>
                         <div class="datepicker_wrap">
                             <input type="date" class="diablePastDate">
                         </div>
                     </div>
                 </div>
-                <div id="peopleNum" class="fieldSection groupform_peopleNum">揪團設定總人數
+                <div id="peopleNum" class="fieldSection groupform_peopleNum"><span class="must">*</span>揪團設定總人數
                     <button class="numBtn" @click="subtract">-</button>
                     <input type="text" value="0" size="1" v-model="total">
                     <button class="numBtn" @click="add">+</button>
                 </div>
-                <div class="fieldSection share">分攤方式
+                <div class="fieldSection share"><span class="must">*</span>分攤方式
                     <select v-model="selectedMethod">
                         <option value="" disabled>請選擇</option>
                         <option v-for="way in ways">{{way}}</option>
@@ -273,7 +273,6 @@
         function previewImg() {
             let file = uploadBtn.files[0];
             let fileSize = uploadBtn.files[0].size;
-            console.log(fileSize);
             let readFile = new FileReader();
             readFile.readAsDataURL(file);
             readFile.addEventListener('load', function () {
@@ -281,13 +280,12 @@
                 let dropZone_title = document.querySelector('.dropZone_title');
                 if(fileSize > 2 * 1024 * 1024){
                     dropZone_title.innerText = '上傳失敗，請上傳2MB以內的照片';
-                    console.log("HI");
+                    dropZone_title.style.color = "#f00";
                     return;
                 }else{
                 coverImg.src = readFile.result;
                 dropZone_title.style.display="none";
                 }
-
             })
         }
         window.addEventListener('load', init);
@@ -300,8 +298,8 @@
         for(let i=0; i<diablePastDate.length; i++){
             diablePastDate[i].setAttribute('min', today);
         }
-        
     </script>
+
     <!-- VUE出數量加減 -->
     <script>
         let vm = new Vue({
@@ -326,7 +324,29 @@
         });
     </script>
 
-    
+    <!-- 公開揪團判斷表格 -->
+    <script>
+        let publish = document.getElementById('publish');
+        let groupTitle = document.getElementById('groupTitle');
+        let groupDesc = document.getElementById('groupDesc');
+
+        function checkTextValue(){
+            if(!groupTitle.value && !groupDesc.value){ //如果沒有值
+                groupTitle.placeholder="這是必填欄位";
+                groupDesc.placeholder="這是必填欄位";
+            }else{
+                // groupTitle.style.background="";
+            }
+            return !!groupTitle.value; 
+        }
+        function submit(){
+            let textValid = checkTextValue();
+            console.log(textValid);
+
+
+        }
+        publish.addEventListener('click', submit);
+    </script>
 
     <script src="js/forlogin.js"></script>
     <script src="js/burger.js"></script>

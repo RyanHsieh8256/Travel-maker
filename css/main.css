@@ -8051,6 +8051,7 @@ body {
   background-color: #007183;
   color: #fff;
   border: 1px solid #aaa;
+  font-size: 16px;
 }
 
 .btn--main {
@@ -8062,6 +8063,7 @@ body {
 .btn--cancel {
   border: 1px solid #aaa;
   background-color: #fff;
+  font-size: 16px;
 }
 
 .btn--close {
@@ -11006,39 +11008,8 @@ input[type="button"] {
 }
 
 /* ---團的熱門搜尋關鍵字和剩餘名額--- */
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .keywordSpot_wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-top: 10px;
-}
-
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .keywordSpot_wrap ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .keywordSpot_wrap ul li .tag {
-  border-radius: 5px;
-  background: #007183;
-  color: #FFFFFF;
-  position: relative;
-  margin-right: 20px;
-}
-
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .keywordSpot_wrap ul li .tag:after {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 120%;
-  bottom: 0;
-  width: 2px;
-  height: 15px;
-  background: #ccc;
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .spot_wrap {
+  text-align: end;
 }
 
 /* ---團的旅程資訊和留言區--- */
@@ -11374,6 +11345,10 @@ input[type="button"] {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.must {
+  color: #f00;
 }
 
 .date_wrap {
