@@ -52,7 +52,7 @@
                                    (6, 120s, auto,100%) {
     .layer-#{$index} {
       animation: parallax_fg linear $speed infinite both;
-      background:  url(../../images/frobacklogin/#{$index}.png) 0 100% repeat-x;
+      background:  url(../images/frobacklogin/#{$index}.png) 0 100% repeat-x;
       z-index: 1;
       position: absolute;
       bottom: 0;
@@ -64,7 +64,7 @@
   }
   
   .bear-1 {
-    background:  url(../../images/mascot/bear01.png) 0 100% no-repeat;
+    background:  url(../images/mascot/bear01.png) 0 100% no-repeat;
     z-index: 1;
     position: absolute;
     bottom: 60px;
@@ -76,7 +76,7 @@
   }
   
   .bear-2 {
-    background:  url(../../images/mascot/bear02.png) 0 100% no-repeat;
+    background:  url(../images/mascot/bear02.png) 0 100% no-repeat;
     z-index: 1;
     position: absolute;
     bottom: 60px;
@@ -88,7 +88,7 @@
   }
   
   .boat-1 {
-    background:  url(../../images/frobacklogin/boat_1.png) 0 100% no-repeat;
+    background:  url(../images/frobacklogin/boat_1.png) 0 100% no-repeat;
     z-index: 1;
     position: absolute;
     bottom: 50px;
