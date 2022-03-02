@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>揪團詳細頁</title>
     <link rel="stylesheet" href="css/main.css">
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js'></script>
     <link rel="shortcut icon" href="images/logo/logo_84x50.png" type="image/png">
+    <script src="js/jquery.js"></script>
+    <script src="js/vue.js"></script>
 </head>
 
 <body>
@@ -119,6 +120,35 @@
                     </div>
                 </div>  
             </div>
+        </div>
+        <!-- 登入表單 -->
+        <div class="froLoginBG" id="froLoginBG">
+            <section class="froLoginBlock" id="froLoginBlock">
+                <!-- 取消按鈕 -->
+                <div class="froLoginCancel">
+                    <button><i class="bi bi-x-circle-fill"></i></button>
+                </div>
+                <!-- 註冊/登入 -->
+                <div class="froLoginSwitch">
+                    <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
+                        登入
+                    </div>
+                    <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
+                        註冊
+                    </div>
+                </div> 
+                <!-- 表單區 -->
+                <div class="froLoginForm_wrap">
+                    <transition name="frologintransition" mode="out-in">
+                        <keep-alive>
+                            <component :is='content'></component>
+                        </keep-alive>
+                    </transition>
+                </div>
+                <transition name="mascottransition">
+                    <component :is='content2'></component>
+                </transition>
+            </section>
         </div>
         <section class="l-full groupdetailCoverInfo">
             <div class="l-medium groupdetailCoverInfo_wrap">
@@ -407,7 +437,8 @@
 
         changeTab();
     </script>
-    <script src="../js/burger.js"></script>
+    <script src="js/burger.js"></script>
+    <script src="js/forlogin.js"></script>
 </body>
 
 </html>
