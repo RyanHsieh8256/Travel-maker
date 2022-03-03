@@ -57,7 +57,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
         }
     }
 }
@@ -85,13 +85,21 @@
     color: #f00;
 }
 
+//出現在旁邊的提醒訊息
+.alertMessage{
+    color: #f00;
+    margin-left: 2%;
+}
 //針對日曆
 .date_wrap{
     margin: 10px 0;
+    display: flex;
+    flex-direction: column;
 }
 .datepicker_wrap{
     position: relative;
     display: initial;
+    margin: 5px 0;
 }
 .ui-datepicker-trigger{
     cursor: pointer;
@@ -104,6 +112,11 @@
 
 //人數加減按鈕
 .groupform_peopleNum{
+    display: flex;
+    flex-direction: column;
+    &_btnWrap{
+        margin: 5px 0;
+    }
     .numBtn{
         width: 20px;
         height: 20px;
@@ -113,6 +126,16 @@
     }
     input[type=text]{
         text-align: center;
+    }
+}
+
+//分攤方式下拉選單
+.share{
+    display: flex;
+    flex-direction: column;
+    //下拉選單間距
+    .dropdownMenu{
+        margin: 5px 0;
     }
 }
 
@@ -126,8 +149,49 @@
     }
 }
 
+//表單驗證placeholder改紅色提示
+.alertTxtMust::-webkit-input-placeholder{
+    color: #f00;
+}
+
+//提醒視窗
+.alert.alertBG{
+    width: 100%;
+    height: 100vh;
+    backdrop-filter: blur(5px);
+    background-color: #f00;
+}
+.alert{
+    &_wrap{
+        width: 300px;
+        height: 150px;
+        border-radius: 10px;
+        box-shadow: rgb(0 0 0 / 9%) 0px 3px 5px;
+        background-color: red;
+    }
+}
+
+//手機
+@media screen and (max-width: 767px) {
+    .dropdownMenu{
+        width: 50%;
+    }
+}
+
+//平板以上
 @media screen and (min-width: 768px) {
+    //整份表單的寬度
     .groupform .groupform_wrap{
         width: 60%;
+    }
+    
+    //整體欄位變成橫向排列
+    .date_wrap, .groupform_peopleNum, .share{
+        flex-direction: row;
+    }
+
+    //橫向排列後取消上下margin，新增左右
+    .datepicker_wrap, .groupform_peopleNum_btnWrap, .share .dropdownMenu{
+        margin: 0% 0% 0% 2%;
     }
 }

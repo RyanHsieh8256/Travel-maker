@@ -11326,8 +11326,8 @@ input[type="button"] {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .groupform .groupform_wrap .fieldSection {
@@ -11357,13 +11357,26 @@ input[type="button"] {
   color: #f00;
 }
 
+.alertMessage {
+  color: #f00;
+  margin-left: 2%;
+}
+
 .date_wrap {
   margin: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .datepicker_wrap {
   position: relative;
   display: initial;
+  margin: 5px 0;
 }
 
 .ui-datepicker-trigger {
@@ -11376,6 +11389,20 @@ input[type="button"] {
           transform: translateY(-40%);
 }
 
+.groupform_peopleNum {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.groupform_peopleNum_btnWrap {
+  margin: 5px 0;
+}
+
 .groupform_peopleNum .numBtn {
   width: 20px;
   height: 20px;
@@ -11386,6 +11413,20 @@ input[type="button"] {
 
 .groupform_peopleNum input[type=text] {
   text-align: center;
+}
+
+.share {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.share .dropdownMenu {
+  margin: 5px 0;
 }
 
 .btnSection {
@@ -11402,9 +11443,28 @@ input[type="button"] {
   margin: 0px 10px;
 }
 
+.alert::-webkit-input-placeholder {
+  color: #f00;
+}
+
+@media screen and (max-width: 767px) {
+  .dropdownMenu {
+    width: 50%;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .groupform .groupform_wrap {
     width: 60%;
+  }
+  .date_wrap, .groupform_peopleNum, .share {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .datepicker_wrap, .groupform_peopleNum_btnWrap, .share .dropdownMenu {
+    margin: 0% 0% 0% 2%;
   }
 }
 

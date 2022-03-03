@@ -10,6 +10,7 @@
     <script src="js/jquery.js"></script>
     <script src='js/vue.js'></script>
     <link rel="shortcut icon" href="images/logo/logo_84x50.png" type="image/png">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.12.0/validate.min.js"></script>
 </head>
 
 <body class="groupform_body">
@@ -62,7 +63,7 @@
             <button class="navPage--close">
                 <span class="close_line"></span>
                 <span class="close_line"></span>
-              </button>
+            </button>
             <div class="navPage_wrap">
             <!--     <div class="navPage_header"></div> -->
                 <div class="navPage_content">
@@ -149,31 +150,43 @@
                 <div class="fieldSection groupform_date">
                     <div class="date_wrap startDate_wrap">
                         <label for="startDate"><span class="must">*</span>揪團出發日期</label>
-                        <div class="datepicker_wrap align">
-                            <input type="date" class="diablePastDate">
+                        <div class="datepicker_wrap">
+                            <input type="date" class="selectDate">
                         </div>
+                        <div class="alertMessage">test</div>
                     </div>
                     <div class="date_wrap endDate_wrap">
                         <label for="endDate"><span class="must">*</span>揪團結束日期</label>
-                        <div class="datepicker_wrap align">
-                            <input type="date" class="diablePastDate">
+                        <div class="datepicker_wrap">
+                            <input type="date" class="selectDate">
                         </div>
+                        <div class="alertMessage">test</div>
                     </div>
                     <div class="date_wrap deadline_wrap">
                         <label for="deadline"><span class="must">*</span>報名截止日期</label>
                         <div class="datepicker_wrap">
-                            <input type="date" class="diablePastDate">
+                            <input type="date" class="selectDate">
                         </div>
+                        <div class="alertMessage">test</div>
                     </div>
                 </div>
-                <div id="peopleNum" class="fieldSection groupform_peopleNum"><span class="must">*</span>揪團設定總人數
-                    <button class="numBtn" @click="subtract">-</button>
-                    <input type="text" value="0" size="1" v-model="total">
-                    <button class="numBtn" @click="add">+</button>
+                <div id="peopleNum" class="fieldSection groupform_peopleNum">
+                    <p class="peopleTotalNum">
+                        <span class="must">*</span>
+                        揪團設定總人數
+                    </p>
+                    <div class="groupform_peopleNum_btnWrap">
+                        <button class="numBtn" @click="subtract">-</button>
+                        <input type="text" value="0" size="1" v-model="total">
+                        <button class="numBtn" @click="add">+</button>
+                    </div>
                 </div>
-                <div class="fieldSection share"><span class="must">*</span>分攤方式
-                    <select v-model="selectedMethod">
-                        <option value="" disabled>請選擇</option>
+                <div class="fieldSection share">
+                    <p class="share_text">
+                        <span class="must">*</span>
+                        分攤方式
+                    </p>
+                    <select class="dropdownMenu" v-model="selectedMethod">
                         <option v-for="way in ways">{{way}}</option>
                     </select>
                 </div>
@@ -245,6 +258,16 @@
             </transition>
         </section>
     </div>
+    <!-- 提醒視窗 -->
+    <div class="alert alertBG">
+        <section class="alert_wrap">
+                <button class="alert_closeBtn">
+                    <i class="bi bi-x-circle-fill"></i>
+                </button>
+                <div class="alert_content">test</div>
+
+        </section>
+    </div>
 
 
     <!-- 封面JS區 -->
@@ -294,9 +317,9 @@
     <!-- disable past dates -->
     <script>
         let today = new Date().toISOString().split('T')[0];
-        let diablePastDate = document.querySelectorAll('.diablePastDate');
-        for(let i=0; i<diablePastDate.length; i++){
-            diablePastDate[i].setAttribute('min', today);
+        let selectDate = document.querySelectorAll('.selectDate');
+        for(let i=0; i<selectDate.length; i++){
+            selectDate[i].setAttribute('min', today);
         }
     </script>
 
@@ -305,16 +328,16 @@
         let vm = new Vue({
             el: '#groupform_wrap',
             data: {
-                total: 0,
-                selectedMethod: '',
+                total: 1,
+                selectedMethod: '免費',
                 ways: ['免費', '各自負擔', '先付訂金'],
             },
             methods: {
                 subtract() {
-                    if (this.total > 0) {
+                    if (this.total > 1) {
                         this.total -= 1;
                     } else {
-                        this.total = 0;
+                        this.total = 1;
                     }
                 },
                 add() {
@@ -330,19 +353,44 @@
         let groupTitle = document.getElementById('groupTitle');
         let groupDesc = document.getElementById('groupDesc');
 
+        //驗證文字是否填入
         function checkTextValue(){
             if(!groupTitle.value && !groupDesc.value){ //如果沒有值
                 groupTitle.placeholder="這是必填欄位";
                 groupDesc.placeholder="這是必填欄位";
+                groupTitle.classList.add('alertTxtMust');
+                groupDesc.classList.add('alertTxtMust');
+
             }else{
                 // groupTitle.style.background="";
             }
             return !!groupTitle.value; 
         }
-        function submit(){
-            let textValid = checkTextValue();
-            console.log(textValid);
 
+        //驗證日期
+        function checkDate(){
+            let selectDate = document.querySelectorAll('.selectDate');
+            let alertMessage = document.querySelectorAll('.alertMessage');
+
+            selectDate.forEach( date => {
+                // console.log(date.value);
+                // console.log(!!date.value);
+                if(date.value == false){ //如果沒有填日期
+                    alertMessage.forEach(msg => {
+                        console.log(alertMessage);
+                        msg.innerText = "給我填喔!白癡";
+                    })
+                }
+                return !!date.value;
+            });
+        }
+
+        function submit(){ //如果全部情況都false的話，出現視窗提醒畫面
+            let textValid = checkTextValue();
+            let dateValid = checkDate();
+            // console.log(textValid); //false
+            console.log(dateValid);
+            // alert("尚有欄位還沒填寫")
 
         }
         publish.addEventListener('click', submit);
