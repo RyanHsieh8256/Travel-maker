@@ -57,7 +57,17 @@
     
 }
 
+.content_wrap .modify_icon>*{
+    font-size: 20px;
+    color: black;
+    padding-left: 0;
+    
+}
 
+.content_wrap .modify_icon a{
+    color: black;
+    
+}
 
 .shoplist_total{
     margin: 15px;
@@ -77,7 +87,7 @@
 }
 
 .shoplist_total .shoptotal{
-    color: #007183;
+    color: $accentColor;
 
 }
 
@@ -95,6 +105,7 @@
     border: none;
     background: none;
     cursor: pointer;
+    color: black;
 
 }
 
@@ -133,6 +144,11 @@
     .shoplist .content{
         width: 40%;
         
+    }
+
+    .content_wrap .modify_icon>*{
+        margin-right: 10px;
+        font-size: 15px;
     }
     
 }

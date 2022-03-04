@@ -11854,6 +11854,16 @@ input[type="button"] {
   width: 80%;
 }
 
+.content_wrap .modify_icon > * {
+  font-size: 20px;
+  color: black;
+  padding-left: 0;
+}
+
+.content_wrap .modify_icon a {
+  color: black;
+}
+
 .shoplist_total {
   margin: 15px;
   text-align: right;
@@ -11869,7 +11879,7 @@ input[type="button"] {
 }
 
 .shoplist_total .shoptotal {
-  color: #007183;
+  color: #ff7e29;
 }
 
 .shopcart .shopbtn {
@@ -11885,6 +11895,7 @@ input[type="button"] {
   border: none;
   background: none;
   cursor: pointer;
+  color: black;
 }
 
 @media screen and (min-width: 768px) {
@@ -11914,6 +11925,10 @@ input[type="button"] {
   .shoplist .content {
     width: 40%;
   }
+  .content_wrap .modify_icon > * {
+    margin-right: 10px;
+    font-size: 15px;
+  }
 }
 
 .shoppay_bg {
@@ -11922,6 +11937,10 @@ input[type="button"] {
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 10px;
+}
+
+.required {
+  color: red;
 }
 
 .filter {
@@ -11969,6 +11988,20 @@ input[type="button"] {
 
 .shoppaycredit_info > * {
   margin: 10px;
+}
+
+.shoppaycredit_info .cardnumber {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: red;
+}
+
+.shoppaycredit_info #error {
+  display: none;
+  font-size: 10px;
+  font-weight: lighter;
+  padding-left: 0px;
 }
 
 .shoppaydetail .detail > * {
@@ -12025,7 +12058,7 @@ input[type="button"] {
 }
 
 .shoplist_total .shoptotal {
-  color: #007183;
+  color: #ff7e29;
 }
 
 .shoppayconfirm {
@@ -12072,6 +12105,9 @@ input[type="button"] {
   }
   .shoppaycredit_info > * {
     margin: 5px 10px;
+  }
+  .shoppaycredit_info #error {
+    padding-left: 10px;
   }
   .shoplist .pro_img {
     width: 20%;
