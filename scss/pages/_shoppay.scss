@@ -9,6 +9,10 @@
 
 
 
+.required{
+    color: red;
+}
+
 .filter{
     backdrop-filter: blur(5px);
 
@@ -63,6 +67,20 @@
 
 .shoppaycredit_info>*{
     margin: 10px;
+
+}
+
+.shoppaycredit_info .cardnumber{
+    display: flex;
+    color: red;
+
+}
+
+.shoppaycredit_info #error{
+    display: none;
+    font-size: 10px;
+    font-weight: lighter;
+    padding-left: 0px;
 
 }
 
@@ -129,7 +147,7 @@
 }
 
 .shoplist_total .shoptotal{
-    color: #007183;
+    color: $accentColor;
 
 }
 
@@ -186,7 +204,10 @@
 
     }
 
+    .shoppaycredit_info #error{
+        padding-left: 10px;
     
+    }
 
     .shoplist .pro_img{
         width: 20%;
