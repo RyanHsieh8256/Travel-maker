@@ -11408,7 +11408,7 @@ input[type="button"] {
   }
 }
 
-.shopType h2, .shopHotCity h2, .shopProduct h2 {
+.shopType h2 {
   text-align: center;
   font-family: 'Caveat',serif;
   font-weight: 600;
