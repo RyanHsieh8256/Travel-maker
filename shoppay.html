@@ -363,10 +363,10 @@
         }
 
         //(信用卡格式)
-        $("#number").on("input",function(e){
+        $("#checknumber").on("input",function(e){
         var oldVal = e.delegateTarget.value;  //返回指定元素
         var newVal = oldVal.replace(/\s/g,'-').replace(/[^\d]/g,'-').replace(/(\d{4})(?=\d)/g,'$1 ');   //指定格式
-        $("#number").val(newVal);
+        $("#checknumber").val(newVal);
         });
 
 
