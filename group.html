@@ -405,6 +405,25 @@
             <p class="footerCopyRight">&copy;copy right by nobody .Please don't sue me.</p>
         </section>
     </footer>
+    <a href="./grouplist.html"><button class="joinBtn">我要<br>建團</button></a>
+
+    <!-- at designated point, show the joinBtn -->
+    <script>
+        $(function () {
+            $(window).scroll(function () {
+                let scrollTop = $(window).scrollTop();
+                // console.log(scrollTop);
+                let showPoint = $('.groupCities_wrap').offset().top;
+                // console.log(showPoint);
+                if (scrollTop >= showPoint) {
+                    $('.joinBtn').addClass('showJoinBtn');
+                } else {
+                    $('.joinBtn').removeClass('showJoinBtn');
+                }
+            });
+        });
+    </script>
+
     <script>
         new Vue({
             el: '#filter_wrap',

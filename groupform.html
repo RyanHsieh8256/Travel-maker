@@ -10,7 +10,6 @@
     <script src="js/jquery.js"></script>
     <script src='js/vue.js'></script>
     <link rel="shortcut icon" href="images/logo/logo_84x50.png" type="image/png">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.12.0/validate.min.js"></script>
 </head>
 
 <body class="groupform_body">
@@ -153,21 +152,21 @@
                         <div class="datepicker_wrap">
                             <input type="date" class="selectDate">
                         </div>
-                        <div class="alertMessage">test</div>
+                        <div class="alertMessage"></div>
                     </div>
                     <div class="date_wrap endDate_wrap">
                         <label for="endDate"><span class="must">*</span>揪團結束日期</label>
                         <div class="datepicker_wrap">
                             <input type="date" class="selectDate">
                         </div>
-                        <div class="alertMessage">test</div>
+                        <div class="alertMessage"></div>
                     </div>
                     <div class="date_wrap deadline_wrap">
                         <label for="deadline"><span class="must">*</span>報名截止日期</label>
                         <div class="datepicker_wrap">
                             <input type="date" class="selectDate">
                         </div>
-                        <div class="alertMessage">test</div>
+                        <div class="alertMessage"></div>
                     </div>
                 </div>
                 <div id="peopleNum" class="fieldSection groupform_peopleNum">
@@ -191,8 +190,8 @@
                     </select>
                 </div>
                 <div class="fieldSection btnSection">
-                    <button class="btn btn--main">取消</button>
-                    <button class="btn btn--main" id="publish">公開揪團</button>
+                    <button type="button" class="btn btn--main">取消</button>
+                    <button type="button" class="btn btn--main" id="publish">公開揪團</button>
                 </div>
             </div>
         </section>
@@ -258,17 +257,16 @@
             </transition>
         </section>
     </div>
+
     <!-- 提醒視窗 -->
-    <div class="alert alertBG">
-        <section class="alert_wrap">
-                <button class="alert_closeBtn">
-                    <i class="bi bi-x-circle-fill"></i>
-                </button>
-                <div class="alert_content">test</div>
-
-        </section>
+    <div class="alertBG">
+        <div class="alertBG_wrap">
+            <button class="alertBG_closeBtn">
+                <i class="bi bi-x-circle-fill"></i>
+            </button>
+            <p class="alertBG_content"></p>
+        </div>
     </div>
-
 
     <!-- 封面JS區 -->
     <script>
@@ -306,8 +304,9 @@
                     dropZone_title.style.color = "#f00";
                     return;
                 }else{
-                coverImg.src = readFile.result;
-                dropZone_title.style.display="none";
+                    coverImg.src = readFile.result;
+                    dropZone_title.style.display="none";
+                    var imgSrc = coverImg.src;
                 }
             })
         }
@@ -318,12 +317,12 @@
     <script>
         let today = new Date().toISOString().split('T')[0];
         let selectDate = document.querySelectorAll('.selectDate');
-        for(let i=0; i<selectDate.length; i++){
+        for(let i=0; (i<selectDate.length-1); i++){
             selectDate[i].setAttribute('min', today);
         }
     </script>
 
-    <!-- VUE出數量加減 -->
+    <!-- VUE出下拉式選單和數量加減 -->
     <script>
         let vm = new Vue({
             el: '#groupform_wrap',
@@ -347,8 +346,12 @@
         });
     </script>
 
-    <!-- 公開揪團判斷表格 -->
+    <!-- 公開揪團判斷必填表格 -->
     <script>
+        //判斷封面照片是否有上傳
+        let coverImg = document.getElementById('coverImg');
+        let imgSrc = coverImg.getAttribute('src');
+
         let publish = document.getElementById('publish');
         let groupTitle = document.getElementById('groupTitle');
         let groupDesc = document.getElementById('groupDesc');
@@ -360,11 +363,8 @@
                 groupDesc.placeholder="這是必填欄位";
                 groupTitle.classList.add('alertTxtMust');
                 groupDesc.classList.add('alertTxtMust');
-
-            }else{
-                // groupTitle.style.background="";
             }
-            return !!groupTitle.value; 
+            return !!groupTitle.value && !!groupDesc.value; 
         }
 
         //驗證日期
@@ -372,35 +372,70 @@
             let selectDate = document.querySelectorAll('.selectDate');
             let alertMessage = document.querySelectorAll('.alertMessage');
 
-            selectDate.forEach( date => {
-                // console.log(date.value);
-                // console.log(!!date.value);
-                if(date.value == false){ //如果沒有填日期
-                    alertMessage.forEach(msg => {
-                        console.log(alertMessage);
-                        msg.innerText = "給我填喔!白癡";
-                    })
+            //判斷空值
+            for(let i=0; i<selectDate.length; i++){
+                if(!selectDate[i].value){
+                    alertMessage[i].innerText = "給我填喔白癡";
+                }else{
+                    alertMessage[i].innerText = "";
                 }
-                return !!date.value;
-            });
+            }
+
+            //日期比較
+            if(selectDate[1].value > selectDate[0].value && selectDate[2].value && selectDate[0].value > selectDate[2].value){ //正確狀況
+                alertMessage.innerText = ""; 
+                return !selectDate.value;
+            }else if(selectDate[0].value >= selectDate[1].value){ //如果出發日期>結束日期 
+                alertMessage[0].innerHTML = `<i class="bi bi-exclamation-circle"></i>出發日期不得大於等於結束日期`;
+            }else if(selectDate[2].value >= selectDate[0].value){ //如果截止日期>出發日期
+                alertMessage[2].innerHTML = `<i class="bi bi-exclamation-circle"></i>截止日期不得大於出發日期`;
+            }
+            return !!selectDate.value;
         }
 
-        function submit(){ //如果全部情況都false的話，出現視窗提醒畫面
-            let textValid = checkTextValue();
-            let dateValid = checkDate();
-            // console.log(textValid); //false
-            console.log(dateValid);
-            // alert("尚有欄位還沒填寫")
+        function submit(){ 
+            let textValid = checkTextValue(); 
+            let dateValid = checkDate(); 
+            let alertBG = document.querySelector('.alertBG');
+            let alertBG_content = document.querySelector('.alertBG_content');
+            let dropZone_title = document.querySelector('.dropZone_title');
 
+            // console.log(textValid); 
+            // console.log(dateValid);
+
+            if(textValid == false || dateValid == false || imgSrc== ''){ //如果全部情況都false的話，出現視窗提醒畫面
+                alertBG.style.display = "block";
+                alertBG_content.innerText = "尚有資料未填寫完整";
+                dropZone_title.innerHTML = `請選一張您喜歡的封面照片吧<i class="bi bi-exclamation-lg"></i>`;
+                dropZone_title.style.color = "#f00";
+            }else{
+                alertBG.style.display = "block";
+                alertBG_content.innerHTML = `已成功公開揪團<i class="bi bi-exclamation-lg"></i>`;
+            }
         }
         publish.addEventListener('click', submit);
     </script>
 
+    <!-- 關閉提醒視窗 -->
+    <script>
+        let alertBG_closeBtn = document.querySelector('.alertBG_closeBtn');
+        let alertBG = document.querySelector('.alertBG');
+        
+        function close(){
+            alertBG.style.display="none";
+        }
+        alertBG_closeBtn.addEventListener('click', close);
+    </script>
+
+    <!-- 使用者離開時的提醒 -->
+    <script>
+        $(window).on('beforeunload', function(){ 
+            return "";
+        })
+    </script>
+
     <script src="js/forlogin.js"></script>
     <script src="js/burger.js"></script>
-
-
-
 </body>
 
 </html>
