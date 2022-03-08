@@ -377,7 +377,7 @@
                 </div>
             </div>
         </section>
-        <a href="#"><button class="joinBtn">我要<br>參團</button></a>
+        <button class="joinBtn">我要<br>參團</button>
     </main>
     <footer class="footer_Wrap">
         <section class="footerBlock">
@@ -399,6 +399,17 @@
             <p class="footerCopyRight">&copy;copy right by nobody .Please don't sue me.</p>
         </section>
     </footer>
+
+    <!-- 提醒視窗 -->
+    <div class="alertBG">
+        <div class="alertBG_wrap">
+            <button class="alertBG_closeBtn">
+                <i class="bi bi-x-circle-fill"></i>
+            </button>
+            <p class="alertBG_content"></p>
+        </div>
+    </div>
+
     <!-- at designated point, show the joinBtn -->
     <script>
         $(function () {
@@ -415,6 +426,32 @@
             });
         });
     </script>
+
+    <!-- show alertBG -->
+    <script>
+        let joinBtn = document.querySelector('.joinBtn');
+        let alertBG_content = document.querySelector('.alertBG_content');
+
+        function showAlertBG(){
+            alertBG.style.display = 'block';
+            alertBG_content.innerText = '已成功參加此團，請至會員中心「我的揪團」查看紀錄';
+        };
+
+        joinBtn.addEventListener('click', showAlertBG);
+    </script>
+
+    <!-- 關閉提醒視窗 -->
+    <script>
+        let alertBG_closeBtn = document.querySelector('.alertBG_closeBtn');
+        let alertBG = document.querySelector('.alertBG');
+        
+        function close(){
+            alertBG.style.display="none";
+        }
+        alertBG_closeBtn.addEventListener('click', close);
+    </script>
+
+    <!-- 行程天數切換 -->
     <script>
         function changeTab() {
             tabs = document.querySelectorAll('.timeline_tab');
@@ -437,6 +474,7 @@
 
         changeTab();
     </script>
+
     <script src="js/burger.js"></script>
     <script src="js/forlogin.js"></script>
 </body>

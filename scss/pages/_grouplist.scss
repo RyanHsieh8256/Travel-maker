@@ -18,6 +18,7 @@
 .subtitle_wrap{
     display: flex;
     align-items: center;
+    margin: 0px 0px 2% 2%;
     margin-bottom: 20px;
 }
 /*我的收藏行程*/
@@ -60,6 +61,10 @@
     h3{
         font-size: 20px;
     }
+}
+.myTour_wrap{
+    width: 97%;
+    margin: auto;
     .myTour{
         border: #3333 1px solid;
         border-radius: 10px;
@@ -67,6 +72,15 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
         height: 150px;
+        p{
+            margin-bottom: 20px;
+        }
+        .homeTour_point--start{
+            top: inherit;
+            left: inherit;
+            position: relative;
+        }
     }
 }
