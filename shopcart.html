@@ -152,7 +152,7 @@
     </header>
     <main>
         <section class="l-full shopcart">
-            <div class="l-medium shopcart_wrap">
+            <div class="shopcart_wrap">
                 <h2>購物車</h2>
                 <hr>
                 <div class="shoplist">
@@ -164,6 +164,10 @@
                         <div class="content_wrap">
                             <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
                             <span class="sub">$1234</span>
+                            <div class="modify_icon">
+                                <button><a href="shopspot.html"><i class="bi bi-pencil-square"></i></a></button>
+                                <button><i class="bi bi-trash3"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -177,6 +181,10 @@
                         <div class="content_wrap">
                             <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
                             <span class="sub">$1234</span>
+                            <div class="modify_icon">
+                                <button><a href="shopspot.html"><i class="bi bi-pencil-square"></i></a></button>
+                                <button><i class="bi bi-trash3"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -190,6 +198,10 @@
                         <div class="content_wrap">
                             <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
                             <span class="sub">$1234</span>
+                            <div class="modify_icon">
+                                <button><a href="shopspot.html"><i class="bi bi-pencil-square"></i></a></button>
+                                <button><i class="bi bi-trash3"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -231,20 +243,20 @@
         
    
     <script>
-        //deadline
-        let deadline = document.querySelectorAll('.deadline');
+        //------------------deadline----------------
+        let deadline = document.querySelectorAll('.deadline'); //取得class deadline
         
         
-        console.log(deadline);
-        var myDate = new Date()
-        myDate.setMonth(myDate.getMonth() + 3);
+        // console.log(deadline);
+        var myDate = new Date() //取得目前時間
+        myDate.setMonth(myDate.getMonth() + 3);  //月份+3個月
         // console.log(myDate);
-        let year = myDate.getFullYear();
-        let month = myDate.getMonth()+1;
-        let date = myDate.getDate();
+        let year = myDate.getFullYear();    //取得myDate的年
+        let month = myDate.getMonth()+1;    //取得myDate的月(原為實月-1，需加回來)
+        let date = myDate.getDate();        //取得myDate的日
         
         for(let i =0;i<deadline.length;i++){
-         deadline[i].innerText = `${year} / ${month} / ${date}`;   
+         deadline[i].innerText = `${year} / ${month} / ${date}`;  //結果放入html中 
         }
         // console.log(year, month, date);
         // console.log(`${year} / ${month}/ ${date}`);

@@ -10982,6 +10982,7 @@ input[type="button"] {
   background-color: #ff7e29;
   margin: 10px auto;
   border-radius: 10px;
+  color: #fff;
 }
 
 .groupCard {
@@ -11220,6 +11221,7 @@ input[type="button"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 0px 0px 2% 2%;
   margin-bottom: 20px;
 }
 
@@ -11274,7 +11276,12 @@ input[type="button"] {
   font-size: 20px;
 }
 
-.grouplistContent .grouplistBuildList_wrap .myTour {
+.myTour_wrap {
+  width: 97%;
+  margin: auto;
+}
+
+.myTour_wrap .myTour {
   border: #3333 1px solid;
   border-radius: 10px;
   width: 100%;
@@ -11287,7 +11294,21 @@ input[type="button"] {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: 150px;
+}
+
+.myTour_wrap .myTour p {
+  margin-bottom: 20px;
+}
+
+.myTour_wrap .myTour .homeTour_point--start {
+  top: inherit;
+  left: inherit;
+  position: relative;
 }
 
 .groupform_body {
@@ -11364,8 +11385,8 @@ input[type="button"] {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .groupform .groupform_wrap .fieldSection {
@@ -11395,13 +11416,26 @@ input[type="button"] {
   color: #f00;
 }
 
+.alertMessage {
+  color: #f00;
+  margin-left: 2%;
+}
+
 .date_wrap {
   margin: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .datepicker_wrap {
   position: relative;
   display: initial;
+  margin: 5px 0;
 }
 
 .ui-datepicker-trigger {
@@ -11414,6 +11448,20 @@ input[type="button"] {
           transform: translateY(-40%);
 }
 
+.groupform_peopleNum {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.groupform_peopleNum_btnWrap {
+  margin: 5px 0;
+}
+
 .groupform_peopleNum .numBtn {
   width: 20px;
   height: 20px;
@@ -11424,6 +11472,21 @@ input[type="button"] {
 
 .groupform_peopleNum input[type=text] {
   text-align: center;
+}
+
+.groupform .groupform_wrap .share {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.groupform .groupform_wrap .share .dropdownMenu {
+  margin: 5px 0;
+  width: 50%;
 }
 
 .btnSection {
@@ -11440,13 +11503,117 @@ input[type="button"] {
   margin: 0px 10px;
 }
 
+.alertTxtMust::-webkit-input-placeholder {
+  color: #f00;
+}
+
+.alertBG {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+.alertBG_wrap {
+  width: 300px;
+  height: 150px;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+  position: fixed;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: 50%;
+  background: #F0EEE7;
+  -webkit-animation: shining 2s infinite;
+          animation: shining 2s infinite;
+}
+
+@-webkit-keyframes shining {
+  30% {
+    -webkit-box-shadow: #007185 0px 0px 10px;
+            box-shadow: #007185 0px 0px 10px;
+  }
+  50% {
+    -webkit-box-shadow: rgba(0, 113, 133, 0.5) 0px 0px 20px;
+            box-shadow: rgba(0, 113, 133, 0.5) 0px 0px 20px;
+  }
+  70% {
+    -webkit-box-shadow: #007185 0px 0px 40px;
+            box-shadow: #007185 0px 0px 40px;
+  }
+  100% {
+    -webkit-box-shadow: rgba(0, 113, 133, 0.5) 0px 0px 50px;
+            box-shadow: rgba(0, 113, 133, 0.5) 0px 0px 50px;
+  }
+}
+
+@keyframes shining {
+  30% {
+    -webkit-box-shadow: #007185 0px 0px 10px;
+            box-shadow: #007185 0px 0px 10px;
+  }
+  50% {
+    -webkit-box-shadow: rgba(0, 113, 133, 0.5) 0px 0px 20px;
+            box-shadow: rgba(0, 113, 133, 0.5) 0px 0px 20px;
+  }
+  70% {
+    -webkit-box-shadow: #007185 0px 0px 40px;
+            box-shadow: #007185 0px 0px 40px;
+  }
+  100% {
+    -webkit-box-shadow: rgba(0, 113, 133, 0.5) 0px 0px 50px;
+            box-shadow: rgba(0, 113, 133, 0.5) 0px 0px 50px;
+  }
+}
+
+.alertBG_closeBtn {
+  position: absolute;
+  top: -10%;
+  right: -7%;
+}
+
+.alertBG_closeBtn .bi.bi-x-circle-fill {
+  font-size: 25px;
+  color: #007183;
+}
+
+.alertBG_content {
+  text-align: center;
+  font-weight: 700;
+  color: #ff7e29;
+  border-radius: 10px;
+}
+
 @media screen and (min-width: 768px) {
   .groupform .groupform_wrap {
     width: 60%;
   }
+  .date_wrap, .groupform_peopleNum, .share {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .datepicker_wrap, .groupform_peopleNum_btnWrap, .share .dropdownMenu {
+    margin: 0% 0% 0% 2%;
+  }
 }
 
-.shopType h2, .shopHotCity h2, .shopProduct h2 {
+.shopType h2 {
   text-align: center;
   font-family: 'Caveat',serif;
   font-weight: 600;
@@ -11685,6 +11852,10 @@ input[type="button"] {
   cursor: pointer;
 }
 
+.subbtn .tocart {
+  margin-right: 20px;
+}
+
 .shopspotContent_wrap {
   width: 90%;
   margin: auto;
@@ -11725,11 +11896,10 @@ input[type="button"] {
 }
 
 .shopspotDescription > * {
-  padding-top: 60px;
+  padding-top: 70px;
 }
 
 .shopspotDescription > * > * {
-  margin: 10px auto;
   border: 1.5px solid #007183;
   border-radius: 10px;
   padding: 35px;
@@ -11738,7 +11908,12 @@ input[type="button"] {
 }
 
 .shopspotFeature img {
-  margin: 30px 0;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.shopspotFeature .feature {
+  margin-bottom: 30px;
 }
 
 .shopspotSelect {
@@ -11852,6 +12027,10 @@ input[type="button"] {
   background-color: #f5f5f5;
 }
 
+.shopcart_wrap > * {
+  margin: 0 20px;
+}
+
 .shopcart h2 {
   margin: 15px;
   font-family: 'Caveat',serif;
@@ -11886,6 +12065,16 @@ input[type="button"] {
   width: 80%;
 }
 
+.content_wrap .modify_icon > * {
+  font-size: 20px;
+  color: black;
+  padding-left: 0;
+}
+
+.content_wrap .modify_icon a {
+  color: black;
+}
+
 .shoplist_total {
   margin: 15px;
   text-align: right;
@@ -11901,7 +12090,7 @@ input[type="button"] {
 }
 
 .shoplist_total .shoptotal {
-  color: #007183;
+  color: #ff7e29;
 }
 
 .shopcart .shopbtn {
@@ -11917,6 +12106,7 @@ input[type="button"] {
   border: none;
   background: none;
   cursor: pointer;
+  color: black;
 }
 
 @media screen and (min-width: 768px) {
@@ -11946,6 +12136,10 @@ input[type="button"] {
   .shoplist .content {
     width: 40%;
   }
+  .content_wrap .modify_icon > * {
+    margin-right: 10px;
+    font-size: 15px;
+  }
 }
 
 .shoppay_bg {
@@ -11954,6 +12148,10 @@ input[type="button"] {
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 10px;
+}
+
+.required {
+  color: red;
 }
 
 .filter {
@@ -11987,12 +12185,13 @@ input[type="button"] {
 }
 
 .personal_info .contact {
+  width: 90%;
   margin-top: 0;
 }
 
 .personal_info .contact > * {
-  margin: 10px;
-  margin-right: 2rem;
+  width: 100%;
+  margin: 5px 10px;
 }
 
 .shoppaycredit > * {
@@ -12001,6 +12200,24 @@ input[type="button"] {
 
 .shoppaycredit_info > * {
   margin: 10px;
+}
+
+.phone, .email, .cardnumber, .expdate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#phoneerror, #emailerror, #carderror, #experror {
+  display: none;
+  font-size: 10px;
+  font-weight: lighter;
+  padding-left: 10px;
+  color: red;
+}
+
+.shoppaydetail .detail > * {
+  margin: 20px;
 }
 
 .shoplist {
@@ -12053,7 +12270,7 @@ input[type="button"] {
 }
 
 .shoplist_total .shoptotal {
-  color: #007183;
+  color: #ff7e29;
 }
 
 .shoppayconfirm {
@@ -12077,17 +12294,6 @@ input[type="button"] {
         flex-wrap: wrap;
   }
   .personal_info .name > * {
-    width: 40%;
-    margin: 5px 10px;
-  }
-  .personal_info .contact {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-  .personal_info .contact > * {
     width: 40%;
     margin: 5px 10px;
   }
