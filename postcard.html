@@ -9,14 +9,16 @@
 
     <link rel="stylesheet" href="css/main.css">
     <script src="js/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script
+    src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"
+    integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY="
+    crossorigin="anonymous"></script>
     <script src="js/vue.js"></script>
-    
+    <script src="js/jquery.ui.touch-punch.js"></script>
 </head>
 
 <body>
 <header>
-    <!-- 宸哥的導覽列 -->
     <nav class="nav_Wrap">
         <section class="navBlock">
             <a href="home.html">
@@ -59,7 +61,6 @@
             </ul>
         </section>          
     </nav>
-    <!-- 漢堡 -->
     <div class="navPage">
         <button class="navPage--close">
             <span class="close_line"></span>
@@ -161,16 +162,23 @@
                     <div class="postcardContainer" id="postcardContainer">
                         <div class="postcardBox" id="postcardBox">
                             <img src="images/postcardelement/postbg1.png" alt="">
-                            <div class="postcardStampContainer" id="postcardStampContainer"></div>
+                            <div class="postcardStampContainer" id="postcardStampContainer">
+                                <div class="postcardStampBox">加入圖片</div>
+                            </div>
                             <span class="postcardText" :style="preserve">{{message}}</ㄋ>
                             <div id="deletStamp"><i class="bi bi-trash"></i></div>
                         </div>
                         <div class="postcardTextInput">
-                            <textarea name="" id="" placeholder="請輸入文字" v-model="message"></textarea>
+                            <textarea name="" id="" placeholder="這裡輸入文字會顯示在上方，拖曳即可移動位置" v-model="message"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-4 col-lg-4 postcardRightBox">
+                    <div class="postcardBtns">
+                        <button id="appendStampBtn">新增圖片格</button>
+                        <button id="clearStampBtn">全部重設</button>
+                        <button id="btnSave" onclick="screenshot()">存檔</button>
+                    </div>
                     <div class="postcardElements_warp">
                         <div class="postcardTags">
                             <div class="postcardTag">郵票</div>
@@ -209,11 +217,6 @@
                             <div class="postcardElement"><img src="images/mascot/bear02.png"></div> 
                         </div>
                     </div>
-                    <div class="postcardBtns">
-                        <button id="appendStampBtn">新增圖片</button>
-                        <button id="clearStampBtn">重設</button>
-                        <button id="btnSave" onclick="screenshot()">存檔</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -249,15 +252,15 @@
 
 new Vue({
     el: '#postcardContainer',
-    data: {     // 變數放在這裡!
+    data: { 
         message: '',
     },
-    methods: {   // 函數大部分放在這裡!
+    methods: {
         setMessage(e){
             this.message = e.target.value;
         },
     },
-    computed: {   // 函數也可以放在這裡! 但是放在這裡的函數，不能傳參數，一定要有傳回值
+    computed: {
         preserve(){
             return{
                 whiteSpace:'pre',
@@ -273,33 +276,34 @@ new Vue({
     let postcardStampContainer = document.getElementById('postcardStampContainer');
     let appendStampBtn = document.getElementById('appendStampBtn');
     let clearStampBtn = document.getElementById('clearStampBtn');
-
-    
     let postcardTag = document.querySelectorAll('.postcardTag');
     let postcardElements = document.querySelectorAll('.postcardElements');
-
+    let postcardStampBox = document.querySelectorAll('.postcardStampBox');
 
 
     function doFirst(){
-
+        //拖曳開始事件註冊
         for(i=0;i<postcardElement.length;i++){
             postcardElement[i].addEventListener('dragstart',startDrag);
         }
 
+
+        for(i=0;i<postcardStampBox.length;i++){
+            postcardStampBox[i].addEventListener('dragenter',function(e){e.preventDefault()});
+            postcardStampBox[i].addEventListener('dragover',function(e){e.preventDefault()});
+            postcardStampBox[i].addEventListener('drop',dropped);
+        }
         appendStampBtn.addEventListener('click',appendStamp);
         clearStampBtn.addEventListener('click',clearStamp)
 
         // 右側切換
         for(let i = 0;i<postcardTag.length;i++){
             postcardTag[i].index = i;
-            console.log(postcardTag[i])
             postcardTag[i].onclick = function(){
-                console.log(postcardTag[i])
                 for(a=0;a<postcardElements.length;a++){
                     postcardElements[a].style.display = 'none';
                 }
                 postcardElements[i].style.display = "flex";
-
             }
         };
 
@@ -317,7 +321,7 @@ new Vue({
         e.target.innerHTML = e.dataTransfer.getData('image/png');
         e.target.style.border='none';
     };
-
+    
     //新增貼圖格
     function appendStamp(){
         let StampBox = document.createElement('div');
@@ -366,10 +370,10 @@ new Vue({
     function screenshot(){
         html2canvas(document.getElementById('postcardBox')).then(function(canvas) {
             document.body.appendChild(canvas);
-            var a = document.createElement('a');
-            a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
-            a.download = 'image.jpg';
-            a.click();
+            var postcardPic = document.createElement('a');
+            postcardPic.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+            postcardPic.download = 'image.jpg';
+            postcardPic.click();
         });
     }
 </script>

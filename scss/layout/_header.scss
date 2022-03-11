@@ -55,6 +55,25 @@
             color: $black;
             cursor: pointer;
         }
+        // 登入前
+        .loginBoxBtn{
+            display: block;
+        }
+        // 登入後
+        .memBoxBtn{
+            display: none;
+            align-items: center;
+
+            .memIcon{
+                display: inline-block;
+                margin-right: 5px;
+                img{
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                }
+            }   
+        }
     }
 }
 
@@ -69,13 +88,15 @@
 
     border-radius: 5px;
 
-    box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 5px;
+    box-shadow: #3335 1px 1px 2px;
     .navDropdownMenuItem{
         padding:10px 45px;
-        border-bottom: 1px solid #3335;
-        &+.navDropdownMenuItem{
-            border-bottom:none;
-            border-top:1px solid #3332;
+        border-bottom: .5px solid #3335;
+        &:hover{
+            color: $accentColor;
+        }
+        a:hover{
+            color: $accentColor;
         }
     }
     .navMemProfile{
@@ -100,6 +121,6 @@
     border-right: 5px solid #0000;
     border-left: 5px solid #0000;
     position: absolute;
-    right: 20%;
+    left: 40%;
     top:-10px;
 }

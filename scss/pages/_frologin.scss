@@ -17,7 +17,8 @@
     width: 100%;
     height: 100vh;
     display: none;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     z-index: 500;
 }
 
@@ -27,19 +28,15 @@
 }
 //登入
 .froLoginBlock{
-    width: 300px;
-    height: 420px;
+    min-width: 330px;
+    min-height:400px;
 
     position: fixed;
-    top:20%;
+    top:15%;
     left: 50%;
     transform: translate(-50%,0);
     margin: auto;
 
-    border-radius: 10px;
-    // border: .5px solid #3339;
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
-    background-color: #f0eee7;
 
     //取消按鈕
     .froLoginCancel{
@@ -60,18 +57,21 @@
 .froLoginSwitch{
     display: flex;
     text-align: center;
+    justify-content: space-between;
     overflow: hidden;
-    border-top-left-radius:10px;
-    border-top-right-radius:10px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+
     .froLoginSwitch_btn{
         width: 50%;
-        background-color:rgb(190, 190, 190);
+        background-color:#cfceca;
         padding: 5px 0;
         font-size: 20px;
         font-weight: 600;
     }
     .froLoginSwitch_active{
-        background-color:#f0eee7;
+        background-color:#007183;
+        color: #fff;
     }
 
 }
@@ -84,6 +84,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    background-color: #f0eee7;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
     .froLoginForm{
         display: flex;
         flex-direction: column;
@@ -105,6 +109,9 @@
                 padding: 5px;
                 box-shadow: inset 0px 0px 2px #333;
             }
+            input[name="gender"]{
+                box-shadow: none;
+            }
         }
         .froLoginBtn{
             text-align: center;
@@ -124,8 +131,8 @@
 .froLoginMascot{
     position: absolute;
     left:80%;
-    top:70%;
-    width: 100px;
+    top:75%;
+    width: 80px;
     transform-origin:center ;
     animation-name: Mascotjump;
     animation-duration:1s;
@@ -134,7 +141,7 @@
 @keyframes  Mascotjump {
     0%{
         transform: scaleY(1);
-        top:70%;
+        top:75%;
     }
     50%{
         transform: scaleY(.85);
@@ -142,32 +149,36 @@
     }
     100%{
         transform: scaleY(1);
-        top:70%;
+        top:75%;
     }
 }
 
 .frologintransition-enter-active,.frologintransition-leave-active {
-    transition: all .8s ease-in-out;
+    transition: all .7s ease-in-out;
 }
   
 .frologintransition-enter{
-    opacity: 0;
-    transform: scale(0);
+    opacity: 1;
+    clip-path:polygon(0 0, 100% 0, 100% 0, 0 0);
+
 }
 
 .frologintransition-enter-to{
     opacity: 1;
-    transform: scale(1);
+    clip-path:polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
 }
 
 .frologintransition-leave{
     opacity: 1;
-    transform: scale(1);
+    clip-path:polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
 }
 
 .frologintransition-leave-to{
-    opacity: 0;
-    transform: scale(0);
+    opacity: 1;
+    clip-path:polygon(0 0, 100% 0, 100% 0, 0 0);
+
 }
 
 //熊熊動畫
@@ -193,4 +204,8 @@
 .mascottransition-leave-to{
     transform: rotateY(90deg);
     opacity: 0;
+}
+
+label.error{
+    color: red;
 }

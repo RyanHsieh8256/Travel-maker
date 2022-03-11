@@ -7555,6 +7555,28 @@ body {
   cursor: pointer;
 }
 
+.navBlock .navMember .loginBoxBtn {
+  display: block;
+}
+
+.navBlock .navMember .memBoxBtn {
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navBlock .navMember .memBoxBtn .memIcon {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.navBlock .navMember .memBoxBtn .memIcon img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
 .navDropdownMenu {
   display: none;
   position: absolute;
@@ -7562,18 +7584,21 @@ body {
   right: 5%;
   background-color: #fff;
   border-radius: 5px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 5px;
-          box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 5px;
+  -webkit-box-shadow: #3335 1px 1px 2px;
+          box-shadow: #3335 1px 1px 2px;
 }
 
 .navDropdownMenu .navDropdownMenuItem {
   padding: 10px 45px;
-  border-bottom: 1px solid #3335;
+  border-bottom: .5px solid #3335;
 }
 
-.navDropdownMenu .navDropdownMenuItem + .navDropdownMenuItem {
-  border-bottom: none;
-  border-top: 1px solid #3332;
+.navDropdownMenu .navDropdownMenuItem:hover {
+  color: #ff7e29;
+}
+
+.navDropdownMenu .navDropdownMenuItem a:hover {
+  color: #ff7e29;
 }
 
 .navDropdownMenu .navMemProfile {
@@ -7606,7 +7631,7 @@ body {
   border-right: 5px solid #0000;
   border-left: 5px solid #0000;
   position: absolute;
-  right: 20%;
+  left: 40%;
   top: -10px;
 }
 
@@ -7839,7 +7864,7 @@ body {
   color: #333;
   text-align: center;
   font-size: 14px;
-  padding: 5px 0;
+  padding: 20px 0;
 }
 
 .footerContect li {
@@ -9186,7 +9211,8 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   width: 100%;
   height: 100vh;
   display: none;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   z-index: 500;
 }
 
@@ -9195,18 +9221,14 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 }
 
 .froLoginBlock {
-  width: 300px;
-  height: 420px;
+  min-width: 330px;
+  min-height: 400px;
   position: fixed;
-  top: 20%;
+  top: 15%;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
   margin: auto;
-  border-radius: 10px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
-          box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
-  background-color: #f0eee7;
 }
 
 .froLoginBlock .froLoginCancel {
@@ -9228,21 +9250,25 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   display: -ms-flexbox;
   display: flex;
   text-align: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   overflow: hidden;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
 }
 
 .froLoginSwitch .froLoginSwitch_btn {
   width: 50%;
-  background-color: #bebebe;
+  background-color: #cfceca;
   padding: 5px 0;
   font-size: 20px;
   font-weight: 600;
 }
 
 .froLoginSwitch .froLoginSwitch_active {
-  background-color: #f0eee7;
+  background-color: #007183;
+  color: #fff;
 }
 
 .froLoginForm_wrap {
@@ -9259,6 +9285,9 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  background-color: #f0eee7;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .froLoginForm_wrap .froLoginForm {
@@ -9292,6 +9321,11 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
           box-shadow: inset 0px 0px 2px #333;
 }
 
+.froLoginForm_wrap .froLoginForm .froLoginFormItem input[name="gender"] {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .froLoginForm_wrap .froLoginForm .froLoginBtn {
   text-align: center;
   padding: 10px 0;
@@ -9311,8 +9345,8 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 .froLoginMascot {
   position: absolute;
   left: 80%;
-  top: 70%;
-  width: 100px;
+  top: 75%;
+  width: 80px;
   -webkit-transform-origin: center;
           transform-origin: center;
   -webkit-animation-name: Mascotjump;
@@ -9327,7 +9361,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   0% {
     -webkit-transform: scaleY(1);
             transform: scaleY(1);
-    top: 70%;
+    top: 75%;
   }
   50% {
     -webkit-transform: scaleY(0.85);
@@ -9337,7 +9371,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   100% {
     -webkit-transform: scaleY(1);
             transform: scaleY(1);
-    top: 70%;
+    top: 75%;
   }
 }
 
@@ -9345,7 +9379,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   0% {
     -webkit-transform: scaleY(1);
             transform: scaleY(1);
-    top: 70%;
+    top: 75%;
   }
   50% {
     -webkit-transform: scaleY(0.85);
@@ -9355,37 +9389,37 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   100% {
     -webkit-transform: scaleY(1);
             transform: scaleY(1);
-    top: 70%;
+    top: 75%;
   }
 }
 
 .frologintransition-enter-active, .frologintransition-leave-active {
-  -webkit-transition: all .8s ease-in-out;
-  transition: all .8s ease-in-out;
+  -webkit-transition: all .7s ease-in-out;
+  transition: all .7s ease-in-out;
 }
 
 .frologintransition-enter {
-  opacity: 0;
-  -webkit-transform: scale(0);
-          transform: scale(0);
+  opacity: 1;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+          clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
 }
 
 .frologintransition-enter-to {
   opacity: 1;
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
 .frologintransition-leave {
   opacity: 1;
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
 .frologintransition-leave-to {
-  opacity: 0;
-  -webkit-transform: scale(0);
-          transform: scale(0);
+  opacity: 1;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+          clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
 }
 
 .mascottransition-enter-active, .mascottransition-leave-active {
@@ -9415,6 +9449,10 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   -webkit-transform: rotateY(90deg);
           transform: rotateY(90deg);
   opacity: 0;
+}
+
+label.error {
+  color: red;
 }
 
 .text_Overflow {
@@ -12117,7 +12155,7 @@ canvas {
 .postcardContainer {
   position: relative;
   width: 100%;
-  padding: 30px;
+  padding: 20px;
   margin: auto;
   background-color: #fff;
   border-radius: 10px;
@@ -12141,7 +12179,7 @@ canvas {
   -webkit-box-shadow: 1px 1px  3px #3333;
           box-shadow: 1px 1px  3px #3333;
   border: .5px solid #3333;
-  width: 80%;
+  width: 100%;
 }
 
 .postcardBox .postcardStampContainer {
@@ -12170,6 +12208,8 @@ canvas {
   position: absolute;
   top: 10%;
   right: 10%;
+  font-size: 10px;
+  text-align: center;
 }
 
 .postcardBox .postcardText {
@@ -12179,7 +12219,7 @@ canvas {
 }
 
 .postcardTextInput {
-  width: 80%;
+  width: 100%;
   height: 100px;
   margin: 10px auto 0 auto;
 }
@@ -12196,22 +12236,15 @@ canvas {
 }
 
 .postcardRightBox {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
   overflow: hidden;
 }
 
 .postcardElements_warp {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12272,36 +12305,40 @@ canvas {
 }
 
 .postcardBtns {
+  position: fixed;
+  bottom: 170px;
+  right: 0;
+  z-index: 10;
   padding: 10px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .postcardBtns button {
-  font-size: 20px;
   padding: 5px 20px;
   background-color: #007183;
   color: #fff;
-  border-radius: 20px;
+  border-radius: 50px;
   margin: 5px 0;
   cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
   .postcardElements_warp {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: auto;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -12323,18 +12360,27 @@ canvas {
         -ms-writing-mode: tb-lr;
             writing-mode: vertical-lr;
   }
-}
-
-@media screen and (min-width: 996px) {
   .postcardBtns {
+    position: static;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
   }
   .postcardBtns button {
-    font-size: 20px;
-    padding: 5px 15px;
+    padding: 5px 20px;
+    background-color: #007183;
+    color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
     margin: 0 5px;
   }
 }
