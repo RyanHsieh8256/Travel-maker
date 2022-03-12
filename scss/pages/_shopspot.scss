@@ -48,7 +48,12 @@
 
 }
 
+.shopspotSlide_wrap .item img{
+  display: inline-block; 
+  max-width: auto;  
+  height: 250px!important; 
 
+}
 
 .shopspotInfo h2{
   width: 80%;
@@ -224,6 +229,13 @@
     margin: 40px auto;
     width: 80%;
       
+  }
+
+  .shopspotSlide_wrap .item img{
+    display: inline-block; 
+    max-width: auto;  
+    height: 400px!important; 
+  
   }
 
   .shopspotInfo_wrap{
