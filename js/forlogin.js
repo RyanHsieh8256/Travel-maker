@@ -43,15 +43,20 @@ Vue.component('login',{
                     data: `${data_info}`,
                     dataType:"text",
                     success: function (res) {
-                        localStorage.setItem('memData',res);
-                        let member = JSON.parse(res);
-                        $('#loginBoxBtn').css('display','none');
-                        $('#memBoxBtn').css('display','flex');
-                        $('#memName').text(member.memName);
-                        $('#memEmail').val('');
-                        $('#memPsw').val('');
-                        window.alert('登入成功!');
-                        froLoginBG.style.display = "none";
+                        if(res == "錯誤"){
+                            window.alert('帳號錯誤');
+                        }else{
+                            localStorage.setItem('memData',res);
+                            let member = JSON.parse(res);
+                            $('#loginBoxBtn').css('display','none');
+                            $('#memBoxBtn').css('display','flex');
+                            $('#memName').text(member.memName);
+                            $('#memEmail').val('');
+                            $('#memPsw').val('');
+                            window.alert('登入成功!');
+                            froLoginBG.style.display = "none";
+                        }
+
                     }
                 });
             }
@@ -69,7 +74,7 @@ Vue.component('signin',{
                 <tr class="froLoginFormItem">
                     <th>電子信箱:</th>
                     <td>
-                        <input type="email" name="memEmail" id="memEmail" required>
+                        <input type="email" name="memEmail" id="memEmail"  required>
                     </td>
                 </tr>
                 <tr class="froLoginFormItem">
@@ -109,6 +114,7 @@ Vue.component('signin',{
         </form>
     </div>
     `,
+    // onkeyup="this.value=this.value.replace(/^\s+|\s+$/g,'')"禁止空格
     methods: {
         signin:function(e){
             e.preventDefault();
