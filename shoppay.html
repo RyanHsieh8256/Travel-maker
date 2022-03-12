@@ -166,7 +166,7 @@
                         <div class="phonenumber">
                             <p>電話<span class="required">*</span></p>
                             <div class="phone">
-                                <input type="text" id="checkphone" onkeyup="checkPhone()" placeholder="請輸入連絡電話" required>
+                                <input type="text" id="checkphone" onkeyup="checkPhone()" placeholder="請輸入連絡電話" maxlength="10" required>
                                 <p id="phoneerror">電話有誤</p>
                             </div>
                         </div>
@@ -310,20 +310,14 @@
         // console.log(year, month, date);
         // console.log(`${year} / ${month}/ ${date}`);
         
-        //------------------phone-----------------------------
-        let phoneReg = /(\d{2,3}-?|\(\d{2,3}\))\d{3,4}-?\d{4}/;
+        //------------------cellphone-----------------------------
         let cellphoneReg =/^09\d{2}-?\d{3}-?\d{3}$/; 
-
-        
-
 
         function checkPhone(){
             let phone = document.getElementById('checkphone');  
             let alert = document.getElementById('phoneerror'); 
 
-            if(phoneReg.test(phone.value)){      
-                alert.style.display="none" 
-            }else if(cellphoneReg.test(phone.value)){                          
+            if(cellphoneReg.test(phone.value)){                          
                 alert.style.display="none"
             }else{
                 alert.style.display="block"  
@@ -372,17 +366,19 @@
 
         //-----------------exp-------------------------
         document.getElementById("expcheck").addEventListener("keyup",function(e){
-        if(e.keyCode!=8 &&(e.keyCode < 37 || e.keyCode > 40)){
-            var _this = this,v = _this.value.replace(/\D+/g,""),t = new Date(),s = (""+t.getFullYear()).slice(-2) * 100 + t.getMonth() + 1;
+        if(e.keyCode!=8 &&(e.keyCode < 37 || e.keyCode > 40)){  //不能是空白、方向鍵
+            let checknumber = this.value.replace(/\D+/g,"");  //確認使否為數字
+            let now = new Date()  //現在時間
+            let rule = (""+now.getFullYear()).slice(-2) * 100 + now.getMonth() + 1;  //取年的後兩位+月份
            
-            _this.value = v.replace(/(\d{2})(\d*)/,function(a,b,c){
+            this.value = checknumber.replace(/(\d{2})(\d*)/,function(d,m,y){
                 let alert = document.getElementById('experror');  
-                if(b > 12 || c && c.length == 2 && c * 100 + b * 1 < s){
+                if(m > 12 || y && y.length == 2 && y * 100 + m * 1 < rule){  //月份不能大於12，年份不為0並且不可小於現在的年份
                     alert.style.display="block"  
-                    return b + "/" + c;
+                    return m + "/" + y;
                 }else{
                     alert.style.display="none" 
-                    return b + "/" + c;
+                    return m + "/" + y;
                 }
             })
         }

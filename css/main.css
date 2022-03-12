@@ -10932,6 +10932,10 @@ input[type="button"] {
   background: #ccc;
 }
 
+.groupContent .groupContent_wrap .card {
+  margin-bottom: 30px;
+}
+
 /* 手機的篩選器 */
 .groupContent .groupContent_wrap .filterMobile {
   width: 60px;
@@ -11704,8 +11708,39 @@ input[type="button"] {
   margin: 0 15px;
 }
 
+.shopProduct .card_content {
+  width: 100%;
+}
+
+.shopProduct .card_count {
+  width: 100%;
+  text-align: right;
+}
+
 .shopProduct .card a {
   color: black;
+}
+
+.shopSort_wrap .card_img {
+  overflow: hidden;
+  position: relative;
+}
+
+.shopSort_wrap .card_img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 100%;
+}
+
+.shopSort_wrap .card_img:before {
+  content: "";
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%;
 }
 
 @media screen and (min-width: 768px) {
@@ -11773,6 +11808,12 @@ input[type="button"] {
 
 .shopspotSlide_wrap .owl-dot span {
   width: 10px;
+}
+
+.shopspotSlide_wrap .item img {
+  display: inline-block;
+  max-width: auto;
+  height: 250px !important;
 }
 
 .shopspotInfo h2 {
@@ -11929,6 +11970,11 @@ input[type="button"] {
   .shopspotSlide_wrap {
     margin: 40px auto;
     width: 80%;
+  }
+  .shopspotSlide_wrap .item img {
+    display: inline-block;
+    max-width: auto;
+    height: 400px !important;
   }
   .shopspotInfo_wrap {
     display: -webkit-box;
