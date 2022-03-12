@@ -75,25 +75,25 @@ Vue.component('signin',{
                 <tr class="froLoginFormItem">
                     <th>密碼:</th>
                     <td>
-                        <input type="password" name="memPsw" id="memPsw" required>
+                        <input type="password" name="memPsw" id="memPsw" maxlength="25" required>
                     </td>
                 </tr>
                 <tr class="froLoginFormItem">
                     <th>確認密碼:</th>
                     <td>
-                        <input type="password" id="checkPsw" required>
+                        <input type="password" id="checkPsw" maxlength="25" required>
                     </td>
                 </tr>
                 <tr class="froLoginFormItem">
                     <th>姓名:</th>
                     <td>
-                        <input type="test" id="memName" required>
+                        <input type="test" id="memsigninName" required>
                     </td>
                 </tr>
                 <tr class="froLoginFormItem">
                     <th>手機號碼:</th>
                     <td>
-                        <input type="tel" id="memTel" required>
+                        <input type="tel" id="memPhone" maxlength="10" required>
                     </td>
                 </tr>
                 <tr class="froLoginFormItem">
@@ -104,19 +104,19 @@ Vue.component('signin',{
                 </tr>
             </table>
             <div class="froLoginBtn">
-                <input type="submit" id='signinBtn' value="註冊" @click="signincheckdata">
+                <input type="submit" id='signinBtn' value="註冊" @click="signin">
             </div>
         </form>
     </div>
     `,
     methods: {
-        signincheckdata:function(e){
+        signin:function(e){
             e.preventDefault();
             let memEmail = document.getElementById('memEmail').value;
             let memPsw = document.getElementById('memPsw').value;
             let checkPsw = document.getElementById('checkPsw').value;
-            let memName = document.getElementById('memName').value;
-            let memTel = document.getElementById('memTel').value;
+            let memsigninName = document.getElementById('memsigninName').value;
+            let memPhone = document.getElementById('memPhone').value;
             let memBirth = document.getElementById('memBirth').value;
 
             let emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
@@ -126,6 +126,8 @@ Vue.component('signin',{
             let today = new Date();
             let birthDay = new Date(memBirth);
             let memAge = today.getFullYear() - birthDay.getFullYear();
+            //創立日期
+            let memCreateDate = today.toLocaleDateString();
 
 
             if(memEmail.search(emailRule) == -1){//帳號驗證 是否為電子郵件
@@ -137,20 +139,19 @@ Vue.component('signin',{
             }else if(memPsw != checkPsw){
                 window.alert('密碼驗證錯誤!');
                 return false;
-            }else if(memName == ''){//姓名驗證 是否為空
+            }else if(memsigninName == ''){//姓名驗證 是否為空
                 window.alert('請輸入姓名!');
                 return false;
             }else if(memAge <= 0){
                 window.alert('請輸入有效日期!');
                 e.preventDefault();
                 return false;
-            }else if(!telRule.test(memTel)){
+            }else if(!telRule.test(memPhone)){
                 window.alert('手機號碼格式錯誤!');
                 return false;
             }else{
                 // 傳送資料
-                let data_info = `memEmail=${memEmail}&memPsw=${memPsw}`;
-
+                let data_info = `memEmail=${memEmail}&memPsw=${memPsw}&memsigninName=${memsigninName}&memPhone=${memPhone}&memBirth=${memBirth}&memCreateDate=${memCreateDate}`;
 
                 $.ajax({
                     type: "post",
@@ -158,17 +159,21 @@ Vue.component('signin',{
                     data: `${data_info}`,
                     dataType:"text",
                     success: function (res) {
-                        // localStorage.setItem('memData',res);
-                        // let member = JSON.parse(res);
-                        // $('#loginBoxBtn').css('display','none');
-                        // $('#memBoxBtn').css('display','flex');
-                        // $('#memName').text(member.memName);
-                        // $('#memEmail').val('');
-                        // $('#memPsw').val('');
-                        window.alert('註冊成功，請重新登入!');
+                        if(res == "成功"){
+                            $('#memEmail').val('');
+                            $('#memPsw').val('');
+                            $('#checkPsw').val('');
+                            $('#memsigninName').val('');
+                            $('#memPhone').val('');
+                            $('#memBirth').val('');
+                            window.alert('註冊成功，請重新登入!');
+                        }else{
+                            window.alert('註冊失敗!');
+                        }
                         froLoginBG.style.display = "none";
                     }
                 });
+
             };
         }
     },
