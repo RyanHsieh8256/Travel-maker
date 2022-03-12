@@ -10932,6 +10932,10 @@ input[type="button"] {
   background: #ccc;
 }
 
+.groupContent .groupContent_wrap .card {
+  margin-bottom: 30px;
+}
+
 /* 手機的篩選器 */
 .groupContent .groupContent_wrap .filterMobile {
   width: 60px;
