@@ -374,7 +374,7 @@
                 success: function (res) {
                     // console.log(res);
                     // console.log(res[0].groStartDate); //第一筆資料的出發日期
-                    console.log(res.length); //2筆
+                    console.log(res.length); //看資料庫有幾筆
                     // groStartDate.innerText = res[0].groStartDate; //確認有寫入資料
                     if (res !== false) { //如果資料庫是有資料的
                         for (let i = 0; i < res.length; i++) {
@@ -455,9 +455,9 @@
                             card_person.appendChild(card_name);
                             card_photo.appendChild(initiatorPic);
                             //***這裡串接團主大頭貼
-                            initiatorPic.src = 'https://picsum.photos/50/50/?random=10';
+                            initiatorPic.src = `images/memIcon/${res[i].memIcon}`;
                             //***這裡串接團主的名字
-                            card_name.textContent = '柯柯';
+                            card_name.textContent = res[i].memName;
                             //3-2. 點擊次數固定
                             card_header.appendChild(card_hit);
                             card_hit.appendChild(hitSpan);
@@ -473,10 +473,10 @@
                             groupCard.appendChild(card_body);
                             card_body.appendChild(card_tag);
                             //***這裡串接城市
-                            card_tag.textContent = '台北';
+                            card_tag.textContent = res[i].cityName;
                             //***這裡串接揪團圖片
                             groupCard.appendChild(card_img);
-                            groImg.src = 'https://picsum.photos/300/200/?random=15';
+                            groImg.src = `images/groImg/${res[i].groImg}`;
                             card_img.appendChild(groImg);
                             //***這裡串接出發和回程日期
                             groupCard.appendChild(card_date);
