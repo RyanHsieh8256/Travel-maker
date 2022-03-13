@@ -9,13 +9,11 @@
     &::-webkit-scrollbar {
       display: none;
     }
-    
-    
-    &_box {
+
+    &_nav {
       width: 100%;
-      display: flex;
       position: relative;
-      
+
       &::after {
         content: '';
         width: 100%;
@@ -28,13 +26,22 @@
       }
     }
     
+    
+    &_box {
+      width: 100%;
+      display: flex;
+      position: relative;
+      overflow: hidden;
+      
+    }
+    
     &_tab {
       padding: 8px;
       border-radius: 5px 5px 0 0;
       margin-right: 3px;
       letter-spacing: 2px;
       cursor: pointer;
-      
+      flex-shrink: 0;
       &--active {
         background-color: #007183;
         color: #fff;

@@ -138,51 +138,42 @@
                   <div class="tourBuild_empty"></div>
                   <div class="tourBuild_content">
                     <div class="tourBuild_header">
-                      <form action="##" class="tourBuild_revise">
-                          <input type="text" id="tourName" class="tourBuild_name" value="美好幸福之旅">
-                          <label for="tourName" class="tourBuild_pen">
-                            <i class="bi bi-pencil-fill"></i> 
-                          </label>
-                      </form>
+
+                      <div class="tourBuild_revise">
+                          <h3 id="tourName" class="tourBuild_name">
+                            美好幸福之旅
+                          </h3>
+                          <button class="btn btn--main tourBuild_newSpot">新增景點</button>    
+                      </div>
                       <div class="tourBuild_time">
                         <p class="tourBuild_days">
                           <span>1</span>
                           天
                         </p>
                         <p type="button" class="tourBuild_date">
-                          2022.02.24
+                          2022.02.24 - 2022.02.26
                         </p>
                       </div>
                     </div>
                     <div class="tourBuild_body">
-                      <div class="tourBuild_news">
-                        <button class="btn btn--main tourBuild_newSpot">新增景點</button>     
-                      </div>
                       <div class="timeline">
                         <!-- 時間軸tab按鈕 -->
                             <div class="timeline_nav">
                               <div class="timeline_box">
                                 <div class="timeline_tab timeline_tab--1 timeline_tab--active" data-tab="1">第1天</div>
-                                <div class="timeline_tab timeline_tab--2" data-tab="2">第2天</div>
-                                <div class="timeline_tab timeline_tab--3" data-tab="3">第3天</div>
+                                <!-- <div class="timeline_tab timeline_tab--2" data-tab="2">第2天</div>
+                                <div class="timeline_tab timeline_tab--3" data-tab="3">第3天</div> -->
                               </div>
                             </div>
                             <ul class="timeline_list">
-                            
                                 <!--   分頁第一頁   -->
                               <div class="timeline_page timeline_page--1 timeline_page--active">
-                               
-                              </div>
-                              
-                              <!--   分頁第二頁   -->
-                              <div class="timeline_page timeline_page--2">
-                                
-                              </div>
-                            <!--    分頁第三頁    -->
-                              <div class="timeline_page timeline_page--3">
-                               
                               </div>
                             </ul>
+                      </div>
+                      <div class="tourBuild_news">
+                        <p>這天想去哪些景點呢?</p>
+                        <button class="btn btn--main tourBuild_newSpot">新增景點</button>     
                       </div>
                     </div>
                   </div>
@@ -194,10 +185,16 @@
                       <button class="btn btn--arrow" id="arrowBtn">
                         <i class="bi bi-arrow-left-short"></i>
                       </button>
-                      <input type="text" class="tourForm_input" name="tourName" placeholder="搜尋" value="桃園市">
+                      <input type="text" class="tourForm_input" name="tourName" placeholder="搜尋景點名或縣市名" value="" id="searchSpot">
                       <div class="tourForm_clear">
                           <i class="bi bi-x"></i>
                       </div>
+                    </div>
+                    <!-- 搜尋結果資料筆數 -->
+                    <div class="tourSearch_info">
+                      <span id="infoPlace"></span>
+                      共有
+                      <span id="infoNum"></span> 筆景點
                     </div>
                   <!--  search推薦縣市呈現(innerHTML)  -->
                     <div class="tourSearch_content">

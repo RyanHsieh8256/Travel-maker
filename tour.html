@@ -183,37 +183,37 @@
               <button class="btn btn--main tour_btn">詳細資訊</button>
               <div class="tour_select">
                 <div class="tour_slider">
-                  <div class="slider_item slider_item--active">
+                  <div class="slider_item slider_item--active" data-jour="2">
                     <div class="slider_img">
                       <img src="https://images.pexels.com/photos/872514/pexels-photo-872514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
                     </div>
                     <div class="slider_title">美好幸福之旅</div>
                   </div>
-                  <div class="slider_item">
+                  <div class="slider_item" data-jour="1">
                     <div class="slider_img">
                       <img src="https://images.pexels.com/photos/872514/pexels-photo-872514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
                     </div>
                     <div class="slider_title">沒有空玩之旅</div>
                   </div>
-                  <div class="slider_item">
+                  <div class="slider_item" data-jour="3">
                     <div class="slider_img">
                       <img src="https://images.pexels.com/photos/872514/pexels-photo-872514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
                     </div>
                     <div class="slider_title">去看101</div>
                   </div>
-                  <div class="slider_item">
+                  <div class="slider_item" data-jour="4">
                     <div class="slider_img">
                       <img src="https://images.pexels.com/photos/872514/pexels-photo-872514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
                     </div>
                     <div class="slider_title">散心假日遊</div>
                   </div>
-                  <div class="slider_item">
+                  <div class="slider_item" data-jour="5">
                     <div class="slider_img">
                       <img src="https://images.pexels.com/photos/872514/pexels-photo-872514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
                     </div>
                     <div class="slider_title">故宮知性之旅</div>
                   </div>
-                  <div class="slider_item">
+                  <div class="slider_item" data-jour="6">
                     <div class="slider_img">
                       <img src="https://images.pexels.com/photos/872514/pexels-photo-872514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
                     </div>
@@ -268,7 +268,7 @@
               </div>
             </div>
             <div class="tour_side tour_side--pei tour_side--active">
-              <div class="tour_content">
+              <div class="tour_content" data-jour="2">
                 <button class="btn btn--close tour_close">
                   <i class="bi bi-x"></i>
                 </button>
@@ -287,7 +287,7 @@
                     </div>
                     <div class="btn_box">
                       <button class="btn btn--chip" id="seeDetail">觀看詳細內容</button>
-                      <button class="btn btn--main btn--add">加入行程</button>
+                      <button class="btn btn--main btn--add addJour">加入行程</button>
                     </div>
                   </div>
                   <div class="tour_detail">
@@ -297,7 +297,7 @@
           <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
         </svg>
                       </div>
-                      <button class="btn btn--main btn--add">加入行程</d>
+                      <button class="btn btn--main btn--add addJour">加入行程</d>
                     </div>
                     <div class="timeline">
                       <!-- 時間軸tab按鈕 -->
@@ -579,7 +579,7 @@
                 <form action="##" class="tourForm_form">
                     <div class="tourForm_group">
                     <label for="tourName" class="tourForm_label">行程名稱</label>
-                    <input type="text" class="tourForm_input" name="tourName" placeholder="給你的行程取一個名字吧!">
+                    <input type="text" class="tourForm_input" name="tourName" id="tourName" placeholder="給你的行程取一個名字吧!">
                     <div class="tourForm_clear">
                         <i class="bi bi-x"></i>
                     </div>
@@ -691,139 +691,140 @@
   <script src="js/vue.js"></script>
   <script src="js/burger.js"></script>
   <script src="js/forlogin.js"></script>
+  <script src="js/tour.js"></script>
   
   <script>
 
-    function sortTour() {
-        sorts = document.querySelectorAll('.sort_item');
-        mains = document.querySelectorAll('.tour_main');
-        sorts.forEach(sort => sort.addEventListener('click',changeCity));
+    // function sortTour() {
+    //     sorts = document.querySelectorAll('.sort_item');
+    //     mains = document.querySelectorAll('.tour_main');
+    //     sorts.forEach(sort => sort.addEventListener('click',changeCity));
         
         
-          function changeCity(e) {
-            if(!e.target.classList.contains('sort_item')) return;
-          sorts.forEach(tab => tab.classList.remove('sort_item--active'));
-          mains.forEach(page => page.classList.remove('tour_main--active'));
+    //       function changeCity(e) {
+    //         if(!e.target.classList.contains('sort_item')) return;
+    //       sorts.forEach(tab => tab.classList.remove('sort_item--active'));
+    //       mains.forEach(page => page.classList.remove('tour_main--active'));
 
-          let curCity = e.target.dataset['sort'];
-          let sort = document.querySelector(`.tour_side--${curCity}`);
-          let mainPage = document.querySelector(`.tour_main--${curCity}`);
+    //       let curCity = e.target.dataset['sort'];
+    //       let sort = document.querySelector(`.tour_side--${curCity}`);
+    //       let mainPage = document.querySelector(`.tour_main--${curCity}`);
           
          
-          e.target.classList.add('sort_item--active');
-          mainPage.classList.add('tour_main--active');
+    //       e.target.classList.add('sort_item--active');
+    //       mainPage.classList.add('tour_main--active');
           
-      }
-    }
-    sortTour();
+    //   }
+    // }
+    // sortTour();
 
-    function slideContent() {
-      let seeDetailBtn = document.querySelector('#seeDetail');
-      let box = document.querySelector('.tour_box');
+    // function slideContent() {
+    //   let seeDetailBtn = document.querySelector('#seeDetail');
+    //   let box = document.querySelector('.tour_box');
 
-      seeDetailBtn.addEventListener('click',() => {
+    //   seeDetailBtn.addEventListener('click',() => {
         
-        box.style.transform = `translateX(calc(-100% + 15px))`;
-      })
+    //     box.style.transform = `translateX(calc(-100% + 15px))`;
+    //   })
 
-      let arrowBtn = document.querySelector('#arrowBtn');
-      arrowBtn.addEventListener('click',() => {
-        box.style.transform = `translateX(0%)`;
-      })
-    }
-    slideContent();
+    //   let arrowBtn = document.querySelector('#arrowBtn');
+    //   arrowBtn.addEventListener('click',() => {
+    //     box.style.transform = `translateX(0%)`;
+    //   })
+    // }
+    // slideContent();
 
-    function changeTab() {
-    tabs = document.querySelectorAll('.timeline_tab');
-    pages = document.querySelectorAll('.timeline_page');
-    tabs.forEach(tab => tab.addEventListener('click',changePage));
+    // function changeTab() {
+    // tabs = document.querySelectorAll('.timeline_tab');
+    // pages = document.querySelectorAll('.timeline_page');
+    // tabs.forEach(tab => tab.addEventListener('click',changePage));
 
-        function changePage(e) {
-        tabs.forEach(tab => tab.classList.remove('timeline_tab--active'));
-        pages.forEach(page => page.classList.remove('timeline_page--active'));
+    //     function changePage(e) {
+    //     tabs.forEach(tab => tab.classList.remove('timeline_tab--active'));
+    //     pages.forEach(page => page.classList.remove('timeline_page--active'));
 
-        let curPage = Number(e.target.dataset['tab']);
-        let tab = document.querySelector(`.timeline_tab--${curPage}`);
-        let page = document.querySelector(`.timeline_page--${curPage}`);
+    //     let curPage = Number(e.target.dataset['tab']);
+    //     let tab = document.querySelector(`.timeline_tab--${curPage}`);
+    //     let page = document.querySelector(`.timeline_page--${curPage}`);
 
-        if(!tab || !page) return;
-        tab.classList.add('timeline_tab--active');
-        page.classList.add('timeline_page--active');
-        }
-    }
+    //     if(!tab || !page) return;
+    //     tab.classList.add('timeline_tab--active');
+    //     page.classList.add('timeline_page--active');
+    //     }
+    // }
 
-    changeTab();
+    // changeTab();
 
-    function changeItem() {
-      let sliderItem = document.querySelectorAll('.slider_item');
+    // function changeItem() {
+    //   let sliderItem = document.querySelectorAll('.slider_item');
       
-      sliderItem.forEach(item => item.addEventListener('click', turnActive));
+    //   sliderItem.forEach(item => item.addEventListener('click', turnActive));
 
-      function turnActive(e) {
-        sliderItem.forEach(item => item.classList.remove('slider_item--active'));
+    //   function turnActive(e) {
+    //     sliderItem.forEach(item => item.classList.remove('slider_item--active'));
 
-        if(!e.target.classList.contains('slider_item')) return;
-        e.target.classList.add('slider_item--active');
-      }
+    //     if(!e.target.classList.contains('slider_item')) return;
+    //     e.target.classList.add('slider_item--active');
+    //   }
     
-    }
+    // }
 
-    changeItem();
+    // changeItem();
 
-    function closePopup() {
-          let closeBtn = document.querySelector('.btn--close');
-          let tourBtn = document.querySelector('.tour_btn');
-          let box = document.querySelector('.tour_side');
+    // function closePopup() {
+    //       let closeBtn = document.querySelector('.btn--close');
+    //       let tourBtn = document.querySelector('.tour_btn');
+    //       let box = document.querySelector('.tour_side');
 
-          closeBtn.addEventListener('click',(e) => {
-            box.style.display = 'none';
-          })
+    //       closeBtn.addEventListener('click',(e) => {
+    //         box.style.display = 'none';
+    //       })
 
-          tourBtn.addEventListener('click',() => {
-            box.style.display = 'block';
-          })
-    }
+    //       tourBtn.addEventListener('click',() => {
+    //         box.style.display = 'block';
+    //       })
+    // }
 
-    closePopup();
+    // closePopup();
 
-    // 建立行程表單需要:
-    function popupSwitch() {
-        let closeBtn = document.querySelector('.popup_close');
-        let addBtn = document.querySelectorAll('.btn--add');
+    // // 建立行程表單需要:
+    // function popupSwitch() {
+    //     let closeBtn = document.querySelector('.popup_close');
+    //     let addBtn = document.querySelectorAll('.btn--add');
 
-        let popup = document.querySelector('.popup');
+    //     let popup = document.querySelector('.popup');
 
-        closeBtn.addEventListener('click',() => {
-            popup.style.display = 'none';
-        })
+    //     closeBtn.addEventListener('click',() => {
+    //         popup.style.display = 'none';
+    //     })
 
-        addBtn.forEach(btn => btn.addEventListener('click',() => {
-          popup.style.display = 'flex';
-        }));
+    //     addBtn.forEach(btn => btn.addEventListener('click',() => {
+    //       popup.style.display = 'flex';
+    //     }));
 
         
-    }
-    popupSwitch();
+    // }
+    // popupSwitch();
 
-    function slidePage() {
-        let nextBtn = document.querySelector('#slide-next');
-        let arrowBtn = document.querySelector('#arrowBtn');
-        let box = document.querySelector('.tourForm_box');
+    // function slidePage() {
+    //     let nextBtn = document.querySelector('#slide-next');
+    //     let arrowBtn = document.querySelector('#arrowBtn');
+    //     let box = document.querySelector('.tourForm_box');
 
-        nextBtn.addEventListener('click',() => {
-        let form = document.querySelector('.tourForm_form');
-        if(form.tourName.value) {
-            box.style.transform = `translateX(calc(-100% - 20px))`;
-        }  
+    //     nextBtn.addEventListener('click',() => {
+    //     let form = document.querySelector('.tourForm_form');
+    //     if(form.tourName.value) {
+    //         box.style.transform = `translateX(calc(-100% - 20px))`;
+    //     }  
         
-        })
+    //     })
 
-        arrowBtn.addEventListener('click',() => {
-        box.style.transform = `translateX(0%)`;
-        })
+    //     arrowBtn.addEventListener('click',() => {
+    //     box.style.transform = `translateX(0%)`;
+    //     })
 
-    }
-    slidePage();
+    // }
+    // slidePage();
 
   </script>
 </body>
