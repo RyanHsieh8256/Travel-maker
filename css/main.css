@@ -7563,6 +7563,28 @@ body {
   cursor: pointer;
 }
 
+.navBlock .navMember .loginBoxBtn {
+  display: block;
+}
+
+.navBlock .navMember .memBoxBtn {
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navBlock .navMember .memBoxBtn .memIcon {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.navBlock .navMember .memBoxBtn .memIcon img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
 .navDropdownMenu {
   display: none;
   position: absolute;
@@ -7570,18 +7592,21 @@ body {
   right: 5%;
   background-color: #fff;
   border-radius: 5px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 5px;
-          box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 5px;
+  -webkit-box-shadow: #3335 1px 1px 2px;
+          box-shadow: #3335 1px 1px 2px;
 }
 
 .navDropdownMenu .navDropdownMenuItem {
   padding: 10px 45px;
-  border-bottom: 1px solid #3335;
+  border-bottom: .5px solid #3335;
 }
 
-.navDropdownMenu .navDropdownMenuItem + .navDropdownMenuItem {
-  border-bottom: none;
-  border-top: 1px solid #3332;
+.navDropdownMenu .navDropdownMenuItem:hover {
+  color: #ff7e29;
+}
+
+.navDropdownMenu .navDropdownMenuItem a:hover {
+  color: #ff7e29;
 }
 
 .navDropdownMenu .navMemProfile {
@@ -7614,7 +7639,7 @@ body {
   border-right: 5px solid #0000;
   border-left: 5px solid #0000;
   position: absolute;
-  right: 20%;
+  left: 40%;
   top: -10px;
 }
 
@@ -7847,7 +7872,7 @@ body {
   color: #333;
   text-align: center;
   font-size: 14px;
-  padding: 5px 0;
+  padding: 20px 0;
 }
 
 .footerContect li {
@@ -7967,10 +7992,10 @@ body {
   position: absolute;
   top: -30px;
   left: 18px;
-  border-bottom: 20px solid #fff;
+  border-bottom: 25px solid #fff;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 10px solid transparent;
+  border-top: 5px solid transparent;
 }
 
 .card_body {
@@ -8048,6 +8073,12 @@ body {
   margin-top: 15px;
 }
 
+@media screen and (max-width: 768px) {
+  .card {
+    margin: 30px 0;
+  }
+}
+
 .btn {
   font-family: 'Caveat',serif;
   border-radius: 100px;
@@ -8059,6 +8090,7 @@ body {
   background-color: #007183;
   color: #fff;
   border: 1px solid #aaa;
+  font-size: 16px;
 }
 
 .btn--main {
@@ -8070,6 +8102,7 @@ body {
 .btn--cancel {
   border: 1px solid #aaa;
   background-color: #fff;
+  font-size: 16px;
 }
 
 .btn--close {
@@ -8628,6 +8661,7 @@ body {
 .iconNav-item {
   max-width: 50px;
   text-align: center;
+  cursor: pointer;
 }
 
 .iconNav-item .bi {
@@ -8651,6 +8685,29 @@ body {
 
 .burger-toggle .bi {
   font-size: 30px;
+}
+
+.home_memIcon {
+  overflow: hidden;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.home_navDropdownMenu {
+  right: 1%;
+}
+
+.home_navDropdownMenu a {
+  color: #333;
+}
+
+.home_navDropdownMenu a:hover {
+  color: #ff7e29;
+}
+
+.home_navDropdownMenu::before {
+  left: 44%;
 }
 
 /* image Map */
@@ -9205,7 +9262,8 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   width: 100%;
   height: 100vh;
   display: none;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   z-index: 500;
 }
 
@@ -9214,18 +9272,14 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 }
 
 .froLoginBlock {
-  width: 300px;
-  height: 420px;
+  min-width: 330px;
+  min-height: 400px;
   position: fixed;
-  top: 20%;
+  top: 15%;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
   margin: auto;
-  border-radius: 10px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
-          box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
-  background-color: #f0eee7;
 }
 
 .froLoginBlock .froLoginCancel {
@@ -9247,21 +9301,25 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   display: -ms-flexbox;
   display: flex;
   text-align: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   overflow: hidden;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
 }
 
 .froLoginSwitch .froLoginSwitch_btn {
   width: 50%;
-  background-color: #bebebe;
+  background-color: #cfceca;
   padding: 5px 0;
   font-size: 20px;
   font-weight: 600;
 }
 
 .froLoginSwitch .froLoginSwitch_active {
-  background-color: #f0eee7;
+  background-color: #007183;
+  color: #fff;
 }
 
 .froLoginForm_wrap {
@@ -9278,6 +9336,9 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  background-color: #f0eee7;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .froLoginForm_wrap .froLoginForm {
@@ -9311,6 +9372,11 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
           box-shadow: inset 0px 0px 2px #333;
 }
 
+.froLoginForm_wrap .froLoginForm .froLoginFormItem input[name="gender"] {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .froLoginForm_wrap .froLoginForm .froLoginBtn {
   text-align: center;
   padding: 10px 0;
@@ -9330,8 +9396,8 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
 .froLoginMascot {
   position: absolute;
   left: 80%;
-  top: 70%;
-  width: 100px;
+  top: 75%;
+  width: 80px;
   -webkit-transform-origin: center;
           transform-origin: center;
   -webkit-animation-name: Mascotjump;
@@ -9346,7 +9412,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   0% {
     -webkit-transform: scaleY(1);
             transform: scaleY(1);
-    top: 70%;
+    top: 75%;
   }
   50% {
     -webkit-transform: scaleY(0.85);
@@ -9356,7 +9422,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   100% {
     -webkit-transform: scaleY(1);
             transform: scaleY(1);
-    top: 70%;
+    top: 75%;
   }
 }
 
@@ -9364,7 +9430,7 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   0% {
     -webkit-transform: scaleY(1);
             transform: scaleY(1);
-    top: 70%;
+    top: 75%;
   }
   50% {
     -webkit-transform: scaleY(0.85);
@@ -9374,37 +9440,37 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   100% {
     -webkit-transform: scaleY(1);
             transform: scaleY(1);
-    top: 70%;
+    top: 75%;
   }
 }
 
 .frologintransition-enter-active, .frologintransition-leave-active {
-  -webkit-transition: all .8s ease-in-out;
-  transition: all .8s ease-in-out;
+  -webkit-transition: all .7s ease-in-out;
+  transition: all .7s ease-in-out;
 }
 
 .frologintransition-enter {
-  opacity: 0;
-  -webkit-transform: scale(0);
-          transform: scale(0);
+  opacity: 1;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+          clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
 }
 
 .frologintransition-enter-to {
   opacity: 1;
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
 .frologintransition-leave {
   opacity: 1;
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
 .frologintransition-leave-to {
-  opacity: 0;
-  -webkit-transform: scale(0);
-          transform: scale(0);
+  opacity: 1;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+          clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
 }
 
 .mascottransition-enter-active, .mascottransition-leave-active {
@@ -9434,6 +9500,10 @@ div.homeRow_0e:hover, div.homeRow_0f:hover, div.homeRow_1b:hover, div.homeRow_1c
   -webkit-transform: rotateY(90deg);
           transform: rotateY(90deg);
   opacity: 0;
+}
+
+label.error {
+  color: red;
 }
 
 .text_Overflow {
@@ -10983,6 +11053,10 @@ input[type="button"] {
   background: #ccc;
 }
 
+.groupContent .groupContent_wrap .card {
+  margin-bottom: 30px;
+}
+
 /* 手機的篩選器 */
 .groupContent .groupContent_wrap .filterMobile {
   width: 60px;
@@ -11033,6 +11107,7 @@ input[type="button"] {
   background-color: #ff7e29;
   margin: 10px auto;
   border-radius: 10px;
+  color: #fff;
 }
 
 .groupCard {
@@ -11103,39 +11178,8 @@ input[type="button"] {
 }
 
 /* ---團的熱門搜尋關鍵字和剩餘名額--- */
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .keywordSpot_wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-top: 10px;
-}
-
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .keywordSpot_wrap ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .keywordSpot_wrap ul li .tag {
-  border-radius: 5px;
-  background: #007183;
-  color: #FFFFFF;
-  position: relative;
-  margin-right: 20px;
-}
-
-.groupdetailCoverInfo .groupdetailCoverInfo_wrap .keywordSpot_wrap ul li .tag:after {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 120%;
-  bottom: 0;
-  width: 2px;
-  height: 15px;
-  background: #ccc;
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .spot_wrap {
+  text-align: end;
 }
 
 /* ---團的旅程資訊和留言區--- */
@@ -11162,20 +11206,24 @@ input[type="button"] {
   background: #E2E1E0;
 }
 
-.groupdetailInfo .groupdetailInfo_wrap .title {
-  text-align: center;
-  font-weight: 900;
-  font-size: 30px;
-}
-
 .groupdetailInfo .groupdetailInfo_wrap .tourInfo .timeline {
   width: 100%;
   margin-top: 0px;
   padding: 0px 20px 0px 20px;
 }
 
-.groupdetailInfo .groupdetailInfo_wrap .second-title {
+.groupdetailInfo .groupdetailInfo_wrap .second-title.messageTitle {
   margin: 30px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.groupdetailInfo .groupdetailInfo_wrap .second-title.messageTitle .pic {
+  margin-left: 10px;
 }
 
 .groupdetailInfo .groupdetailInfo_wrap .message {
@@ -11250,6 +11298,7 @@ input[type="button"] {
   background-color: #ff7e29;
   color: #ffffff;
   display: none;
+  z-index: 2;
 }
 
 .showJoinBtn {
@@ -11302,6 +11351,7 @@ input[type="button"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 0px 0px 2% 2%;
   margin-bottom: 20px;
 }
 
@@ -11356,7 +11406,12 @@ input[type="button"] {
   font-size: 20px;
 }
 
-.grouplistContent .grouplistBuildList_wrap .myTour {
+.myTour_wrap {
+  width: 97%;
+  margin: auto;
+}
+
+.myTour_wrap .myTour {
   border: #3333 1px solid;
   border-radius: 10px;
   width: 100%;
@@ -11369,7 +11424,21 @@ input[type="button"] {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: 150px;
+}
+
+.myTour_wrap .myTour p {
+  margin-bottom: 20px;
+}
+
+.myTour_wrap .myTour .homeTour_point--start {
+  top: inherit;
+  left: inherit;
+  position: relative;
 }
 
 .groupform_body {
@@ -11446,8 +11515,8 @@ input[type="button"] {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .groupform .groupform_wrap .fieldSection {
@@ -11473,13 +11542,30 @@ input[type="button"] {
           flex-direction: column;
 }
 
+.must {
+  color: #f00;
+}
+
+.alertMessage {
+  color: #f00;
+  margin-left: 2%;
+}
+
 .date_wrap {
   margin: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .datepicker_wrap {
   position: relative;
   display: initial;
+  margin: 5px 0;
 }
 
 .ui-datepicker-trigger {
@@ -11492,6 +11578,20 @@ input[type="button"] {
           transform: translateY(-40%);
 }
 
+.groupform_peopleNum {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.groupform_peopleNum_btnWrap {
+  margin: 5px 0;
+}
+
 .groupform_peopleNum .numBtn {
   width: 20px;
   height: 20px;
@@ -11502,6 +11602,21 @@ input[type="button"] {
 
 .groupform_peopleNum input[type=text] {
   text-align: center;
+}
+
+.groupform .groupform_wrap .share {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.groupform .groupform_wrap .share .dropdownMenu {
+  margin: 5px 0;
+  width: 50%;
 }
 
 .btnSection {
@@ -11518,13 +11633,117 @@ input[type="button"] {
   margin: 0px 10px;
 }
 
+.alertTxtMust::-webkit-input-placeholder {
+  color: #f00;
+}
+
+.alertBG {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+.alertBG_wrap {
+  width: 300px;
+  height: 150px;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+  position: fixed;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: 50%;
+  background: #F0EEE7;
+  -webkit-animation: shining 2s infinite;
+          animation: shining 2s infinite;
+}
+
+@-webkit-keyframes shining {
+  30% {
+    -webkit-box-shadow: #007185 0px 0px 10px;
+            box-shadow: #007185 0px 0px 10px;
+  }
+  50% {
+    -webkit-box-shadow: rgba(0, 113, 133, 0.5) 0px 0px 20px;
+            box-shadow: rgba(0, 113, 133, 0.5) 0px 0px 20px;
+  }
+  70% {
+    -webkit-box-shadow: #007185 0px 0px 40px;
+            box-shadow: #007185 0px 0px 40px;
+  }
+  100% {
+    -webkit-box-shadow: rgba(0, 113, 133, 0.5) 0px 0px 50px;
+            box-shadow: rgba(0, 113, 133, 0.5) 0px 0px 50px;
+  }
+}
+
+@keyframes shining {
+  30% {
+    -webkit-box-shadow: #007185 0px 0px 10px;
+            box-shadow: #007185 0px 0px 10px;
+  }
+  50% {
+    -webkit-box-shadow: rgba(0, 113, 133, 0.5) 0px 0px 20px;
+            box-shadow: rgba(0, 113, 133, 0.5) 0px 0px 20px;
+  }
+  70% {
+    -webkit-box-shadow: #007185 0px 0px 40px;
+            box-shadow: #007185 0px 0px 40px;
+  }
+  100% {
+    -webkit-box-shadow: rgba(0, 113, 133, 0.5) 0px 0px 50px;
+            box-shadow: rgba(0, 113, 133, 0.5) 0px 0px 50px;
+  }
+}
+
+.alertBG_closeBtn {
+  position: absolute;
+  top: -10%;
+  right: -7%;
+}
+
+.alertBG_closeBtn .bi.bi-x-circle-fill {
+  font-size: 25px;
+  color: #007183;
+}
+
+.alertBG_content {
+  text-align: center;
+  font-weight: 700;
+  color: #ff7e29;
+  border-radius: 10px;
+}
+
 @media screen and (min-width: 768px) {
   .groupform .groupform_wrap {
     width: 60%;
   }
+  .date_wrap, .groupform_peopleNum, .share {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .datepicker_wrap, .groupform_peopleNum_btnWrap, .share .dropdownMenu {
+    margin: 0% 0% 0% 2%;
+  }
 }
 
-.shopType h2, .shopHotCity h2, .shopProduct h2 {
+.shopType h2 {
   text-align: center;
   font-family: 'Caveat',serif;
   font-weight: 600;
@@ -11610,8 +11829,39 @@ input[type="button"] {
   margin: 0 15px;
 }
 
+.shopProduct .card_content {
+  width: 100%;
+}
+
+.shopProduct .card_count {
+  width: 100%;
+  text-align: right;
+}
+
 .shopProduct .card a {
   color: black;
+}
+
+.shopSort_wrap .card_img {
+  overflow: hidden;
+  position: relative;
+}
+
+.shopSort_wrap .card_img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 100%;
+}
+
+.shopSort_wrap .card_img:before {
+  content: "";
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%;
 }
 
 @media screen and (min-width: 768px) {
@@ -11679,6 +11929,12 @@ input[type="button"] {
 
 .shopspotSlide_wrap .owl-dot span {
   width: 10px;
+}
+
+.shopspotSlide_wrap .item img {
+  display: inline-block;
+  max-width: auto;
+  height: 250px !important;
 }
 
 .shopspotInfo h2 {
@@ -11763,6 +12019,10 @@ input[type="button"] {
   cursor: pointer;
 }
 
+.subbtn .tocart {
+  margin-right: 20px;
+}
+
 .shopspotContent_wrap {
   width: 90%;
   margin: auto;
@@ -11803,11 +12063,10 @@ input[type="button"] {
 }
 
 .shopspotDescription > * {
-  padding-top: 60px;
+  padding-top: 70px;
 }
 
 .shopspotDescription > * > * {
-  margin: 10px auto;
   border: 1.5px solid #007183;
   border-radius: 10px;
   padding: 35px;
@@ -11816,7 +12075,12 @@ input[type="button"] {
 }
 
 .shopspotFeature img {
-  margin: 30px 0;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.shopspotFeature .feature {
+  margin-bottom: 30px;
 }
 
 .shopspotSelect {
@@ -11827,6 +12091,11 @@ input[type="button"] {
   .shopspotSlide_wrap {
     margin: 40px auto;
     width: 80%;
+  }
+  .shopspotSlide_wrap .item img {
+    display: inline-block;
+    max-width: auto;
+    height: 400px !important;
   }
   .shopspotInfo_wrap {
     display: -webkit-box;
@@ -11930,6 +12199,10 @@ input[type="button"] {
   background-color: #f5f5f5;
 }
 
+.shopcart_wrap > * {
+  margin: 0 20px;
+}
+
 .shopcart h2 {
   margin: 15px;
   font-family: 'Caveat',serif;
@@ -11964,6 +12237,16 @@ input[type="button"] {
   width: 80%;
 }
 
+.content_wrap .modify_icon > * {
+  font-size: 20px;
+  color: black;
+  padding-left: 0;
+}
+
+.content_wrap .modify_icon a {
+  color: black;
+}
+
 .shoplist_total {
   margin: 15px;
   text-align: right;
@@ -11979,7 +12262,7 @@ input[type="button"] {
 }
 
 .shoplist_total .shoptotal {
-  color: #007183;
+  color: #ff7e29;
 }
 
 .shopcart .shopbtn {
@@ -11995,6 +12278,7 @@ input[type="button"] {
   border: none;
   background: none;
   cursor: pointer;
+  color: black;
 }
 
 @media screen and (min-width: 768px) {
@@ -12024,6 +12308,10 @@ input[type="button"] {
   .shoplist .content {
     width: 40%;
   }
+  .content_wrap .modify_icon > * {
+    margin-right: 10px;
+    font-size: 15px;
+  }
 }
 
 .shoppay_bg {
@@ -12032,6 +12320,10 @@ input[type="button"] {
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 10px;
+}
+
+.required {
+  color: red;
 }
 
 .filter {
@@ -12065,12 +12357,13 @@ input[type="button"] {
 }
 
 .personal_info .contact {
+  width: 90%;
   margin-top: 0;
 }
 
 .personal_info .contact > * {
-  margin: 10px;
-  margin-right: 2rem;
+  width: 100%;
+  margin: 5px 10px;
 }
 
 .shoppaycredit > * {
@@ -12079,6 +12372,24 @@ input[type="button"] {
 
 .shoppaycredit_info > * {
   margin: 10px;
+}
+
+.phone, .email, .cardnumber, .expdate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#phoneerror, #emailerror, #carderror, #experror {
+  display: none;
+  font-size: 10px;
+  font-weight: lighter;
+  padding-left: 10px;
+  color: red;
+}
+
+.shoppaydetail .detail > * {
+  margin: 20px;
 }
 
 .shoplist {
@@ -12131,7 +12442,7 @@ input[type="button"] {
 }
 
 .shoplist_total .shoptotal {
-  color: #007183;
+  color: #ff7e29;
 }
 
 .shoppayconfirm {
@@ -12155,17 +12466,6 @@ input[type="button"] {
         flex-wrap: wrap;
   }
   .personal_info .name > * {
-    width: 40%;
-    margin: 5px 10px;
-  }
-  .personal_info .contact {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-  .personal_info .contact > * {
     width: 40%;
     margin: 5px 10px;
   }
@@ -12212,6 +12512,8 @@ canvas {
 
 .postcardBlock {
   padding-top: 50px;
+  width: 95%;
+  margin: auto;
 }
 
 .postcardTtile {
@@ -12231,12 +12533,12 @@ canvas {
 .postcardContainer {
   position: relative;
   width: 100%;
-  padding: 30px;
+  padding: 20px;
   margin: auto;
   background-color: #fff;
   border-radius: 10px;
-  -webkit-box-shadow: 3px 3px 5px #3336;
-          box-shadow: 3px 3px 5px #3336;
+  -webkit-box-shadow: 1px 1px 3px #3333;
+          box-shadow: 1px 1px 3px #3333;
 }
 
 .postcardContainer #deletStamp {
@@ -12252,10 +12554,10 @@ canvas {
   margin: auto;
   overflow: hidden;
   border-radius: 5px;
-  -webkit-box-shadow: 1px 1px  5px #333;
-          box-shadow: 1px 1px  5px #333;
-  border: #3335 1px solid;
-  width: 80%;
+  -webkit-box-shadow: 1px 1px  3px #3333;
+          box-shadow: 1px 1px  3px #3333;
+  border: .5px solid #3333;
+  width: 100%;
 }
 
 .postcardBox .postcardStampContainer {
@@ -12284,6 +12586,8 @@ canvas {
   position: absolute;
   top: 10%;
   right: 10%;
+  font-size: 10px;
+  text-align: center;
 }
 
 .postcardBox .postcardText {
@@ -12293,7 +12597,7 @@ canvas {
 }
 
 .postcardTextInput {
-  width: 80%;
+  width: 100%;
   height: 100px;
   margin: 10px auto 0 auto;
 }
@@ -12302,49 +12606,47 @@ canvas {
   resize: none;
   width: 100%;
   height: 100%;
-  border-radius: 10px;
-  -webkit-box-shadow: 3px 3px 5px #3336;
-          box-shadow: 3px 3px 5px #3336;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 3px #3333;
+          box-shadow: 1px 1px 3px #3333;
   padding: 20px;
+  border: .5px solid #3333;
 }
 
 .postcardRightBox {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
   overflow: hidden;
 }
 
 .postcardElements_warp {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.postcardElements_warp .postcardTags {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .postcardElements_warp .postcardTags .postcardTag {
   background-color: #E3DCD4;
   color: #463828;
-  padding: 10px 5px;
-  margin: 5px 0;
+  padding: 5px 10px;
+  margin: 0 5px;
   border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  -webkit-writing-mode: vertical-lr;
-      -ms-writing-mode: tb-lr;
-          writing-mode: vertical-lr;
+  border-top-right-radius: 10px;
   cursor: pointer;
 }
 
@@ -12354,8 +12656,8 @@ canvas {
           flex-grow: 1;
   background-color: #fff;
   border-radius: 10px;
-  -webkit-box-shadow: 3px 3px 5px #3336;
-          box-shadow: 3px 3px 5px #3336;
+  -webkit-box-shadow: 1px 1px 3px #3333;
+          box-shadow: 1px 1px 3px #3333;
   height: 450px;
   overflow-y: scroll;
   display: -webkit-box;
@@ -12374,27 +12676,90 @@ canvas {
 
 .postcardElements_warp .postcardElements .postcardElement {
   margin: 10px auto;
-  border: #333 2px dashed;
+  border: #3339 1.5px dashed;
   border-radius: 5px;
   width: 100px;
+  padding: 3px;
 }
 
 .postcardBtns {
-  padding: 40px 0;
+  position: fixed;
+  bottom: 170px;
+  right: 0;
+  z-index: 10;
+  padding: 10px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
 
 .postcardBtns button {
-  font-size: 20px;
   padding: 5px 20px;
   background-color: #007183;
   color: #fff;
   border-radius: 50px;
-  margin-left: 10px;
+  margin: 5px 0;
   cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .postcardElements_warp {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .postcardElements_warp .postcardTags {
+    display: block;
+  }
+  .postcardElements_warp .postcardTags .postcardTag {
+    padding: 10px 5px;
+    margin: 5px 0;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 0;
+    -webkit-writing-mode: vertical-lr;
+        -ms-writing-mode: tb-lr;
+            writing-mode: vertical-lr;
+  }
+  .postcardBtns {
+    position: static;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .postcardBtns button {
+    padding: 5px 20px;
+    background-color: #007183;
+    color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 0 5px;
+  }
 }
 /*# sourceMappingURL=main.css.map */

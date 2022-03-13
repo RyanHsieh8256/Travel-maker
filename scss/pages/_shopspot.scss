@@ -48,7 +48,12 @@
 
 }
 
+.shopspotSlide_wrap .item img{
+  display: inline-block; 
+  max-width: auto;  
+  height: 250px!important; 
 
+}
 
 .shopspotInfo h2{
   width: 80%;
@@ -135,7 +140,7 @@
 .sub_wrap .subbtn{
   text-align: center;
   margin-top: 30px;
-  
+
 }
 
 .sub_wrap .subbtn .tocart,.subbtn .topay{
@@ -143,7 +148,9 @@
 
 }
 
-
+.subbtn .tocart{
+  margin-right: 20px;
+}
 
 .shopspotContent_wrap{
   width: 90%;
@@ -188,12 +195,11 @@
 }
 
 .shopspotDescription>*{
-  padding-top: 60px;
+  padding-top: 70px;
 
 }
 
 .shopspotDescription>*>*{
-  margin: 10px auto;
   border: 1.5px solid #007183;
   border-radius: 10px;
   padding: 35px;
@@ -203,11 +209,14 @@
 }
 
 .shopspotFeature img{
-  margin: 30px 0;
+  margin: 10px 0;
+  border-radius: 5px;
 
 }
 
-
+.shopspotFeature .feature{
+  margin-bottom: 30px;
+}
 
 .shopspotSelect{
   display: none;
@@ -220,6 +229,13 @@
     margin: 40px auto;
     width: 80%;
       
+  }
+
+  .shopspotSlide_wrap .item img{
+    display: inline-block; 
+    max-width: auto;  
+    height: 400px!important; 
+  
   }
 
   .shopspotInfo_wrap{

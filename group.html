@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,9 +12,10 @@
     <link rel="shortcut icon" href="images/logo/logo_84x50.png" type="image/png">
 
 </head>
+
 <body>
     <header>
-        <!-- nav -->
+        <!-- 導覽列 -->
         <nav class="nav_Wrap">
             <section class="navBlock">
                 <a href="home.html">
@@ -22,30 +24,61 @@
                     </h1>
                 </a>
                 <ul class="mainNav">
-                    <a href="tour.html"><li>行程規劃</li></a>
-                    <a href="group.html"><li>揪團旅行</li></a>
-                    <a href="shop.html"><li>景點門票</li></a>
-                    <a href="postcard.html"><li>客製明信片</li></a>
+                    <a href="tour.html">
+                        <li>行程規劃</li>
+                    </a>
+                    <a href="group.html">
+                        <li>揪團旅行</li>
+                    </a>
+                    <a href="shop.html">
+                        <li>景點門票</li>
+                    </a>
+                    <a href="postcard.html">
+                        <li>客製明信片</li>
+                    </a>
                 </ul>
                 <ul class="navMember">
                     <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
                     <li>
-                        <i class="bi bi-person-circle" id="loginBoxBtn"><span>登入/註冊</span></i>
+                        <div id="loginBoxBtn" class="loginBoxBtn">
+                            <i class="bi bi-person-circle"></i><span>登入/註冊</span>
+                        </div>
+                        <div id="memBoxBtn" class="memBoxBtn">
+                            <div class="memIcon">
+                                <img id="memIcon" src="https://picsum.photos/50/50/?random=10">
+                            </div>
+                            <span id="memName"></span>
+                        </div>
                         <!-- 登入後的會員選單-->
                         <ul class="navDropdownMenu">
-                            <li class="navDropdownMenuItem navMemProfile">
-                                <div class="navDropdownMenuPhoto">
-                                    <img src="https://picsum.photos/200/200/?random=10">
-                                </div>
-                                <div class="navDropdownMenuTitle">
-                                    <span>張小明</span>
-                                </div>
+                            <li class="navDropdownMenuItem">
+                                <a href="mem.html">
+                                    <i class="bi bi-gear"></i> 帳號設定
+                                </a>
                             </li>
-                            <li class="navDropdownMenuItem"><i class="bi bi-gear"></i> 帳號設定</li>
-                            <li class="navDropdownMenuItem"><i class="bi bi-calendar2"></i> 我的行程</li>
-                            <li class="navDropdownMenuItem"><i class="bi bi-bookmark-heart"></i> 我的收藏</li>
-                            <li class="navDropdownMenuItem"><i class="bi bi-file-person"></i> 我的揪團</li>
-                            <li class="navDropdownMenuItem"><i class="bi bi-bag"></i> 我的訂單</li>
+                            <li class="navDropdownMenuItem">
+                                <a href="mem.html">
+                                    <i class="bi bi-calendar2"></i> 我的行程
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem">
+                                <a href="mem.html">
+                                    <i class="bi bi-bookmark-heart"></i> 我的收藏
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem">
+                                <a href="mem.html">
+                                    <i class="bi bi-file-person"></i> 我的揪團
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem">
+                                <a href="mem.html">
+                                    <i class="bi bi-bag"></i> 我的訂單
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem" id="logOutBtn">
+                                <i class="bi bi-door-closed"></i> 登出
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -54,72 +87,73 @@
                         </div>
                     </li>
                 </ul>
-            </section>          
+            </section>
         </nav>
         <!-- 漢堡 -->
         <div class="navPage">
             <button class="navPage--close">
                 <span class="close_line"></span>
                 <span class="close_line"></span>
-              </button>
+            </button>
             <div class="navPage_wrap">
-            <!--     <div class="navPage_header"></div> -->
+                <!--     <div class="navPage_header"></div> -->
                 <div class="navPage_content">
-            <!--       <div class="navPage_logo"></div> -->
+                    <!--       <div class="navPage_logo"></div> -->
                     <div class="navPage_box">
                         <nav class="navPage_nav">
                             <ul class="navPage_list">
                                 <li class="navPage_item">
                                     <div class="navPage_header">
-                                    <span class="navPage_header--num">01</span>
-                                    <span class="navPage_header--line"></span>
+                                        <span class="navPage_header--num">01</span>
+                                        <span class="navPage_header--line"></span>
                                     </div>
                                     <div class="navPage_text">
-                                    <span class="navPage_text--en">Plan journey</span>
-                                    <span class="navPage_text--ch">行程規劃</span>
+                                        <span class="navPage_text--en">Plan journey</span>
+                                        <span class="navPage_text--ch">行程規劃</span>
                                     </div>
                                     <a href="tour.html" class="navPage_link"></a>
                                 </li>
                                 <li class="navPage_item">
                                     <div class="navPage_header">
-                                    <span class="navPage_header--num">02</span>
-                                    <span class="navPage_header--line"></span>
+                                        <span class="navPage_header--num">02</span>
+                                        <span class="navPage_header--line"></span>
                                     </div>
                                     <div class="navPage_text">
-                                    <span class="navPage_text--en">All together</span>
-                                    <span class="navPage_text--ch">揪團旅行</span>
+                                        <span class="navPage_text--en">All together</span>
+                                        <span class="navPage_text--ch">揪團旅行</span>
                                     </div>
                                     <a href="group.html" class="navPage_link"></a>
                                 </li>
                                 <li class="navPage_item">
                                     <div class="navPage_header">
-                                    <span class="navPage_header--num">03</span>
-                                    <span class="navPage_header--line"></span>
+                                        <span class="navPage_header--num">03</span>
+                                        <span class="navPage_header--line"></span>
                                     </div>
                                     <div class="navPage_text">
-                                    <span class="navPage_text--en">Shop</span>
-                                    <span class="navPage_text--ch">景點門票</span>
+                                        <span class="navPage_text--en">Shop</span>
+                                        <span class="navPage_text--ch">景點門票</span>
                                     </div>
                                     <a href="shop.html" class="navPage_link"></a>
                                 </li>
                                 <li class="navPage_item">
                                     <div class="navPage_header">
-                                    <span class="navPage_header--num">04</span>
-                                    <span class="navPage_header--line"></span>
+                                        <span class="navPage_header--num">04</span>
+                                        <span class="navPage_header--line"></span>
                                     </div>
                                     <div class="navPage_text">
-                                    <span class="navPage_text--en">Postcard</span>
-                                    <span class="navPage_text--ch">客製明信片</span>
+                                        <span class="navPage_text--en">Postcard</span>
+                                        <span class="navPage_text--ch">客製明信片</span>
                                     </div>
                                     <a href="postcard.html" class="navPage_link"></a>
                                 </li>
                             </ul>
                         </nav>
-    
+
                     </div>
-                </div>  
+                </div>
             </div>
         </div>
+        <!-- 登入表單 -->
         <div class="froLoginBG" id="froLoginBG">
             <section class="froLoginBlock" id="froLoginBlock">
                 <!-- 取消按鈕 -->
@@ -134,15 +168,13 @@
                     <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
                         註冊
                     </div>
-                </div> 
-                <!-- 表單區 -->
-                <div class="froLoginForm_wrap">
-                    <transition name="frologintransition" mode="out-in">
-                        <keep-alive>
-                            <component :is='content'></component>
-                        </keep-alive>
-                    </transition>
                 </div>
+                <!-- 表單區 -->
+                <transition name="frologintransition" mode="out-in">
+                    <keep-alive>
+                        <component :is='content'></component>
+                    </keep-alive>
+                </transition>
                 <transition name="mascottransition">
                     <component :is='content2'></component>
                 </transition>
@@ -222,165 +254,28 @@
                     <div class="col-12 col-md-3 filter">
                         <div class="filter_wrap" id="filter_wrap">
                             <!-- <div class="city"> -->
-                                <select v-model="selectedCity" class="dropdownMenu">
-                                    <option value="" disabled>旅遊地區</option>
-                                    <option v-for="city in cities">{{city}}</option>
-                                </select>
+                            <select v-model="selectedCity" class="dropdownMenu">
+                                <option value="" disabled>旅遊地區</option>
+                                <option v-for="city in cities">{{city}}</option>
+                            </select>
                             <!-- </div> -->
                             <!-- <div class="spot"> -->
-                                <select v-model="selectedSpot" class="dropdownMenu">
-                                    <option value="" disabled>剩餘名額</option>
-                                    <option v-for="spot in spots">{{spot}}</option>
-                                </select>
+                            <select v-model="selectedSpot" class="dropdownMenu">
+                                <option value="" disabled>剩餘名額</option>
+                                <option v-for="spot in spots">{{spot}}</option>
+                            </select>
                             <!-- </div> -->
                             <!-- <div class="departureDate"> -->
-                                <select v-model="selectedDate" class="dropdownMenu">
-                                    <option value="" disabled>出發日期</option>
-                                    <option v-for="date in dates">{{date}}</option>
-                                </select>
+                            <select v-model="selectedDate" class="dropdownMenu">
+                                <option value="" disabled>出發日期</option>
+                                <option v-for="date in dates">{{date}}</option>
+                            </select>
                             <!-- </div> -->
                             <button class="filterBtn" id="filterBtn">篩選</button>
                         </div>
                     </div>
                     <!-- 卡片放置區 -->
-                    <div class="row col-12 col-md-9">
-                        <div class="card col-12 col-md-4">
-                            <!-- 卡片頭 -->
-                            
-                                <div class="card_header">
-                                    <div class="card_person">
-                                        <div class="card_photo">
-                                            <img src="https://picsum.photos/50/50/?random=10" alt="">
-                                        </div>
-                                        <div class="card_name">人才丁丁</div>
-                                    </div>
-                                    <div class="card_hit">
-                                        <span>19999</span>
-                                        點擊
-                                    </div>
-                                </div>
-                                <!-- 卡片內容 -->
-                                <div class="groupCard card_content card_content--corner">
-                                    <a href="./groupdetail.html" class="link"></a>
-                                    <div class="card_body">
-                                        <span class="card_tag">台東</span>
-                                        <div class="card_img">
-                                            <img src="https://picsum.photos/300/200/?random=10" alt="">
-                                        </div>
-                                        <div class="card_date">
-                                            <p class="card_time card_time--start">
-                                                <span>出發日期:</span>
-                                                2022/1/2
-                                            </p>
-                                            <p class="card_time card_time--end">
-                                                <span>回程日期:</span>
-                                                2022/1/4
-                                            </p>
-                                        </div>
-                                        <h3 class="card_title">台東秘境嘉明湖三日登山行程(含山屋申請)｜發現天使的眼淚</h3>
-                                        <p class="card_text">
-                                            想一探台東秘境"嘉明湖"真實面貌，就必須爬上海拔3000多公尺的高山，三日裡背負重裝，由專業高山嚮導帶領從池上出發3天2夜，沿途中，不斷地與自己對話，行程提供代為申請山屋或營帳住宿，加上免背免備公器公糧服務，讓您能保存更多的體力去應付前往嘉明湖三叉向陽山的登山路程。當親眼見到『天使的眼淚-嘉明湖』之美，神秘又遙遠的台灣美景，讓人學會敬畏與謙卑。越美的風景，越要觀察，保持神秘，她永遠在心中，隱藏在高山中湛藍的絕美湖泊景致。
-                                        </p>
-                                    </div>
-                                    <!-- 卡片尾巴 -->
-                                    <div class="card_footer">
-                                        <div class="card_time card_time--deadline">
-                                            <span>報名截止</span>
-                                            2021/12/30
-                                        </div>
-                                    </div>
-                                </div>
-                                                        </div>
-                        <div class="card col-12 col-md-4">
-                            <!-- 卡片頭 -->
-                            <div class="card_header">
-                                <div class="card_person">
-                                    <div class="card_photo">
-                                        <img src="https://picsum.photos/50/50/?random=10" alt="">
-                                    </div>
-                                    <div class="card_name">人才丁丁</div>
-                                </div>
-                                <div class="card_hit">
-                                    <span>19999</span>
-                                    點擊
-                                </div>
-                            </div>
-                            <!-- 卡片內容 -->
-                            <div class="card_content card_content--corner">
-                                <div class="card_body">
-                                    <span class="card_tag">台東</span>
-                                    <div class="card_img">
-                                        <img src="https://picsum.photos/300/200/?random=10" alt="">
-                                    </div>
-                                    <div class="card_date">
-                                        <p class="card_time card_time--start">
-                                            <span>出發日期:</span>
-                                            2022/1/2
-                                        </p>
-                                        <p class="card_time card_time--end">
-                                            <span>回程日期:</span>
-                                            2022/1/4
-                                        </p>
-                                    </div>
-                                    <h3 class="card_title">台東秘境嘉明湖三日登山行程(含山屋申請)｜發現天使的眼淚</h3>
-                                    <p class="card_text">
-                                        想一探台東秘境"嘉明湖"真實面貌，就必須爬上海拔3000多公尺的高山，三日裡背負重裝，由專業高山嚮導帶領從池上出發3天2夜，沿途中，不斷地與自己對話，行程提供代為申請山屋或營帳住宿，加上免背免備公器公糧服務，讓您能保存更多的體力去應付前往嘉明湖三叉向陽山的登山路程。當親眼見到『天使的眼淚-嘉明湖』之美，神秘又遙遠的台灣美景，讓人學會敬畏與謙卑。越美的風景，越要觀察，保持神秘，她永遠在心中，隱藏在高山中湛藍的絕美湖泊景致。
-                                    </p>
-                                </div>
-                                <!-- 卡片尾巴 -->
-                                <div class="card_footer">
-                                    <div class="card_time card_time--deadline">
-                                        <span>報名截止</span>
-                                        2021/12/30
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card col-12 col-md-4">
-                            <!-- 卡片頭 -->
-                            <div class="card_header">
-                                <div class="card_person">
-                                    <div class="card_photo">
-                                        <img src="https://picsum.photos/50/50/?random=10" alt="">
-                                    </div>
-                                    <div class="card_name">人才丁丁</div>
-                                </div>
-                                <div class="card_hit">
-                                    <span>19999</span>
-                                    點擊
-                                </div>
-                            </div>
-                            <!-- 卡片內容 -->
-                            <div class="card_content card_content--corner">
-                                <div class="card_body">
-                                    <span class="card_tag">台東</span>
-                                    <div class="card_img">
-                                        <img src="https://picsum.photos/300/200/?random=10" alt="">
-                                    </div>
-                                    <div class="card_date">
-                                        <p class="card_time card_time--start">
-                                            <span>出發日期:</span>
-                                            2022/1/2
-                                        </p>
-                                        <p class="card_time card_time--end">
-                                            <span>回程日期:</span>
-                                            2022/1/4
-                                        </p>
-                                    </div>
-                                    <h3 class="card_title">台東秘境嘉明湖三日登山行程(含山屋申請)｜發現天使的眼淚</h3>
-                                    <p class="card_text">
-                                        想一探台東秘境"嘉明湖"真實面貌，就必須爬上海拔3000多公尺的高山，三日裡背負重裝，由專業高山嚮導帶領從池上出發3天2夜，沿途中，不斷地與自己對話，行程提供代為申請山屋或營帳住宿，加上免背免備公器公糧服務，讓您能保存更多的體力去應付前往嘉明湖三叉向陽山的登山路程。當親眼見到『天使的眼淚-嘉明湖』之美，神秘又遙遠的台灣美景，讓人學會敬畏與謙卑。越美的風景，越要觀察，保持神秘，她永遠在心中，隱藏在高山中湛藍的絕美湖泊景致。
-                                    </p>
-                                </div>
-                                <!-- 卡片尾巴 -->
-                                <div class="card_footer">
-                                    <div class="card_time card_time--deadline">
-                                        <span>報名截止</span>
-                                        2021/12/30
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="row col-12 col-md-9" id="gro">
                     </div>
                 </div>
             </div>
@@ -389,10 +284,17 @@
     <footer class="footer_Wrap">
         <section class="footerBlock">
             <ul class="footerMedia">
-                <a href=""><li><i class="bi bi-facebook"></i></li></a>
-                <a href=""><li><i class="bi bi-instagram"></i></li></a>
-                <a href=""><li><i class="bi bi-line"></i>
-                </ion-icon></li></a>
+                <a href="">
+                    <li><i class="bi bi-facebook"></i></li>
+                </a>
+                <a href="">
+                    <li><i class="bi bi-instagram"></i></li>
+                </a>
+                <a href="">
+                    <li><i class="bi bi-line"></i>
+                        </ion-icon>
+                    </li>
+                </a>
             </ul>
             <ul class="footerContect">
                 <li><i class="bi bi-telephone"></i>電話:03-1234567</li>
@@ -401,37 +303,220 @@
                 <li><i class="bi bi-pin-map"></i>地址:桃園市桃園區中正路99999號</li>
             </ul>
             <ul class="footerTerms">
-                <a href=""><li>服務條款</li></a><a href=""><li>購物條款</li></a><a href=""><li>付款方式</li></a>
+                <a href="">
+                    <li>服務條款</li>
+                </a><a href="">
+                    <li>購物條款</li>
+                </a><a href="">
+                    <li>付款方式</li>
+                </a>
             </ul>
             <p class="footerCopyRight">&copy;copy right by nobody .Please don't sue me.</p>
         </section>
     </footer>
+    <a href="./grouplist.html"><button class="joinBtn">我要<br>建團</button></a>
+
+    <!-- at designated point, show the joinBtn -->
+    <script>
+        $(function () {
+            $(window).scroll(function () {
+                let scrollTop = $(window).scrollTop();
+                // console.log(scrollTop);
+                let showPoint = $('.groupCities_wrap').offset().top;
+                // console.log(showPoint);
+                if (scrollTop >= showPoint) {
+                    $('.joinBtn').addClass('showJoinBtn');
+                } else {
+                    $('.joinBtn').removeClass('showJoinBtn');
+                }
+            });
+        });
+    </script>
+
+    <!-- vue出下拉式選單 -->
     <script>
         new Vue({
             el: '#filter_wrap',
-            data:{
+            data: {
                 selectedCity: '',
                 selectedSpot: '',
-                selectedDate:'',
-                cities: ['北部','中部','南部','東部'],
-                spots: ['5位內','10位內','不限名額'],
-                dates: ['3天內','7天內','10天內'],
+                selectedDate: '',
+                cities: ['北部', '中部', '南部', '東部'],
+                spots: ['5位內', '10位內', '不限名額'],
+                dates: ['3天內', '7天內', '10天內'],
             },
         });
     </script>
+
+    <!-- 篩選按紐 -->
     <script>
-        function init(){
+        function init() {
             let filterMobile = document.getElementById('filterMobile');
             filterMobile.addEventListener('click', showFilter);
         }
-        function showFilter(){
+        function showFilter() {
             let filter = document.querySelector('.filter');
             filter.classList.toggle('is_active');
 
         }
         window.addEventListener('load', init);
     </script>
+
+    <!-- 從資料庫撈資料到前端 -->
+    <script>
+        let gro = document.getElementById('gro');
+        let groStartDate = document.querySelector('.groStartDate');
+        function getGroData() {
+            $.ajax({
+                type: 'GET',
+                url: './phps/gro.php',
+                dataType: 'json',
+                success: function (res) {
+                    // console.log(res);
+                    // console.log(res[0].groStartDate); //第一筆資料的出發日期
+                    console.log(res.length); //看資料庫有幾筆
+                    // groStartDate.innerText = res[0].groStartDate; //確認有寫入資料
+                    if (res !== false) { //如果資料庫是有資料的
+                        for (let i = 0; i < res.length; i++) {
+                            //創造區
+                            //1. 創造卡片
+                            let card = document.createElement('div');
+                            card.classList.add('card', 'col-12', 'col-md-4');
+
+                            //2. 創造卡片頭部和卡片內容
+                            let card_header = document.createElement('div');
+                            let groupCard = document.createElement('div');
+                            groupCard.classList.add('groupCard', 'card_content' ,'card_content--corner');
+                            card_header.classList.add('card_header');
+
+                            //3. 創造卡片頭部裡面的內容
+                            //3-1. 團主照片和名字
+                            let card_person = document.createElement('div');
+                            let card_photo = document.createElement('div');
+                            let card_name = document.createElement('div');
+                            let initiatorPic = document. createElement('img');
+                            card_person.classList.add('card_person');
+                            card_photo.classList.add('card_photo');
+                            card_name.classList.add('card_name');
+
+                            //3-2. 點擊次數固定
+                            let card_hit = document.createElement('div');
+                            let hitSpan = document.createElement('span');
+                            card_hit.classList.add('card_hit');
+
+                            //4. 創造卡片內容裡的東西
+                            // 4-1. 卡片本身a連結
+                            let a = document.createElement('a');
+                            a.classList.add('link');
+                            // 4-2. 卡片身體
+                            let card_body = document.createElement('div');
+                            let card_footer = document.createElement('div');
+                            let card_tag = document.createElement('span');
+                            let card_img = document.createElement('div');
+                            let groImg = document. createElement('img');
+                            let card_date = document.createElement('div');
+                            let card_title = document.createElement('h3');
+                            let card_text = document.createElement('p');
+                            let cardTimeStart = document.createElement('p');
+                            let cardTimeEnd = document.createElement('p');
+                            let groStartDateTxt = document.createElement('span');
+                            let groStartDate = document.createElement('span');
+                            let groEndDateTxt = document.createElement('span');
+                            let groEndDate = document.createElement('span');
+
+                            card_body.classList.add('card_body');
+                            card_footer.classList.add('card_footer');
+                            card_tag.classList.add('card_tag');
+                            card_img.classList.add('card_img');
+                            card_date.classList.add('card_date');
+                            card_title.classList.add('card_title');
+                            card_text.classList.add('card_text');
+                            cardTimeStart.classList.add('card_time', 'card_time--start');
+                            cardTimeEnd.classList.add('card_time', 'card_time--end');
+                            groStartDate.classList.add('groStartDate');
+                            groEndDate.classList.add('groEndDate');
+                            // 4-3. 卡片尾部
+                            let cardTimeDeadline = document.createElement('div');
+                            let applyDeadlineTxt = document.createElement('span');
+                            cardTimeDeadline.classList.add('card_time', 'card_time--deadline');
+
+                            //插入結構和資料區
+                            //1. 把卡片本身插入目的地
+                            gro.appendChild(card);
+
+                            //2. 把卡片頭部和卡片內容一起插入卡片裡
+                            card.appendChild(card_header);
+                            card.appendChild(groupCard);
+
+                            //3. 把卡片頭部裡面的內容插入卡片頭裡面
+                            //3-1. 團主照片和名字
+                            card_header.appendChild(card_person);
+                            card_person.appendChild(card_photo);
+                            card_person.appendChild(card_name);
+                            card_photo.appendChild(initiatorPic);
+                            //***這裡串接團主大頭貼
+                            initiatorPic.src = `images/memIcon/${res[i].memIcon}`;
+                            //***這裡串接團主的名字
+                            card_name.textContent = res[i].memName;
+                            //3-2. 點擊次數固定
+                            card_header.appendChild(card_hit);
+                            card_hit.appendChild(hitSpan);
+                            hitSpan.textContent = '199999';
+                            let hitTextNode = document.createTextNode(" 點擊");
+                            card_hit.appendChild(hitTextNode);
+
+                            //4. 把卡片內容裡的小朋友們插入卡片內容
+                            // 4-1. 卡片本身a連結
+                            groupCard.appendChild(a);
+                            a.href = './groupdetail.html';
+                            // 4-2. 卡片身體
+                            groupCard.appendChild(card_body);
+                            card_body.appendChild(card_tag);
+                            //***這裡串接城市
+                            card_tag.textContent = res[i].cityName;
+                            //***這裡串接揪團圖片
+                            groupCard.appendChild(card_img);
+                            groImg.src = `images/groImg/${res[i].groImg}`;
+                            card_img.appendChild(groImg);
+                            //***這裡串接出發和回程日期
+                            groupCard.appendChild(card_date);
+                            card_date.appendChild(cardTimeStart);
+                            card_date.appendChild(cardTimeEnd);
+                            cardTimeStart.appendChild(groStartDateTxt);
+                            cardTimeStart.appendChild(groStartDate);
+                            groStartDateTxt.textContent = '出發日期: ';
+                            groStartDate.innerText = res[i].groStartDate;
+                            cardTimeEnd.appendChild(groEndDateTxt);
+                            cardTimeEnd.appendChild(groEndDate);
+                            groEndDateTxt.textContent = '回程日期: ';
+                            groEndDate.innerText = res[i].groEndDate;
+                            //***這裡串接揪團名稱
+                            groupCard.appendChild(card_title);
+                            card_title.innerText = res[i].groName;
+                             //***這裡串接揪團內容
+                            groupCard.appendChild(card_text);
+                            card_text.innerText = res[i].groContent;
+                            // 4-3. 卡片尾部
+                            groupCard.appendChild(card_footer);
+                            card_footer.appendChild(cardTimeDeadline);
+                            cardTimeDeadline.appendChild(applyDeadlineTxt);
+                            applyDeadlineTxt.textContent = '報名截止';
+                            let textNode = document.createTextNode(`${res[i].applyDeadline}`);
+                            cardTimeDeadline.appendChild(textNode);
+
+                            console.log(res[i]);
+                        }
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('load', getGroData);
+    </script>
+
+
     <script src="js/burger.js"></script>
     <script src="js/forlogin.js"></script>
 </body>
+
 </html>

@@ -9,6 +9,10 @@
 
 
 
+.required{
+    color: red;
+}
+
 .filter{
     backdrop-filter: blur(5px);
 
@@ -44,13 +48,14 @@
 }
 
 .personal_info .contact{
+    width: 90%;
     margin-top: 0;
 
 }
 
 .personal_info .contact>*{
-    margin: 10px;
-    margin-right: 2rem;
+    width: 100%;
+    margin: 5px 10px;
 
 }
 
@@ -66,10 +71,26 @@
 
 }
 
+.phone, .email, .cardnumber, .expdate{
+    display: flex;
+    
 
-// .shoppaydetail h2{
-//     padding: 15px;
-// }
+}
+
+#phoneerror, #emailerror, #carderror, #experror{
+    display: none;
+    font-size: 10px;
+    font-weight: lighter;
+    padding-left: 10px;
+    color: red;
+
+}
+
+.shoppaydetail .detail>*{
+    margin: 20px;
+
+}
+
 
 .shoplist{
     margin: 10px;
@@ -128,7 +149,7 @@
 }
 
 .shoplist_total .shoptotal{
-    color: #007183;
+    color: $accentColor;
 
 }
 
@@ -161,18 +182,7 @@
         margin: 5px 10px;
 
     }
-
-    .personal_info .contact{
-        display: flex;
-        flex-wrap: wrap;
-
-    }
     
-    .personal_info .contact>*{
-        width: 40%;
-        margin: 5px 10px;
-
-    }
 
     .shoppaycredit_info{
         display: flex;
@@ -184,8 +194,6 @@
         margin: 5px 10px;
 
     }
-
-    
 
     .shoplist .pro_img{
         width: 20%;

@@ -3,6 +3,8 @@ canvas{
 }
 .postcardBlock{
     padding-top: 50px;
+    width: 95%;
+    margin: auto;
 }
 .postcardTtile{
     font-family: 'Caveat',serif;
@@ -20,11 +22,11 @@ canvas{
 .postcardContainer{
     position: relative;
     width:100%;
-    padding: 30px;
+    padding: 20px;
     margin: auto;
     background-color:$white;
     border-radius: 10px;
-    box-shadow: 3px 3px 5px #3336;
+    box-shadow: 1px 1px 3px #3333;
     #deletStamp{
         display: none;
         position: absolute;
@@ -38,9 +40,9 @@ canvas{
     margin: auto;
     overflow: hidden;
     border-radius: 5px;
-    box-shadow:1px 1px  5px #333;
-    border:#3335 1px solid;
-    width: 80%;
+    box-shadow:1px 1px  3px #3333;
+    border: .5px solid #3333;
+    width: 100%;
     .postcardStampContainer{
         position: absolute;
         width: 100%;
@@ -58,6 +60,9 @@ canvas{
             position: absolute;
             top:10%;
             right: 10%;
+            font-size: 10px;
+            text-align: center;
+
         }
     }
     //文字
@@ -67,42 +72,57 @@ canvas{
         right: 10%;
     }
 }
+// @media screen and (min-width:996px){
+//     .postcardBox{
+//         width: 80%;
+//     }
+// }
+
 .postcardTextInput{
-    width:80%;
+    width:100%;
     height: 100px;
     margin:10px auto 0 auto;
     textarea{
         resize: none;
         width: 100%;
         height: 100%;
-        border-radius: 10px;
-        box-shadow: 3px 3px 5px #3336;
+        border-radius: 5px;
+        box-shadow: 1px 1px 3px #3333;
         padding: 20px;
+        border: .5px solid #3333;
     }
 }
 
 
 // 元件區
 .postcardRightBox{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-wrap: nowrap;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+    // flex-wrap: nowrap;
     overflow: hidden;
 }
 .postcardElements_warp{
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+
     display: flex;
     flex-wrap:nowrap;
-    align-items: flex-start;
+    flex-direction: column;
     .postcardTags{
+        display: flex;
+
         .postcardTag{
             background-color: #E3DCD4;
             color: #463828;
-            padding: 10px 5px;
-            margin: 5px 0;
+            padding: 5px 10px;
+            margin: 0 5px;
             border-top-left-radius: 10px;
-            border-bottom-left-radius: 10px;
-            writing-mode: vertical-lr;
+            border-top-right-radius: 10px;
             cursor: pointer;
         }
     }
@@ -110,7 +130,7 @@ canvas{
         flex-grow: 1;
         background-color: $white;
         border-radius: 10px;
-        box-shadow: 3px 3px 5px #3336;
+        box-shadow: 1px 1px 3px #3333;
         height: 450px;
         overflow-y: scroll;
 
@@ -122,23 +142,82 @@ canvas{
         }
         .postcardElement{
             margin: 10px auto;
-            border: #333 2px dashed;
+            border: #3339 1.5px dashed;
             border-radius: 5px;
             width: 100px;
+            padding: 3px;
         }
     }
 }
+
+//按鈕
 .postcardBtns{
-    padding: 40px 0;
+    position: fixed;
+    bottom: 170px;
+    right: 0;
+    z-index: 10;
+
+    padding: 10px 0;
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-around;
+
     button{
-        font-size: 20px;
+
         padding: 5px 20px;
         background-color: #007183;
         color: #fff;
-        border-radius:50px ;
-        margin-left: 10px;
+        border-radius:50px;
+        margin: 5px 0;
         cursor: pointer;
     }
+}
+@media screen and (min-width:768px) {
+    .postcardElements_warp{
+
+        position: relative;
+        bottom: 0;
+        left: 0;
+        width: auto;
+        height: auto;
+
+        flex-direction: row;
+        align-items: flex-start;
+        .postcardTags{
+            display: block;
+            .postcardTag{
+                padding: 10px 5px;
+                margin: 5px 0;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+                border-top-right-radius: 0;
+                writing-mode: vertical-lr;
+            }
+        }
+    }
+
+    .postcardBtns{
+        position:static;
+
+    
+        // padding: 10px 0;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-end;
+    
+        button{
+            padding: 5px 20px;
+            background-color: #007183;
+            color: #fff;
+            border-radius:50px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+    }
+}
+
+@media screen and (min-width:996px) {
+
 }

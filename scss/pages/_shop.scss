@@ -1,4 +1,4 @@
-.shopType h2, .shopHotCity h2, .shopProduct h2{
+.shopType h2{
     text-align: center;
     font-family: 'Caveat',serif;
     font-weight: 600;
@@ -8,6 +8,8 @@
     color: #007183;
    
 }
+
+
 
 .shopType{
     margin-top: 50px;
@@ -102,10 +104,46 @@
 
 }
 
+.shopProduct .card_content{
+    width: 100%;
+
+}
+
+.shopProduct .card_count{
+    width: 100%;
+    text-align:right;
+}
+
 .shopProduct .card a{
     color: black;
 
 }
+
+.shopSort_wrap .card_img{
+    overflow: hidden;
+    position: relative;
+
+    img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: auto;
+        height: 100%;
+        
+    }
+}
+
+
+
+.shopSort_wrap .card_img:before{
+content: "";
+display: block;
+position: relative;
+width: 100%;
+height: 0;
+padding-bottom: 75%;
+}
+
 
 @media screen and (min-width:768px){
     .shopType .col-md-3{
