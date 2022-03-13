@@ -10,6 +10,8 @@
     <script src="./js/jquery.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js'></script>
     <link rel="shortcut icon" href="images/logo/logo_84x50.png" type="image/png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/TextPlugin.min.js"></script>
 
 </head>
 
@@ -196,7 +198,7 @@
         <!-- 熱門揪團城市區 -->
         <section class="l-full groupCities">
             <div class="l-large groupCities_wrap">
-                <h2>現正熱門揪團城市</h2>
+                <h2 class="txtAnimation_txt">現正熱門揪團城市</h2>
                 <div class="row">
                     <div class="col-4 col-md-2">
                         <div class="pic">
@@ -316,6 +318,23 @@
     </footer>
     <a href="./grouplist.html"><button class="joinBtn">我要<br>建團</button></a>
 
+    <!-- text animation -->
+    <script>
+        // let txtAnimation_wrap = document.getElementById('txtAnimation_wrap');
+        // let txtAnimation_txt = document.getElementById('txtAnimation_txt');
+        // let split;
+        // let animation = gsap.timeline({});
+
+        // function txtAnimation() {
+        //     split = new SplitText("txtAnimation_txt", { type: "words" });
+        //     console.log(split);
+        // };
+
+        // window.addEventListener('load', txtAnimation);
+
+    </script>
+
+
     <!-- at designated point, show the joinBtn -->
     <script>
         $(function () {
@@ -386,7 +405,7 @@
                             //2. 創造卡片頭部和卡片內容
                             let card_header = document.createElement('div');
                             let groupCard = document.createElement('div');
-                            groupCard.classList.add('groupCard', 'card_content' ,'card_content--corner');
+                            groupCard.classList.add('groupCard', 'card_content', 'card_content--corner');
                             card_header.classList.add('card_header');
 
                             //3. 創造卡片頭部裡面的內容
@@ -394,7 +413,7 @@
                             let card_person = document.createElement('div');
                             let card_photo = document.createElement('div');
                             let card_name = document.createElement('div');
-                            let initiatorPic = document. createElement('img');
+                            let initiatorPic = document.createElement('img');
                             card_person.classList.add('card_person');
                             card_photo.classList.add('card_photo');
                             card_name.classList.add('card_name');
@@ -413,7 +432,7 @@
                             let card_footer = document.createElement('div');
                             let card_tag = document.createElement('span');
                             let card_img = document.createElement('div');
-                            let groImg = document. createElement('img');
+                            let groImg = document.createElement('img');
                             let card_date = document.createElement('div');
                             let card_title = document.createElement('h3');
                             let card_text = document.createElement('p');
@@ -493,7 +512,7 @@
                             //***這裡串接揪團名稱
                             groupCard.appendChild(card_title);
                             card_title.innerText = res[i].groName;
-                             //***這裡串接揪團內容
+                            //***這裡串接揪團內容
                             groupCard.appendChild(card_text);
                             card_text.innerText = res[i].groContent;
                             // 4-3. 卡片尾部
@@ -509,7 +528,7 @@
                     }
                 }
             });
-        }
+        };
 
         window.addEventListener('load', getGroData);
     </script>
