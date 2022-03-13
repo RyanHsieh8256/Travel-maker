@@ -318,23 +318,6 @@
     </footer>
     <a href="./grouplist.html"><button class="joinBtn">我要<br>建團</button></a>
 
-    <!-- text animation -->
-    <script>
-        // let txtAnimation_wrap = document.getElementById('txtAnimation_wrap');
-        // let txtAnimation_txt = document.getElementById('txtAnimation_txt');
-        // let split;
-        // let animation = gsap.timeline({});
-
-        // function txtAnimation() {
-        //     split = new SplitText("txtAnimation_txt", { type: "words" });
-        //     console.log(split);
-        // };
-
-        // window.addEventListener('load', txtAnimation);
-
-    </script>
-
-
     <!-- at designated point, show the joinBtn -->
     <script>
         $(function () {
@@ -383,18 +366,12 @@
 
     <!-- 從資料庫撈資料到前端 -->
     <script>
-        let gro = document.getElementById('gro');
-        let groStartDate = document.querySelector('.groStartDate');
         function getGroData() {
             $.ajax({
                 type: 'GET',
                 url: './phps/gro.php',
                 dataType: 'json',
                 success: function (res) {
-                    // console.log(res);
-                    // console.log(res[0].groStartDate); //第一筆資料的出發日期
-                    console.log(res.length); //看資料庫有幾筆
-                    // groStartDate.innerText = res[0].groStartDate; //確認有寫入資料
                     if (res !== false) { //如果資料庫是有資料的
                         for (let i = 0; i < res.length; i++) {
                             //創造區
@@ -523,7 +500,8 @@
                             let textNode = document.createTextNode(`${res[i].applyDeadline}`);
                             cardTimeDeadline.appendChild(textNode);
 
-                            console.log(res[i]);
+                            // console.log(res[i]);
+                            console.log(res.length);
                         }
                     }
                 }
