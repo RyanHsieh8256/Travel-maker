@@ -1,7 +1,6 @@
 window.addEventListener('load',function() {
 
     addJour = this.document.querySelectorAll('.addJour');
-    console.log(addJour);
 })
 
 // 點擊加入行程抓到這個行程的資料
@@ -33,6 +32,8 @@ function fetchData() {
         });
 
         displaySide(curJour,dayNum);
+        tourForm();
+        displayTheTour();
         
     })
 
@@ -165,6 +166,7 @@ function changeItem() {
     e.currentTarget.classList.add('slider_item--active');
 
     fetchData();
+    
 
   }
 
@@ -207,6 +209,7 @@ function popupSwitch() {
 }
 popupSwitch();
 
+
 function slidePage() {
     let nextBtn = document.querySelector('#slide-next');
     let arrowBtn = document.querySelector('#arrowBtn');
@@ -227,14 +230,44 @@ function slidePage() {
 }
 slidePage();
 
+// 呈現行程名稱 /圖片等內容
+function displayTheTour() {
+  let names = document.querySelectorAll('.tourName');
+  names.forEach(name => name.textContent = tourForm().journeyName);
+}
+displayTheTour();
+
 // 讓popup的資料為fetch回來的資料
 function tourForm() {
     let data = JSON.parse(sessionStorage.getItem("day1"));
+    let {journeyNo, journeyName,journeyStartDay,journeyEndDay} = data[0];
+
+    let goTourBuild = document.querySelector('#goBuildTour a');
+
+    tourName.value = `${journeyName}`;
+    tourStart.textContent = `${journeyStartDay}`;
+    tourEnd.textContent = `${journeyEndDay}`;
+
+    startDate.value = `${journeyStartDay}`;
+    endDate.value = `${journeyEndDay}`;
+
+    goTourBuild.href = `tourbuild.html#/tour/${journeyNo}`;
     
-    tourName.value = '';
+
+    let diff = Math.abs(new Date(journeyEndDay) - new Date(journeyStartDay));
+    let day = diff/(1000 * 3600 * 24) + 1;
+    days.textContent = day;
+
+    return {
+      journeyNo,
+      journeyName,
+      journeyStartDay,
+      journeyEndDay
+    }
+
 }
 
-tourForm()
+tourForm();
 
 // 傳回資料
 // 

@@ -13,9 +13,88 @@ window.addEventListener('load',function() {
 
     sessionStorage.clear();
 
+    // 進來抓到該行程的編號並撈資料渲染
+    // 點擊加入行程抓到這個行程的資料
+    function fetchData() {
+      
+      let curJour = getUrl();
+
+      fetch(`./phps/fetchJour.php?find=${curJour}`).then(res => res.json())
+      .then(data => {
+
+          // 抓該行程的天數
+
+          let dayArr = [];
+          let dayNum = Math.max(...data.map(jour => +jour.journeySpotDay));
+        
+
+          for(let i = 1; i <= dayNum; i++ ) {
+              let theData = data.filter(jour => jour.journeySpotDay == i);
+              dayArr.push(theData);
+          }
+
+          
+          // 寫入session storage
+          sessionStorage.clear();
+          dayArr.forEach((day,i) => {
+              // 整理陣列裡物件順序
+              day.sort((a,b) => +a.sequence - +b.sequence);
+              sessionStorage.setItem(`day${i+1}`, JSON.stringify(day));
+          });
+
+          displaySide(curJour,dayNum);
+          // tourForm();
+          // displayTheTour();
+          
+      })
+
+    }
+    fetchData();
+
 
 })
 
+// 景點資料(時間軸渲染)
+function displaySide(no,num) {
+  let tourContent = document.querySelector('.tour_side--active .tour_content');
+  let timelineBox = document.querySelector('.timeline_box');
+
+  let tabs = '';
+
+  for(let i = 1; i <= num; i++) {
+      let dayData = JSON.parse(sessionStorage.getItem(`day${i}`));
+
+      let timelinePage = document.querySelector(`.timeline_page--${i}`);
+
+      tabs += `<div class="timeline_tab timeline_tab--${i}" data-tab="${i}">第${i}天</div>`;
+      
+  
+
+      let items = dayData.map(day => {
+          let {spotNo,sequence,spotName,spotImg} = day;
+
+          let spotItem = `
+          <li class="timeline_item tourBuild_item" data-no="${spotNo}" drag-handle>
+          <div class="timeline_text">
+              <div class="timeline_num">${sequence}</div>
+              <div class="timeline_name">${spotName}</div>
+          </div>
+          <div class="timeline_img">
+              <img src="${spotImg}" alt="">
+          </div>
+          </li>
+          `
+          return spotItem;
+      }).join('');
+      
+
+      timelinePage.innerHTML = items;
+  }
+
+  timelineBox.innerHTML = tabs;
+
+  changeTab();
+}
 
 
 // // 地圖呈現
@@ -455,7 +534,7 @@ function searchPlace(e) {
     displayMaker(response);
 
     // 暫存response的資料
-    sessionStorage.setItem('test',JSON.stringify(response));
+    sessionStorage.setItem('searchSpot',JSON.stringify(response));
     searchInfo(searchVal); 
   })
   .catch(err => console.log(err));
@@ -504,7 +583,16 @@ function searchInfo(search) {
 
 // 抓session storage資料
 function getData() {
-  let sessionData = JSON.parse(sessionStorage.getItem('test'));
+  let sessionData = JSON.parse(sessionStorage.getItem('searchSpot'));
 
   return sessionData;
+}
+
+// 共用
+// 抓網址的行程編號
+function getUrl() {
+  let parseUrl = document.location.hash.toLowerCase();
+  let no = +parseUrl.split('/')[2];
+
+  return no;
 }
