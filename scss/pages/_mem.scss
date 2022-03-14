@@ -43,9 +43,23 @@
         background-color: $white;
         width: 45%;
         .memberAccountPhto{
+            position: relative;
             width: 70%;
             margin: 20px auto;
             clip-path: circle(50%);
+            &::before{
+                content: '';
+                display: block;
+                position: relative;
+                width: 100%;
+                height: 0;
+                padding-bottom: 100%;
+            }
+            img{
+                position:absolute;
+                top: 0;
+                left: 0;
+            }
         }
         .memberAccountName{
             text-align: center;
@@ -61,17 +75,15 @@
         padding: 10px 0;
         background-color: $white;
         width: 50%; 
-        li{
-            color: $white;
-            background-color: $FooterSubColor;
+        a{
+            // color: $white;
+            // background-color: $FooterSubColor;
+            color: #333;
+            background-color:$white;
             padding:10px 30px;
             cursor:pointer;
             border-radius: 10px;
             transition: .2s;
-            &+li{
-                color: #333;
-                background-color:$white;
-            }
         }
 
     }

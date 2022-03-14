@@ -278,6 +278,7 @@ if(memData){
     $('#loginBoxBtn').css('display','none');
     $('#memBoxBtn').css('display','flex');
     $('#memName').text(member.memName);
+    $('#memIcon').attr('src', `images/memIcon/${member.memIcon}`);
 }
 
 // 註冊事件

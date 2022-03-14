@@ -218,40 +218,47 @@
                 </div>
                 <div class="col-12 col-md-8 col-lg-9">
                     <section class="memberProfileWarp">
-                        <!-- 帳號設定 -->
-                        <section class="memberProfile  mem_sectionBG">
-                            <form action="" class="memberInfoSetting">
-                                <h3 class="memberBlockTtile">帳號設定</h3>
-                                <table class="InfoSettingForm">
-                                    <tr>
-                                        <th>姓名:</th>
-                                        <td><input type="text"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>電子信箱:</th>
-                                        <td><input type="text"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>密碼:</th>
-                                        <td><input type="password"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>電話:</th>
-                                        <td><input type="tel"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>生日:</th>
-                                        <td><input type="date"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>頭貼:</th>
-                                        <td><input type="file"></td>
-                                    </tr>
-                                </table>
-                                <div class="sendButton">
-                                    <input type="submit" value="確定更改">
+                        <!-- 我的訂單 -->
+                        <section class="memberProfile mem_sectionBG">
+                            <h3 class="memberBlockTtile">我的訂單</h3>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="horizontalcard">
+                                        <div class="horizontalcard_pic" >
+                                            <img src="https://picsum.photos/800/500/?random=10">
+                                        </div>
+                                        <div class="horizontalcard_content" >
+                                            <h4 class="horizontalcard_title">訂單編號: <span>0000001</span></h4>
+                                            <p class="horizontalcard_text text_Overflow">
+                                                <div class="horizontalcard_oder">
+                                                    <div class="col-6">
+                                                        <h5>商品明細</h5>
+                                                        <ul class="horizontalcard_oderDetail">
+                                                            <li><a href="shopspot.html" class="text_Overflow">
+                                                                🔥熱銷🔥 農家自產 新鮮曬乾小粒紅皮花生 帶殼 生花生米 無殼花生米 帶殼炒熟花生</a></li>
+                                                            <li><a href="shopspot.html" class="text_Overflow">七福村門票</a></li>
+                                                            <li><a href="shopspot.html" class="text_Overflow">八福村門票</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <h5>訂購日期</h5>
+                                                        <span>2020/01/03</span>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <h5>付款金額</h5>
+                                                        <span>2,000</span>
+                                                    </div>
+                                                </div>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </form>
+                                <div class="col-12">
+                                    <div class="horizontalcard_empty">
+                                        <p>查無訂單</p>
+                                    </div>
+                                </div>
+                            </div>
                         </section>
                     </section>
                 </div>
@@ -279,30 +286,6 @@
         </section>
     </footer>
 </body>
-<!-- <script>
-    function mem_sectionControl(){
-        let member_SectionControlor = document.getElementsByClassName('member_SectionControlor');
-        
-        for(let i = 0;i<member_SectionControlor.length;i++){
-            member_SectionControlor[i].index = i;
-            member_SectionControlor[i].onclick = function(){
-                let memberProfile = document.getElementsByClassName("memberProfile");
-                for(a=0;a<memberProfile.length;a++){
-                    memberProfile[a].style.display = 'none';
-                    member_SectionControlor[a].style.backgroundColor = '#fff';
-                    member_SectionControlor[a].style.color = '#333';
-                }
-                memberProfile[i].style.display = "block";
-                member_SectionControlor[i].style.backgroundColor = '#007183';
-                member_SectionControlor[i].style.color = '#fff';
-                
-                console.log(memberProfile[i].offsetHeight);
-            }
-            
-        };
-    }
-    window.addEventListener('load',mem_sectionControl)
-</script> -->
 <script src="js/forlogin.js"></script>
 <script src="js/burger.js"></script>
 <script src="js/mem.js"></script>
