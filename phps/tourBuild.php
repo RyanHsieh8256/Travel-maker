@@ -1,6 +1,6 @@
 <?php
-    // $conn = mysqli_connect('cfd104g5.asuscomm.com','g3-1','cfd104_g3@hihi','g3');
-    $conn = mysqli_connect('localhost','root','ks2510','spot-test');
+    $conn = mysqli_connect('cfd104g5.asuscomm.com','g3-1','cfd104_g3@hihi','g3');
+    // $conn = mysqli_connect('localhost','root','ks2510','spot-test');
 
     $search = $_GET['search'];
 
