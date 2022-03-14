@@ -152,6 +152,14 @@ body {
   font-size: 60px;
 }
 
+.second-title--ch {
+  font-weight: 600;
+  padding: 10px;
+  font-size: 30px;
+  line-height: 1.5;
+  color: #007183;
+}
+
 .p-text {
   font-weight: 600;
   color: #463828;
@@ -8124,6 +8132,16 @@ body {
   color: #007183;
 }
 
+.setBtn {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  position: fixed;
+  top: 10px;
+  right: 5px;
+  z-index: 2;
+}
+
 .timeline {
   width: 90%;
   margin-top: 30px;
@@ -8135,15 +8153,12 @@ body {
   display: none;
 }
 
-.timeline_box {
+.timeline_nav {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   position: relative;
 }
 
-.timeline_box::after {
+.timeline_nav::after {
   content: '';
   width: 100%;
   height: 1px;
@@ -8153,12 +8168,23 @@ body {
   left: 0;
 }
 
+.timeline_box {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
 .timeline_tab {
   padding: 8px;
   border-radius: 5px 5px 0 0;
   margin-right: 3px;
   letter-spacing: 2px;
   cursor: pointer;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 .timeline_tab--active {
@@ -8208,6 +8234,7 @@ body {
   margin-top: 40px;
   border-radius: 5px;
   border: 1px solid #007183;
+  cursor: pointer;
 }
 
 .timeline_text {
@@ -8634,6 +8661,7 @@ body {
 .iconNav-item {
   max-width: 50px;
   text-align: center;
+  cursor: pointer;
 }
 
 .iconNav-item .bi {
@@ -8657,6 +8685,29 @@ body {
 
 .burger-toggle .bi {
   font-size: 30px;
+}
+
+.home_memIcon {
+  overflow: hidden;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.home_navDropdownMenu {
+  right: 1%;
+}
+
+.home_navDropdownMenu a {
+  color: #333;
+}
+
+.home_navDropdownMenu a:hover {
+  color: #ff7e29;
+}
+
+.home_navDropdownMenu::before {
+  left: 44%;
 }
 
 /* image Map */
@@ -10328,6 +10379,7 @@ label.error {
   background-color: #83D8D1aa;
   border-radius: 50%;
   line-height: 16px;
+  display: none;
 }
 
 .tourForm_calendar {
@@ -10471,13 +10523,18 @@ label.error {
 }
 
 .tourBuild_wrap .leaflet-popup-content-wrapper {
-  background-color: #E3DCD4;
+  width: 250px;
+  background-color: #F0EEE7;
   color: #007183;
   font-weight: 600;
 }
 
+.tourBuild_wrap .leaflet-popup-content p {
+  margin: 10px 0;
+}
+
 .tourBuild_wrap .leaflet-popup-tip {
-  background: #E3DCD4;
+  background: #f5f5f5;
 }
 
 .tourBuild_wrap .leaflet-touch .leaflet-bar {
@@ -10541,6 +10598,9 @@ input[type="button"] {
   display: flex;
   -webkit-transition: .5s ease;
   transition: .5s ease;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
 }
 
 .tourBuild_inner {
@@ -10595,19 +10655,19 @@ input[type="button"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.tourBuild_name {
+  font-weight: 600;
+  color: #007183;
+  font-size: 20px;
 }
 
 .tourBuild_time {
   margin: 15px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   color: #007183;
   font-weight: 600;
 }
@@ -10623,14 +10683,19 @@ input[type="button"] {
 
 .tourBuild_news {
   width: 100%;
-  padding: 20px;
+  padding: 10px;
   background-color: #83D8D1aa;
   text-align: center;
   border-radius: 10px;
+  margin-top: 20px;
 }
 
 .btn {
   border-radius: 100px;
+}
+
+.tourSearch_box {
+  min-height: 90vh;
 }
 
 .tourSearch_header {
@@ -10646,6 +10711,20 @@ input[type="button"] {
   height: 1px;
   width: 100%;
   background-color: #ccc;
+}
+
+.tourSearch_info {
+  color: #5C5041;
+  font-weight: 600;
+  font-size: 14px;
+  opacity: 0;
+  -webkit-transition: opacity .4s ease;
+  transition: opacity .4s ease;
+}
+
+.tourSearch_info span {
+  color: #007183;
+  font-size: 16px;
 }
 
 .tourSearch_content {
@@ -10802,6 +10881,48 @@ input[type="button"] {
   }
 }
 
+.cover-img {
+  position: relative;
+  height: 120px;
+  overflow: hidden;
+}
+
+.cover-img::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(0), color-stop(rgba(17, 17, 17, 0.4)), to(rgba(17, 17, 17, 0.4)));
+  background-image: linear-gradient(0, rgba(17, 17, 17, 0.4), rgba(17, 17, 17, 0.4));
+}
+
+.cover-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.spot_popup--img {
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+}
+
+.spot_popup--text {
+  margin: 10px 0;
+}
+
+.spot_popup--name {
+  font-size: 18px;
+}
+
+.spot_popup--place {
+  font-size: 14px;
+}
+
 /* ---流動圖片區--- */
 .groupMarquee_wrap {
   overflow: hidden;
@@ -10825,10 +10946,11 @@ input[type="button"] {
   margin: 30px 0;
 }
 
-.groupCities_wrap h2 {
-  padding-bottom: 30px;
+.groupCities_wrap .txtAnimation_txt {
+  margin-bottom: 30px;
   text-align: center;
   font-size: 30px;
+  position: relative;
 }
 
 .groupCities_wrap .row .pic {
@@ -11011,6 +11133,33 @@ input[type="button"] {
   /* 篩選下拉式選單出現*/
   .groupContent .groupContent_wrap .filter {
     display: block;
+  }
+  .groupCities_wrap .txtAnimation_txt:before {
+    content: '現正熱門揪團城市';
+    position: absolute;
+    background: #007183;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    overflow: hidden;
+    -webkit-clip-path: circle(50% at 0% 50%);
+            clip-path: circle(50% at 0% 50%);
+    -webkit-animation: slide 4s 1s linear infinite;
+            animation: slide 4s 1s linear infinite;
+  }
+  @-webkit-keyframes slide {
+    50% {
+      -webkit-clip-path: circle(50% at 100% 50%);
+              clip-path: circle(50% at 100% 50%);
+    }
+  }
+  @keyframes slide {
+    50% {
+      -webkit-clip-path: circle(50% at 100% 50%);
+              clip-path: circle(50% at 100% 50%);
+    }
   }
 }
 
