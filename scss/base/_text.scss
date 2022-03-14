@@ -22,7 +22,7 @@ body {
    }
  
 .second-title {
-    font-family: 'Caveat',serif;
+  font-family: 'Caveat',serif;
    font-weight: 600;
    padding: 10px;
    font-size: 30px;
@@ -48,6 +48,15 @@ body {
      display: block;
      font-size: 60px;
      
+   }
+
+  //  只要中文的標題 .second-title--ch
+   &--ch {
+    font-weight: 600;
+    padding: 10px;
+    font-size: 30px;
+    line-height: 1.5;
+    color: #007183;
    }
  }
  

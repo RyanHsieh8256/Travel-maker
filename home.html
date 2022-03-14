@@ -32,9 +32,48 @@
                     </a>
                 </li>
                 <div class="iconNav-item">
-                    <a href="mem.html" class="iconNav-link">
-                        <i class="bi bi-person-circle"></i>
-                    </a>
+                    <li>
+                        <div id="loginBoxBtn" class="loginBoxBtn">
+                            <i class="bi bi-person-circle"></i>
+                        </div>
+                        <div id="memBoxBtn" class="memBoxBtn" style="display: none;">
+                            <div class="memIcon home_memIcon">
+                                <img id="memIcon" src="https://picsum.photos/50/50/?random=10">
+                            </div>
+                            <!-- <span id="memName"></span> -->
+                        </div>
+                        
+                        <ul class="navDropdownMenu home_navDropdownMenu">
+                            <li class="navDropdownMenuItem">
+                                <a href="mem.html">
+                                    <i class="bi bi-gear"></i> 帳號設定
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem">
+                                <a href="mem.html">
+                                    <i class="bi bi-calendar2"></i> 我的行程
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem">
+                                <a href="mem.html">
+                                    <i class="bi bi-bookmark-heart"></i> 我的收藏
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem">
+                                <a href="mem.html">
+                                    <i class="bi bi-file-person"></i> 我的揪團
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem">
+                                <a href="mem.html">
+                                    <i class="bi bi-bag"></i> 我的訂單
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem" id="logOutBtn">
+                                <i class="bi bi-door-closed"></i> 登出
+                            </li>
+                        </ul>
+                    </li>
                 </div>
                 <div class="iconNav-item">
                     <div class="burger-toggle">
@@ -211,7 +250,7 @@
                         </div>
                         <div class="homeGroup_btnBox">
                             <a href="group.html" class="btn btn--main">揪團總覽</a>
-                            <a href="groupform.html" class="btn btn--main">建立揪團</a>
+                            <a href="grouplist.html" class="btn btn--main">建立揪團</a>
                         </div>  
                     </div> 
                     <div class="row">
@@ -587,10 +626,41 @@
             </nav>
         </footer>
     </div>
+
+    <!-- 會員視窗 -->
+    <div class="froLoginBG" id="froLoginBG">
+        <section class="froLoginBlock" id="froLoginBlock">
+            <!-- 取消按鈕 -->
+            <div class="froLoginCancel">
+                <button><i class="bi bi-x-circle-fill"></i></button>
+            </div>
+            <!-- 註冊/登入 -->
+            <div class="froLoginSwitch">
+                <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
+                    登入
+                </div>
+                <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
+                    註冊
+                </div>
+            </div> 
+            <!-- 表單區 -->
+            <transition name="frologintransition" mode="out-in">
+                <keep-alive>
+                    <component :is='content'></component>
+                </keep-alive>
+            </transition>
+            <transition name="mascottransition">
+                <component :is='content2'></component>
+            </transition>
+        </section>
+    </div>
     
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/forlogin.js"></script>
     <script src="js/burger.js"></script>
 
     <script>
