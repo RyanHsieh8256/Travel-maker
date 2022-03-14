@@ -11712,6 +11712,10 @@ input[type="button"] {
   width: 100%;
 }
 
+.shopSort_wrap .card_tag {
+  z-index: 5;
+}
+
 .shopProduct .card_count {
   width: 100%;
   text-align: right;
