@@ -10946,10 +10946,11 @@ input[type="button"] {
   margin: 30px 0;
 }
 
-.groupCities_wrap h2 {
-  padding-bottom: 30px;
+.groupCities_wrap .txtAnimation_txt {
+  margin-bottom: 30px;
   text-align: center;
   font-size: 30px;
+  position: relative;
 }
 
 .groupCities_wrap .row .pic {
@@ -11132,6 +11133,33 @@ input[type="button"] {
   /* 篩選下拉式選單出現*/
   .groupContent .groupContent_wrap .filter {
     display: block;
+  }
+  .groupCities_wrap .txtAnimation_txt:before {
+    content: '現正熱門揪團城市';
+    position: absolute;
+    background: #007183;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    overflow: hidden;
+    -webkit-clip-path: circle(50% at 0% 50%);
+            clip-path: circle(50% at 0% 50%);
+    -webkit-animation: slide 4s 1s linear infinite;
+            animation: slide 4s 1s linear infinite;
+  }
+  @-webkit-keyframes slide {
+    50% {
+      -webkit-clip-path: circle(50% at 100% 50%);
+              clip-path: circle(50% at 100% 50%);
+    }
+  }
+  @keyframes slide {
+    50% {
+      -webkit-clip-path: circle(50% at 100% 50%);
+              clip-path: circle(50% at 100% 50%);
+    }
   }
 }
 
@@ -11831,6 +11859,10 @@ input[type="button"] {
 
 .shopProduct .card_content {
   width: 100%;
+}
+
+.shopSort_wrap .card_tag {
+  z-index: 5;
 }
 
 .shopProduct .card_count {
