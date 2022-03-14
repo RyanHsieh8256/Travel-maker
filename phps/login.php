@@ -34,7 +34,7 @@ try{
   $member->execute();
 
   if($member->rowCount()==0){ 
-	  echo "exist";
+    echo "錯誤";
   }else{ 
     $memRow = $member->fetch(PDO::FETCH_ASSOC);
     $result = [

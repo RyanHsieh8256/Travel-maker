@@ -9560,10 +9560,26 @@ label.error {
 }
 
 .memberAccountWarp .memberAccount .memberAccountPhto {
+  position: relative;
   width: 70%;
   margin: 20px auto;
   -webkit-clip-path: circle(50%);
           clip-path: circle(50%);
+}
+
+.memberAccountWarp .memberAccount .memberAccountPhto::before {
+  content: '';
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+}
+
+.memberAccountWarp .memberAccount .memberAccountPhto img {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .memberAccountWarp .memberAccount .memberAccountName {
@@ -9590,19 +9606,14 @@ label.error {
   width: 50%;
 }
 
-.memberAccountWarp .memberAccountSetting li {
-  color: #fff;
-  background-color: #007183;
+.memberAccountWarp .memberAccountSetting a {
+  color: #333;
+  background-color: #fff;
   padding: 10px 30px;
   cursor: pointer;
   border-radius: 10px;
   -webkit-transition: .2s;
   transition: .2s;
-}
-
-.memberAccountWarp .memberAccountSetting li + li {
-  color: #333;
-  background-color: #fff;
 }
 
 @media screen and (min-width: 768px) {

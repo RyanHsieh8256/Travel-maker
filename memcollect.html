@@ -218,40 +218,32 @@
                 </div>
                 <div class="col-12 col-md-8 col-lg-9">
                     <section class="memberProfileWarp">
-                        <!-- 帳號設定 -->
+                        <!-- 我的收藏 -->
                         <section class="memberProfile  mem_sectionBG">
-                            <form action="" class="memberInfoSetting">
-                                <h3 class="memberBlockTtile">帳號設定</h3>
-                                <table class="InfoSettingForm">
-                                    <tr>
-                                        <th>姓名:</th>
-                                        <td><input type="text"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>電子信箱:</th>
-                                        <td><input type="text"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>密碼:</th>
-                                        <td><input type="password"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>電話:</th>
-                                        <td><input type="tel"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>生日:</th>
-                                        <td><input type="date"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>頭貼:</th>
-                                        <td><input type="file"></td>
-                                    </tr>
-                                </table>
-                                <div class="sendButton">
-                                    <input type="submit" value="確定更改">
+                            <h3 class="memberBlockTtile">收藏的行程</h3>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="horizontalcard">
+                                        <div class="horizontalcard_pic" >
+                                            <img src="https://picsum.photos/800/500/?random=10">
+                                        </div>
+                                        <div class="horizontalcard_content" >
+                                            <h4 class="horizontalcard_title">行程標題</h4>
+                                            <p class="horizontalcard_text text_Overflow">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. In nemo voluptatem iusto fuga perspiciatis? Cupiditate voluptas error dignissimos. Amet impedit ea quaerat. Hic assumenda optio doloribus dignissimos culpa nulla illo!
+                                            </p>
+                                            <div class="horizontalcard_footer">
+                                                <div class="horizontalcard_footerItem"><a href="tourbuild.html">查看行程</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </form>
+                                <div class="col-12">
+                                    <div class="horizontalcard_empty">
+                                        <p>沒有行程</p>
+                                    </div>
+                                </div>
+                            </div>
                         </section>
                     </section>
                 </div>
@@ -279,30 +271,6 @@
         </section>
     </footer>
 </body>
-<!-- <script>
-    function mem_sectionControl(){
-        let member_SectionControlor = document.getElementsByClassName('member_SectionControlor');
-        
-        for(let i = 0;i<member_SectionControlor.length;i++){
-            member_SectionControlor[i].index = i;
-            member_SectionControlor[i].onclick = function(){
-                let memberProfile = document.getElementsByClassName("memberProfile");
-                for(a=0;a<memberProfile.length;a++){
-                    memberProfile[a].style.display = 'none';
-                    member_SectionControlor[a].style.backgroundColor = '#fff';
-                    member_SectionControlor[a].style.color = '#333';
-                }
-                memberProfile[i].style.display = "block";
-                member_SectionControlor[i].style.backgroundColor = '#007183';
-                member_SectionControlor[i].style.color = '#fff';
-                
-                console.log(memberProfile[i].offsetHeight);
-            }
-            
-        };
-    }
-    window.addEventListener('load',mem_sectionControl)
-</script> -->
 <script src="js/forlogin.js"></script>
 <script src="js/burger.js"></script>
 <script src="js/mem.js"></script>
