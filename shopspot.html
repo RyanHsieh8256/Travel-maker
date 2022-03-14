@@ -475,15 +475,11 @@
             // let cityName;
             // cityName = $(".cityName");
             // cityName.text("123");
-
-
             $.ajax({
-                url: './phps/shop.php',
                 type:'GET',
-                dataType: 'json',
-                success: function(res){  
-
-        
+                   url: './phps/shopcon.php',
+                   dataType: 'json',
+                   success: function(res){     
             let upperImg1;
             upperImg1 = $(".upperImg1");
             upperImg1.attr("src",`${res[0].upperImg1}`);
@@ -522,89 +518,54 @@
            conTicketPrice.val(res[0].conTicketPrice)
 
 
-           let underImgSrc1;
-           underImgSrc1 = $(".underImgSrc1");
-           underImgSrc1.attr("src",`${res[0].underImgSrc1}`);
+        //    let underImgSrc1;
+        //    underImgSrc1 = $(".underImgSrc1");
+        //    underImgSrc1.attr("src",`${res[0].underImgSrc1}`);
 
-           let underImgDesc1;
-           underImgDesc1 = $(".underImgDesc1");
-           underImgDesc1.text(res[0].underImgDesc1);
+        //    let underImgDesc1;
+        //    underImgDesc1 = $(".underImgDesc1");
+        //    underImgDesc1.text(res[0].underImgDesc1);
 
-           let underImgSrc2;
-           underImgSrc2 = $(".underImgSrc2");
-           underImgSrc2.attr("src",`${res[0].underImgSrc2}`);
+        //    let underImgSrc2;
+        //    underImgSrc2 = $(".underImgSrc2");
+        //    underImgSrc2.attr("src",`${res[0].underImgSrc2}`);
 
-           let underImgDesc2;
-           underImgDesc2 = $(".underImgDesc2");
-           underImgDesc2.text(res[0].underImgDesc2);
+        //    let underImgDesc2;
+        //    underImgDesc2 = $(".underImgDesc2");
+        //    underImgDesc2.text(res[0].underImgDesc2);
 
-           let underImgSrc3;
-           underImgSrc3 = $(".underImgSrc3");
-           underImgSrc3.attr("src",`${res[0].underImgSrc3}`);
+        //    let underImgSrc3;
+        //    underImgSrc3 = $(".underImgSrc3");
+        //    underImgSrc3.attr("src",`${res[0].underImgSrc3}`);
 
-           let underImgDesc3;
-           underImgDesc3 = $(".underImgDesc3");
-           underImgDesc3.text(res[0].underImgDesc3);
+        //    let underImgDesc3;
+        //    underImgDesc3 = $(".underImgDesc3");
+        //    underImgDesc3.text(res[0].underImgDesc3);
 
            let ticketDesc;
            ticketDesc = $(".ticketDesc");
            ticketDesc.text(res[0].ticketDesc);
 
-
-            
-
-                // for (let i = 0;i<res.length;i++){
-                   
-
-                    // let card = document.createElement('div');
-                    // card.classList.add('card','col-12', 'col-lg-6', 'col-xl-3');
-                   
-                    // let ticketSpotLink = document.createElement('a');
-                    // ticketSpotLink.setAttribute('href', "shopspot.html");
-                    // let card_content =  document.createElement('div');
-                    // card_content.classList.add('card_content');
-                    // let card_body =  document.createElement('div');
-                    // card_body.classList.add('card_body');
-                    // let card_tag = document.createElement('div');
-                    // card_tag.classList.add('card_tag');
-                    // card_tag.innerText = res[i].cityName;
-                    // let card_img = document.createElement('div');
-                    // card_img.classList.add('card_img'); 
-                    // let spot_img = document.createElement('img');
-                    // spot_img.setAttribute("src", `${res[i].mainImg}`);
-                    // let card_title = document.createElement('h4');
-                    // card_title.classList.add('card_title');
-                    // card_title.innerText = res[i].ticketSpotName;
-                    // let card_text = document.createElement('div');
-                    // card_text.classList.add('card_text');
-                    // card_text.innerText = res[i].ticketSpotIntro;
-                    // let card_footer = document.createElement('div');
-                    // card_footer.classList.add('card_footer');
-                    // let card_shopping = document.createElement('div');
-                    // card_shopping.classList.add('card_shopping');
-                    // let card_count = document.createElement('div');
-                    // card_count.classList.add('card_count');
-                    // card_count.innerHTML = `NT$<span>${res[i].conTicketPrice}起</span>`
-                    // document.getElementById('card_box').appendChild(card);
-                    // card.appendChild(ticketSpotLink);
-                    // ticketSpotLink.appendChild(card_content);
-                    // card_content.appendChild(card_body);
-                    // card_content.appendChild(card_footer);
-                    // card_body.appendChild(card_tag)
-                    // card_body.appendChild(card_img)
-                    // card_img.appendChild(spot_img)
-                    // card_body.appendChild(card_title)
-                    // card_body.appendChild(card_text)
-                    // card_footer.appendChild(card_shopping)
-                    // card_shopping.appendChild(card_count)
-                   
-                    // console.log(res[i])
-                // }
-
                 },
                 });   
-       });
-   
+       
+       
+            
+            });
+            
+    
+    function get(){
+        $.ajax({
+                type:'GET',
+                   url: './phps/shopdown.php',
+                   dataType: 'json',
+                   success: function(res){ 
+                    console.log(res.data);
+                   }
+                })
+            
+    }
+    get()
     </script>
     
 </body>
