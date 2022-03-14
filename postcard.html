@@ -19,6 +19,7 @@
 
 <body>
 <header>
+<!-- 導覽列 -->
     <nav class="nav_Wrap">
         <section class="navBlock">
             <a href="home.html">
@@ -35,22 +36,45 @@
             <ul class="navMember">
                 <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
                 <li>
-                    <i class="bi bi-person-circle" id="loginBoxBtn"><span>登入/註冊</span></i>
+                    <div id="loginBoxBtn" class="loginBoxBtn">
+                        <i class="bi bi-person-circle"></i><span>登入/註冊</span>
+                    </div>
+                    <div id="memBoxBtn" class="memBoxBtn">
+                        <div class="memIcon">
+                            <img id="memIcon" src="https://picsum.photos/50/50/?random=10">
+                        </div>
+                        <span id="memName"></span>
+                    </div>
                     <!-- 登入後的會員選單-->
                     <ul class="navDropdownMenu">
-                        <li class="navDropdownMenuItem navMemProfile">
-                            <div class="navDropdownMenuPhoto">
-                                <img src="https://picsum.photos/200/200/?random=10">
-                            </div>
-                            <div class="navDropdownMenuTitle">
-                                <span>張小明</span>
-                            </div>
+                        <li class="navDropdownMenuItem">
+                            <a href="mem.html">
+                                <i class="bi bi-gear"></i> 帳號設定
+                            </a>
                         </li>
-                        <li class="navDropdownMenuItem"><i class="bi bi-gear"></i> 帳號設定</li>
-                        <li class="navDropdownMenuItem"><i class="bi bi-calendar2"></i> 我的行程</li>
-                        <li class="navDropdownMenuItem"><i class="bi bi-bookmark-heart"></i> 我的收藏</li>
-                        <li class="navDropdownMenuItem"><i class="bi bi-file-person"></i> 我的揪團</li>
-                        <li class="navDropdownMenuItem"><i class="bi bi-bag"></i> 我的訂單</li>
+                        <li class="navDropdownMenuItem">
+                            <a href="mem.html">
+                                <i class="bi bi-calendar2"></i> 我的行程
+                            </a>
+                        </li>
+                        <li class="navDropdownMenuItem">
+                            <a href="mem.html">
+                                <i class="bi bi-bookmark-heart"></i> 我的收藏
+                            </a>
+                        </li>
+                        <li class="navDropdownMenuItem">
+                            <a href="mem.html">
+                                <i class="bi bi-file-person"></i> 我的揪團
+                            </a>
+                        </li>
+                        <li class="navDropdownMenuItem">
+                            <a href="mem.html">
+                                <i class="bi bi-bag"></i> 我的訂單
+                            </a>
+                        </li>
+                        <li class="navDropdownMenuItem" id="logOutBtn">
+                            <i class="bi bi-door-closed"></i> 登出
+                        </li>
                     </ul>
                 </li>
                 <li>
@@ -61,11 +85,12 @@
             </ul>
         </section>          
     </nav>
+    <!-- 漢堡 -->
     <div class="navPage">
         <button class="navPage--close">
             <span class="close_line"></span>
             <span class="close_line"></span>
-          </button>
+            </button>
         <div class="navPage_wrap">
         <!--     <div class="navPage_header"></div> -->
             <div class="navPage_content">
@@ -124,6 +149,7 @@
             </div>  
         </div>
     </div>
+    <!-- 登入表單 -->
     <div class="froLoginBG" id="froLoginBG">
         <section class="froLoginBlock" id="froLoginBlock">
             <!-- 取消按鈕 -->
@@ -140,13 +166,11 @@
                 </div>
             </div> 
             <!-- 表單區 -->
-            <div class="froLoginForm_wrap">
-                <transition name="frologintransition" mode="out-in">
-                    <keep-alive>
-                        <component :is='content'></component>
-                    </keep-alive>
-                </transition>
-            </div>
+            <transition name="frologintransition" mode="out-in">
+                <keep-alive>
+                    <component :is='content'></component>
+                </keep-alive>
+            </transition>
             <transition name="mascottransition">
                 <component :is='content2'></component>
             </transition>

@@ -43,15 +43,21 @@ Vue.component('login',{
                     data: `${data_info}`,
                     dataType:"text",
                     success: function (res) {
-                        localStorage.setItem('memData',res);
-                        let member = JSON.parse(res);
-                        $('#loginBoxBtn').css('display','none');
-                        $('#memBoxBtn').css('display','flex');
-                        $('#memName').text(member.memName);
-                        $('#memEmail').val('');
-                        $('#memPsw').val('');
-                        window.alert('登入成功!');
-                        froLoginBG.style.display = "none";
+                        if(res == "錯誤"){
+                            window.alert('帳號或密碼錯誤!');
+                        }else{
+                            localStorage.setItem('memData',res);
+                            let member = JSON.parse(res);
+                            $('#loginBoxBtn').css('display','none');
+                            $('#memBoxBtn').css('display','flex');
+                            $('#memName').text(member.memName);
+                            $('#memEmail').val('');
+                            $('#memPsw').val('');
+                            $('#memIcon').attr('src', `images/memIcon/${member.memIcon}`);
+                            window.alert('登入成功!');
+                            froLoginBG.style.display = "none";
+                        }
+
                     }
                 });
             }
@@ -69,7 +75,7 @@ Vue.component('signin',{
                 <tr class="froLoginFormItem">
                     <th>電子信箱:</th>
                     <td>
-                        <input type="email" name="memEmail" id="memEmail" required>
+                        <input type="email" name="memEmail" id="memEmail" @blur="emailCheck" required>
                     </td>
                 </tr>
                 <tr class="froLoginFormItem">
@@ -93,7 +99,7 @@ Vue.component('signin',{
                 <tr class="froLoginFormItem">
                     <th>手機號碼:</th>
                     <td>
-                        <input type="tel" id="memPhone" maxlength="10" required>
+                        <input type="tel" id="memPhone" maxlength="10"  @blur="phoneCheck" required>
                     </td>
                 </tr>
                 <tr class="froLoginFormItem">
@@ -109,6 +115,7 @@ Vue.component('signin',{
         </form>
     </div>
     `,
+    // onkeyup="this.value=this.value.replace(/^\s+|\s+$/g,'')"禁止空格
     methods: {
         signin:function(e){
             e.preventDefault();
@@ -128,7 +135,7 @@ Vue.component('signin',{
             let memAge = today.getFullYear() - birthDay.getFullYear();
             //創立日期
             let memCreateDate = today.toLocaleDateString();
-
+            
 
             if(memEmail.search(emailRule) == -1){//帳號驗證 是否為電子郵件
                 window.alert('電子郵件格式錯誤!');
@@ -175,7 +182,51 @@ Vue.component('signin',{
                 });
 
             };
-        }
+        },
+        emailCheck:function(){
+            let memEmail = document.getElementById('memEmail').value;
+            let signinBtn = document.getElementById('signinBtn');
+            if(memEmail != ""){
+                $.ajax({
+                    type: "post",
+                    url: "./phps/emailCheck.php",
+                    data: `memEmail=${memEmail}`,
+                    dataType:"text",
+                    success: function (res) {
+                        if(res == "error"){
+                            signinBtn.disabled=true;
+                            signinBtn.style.backgroundColor = 'grey';
+                            window.alert('此帳號已被註冊');
+                        }else{
+                            signinBtn.disabled=false;
+                            signinBtn.style.backgroundColor = '#007183'
+                        }
+                    }
+                })
+            }
+        },
+        phoneCheck:function(){
+            let memPhone = document.getElementById('memPhone').value;
+            let signinBtn = document.getElementById('signinBtn');
+            if(memPhone != ""){
+                $.ajax({
+                    type: "post",
+                    url: "./phps/phoneCheck.php",
+                    data: `memPhone=${memPhone}`,
+                    dataType:"text",
+                    success: function (res) {
+                        if(res == "error"){
+                            signinBtn.disabled=true;
+                            signinBtn.style.backgroundColor = 'grey';
+                            window.alert('此電話已有人使用!');
+                        }else{
+                            signinBtn.disabled=false;
+                            signinBtn.style.backgroundColor = '#007183'
+                        }
+                    }
+                })
+            }
+        },
     },
 });
 
@@ -227,6 +278,7 @@ if(memData){
     $('#loginBoxBtn').css('display','none');
     $('#memBoxBtn').css('display','flex');
     $('#memName').text(member.memName);
+    $('#memIcon').attr('src', `images/memIcon/${member.memIcon}`);
 }
 
 // 註冊事件

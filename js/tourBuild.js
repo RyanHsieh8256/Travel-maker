@@ -96,6 +96,31 @@ function displaySide(no,num) {
   changeTab();
 }
 
+// 讓popup的資料為fetch回來的資料
+function tourForm() {
+  let data = JSON.parse(sessionStorage.getItem("day1"));
+  let {journeyNo, journeyName,journeyStartDay,journeyEndDay} = data[0];
+
+  tourName.textContent = journeyName;
+
+  // goTourBuild.href = `tourbuild.html#/tour/${journeyNo}`;
+  
+
+  let diff = Math.abs(new Date(journeyEndDay) - new Date(journeyStartDay));
+  let day = diff/(1000 * 3600 * 24) + 1;
+  // days.textContent = day;
+
+  return {
+    journeyNo,
+    journeyName,
+    journeyStartDay,
+    journeyEndDay
+  }
+
+}
+
+tourForm();
+
 
 // // 地圖呈現
 function mainMap() {
