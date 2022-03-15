@@ -1,7 +1,10 @@
 window.addEventListener('load',function() {
 
     addJour = this.document.querySelectorAll('.addJour');
+
+    fetchCity();
 })
+
 
 // 點擊加入行程抓到這個行程的資料
 function fetchData() {
@@ -40,6 +43,41 @@ function fetchData() {
 }
 fetchData();
 
+// 抓到所有城市
+function fetchCity() {
+  fetch(`./phps/fetchCity.php`).then(res => res.json())
+  .then(data => displayCityBtn(data));
+}
+
+// 呈現城市按鈕
+function displayCityBtn(data) {
+  sortBtn = document.querySelector('.tour_sort');
+  let mineBtn = sortBtn.children[0];
+
+  let cities = data.map((city,i) => {
+    let {cityNo, cityName} = city;
+
+    return `
+    <button class="sort_item ${i == 0 ? 'sort_item--active': ''}" data-city="${cityNo}">
+      <span class="sort-title">
+        ${cityName}
+      </span>
+    </button>
+    `
+  }).join('\n');
+
+  sortBtn.insertAdjacentHTML('beforeend',cities);
+  
+  // 如果會員沒登入就沒有我的行程按鈕
+  getMemData() ? '' : mineBtn.remove();
+
+  sortTour();
+
+  
+}
+
+
+// 篩選行程
 function sortTour() {
     sorts = document.querySelectorAll('.sort_item');
     mains = document.querySelectorAll('.tour_main');
@@ -61,7 +99,7 @@ function sortTour() {
       
   }
 }
-sortTour();
+
 
 
 // 呈現該行程 tour_side
@@ -268,6 +306,23 @@ function tourForm() {
 }
 
 tourForm();
+
+// 抓local storage的會員資料
+function getMemData() {
+  let loginState = JSON.parse(localStorage.getItem('memData'));
+
+  if(!loginState) return;
+
+  let {memName, memNo,memState} = loginState;
+  let loginOrNot = Boolean(loginState);
+
+  return {
+    memName,
+    memNo,
+    memState,
+    loginOrNot
+  }
+}
 
 // 傳回資料
 // 

@@ -13,63 +13,74 @@ window.addEventListener('load',function() {
 
     sessionStorage.clear();
 
-    // 進來抓到該行程的編號並撈資料渲染
-    // 點擊加入行程抓到這個行程的資料
-    function fetchData() {
-      
-      let curJour = getUrl();
-
-      fetch(`./phps/fetchJour.php?find=${curJour}`).then(res => res.json())
-      .then(data => {
-
-          // 抓該行程的天數
-
-          let dayArr = [];
-          let dayNum = Math.max(...data.map(jour => +jour.journeySpotDay));
-        
-
-          for(let i = 1; i <= dayNum; i++ ) {
-              let theData = data.filter(jour => jour.journeySpotDay == i);
-              dayArr.push(theData);
-          }
-
-          
-          // 寫入session storage
-          sessionStorage.clear();
-          dayArr.forEach((day,i) => {
-              // 整理陣列裡物件順序
-              day.sort((a,b) => +a.sequence - +b.sequence);
-              sessionStorage.setItem(`day${i+1}`, JSON.stringify(day));
-          });
-
-          displaySide(curJour,dayNum);
-          // tourForm();
-          // displayTheTour();
-          
-      })
-
-    }
+    
     fetchData();
-
 
 })
 
+window.addEventListener('hashchange',fetchData);
+
+// 進來抓到該行程的編號並撈資料渲染
+    // 點擊加入行程抓到這個行程的資料
+function fetchData() {
+  
+  let curJour = getUrl();
+
+  fetch(`./phps/fetchJour.php?find=${curJour}`).then(res => res.json())
+  .then(data => {
+
+      // 抓該行程的天數
+
+      let dayArr = [];
+      let dayNum = Math.max(...data.map(jour => +jour.journeySpotDay));
+    
+
+      for(let i = 1; i <= dayNum; i++ ) {
+          let theData = data.filter(jour => jour.journeySpotDay == i);
+          dayArr.push(theData);
+      }
+
+      
+      // 寫入session storage
+      sessionStorage.clear();
+      dayArr.forEach((day,i) => {
+          // 整理陣列裡物件順序
+          day.sort((a,b) => +a.sequence - +b.sequence);
+          sessionStorage.setItem(`day${i+1}`, JSON.stringify(day));
+      });
+
+      displaySide(curJour,dayNum);
+      displayTab();
+      // tourForm();
+      // displayTheTour();
+      
+  })
+
+}
+
 // 景點資料(時間軸渲染)
 function displaySide(no,num) {
-  let tourContent = document.querySelector('.tour_side--active .tour_content');
   let timelineBox = document.querySelector('.timeline_box');
+  let timelineList = document.querySelector('.timeline_list');
+  timelineBox.innerHTML = '';
+
 
   let tabs = '';
 
   for(let i = 1; i <= num; i++) {
+
+
       let dayData = JSON.parse(sessionStorage.getItem(`day${i}`));
 
-      let timelinePage = document.querySelector(`.timeline_page--${i}`);
+      // 新增行程天數page
+      let timelinePage = document.createElement('div');
+      timelinePage.className = `timeline_page timeline_page--${i} ${i == 1 ? 'timeline_page--active' : ''}`;
+      timelineList.append(timelinePage);
 
-      tabs += `<div class="timeline_tab timeline_tab--${i}" data-tab="${i}">第${i}天</div>`;
+
+      tabs += `<div class="timeline_tab timeline_tab--${i} ${i == 1 ? 'timeline_tab--active' : ''}" data-tab="${i}">第${i}天</div>`;
       
   
-
       let items = dayData.map(day => {
           let {spotNo,sequence,spotName,spotImg} = day;
 
@@ -86,7 +97,7 @@ function displaySide(no,num) {
           `
           return spotItem;
       }).join('');
-      
+
 
       timelinePage.innerHTML = items;
   }
@@ -103,12 +114,12 @@ function tourForm() {
 
   tourName.textContent = journeyName;
 
-  // goTourBuild.href = `tourbuild.html#/tour/${journeyNo}`;
-  
-
   let diff = Math.abs(new Date(journeyEndDay) - new Date(journeyStartDay));
   let day = diff/(1000 * 3600 * 24) + 1;
-  // days.textContent = day;
+  days.textContent = day;
+
+  // goTourBuild.href = `tourbuild.html#/tour/${journeyNo}`;
+  
 
   return {
     journeyNo,
@@ -245,6 +256,7 @@ function displayTab() {
   let [prev, cur] = stateArr;
   let diff = cur - prev;
  
+  console.log(stateArr);
 
   let timelineBox = document.querySelector('.timeline_box');
   let timelineList = document.querySelector('.timeline_list');
@@ -273,8 +285,6 @@ function displayTab() {
   }
 
 }
-
-displayTab();
 
 
 // 切換行程天標籤
