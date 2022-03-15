@@ -1,14 +1,15 @@
 window.addEventListener('load',function() {
-
     addJour = this.document.querySelectorAll('.addJour');
-
     fetchCity();
 })
+
 
 
 // 點擊加入行程抓到這個行程的資料
 function fetchData() {
     let sliderItem = document.querySelector('.slider_item--active');
+    if(!sliderItem) return;
+    
     curJour = +sliderItem.dataset["jour"];
     
     fetch(`./phps/fetchJour.php?find=${curJour}`).then(res => res.json())
@@ -41,13 +42,25 @@ function fetchData() {
     })
 
 }
-fetchData();
+
 
 // 抓到所有城市
 function fetchCity() {
   fetch(`./phps/fetchCity.php`).then(res => res.json())
   .then(data => displayCityBtn(data));
 }
+
+// 抓到行程(會員的或該城市的)
+function fetchTour(thing,no) {
+ 
+  fetch(`./phps/fetchTour.php?${thing}=${no}`)
+  .then(res => res.json())
+  .then(data => {
+    displayTour(data);
+  });
+
+}
+
 
 // 呈現城市按鈕
 function displayCityBtn(data) {
@@ -58,7 +71,7 @@ function displayCityBtn(data) {
     let {cityNo, cityName} = city;
 
     return `
-    <button class="sort_item ${i == 0 ? 'sort_item--active': ''}" data-city="${cityNo}">
+    <button class="sort_item ${i == 0 ? 'sort_item--active': ''}" data-sort="${cityNo}">
       <span class="sort-title">
         ${cityName}
       </span>
@@ -80,26 +93,52 @@ function displayCityBtn(data) {
 // 篩選行程
 function sortTour() {
     sorts = document.querySelectorAll('.sort_item');
-    mains = document.querySelectorAll('.tour_main');
+    main = document.querySelector('.tour_main');
     sorts.forEach(sort => sort.addEventListener('click',changeCity));
-    
-    
-      function changeCity(e) {
-        if(!e.target.classList.contains('sort_item')) return;
-      sorts.forEach(tab => tab.classList.remove('sort_item--active'));
-      mains.forEach(page => page.classList.remove('tour_main--active'));
-
-      let curCity = e.target.dataset['sort'];
-      let sort = document.querySelector(`.tour_side--${curCity}`);
-      let mainPage = document.querySelector(`.tour_main--${curCity}`);
-      
-     
-      e.target.classList.add('sort_item--active');
-      mainPage.classList.add('tour_main--active');
-      
-  }
 }
 
+function changeCity(e) {
+  let curSort = e.currentTarget.dataset['sort'];
+  sorts.forEach(tab => tab.classList.remove('sort_item--active'));
+  e.currentTarget.classList.add('sort_item--active');
+  
+  curSort == 'mine' ? fetchTour('mem',getMemData().memNo): fetchTour('city',curSort);
+
+}
+
+// 渲染行程
+async function displayTour(data) {
+  tourSlider = document.querySelector('.tour_slider');
+  tourWrap = document.querySelector('.tour_wrap');
+
+  // 沒有行程時
+  if(data == []) {
+    tourWrap.innerHTML = `<div>沒有行程喔</div>`;
+    console.log('沒行程');
+    
+  }else {
+    let tours = data.map((tour,i) => {
+      let {journeyImg,journeyNo,journeyName} = tour;
+     
+      return `
+         <div class="slider_item ${i == 0 ? 'slider_item--active' : ''}" data-jour="${journeyNo}">
+         <div class="slider_img">
+           <img src="images/journeyImg/${journeyImg}" alt="">
+         </div>
+         <div class="slider_title">${journeyName}</div>
+       </div>
+      `
+   
+    }).join('\n');
+   
+    tourSlider.innerHTML = tours;
+   
+    await fetchData();
+    changeItem();
+  }
+  
+ 
+}
 
 
 // 呈現該行程 tour_side
@@ -144,14 +183,6 @@ function displaySide(no,num) {
     changeTab();
 }
 
-// 切換行程天標籤
-function changeTab() {
-    tabs = document.querySelectorAll('.timeline_tab');
-    pages = document.querySelectorAll('.timeline_page');
-    tabs.forEach(tab => tab.addEventListener('click',changePage));
-  
-  }
-changeTab();
 
 
 
@@ -171,6 +202,7 @@ function slideContent() {
 }
 slideContent();
 
+// 行程時間軸的tab
 function changeTab() {
 tabs = document.querySelectorAll('.timeline_tab');
 pages = document.querySelectorAll('.timeline_page');
@@ -200,7 +232,6 @@ function changeItem() {
   function turnActive(e) {
     sliderItem.forEach(item => item.classList.remove('slider_item--active'));
 
-    if(!e.target.classList.contains('slider_item')) return;
     e.currentTarget.classList.add('slider_item--active');
 
     fetchData();
@@ -210,7 +241,6 @@ function changeItem() {
 
 }
 
-changeItem();
 
 function closePopup() {
       let closeBtn = document.querySelector('.btn--close');
