@@ -433,7 +433,7 @@
             // console.log(textValid); 
             // console.log(dateValid);
 
-            if (textValid == false || dateValid == false || imgSrc == '') { //如果全部情況都false的話，出現視窗提醒畫面
+            if (textValid == false || dateValid == false || !imgSrc) { //如果全部情況都false的話，出現視窗提醒畫面
                 alertBG.style.display = "block";
                 alertBG_content.innerText = "尚有資料未填寫完整";
                 dropZone_title.innerHTML = `請選一張您喜歡的封面照片吧<i class="bi bi-exclamation-lg"></i>`;
@@ -441,6 +441,7 @@
             } else {
                 alertBG.style.display = "block";
                 alertBG_content.innerHTML = `已成功公開揪團<i class="bi bi-exclamation-lg"></i>`;
+                
             }
         }
         publish.addEventListener('click', submit);
@@ -453,15 +454,35 @@
 
         function close() {
             alertBG.style.display = "none";
+            window.location.href="./group.html"
         }
         alertBG_closeBtn.addEventListener('click', close);
     </script>
 
     <!-- 使用者離開時的提醒 -->
-    <script>
+    <!-- <script>
         $(window).on('beforeunload', function () {
             return "";
         })
+    </script> -->
+
+    <!-- 按公開揪團後，將資料送到後端 -->
+    <script>
+        function init(){
+            alert('Hi');
+            let uploadBtn = document.getElementById('uploadBtn');
+            uploadBtn.onchange = function(e){
+                let file = uploadBtn.files[0];
+                console.log(file);
+                getImg(e);
+            };
+        };
+        getImg=(e) => {
+            console.log(e);
+            alert();
+        };
+        
+        document.getElementById('publish').addEventListener('click', init);
     </script>
 
     <script src="js/forlogin.js"></script>
