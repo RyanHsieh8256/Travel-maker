@@ -464,7 +464,8 @@
                             //4. 把卡片內容裡的小朋友們插入卡片內容
                             // 4-1. 卡片本身a連結
                             groupCard.appendChild(a);
-                            a.href = './groupdetail.html';
+                            // a.href = './groupdetail.html';
+                            a.setAttribute('href', `groupdetail.html?id=${res[i].groNo}`)
                             // 4-2. 卡片身體
                             groupCard.appendChild(card_body);
                             card_body.appendChild(card_tag);
