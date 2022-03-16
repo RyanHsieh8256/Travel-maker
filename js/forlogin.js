@@ -46,6 +46,7 @@ Vue.component('login',{
                         if(res == "錯誤"){
                             window.alert('帳號或密碼錯誤!');
                         }else{
+                            console.log(res);
                             localStorage.setItem('memData',res);
                             let member = JSON.parse(res);
                             $('#loginBoxBtn').css('display','none');
@@ -119,7 +120,7 @@ Vue.component('signin',{
     methods: {
         signin:function(e){
             e.preventDefault();
-            let memEmail = document.getElementById('memEmail').value;
+            let memEmail = document.getElementById('memEmail').value.replace(/^\s*|\s*$/g,"");
             let memPsw = document.getElementById('memPsw').value;
             let checkPsw = document.getElementById('checkPsw').value;
             let memsigninName = document.getElementById('memsigninName').value;
@@ -184,21 +185,21 @@ Vue.component('signin',{
             };
         },
         emailCheck:function(){
-            let memEmail = document.getElementById('memEmail').value;
+            let memEmail = document.getElementById('memEmail');
             let signinBtn = document.getElementById('signinBtn');
             if(memEmail != ""){
                 $.ajax({
                     type: "post",
                     url: "./phps/emailCheck.php",
-                    data: `memEmail=${memEmail}`,
+                    data: `memEmail=${memEmail.value}`,
                     dataType:"text",
                     success: function (res) {
                         if(res == "error"){
-                            signinBtn.disabled=true;
+                            signinBtn.disabled = true;
                             signinBtn.style.backgroundColor = 'grey';
-                            window.alert('此帳號已被註冊');
+                            window.alert('此信箱已被使用!');
                         }else{
-                            signinBtn.disabled=false;
+                            signinBtn.disabled = false;
                             signinBtn.style.backgroundColor = '#007183'
                         }
                     }
@@ -271,7 +272,6 @@ let memData = localStorage.getItem('memData');
 let memBoxBtn = document.getElementById('memBoxBtn');
 let navDropdownMenu = document.querySelectorAll('.navDropdownMenu')[0];
 let logOutBtn = document.getElementById('logOutBtn');
-
 //撈取會員資料
 if(memData){
     let member = JSON.parse(memData);
@@ -313,7 +313,14 @@ function logOut(){
     $('#memBoxBtn').css('display','none');
     $('#memName').text('');
     navDropdownMenu.style.display = 'none';
-    window.alert('您已登出!')
+    window.alert('您已登出!');
+    if(location.href.search('mem') == -1){
+        window.location.reload(location.href);
+        
+    }else{
+        wwindow.location = 'home.html';
+    }
+
 };
 
 // 登入/註冊顏色切換

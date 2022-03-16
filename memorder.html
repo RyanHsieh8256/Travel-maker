@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>會員中心</title>
+    <title>我的訂單</title>
     <link rel="shortcut icon" href="images/logo/logo_84x50.png" type="image/png">
 
     <link rel="stylesheet" href="css/main.css">
@@ -222,34 +222,54 @@
                         <section class="memberProfile mem_sectionBG">
                             <h3 class="memberBlockTtile">我的訂單</h3>
                             <div class="row">
-                                <div class="col-12">
-                                    <div class="horizontalcard">
+                                <div class="col-12" id="memOrderBox">
+                                    <div class="horizontalcard" v-for="item in orderData">
                                         <div class="horizontalcard_pic" >
-                                            <img src="https://picsum.photos/800/500/?random=10">
+                                            <img :src="item.mainImg">
                                         </div>
                                         <div class="horizontalcard_content" >
-                                            <h4 class="horizontalcard_title">訂單編號: <span>0000001</span></h4>
-                                            <p class="horizontalcard_text text_Overflow">
+                                            <h4 class="horizontalcard_title">{{item.ticketSpotName}}</h4>
+                                            <div class="horizontalcard_text text_Overflow">
                                                 <div class="horizontalcard_oder">
-                                                    <div class="col-6">
-                                                        <h5>商品明細</h5>
-                                                        <ul class="horizontalcard_oderDetail">
-                                                            <li><a href="shopspot.html" class="text_Overflow">
-                                                                🔥熱銷🔥 農家自產 新鮮曬乾小粒紅皮花生 帶殼 生花生米 無殼花生米 帶殼炒熟花生</a></li>
-                                                            <li><a href="shopspot.html" class="text_Overflow">七福村門票</a></li>
-                                                            <li><a href="shopspot.html" class="text_Overflow">八福村門票</a></li>
+                                                    <div class="horizontalcard_oder_6">
+                                                        <h5>訂單編號: <span>{{item.ordNo}}</span></h5>
+                                                        <ul class="horizontalcard_oderDetail ">
+                                                            <li>
+                                                                <div>
+                                                                    全票<span>{{item.fullFareQuan}}</span>張
+                                                                </div>
+                                                                <div>
+                                                                    <span>{{total(item.fullFarePrice,item.fullFareQuan)}}</span>元
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div>
+                                                                    半票<span>{{item.halfFareQuan}}</span>張
+                                                                </div>
+                                                                <div>
+                                                                    <span>{{total(item.halfFarePrice,item.halfFareQuan)}}</span>元
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div>
+                                                                    優待票<span>{{item.conTicketQuan}}</span>張
+                                                                </div>
+                                                                <div>
+                                                                    <span>{{total(item.conTicketPrice,item.conTicketQuan)}}</span>元
+                                                                </div>
+                                                            </li>
                                                         </ul>
                                                     </div>
-                                                    <div class="col-3">
+                                                    <div class="horizontalcard_oder_3">
                                                         <h5>訂購日期</h5>
-                                                        <span>2020/01/03</span>
+                                                        <span>{{item.ordDate}}</span>
                                                     </div>
-                                                    <div class="col-3">
-                                                        <h5>付款金額</h5>
-                                                        <span>2,000</span>
+                                                    <div class="horizontalcard_oder_3">
+                                                        <h5>付款總金額</h5>
+                                                        <span>{{totalSum(item.fullFarePrice,item.fullFareQuan,item.halfFarePrice,item.halfFareQuan,item.fullFarePrice,item.conTicketQuan)}}元</span>
                                                     </div>
                                                 </div>
-                                            </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -289,4 +309,37 @@
 <script src="js/forlogin.js"></script>
 <script src="js/burger.js"></script>
 <script src="js/mem.js"></script>
+<script>
+    if(memData){
+        memData = JSON.parse(memData);
+        $.ajax({
+            type: "post",
+            url: "./phps/memorder.php",
+            data: `memNo=${memData.memNo}`,
+            dataType: "text",
+            success: function (res){
+                if(res == 'noData'){
+                    $('.horizontalcard_empty').css('display','block');
+                    $('#memOrderBox').css('display','none');
+                }else{
+                    res = JSON.parse(res);
+                    new Vue({
+                        el : "#memOrderBox",
+                        data:{
+                            orderData: res,
+                        } ,
+                        methods: {
+                            total(price,num){
+                                return price*num;
+                            },
+                            totalSum(fullprice,fullnum,halfprice,halfnum,conprice,connum){
+                                return fullprice*fullnum + halfprice*halfnum + conprice*connum;
+                            }
+                        },
+                    });
+                }
+            }
+        });
+    }
+</script>
 </html>
