@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>會員中心</title>
+    <title>我的行程</title>
     <link rel="shortcut icon" href="images/logo/logo_84x50.png" type="image/png">
 
     <link rel="stylesheet" href="css/main.css">
@@ -222,16 +222,14 @@
                         <section class="memberProfile  mem_sectionBG">
                             <h3 class="memberBlockTtile">我的行程</h3>
                             <div class="row">
-                                <div class="col-12">
-                                    <div class="horizontalcard">
+                                <div class="col-12" id="memJourneyBox">
+                                    <div class="horizontalcard" v-for="item in journeyData">
                                         <div class="horizontalcard_pic" >
                                             <img src="https://picsum.photos/800/500/?random=10">
                                         </div>
                                         <div class="horizontalcard_content" >
-                                            <h4 class="horizontalcard_title">行程標題</h4>
-                                            <p class="horizontalcard_text text_Overflow">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. In nemo voluptatem iusto fuga perspiciatis? Cupiditate voluptas error dignissimos. Amet impedit ea quaerat. Hic assumenda optio doloribus dignissimos culpa nulla illo!
-                                            </p>
+                                            <h4 class="horizontalcard_title">{{item.journeyName}}</h4>
+                                            <p class="horizontalcard_text text_Overflow">{{item.journeyInfo}}</p>
                                             <div class="horizontalcard_footer">
                                                 <div class="horizontalcard_footerItem"><a href="groupform.html">以此行程揪團</a></div>
                                                 <div class="horizontalcard_footerItem"><a href="tourbuild.html">編輯行程</a></div>
@@ -278,4 +276,31 @@
 <script src="js/forlogin.js"></script>
 <script src="js/burger.js"></script>
 <script src="js/mem.js"></script>
+<script>
+    if(memData){
+        memData = JSON.parse(memData);
+        //建立的揪團
+        $.ajax({
+            type: "post",
+            url: "./phps/memjourney.php",
+            data: `memNo=${memData.memNo}`,
+            dataType: "text",
+            success: function (res){
+                if(res == 'noData'){
+                    $('.horizontalcard_empty').css('display','block');
+                    $('#memJourneyBox').css('display','none');
+                }else{
+                    res = JSON.parse(res);
+                    console.log(res);
+                    new Vue({
+                        el : "#memJourneyBox",
+                        data:{
+                            journeyData: res,
+                        } ,
+                    });
+                }
+            }
+        });
+    }
+</script>
 </html>

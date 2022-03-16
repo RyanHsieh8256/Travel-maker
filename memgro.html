@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>會員中心</title>
+    <title>我的揪團</title>
     <link rel="shortcut icon" href="images/logo/logo_84x50.png" type="image/png">
 
     <link rel="stylesheet" href="css/main.css">
@@ -260,28 +260,24 @@
                             <section class="mem_sectionBG">
                                 <h3 class="memberBlockTtile">我建立的揪團</h3>
                                 <div class="row">
-                                    <div class="col-12">
-                                        <div class="horizontalcard">
+                                    <div class="col-12" id="myGroCardBox">
+                                        <div class="horizontalcard" v-for="item in groData">
                                             <div class="horizontalcard_pic" >
-                                                <img src="https://picsum.photos/800/500/?random=10">
+                                                <img v-bind:src="'./images/groImg/' + item.groImg">
                                             </div>
                                             <div class="horizontalcard_content" >
-                                                <h4 class="horizontalcard_title">揪團標題</h4>
-                                                <p class="horizontalcard_text text_Overflow">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In nemo voluptatem iusto fuga perspiciatis? Cupiditate voluptas error dignissimos. Amet impedit ea quaerat. Hic assumenda optio doloribus dignissimos culpa nulla illo!
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In nemo voluptatem iusto fuga perspiciatis? Cupiditate voluptas error dignissimos. Amet impedit ea quaerat. Hic assumenda optio doloribus dignissimos culpa nulla illo!
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In nemo voluptatem iusto fuga perspiciatis? Cupiditate voluptas error dignissimos. Amet impedit ea quaerat. Hic assumenda optio doloribus dignissimos culpa nulla illo!
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In nemo voluptatem iusto fuga perspiciatis? Cupiditate voluptas error dignissimos. Amet impedit ea quaerat. Hic assumenda optio doloribus dignissimos culpa nulla illo!
+                                                <h4 class="horizontalcard_title">{{item.groName}}</h4>
+                                                <p class="horizontalcard_text text_Overflow">{{item.groContent}}
                                                 </p>
                                                 <div class="horizontalcard_date">
                                                     <p>
-                                                        出發日期: <span>2021/02/20</span><br>
-                                                        回程日期: <span>2022/02/20</span>
+                                                        出發日期: <span>{{item.groStartDate}}</span><br>
+                                                        回程日期: <span>{{item.groEndDate}}</span>
                                                     </p>
-                                                    <p>參加人數 : <span>3</span>人</p>
+                                                    <p>參加人數 : <span>{{item.groApplyNum}}</span>人</p>
                                                 </div>
                                                 <div class="horizontalcard_footer">
-                                                    <div class="horizontalcard_footerItem"><a href="groupdetail.html">編輯揪團</a></div>
+                                                    <div class="horizontalcard_footerItem"><a :href="'groupdetail.html?groNo=' + item.groNo">編輯揪團</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -326,4 +322,52 @@
 <script src="js/forlogin.js"></script>
 <script src="js/burger.js"></script>
 <script src="js/mem.js"></script>
+<script>
+    if(memData){
+        memData = JSON.parse(memData);
+        //建立的揪團
+        $.ajax({
+            type: "post",
+            url: "./phps/memgro.php",
+            data: `memName=${memData.memName}`,
+            dataType: "text",
+            success: function (res) {
+                if(res == 'noData'){
+                    $('.horizontalcard_empty').css('display','block');
+                    $('#myGroCardBox').css('display','none');
+                }else{
+                    res = JSON.parse(res);
+                    new Vue({
+                        el : "#myGroCardBox",
+                        data:{
+                            groData: res,
+                        } ,
+                    });
+                }
+            }
+        });
+        //參加的揪團
+        // $.ajax({
+        //     type: "post",
+        //     url: "./phps/memgro.php",
+        //     data: `memName=${memData.memName}`,
+        //     dataType: "json",
+        //     success: function (res) {
+        //         console.log(res)
+        //         if(res == 'noData'){
+        //             $('.horizontalcard_empty').css('display','block');
+        //             $('#myGroCardBox').css('display','none');
+        //             window.alert('查無資料');
+        //         }else{
+        //             new Vue({
+        //                 el : "#myGroCardBox",
+        //                 data:{
+        //                     groData: res,
+        //                 } ,
+        //             });
+        //         }
+        //     }
+        // });
+    }
+</script>
 </html>

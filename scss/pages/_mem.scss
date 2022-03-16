@@ -184,7 +184,7 @@
         padding-left: 5px;
         .horizontalcard_title{
             font-size: $card-title;
-            
+            font-weight: 700;
         }
         .horizontalcard_text{
             font-size: $card-text;
@@ -236,6 +236,7 @@
 
 
 .horizontalcard_empty{
+    display: none;
     height: 150px;
     p{
         border: #3333 1px solid;
@@ -278,10 +279,18 @@
     &>div{
         padding-right: 5%;
     }
+    .horizontalcard_oder_6{
+        width: 50%;
+    }
+    .horizontalcard_oder_3{
+        width: 25%;
+    }
 }
 
 .horizontalcard_oderDetail{
     li{
         border-bottom: .4px solid#6663;
+        display: flex;
+        justify-content: space-between;
     }
 }
