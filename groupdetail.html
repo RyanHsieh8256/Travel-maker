@@ -197,15 +197,16 @@
                             想一探台東秘境"嘉明湖"真實面貌，就必須爬上海拔3000多公尺的高山，三日裡背負重裝，由專業高山嚮導帶領從池上出發3天2夜，沿途中，不斷地與自己對話，行程提供代為申請山屋或營帳住宿，加上免背免備公器公糧服務，讓您能保存更多的體力去應付前往嘉明湖三叉向陽山的登山路程。當親眼見到『天使的眼淚-嘉明湖』之美，神秘又遙遠的台灣美景，讓人學會敬畏與謙卑。越美的風景，越要觀察，保持神秘，她永遠在心中，隱藏在高山中湛藍的絕美湖泊景致。
                         </p>
                         <div class="spot_wrap">
-                            <div class="spot">剩餘名額5位</div>
+                            <div class="spot">剩餘名額<span class="spotNum">5</span>位</div>
                         </div>
                         <div class="card_date">
                             <p class="card_time card_time--start">
-                                <span>出發日期：2022/02/20</span>
+                                <span>出發日期：</span>
+                                <span class="departureDate">2022/02/20</span>
                             </p>
                             <p class="card_time card_time--end">
-                                <span>回程日期:</span>
-                                2022/02/25
+                                <span>回程日期：</span>
+                                <span class="returnDate">2022/02/25</span>
                             </p>
                         </div>
                     </div>
@@ -518,6 +519,53 @@
         }
 
         changeTab();
+    </script>
+
+    <!-- 從group頁面帶資料過來 -->
+    <script>
+        let id = location.search.split('?')[1].split('=')[1];
+
+        test();
+        function test() {
+            $.ajax({
+                type: 'GET',
+                url: `./phps/groupdetail.php?id=${id}`,
+                dataType: 'json',
+                success: function (res) {
+                    console.log(res);
+                    // 串接封面照片
+                    let coverImg;
+                    coverImg = $('.cover img');
+                    coverImg.attr('src', `images/groImg/${res[0].groImg}`);
+                    // 串接團主圖片和名字
+                    let initiatorPic;
+                    initiatorPic = $('.initiatorPic img');
+                    initiatorPic.attr('src', `images/memIcon/${res[0].memicon}`);
+                    let initiator;
+                    initiator = $('.initiator');
+                    initiator.text(res[0].memName);
+                    // 串接團的標題和內容描述
+                    let card_title;
+                    card_title = $('.card_title');
+                    card_title.text(res[0].groName);
+                    let cardText;
+                    cardText = $('.cardText');
+                    cardText.text(res[0].groContent);
+                    //串接剩餘名額
+                    let spotNum;
+                    spotNum = $('.spotNum');
+                    spotNum.text(res[0].quota);
+                    //串接出發日期和回程日期
+                    let departureDate;
+                    departureDate = $('.departureDate');
+                    departureDate.text(res[0].groStartDate);
+                    let returnDate;
+                    returnDate = $('.returnDate');
+                    returnDate.text(res[0].groEndDate);
+                }
+            });
+        }
+
     </script>
 
     <script src="js/burger.js"></script>
