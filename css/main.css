@@ -10060,6 +10060,15 @@ label.error {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   padding-right: 10px;
+  position: relative;
+}
+
+.tour_like {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  font-size: 20px;
+  color: #007183;
 }
 
 .tour_detail {

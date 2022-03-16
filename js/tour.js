@@ -1,5 +1,9 @@
 window.addEventListener('load',function() {
     addJour = this.document.querySelectorAll('.addJour');
+
+    tourLike = document.querySelector('#tourLike');
+    tourLike.addEventListener('click',displayLike);
+
     fetchCity();
 })
 
@@ -102,7 +106,17 @@ function changeCity(e) {
   sorts.forEach(tab => tab.classList.remove('sort_item--active'));
   e.currentTarget.classList.add('sort_item--active');
   
-  curSort == 'mine' ? fetchTour('mem',getMemData().memNo): fetchTour('city',curSort);
+  
+  // curSort == 'mine' ? fetchTour('mem',getMemData().memNo): fetchTour('city',curSort);
+  
+  if(curSort == 'mine') {
+    fetchTour('mem',getMemData().memNo);
+    tourLike.style.display = 'none';
+
+  }else {
+    fetchTour('city',curSort);
+    tourLike.style.display = 'block';
+  }
 
 }
 
@@ -181,6 +195,20 @@ function displaySide(no,num) {
     timelineBox.innerHTML = tabs;
 
     changeTab();
+}
+
+// 處理收藏icon
+function displayLike(e) {
+  let like = e.currentTarget;
+  like.classList.toggle('tour_Like--active');
+  let likeOrNot = like.classList.contains('tour_Like--active');
+
+  let likeIcon = `<i class="bi bi-heart${likeOrNot ? '-fill' : ''}"></i>`;
+
+
+  like.children[0].remove();
+  like.insertAdjacentHTML('beforeend',likeIcon);
+
 }
 
 
