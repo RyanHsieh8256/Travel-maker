@@ -6,8 +6,7 @@ if(memData){
 }
 
 //檢查是否已登入
-
-// if(!memData){
+// if(memData == null){
 //     window.alert('請先登入!');
 //     window.location = "home.html";
 // }

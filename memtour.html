@@ -225,14 +225,14 @@
                                 <div class="col-12" id="memJourneyBox">
                                     <div class="horizontalcard" v-for="item in journeyData">
                                         <div class="horizontalcard_pic" >
-                                            <img src="https://picsum.photos/800/500/?random=10">
+                                            <img :src="'./images/journeyImg/' + item.journeyImg">
                                         </div>
                                         <div class="horizontalcard_content" >
                                             <h4 class="horizontalcard_title">{{item.journeyName}}</h4>
                                             <p class="horizontalcard_text text_Overflow">{{item.journeyInfo}}</p>
                                             <div class="horizontalcard_footer">
                                                 <div class="horizontalcard_footerItem"><a href="groupform.html">以此行程揪團</a></div>
-                                                <div class="horizontalcard_footerItem"><a href="tourbuild.html">編輯行程</a></div>
+                                                <div class="horizontalcard_footerItem"><a :href="'tourbuild.html#/tour/' + item.journeyNo">編輯行程</a></div>
                                             </div>
                                         </div>
                                     </div>
