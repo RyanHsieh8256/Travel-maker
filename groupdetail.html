@@ -446,7 +446,7 @@
         </section>
     </footer>
 
-    <!-- 提醒視窗 -->
+    <!-- 提醒視窗的架構 -->
     <div class="alertBG">
         <div class="alertBG_wrap">
             <button class="alertBG_closeBtn">
@@ -493,6 +493,7 @@
 
         function close() {
             alertBG.style.display = "none";
+            window.location.href = './group.html';
         }
         alertBG_closeBtn.addEventListener('click', close);
     </script>

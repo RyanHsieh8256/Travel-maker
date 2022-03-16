@@ -471,10 +471,12 @@
             //我建立的行程
             $.ajax({
                 type: 'GET',
-                url: `./phps/grouplist_favorite.php?memNo=${memNo}`,
+                url: `./phps/grouplist_build.php?memNo=${memNo}`,
                 dataType: 'json',
                 success: function (res) {
-                    if (res) {
+                    if (res) { //如果資料庫有資料
+                        console.log(res);
+                        console.log(res.length); //1
                         myTour[1].style.display = 'none';
                         for (let i = 0; i < res.length; i++) {
                             //創造區
