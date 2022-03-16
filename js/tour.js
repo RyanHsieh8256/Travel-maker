@@ -2,7 +2,7 @@ window.addEventListener('load',function() {
     addJour = this.document.querySelectorAll('.addJour');
 
     tourLike = document.querySelector('#tourLike');
-    tourLike.addEventListener('click',displayLike);
+    tourLike.addEventListener('click',likeClick);
 
     fetchCity();
 })
@@ -99,6 +99,7 @@ function sortTour() {
     sorts = document.querySelectorAll('.sort_item');
     main = document.querySelector('.tour_main');
     sorts.forEach(sort => sort.addEventListener('click',changeCity));
+   
 }
 
 function changeCity(e) {
@@ -107,8 +108,6 @@ function changeCity(e) {
   e.currentTarget.classList.add('sort_item--active');
   
   
-  // curSort == 'mine' ? fetchTour('mem',getMemData().memNo): fetchTour('city',curSort);
-  
   if(curSort == 'mine') {
     fetchTour('mem',getMemData().memNo);
     tourLike.style.display = 'none';
@@ -116,6 +115,8 @@ function changeCity(e) {
   }else {
     fetchTour('city',curSort);
     tourLike.style.display = 'block';
+    tourLike.classList.remove('tour_Like--active');
+    displayLike();
   }
 
 }
@@ -197,17 +198,19 @@ function displaySide(no,num) {
     changeTab();
 }
 
-// 處理收藏icon
-function displayLike(e) {
-  let like = e.currentTarget;
-  like.classList.toggle('tour_Like--active');
-  let likeOrNot = like.classList.contains('tour_Like--active');
+// 點擊like的事件處理function
+function likeClick() {
+  tourLike.classList.toggle('tour_Like--active');
+  displayLike();
+}
 
+// 處理收藏icon
+function displayLike() {
+  let likeOrNot = tourLike.classList.contains('tour_Like--active');
   let likeIcon = `<i class="bi bi-heart${likeOrNot ? '-fill' : ''}"></i>`;
 
-
-  like.children[0].remove();
-  like.insertAdjacentHTML('beforeend',likeIcon);
+  tourLike.children[0].remove();
+  tourLike.insertAdjacentHTML('beforeend',likeIcon);
 
 }
 
@@ -330,13 +333,14 @@ slidePage();
 function displayTheTour() {
   let names = document.querySelectorAll('.tourName');
   names.forEach(name => name.textContent = tourForm().journeyName);
+  tourInfo.textContent = tourForm().journeyInfo;
 }
 displayTheTour();
 
 // 讓popup的資料為fetch回來的資料
 function tourForm() {
     let data = JSON.parse(sessionStorage.getItem("day1"));
-    let {journeyNo, journeyName,journeyStartDay,journeyEndDay} = data[0];
+    let {journeyNo, journeyName,journeyInfo,journeyStartDay,journeyEndDay} = data[0];
 
     let goTourBuild = document.querySelector('#goBuildTour a');
 
@@ -357,6 +361,7 @@ function tourForm() {
     return {
       journeyNo,
       journeyName,
+      journeyInfo,
       journeyStartDay,
       journeyEndDay
     }
