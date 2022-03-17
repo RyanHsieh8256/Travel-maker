@@ -4,7 +4,11 @@ window.addEventListener('load',function() {
     tourLike = document.querySelector('#tourLike');
     tourLike.addEventListener('click',likeClick);
 
+    // 初始化
+    sessionStorage.clear();
+
     fetchCity();
+    displayTheTour();
 })
 
 
@@ -49,8 +53,9 @@ function fetchData() {
 
 
 // 抓到所有城市
-function fetchCity() {
-  fetch(`./phps/fetchCity.php`).then(res => res.json())
+async function fetchCity() {
+  fetch(`./phps/fetchCity.php`)
+  .then(res => res.json())
   .then(data => displayCityBtn(data));
 }
 
@@ -98,6 +103,10 @@ function displayCityBtn(data) {
 function sortTour() {
     sorts = document.querySelectorAll('.sort_item');
     main = document.querySelector('.tour_main');
+    let cityActive = document.querySelector('.sort_item--active').dataset['sort'];
+    fetchTour('city',cityActive);
+    
+    // 當按鈕被點擊
     sorts.forEach(sort => sort.addEventListener('click',changeCity));
    
 }
@@ -216,7 +225,7 @@ function displayLike() {
 
 
 
-
+// 按箭頭滑動的功能
 function slideContent() {
   let seeDetailBtn = document.querySelector('#seeDetail');
   let box = document.querySelector('.tour_box');
@@ -255,6 +264,7 @@ tabs.forEach(tab => tab.addEventListener('click',changePage));
 
 changeTab();
 
+// 點擊行程item就抓景點資料
 function changeItem() {
   let sliderItem = document.querySelectorAll('.slider_item');
   
@@ -267,12 +277,11 @@ function changeItem() {
 
     fetchData();
     
-
   }
 
 }
 
-
+// 關閉行程細項(手機版)
 function closePopup() {
       let closeBtn = document.querySelector('.btn--close');
       let tourBtn = document.querySelector('.tour_btn');
@@ -308,7 +317,7 @@ function popupSwitch() {
 }
 popupSwitch();
 
-
+// 建立行程表單的滑動
 function slidePage() {
     let nextBtn = document.querySelector('#slide-next');
     let arrowBtn = document.querySelector('#arrowBtn');

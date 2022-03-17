@@ -10155,6 +10155,7 @@ label.error {
   -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
           box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 5px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .slider_item--active {
