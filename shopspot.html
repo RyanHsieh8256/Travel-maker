@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,10 +10,10 @@
     <link rel="stylesheet" href="./css/main.css">
     <script src="js/jquery.js"></script>
     <script src="js/vue.js"></script>
-     
- </head>
 
- <body>
+</head>
+
+<body>
     <header>
         <!-- 宸哥的導覽列 -->
         <nav class="nav_Wrap">
@@ -23,10 +24,18 @@
                     </h1>
                 </a>
                 <ul class="mainNav">
-                    <a href="tour.html"><li>行程規劃</li></a>
-                    <a href="group.html"><li>揪團旅行</li></a>
-                    <a href="shop.html"><li>景點門票</li></a>
-                    <a href="postcard.html"><li>客製明信片</li></a>
+                    <a href="tour.html">
+                        <li>行程規劃</li>
+                    </a>
+                    <a href="group.html">
+                        <li>揪團旅行</li>
+                    </a>
+                    <a href="shop.html">
+                        <li>景點門票</li>
+                    </a>
+                    <a href="postcard.html">
+                        <li>客製明信片</li>
+                    </a>
                 </ul>
                 <ul class="navMember">
                     <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
@@ -55,7 +64,7 @@
                         </div>
                     </li>
                 </ul>
-            </section>          
+            </section>
         </nav>
         <!-- 漢堡 -->
         <div class="navPage">
@@ -64,53 +73,53 @@
                 <span class="close_line"></span>
             </button>
             <div class="navPage_wrap">
-            <!--     <div class="navPage_header"></div> -->
+                <!--     <div class="navPage_header"></div> -->
                 <div class="navPage_content">
-            <!--       <div class="navPage_logo"></div> -->
+                    <!--       <div class="navPage_logo"></div> -->
                     <div class="navPage_box">
                         <nav class="navPage_nav">
                             <ul class="navPage_list">
                                 <li class="navPage_item">
                                     <div class="navPage_header">
-                                    <span class="navPage_header--num">01</span>
-                                    <span class="navPage_header--line"></span>
+                                        <span class="navPage_header--num">01</span>
+                                        <span class="navPage_header--line"></span>
                                     </div>
                                     <div class="navPage_text">
-                                    <span class="navPage_text--en">Plan journey</span>
-                                    <span class="navPage_text--ch">行程規劃</span>
+                                        <span class="navPage_text--en">Plan journey</span>
+                                        <span class="navPage_text--ch">行程規劃</span>
                                     </div>
                                     <a href="tour.html" class="navPage_link"></a>
                                 </li>
                                 <li class="navPage_item">
                                     <div class="navPage_header">
-                                    <span class="navPage_header--num">02</span>
-                                    <span class="navPage_header--line"></span>
+                                        <span class="navPage_header--num">02</span>
+                                        <span class="navPage_header--line"></span>
                                     </div>
                                     <div class="navPage_text">
-                                    <span class="navPage_text--en">All together</span>
-                                    <span class="navPage_text--ch">揪團旅行</span>
+                                        <span class="navPage_text--en">All together</span>
+                                        <span class="navPage_text--ch">揪團旅行</span>
                                     </div>
                                     <a href="group.html" class="navPage_link"></a>
                                 </li>
                                 <li class="navPage_item">
                                     <div class="navPage_header">
-                                    <span class="navPage_header--num">03</span>
-                                    <span class="navPage_header--line"></span>
+                                        <span class="navPage_header--num">03</span>
+                                        <span class="navPage_header--line"></span>
                                     </div>
                                     <div class="navPage_text">
-                                    <span class="navPage_text--en">Shop</span>
-                                    <span class="navPage_text--ch">景點門票</span>
+                                        <span class="navPage_text--en">Shop</span>
+                                        <span class="navPage_text--ch">景點門票</span>
                                     </div>
                                     <a href="shop.html" class="navPage_link"></a>
                                 </li>
                                 <li class="navPage_item">
                                     <div class="navPage_header">
-                                    <span class="navPage_header--num">04</span>
-                                    <span class="navPage_header--line"></span>
+                                        <span class="navPage_header--num">04</span>
+                                        <span class="navPage_header--line"></span>
                                     </div>
                                     <div class="navPage_text">
-                                    <span class="navPage_text--en">Postcard</span>
-                                    <span class="navPage_text--ch">客製明信片</span>
+                                        <span class="navPage_text--en">Postcard</span>
+                                        <span class="navPage_text--ch">客製明信片</span>
                                     </div>
                                     <a href="postcard.html" class="navPage_link"></a>
                                 </li>
@@ -118,10 +127,10 @@
                         </nav>
 
                     </div>
-                </div>  
+                </div>
             </div>
         </div>
-         
+
         <div class="froLoginBG" id="froLoginBG">
             <section class="froLoginBlock" id="froLoginBlock">
                 <!-- 取消按鈕 -->
@@ -136,7 +145,7 @@
                     <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
                         註冊
                     </div>
-                </div> 
+                </div>
                 <!-- 表單區 -->
                 <div class="froLoginForm_wrap">
                     <transition name="frologintransition" mode="out-in">
@@ -154,7 +163,8 @@
         <section class="l-full shopspotSlide">
             <div class="shopspotSlide_wrap">
                 <div class="owl-carousel owl-theme" id="shopspotSlide">
-                    <div class="item"><img class="upperImg1" src="https://imgv.azureedge.net/wpupload/2020/06/B13A00_P_04_02.jpg"></div>
+                    <div class="item"><img class="upperImg1"
+                            src="https://imgv.azureedge.net/wpupload/2020/06/B13A00_P_04_02.jpg"></div>
                     <div class="item"><img class="upperImg2" src="https://picsum.photos/600/400/?random=10"></div>
                     <div class="item"><img class="upperImg3" src="https://picsum.photos/600/400/?random=10"></div>
                 </div>
@@ -168,7 +178,7 @@
             <div class="shopspotInfo_wrap">
                 <div class="info">
                     <div class="title">
-                        <p><i class="bi bi-geo-alt"></i><span  class="cityName">city</span></p>
+                        <p><i class="bi bi-geo-alt"></i><span class="cityName">city</span></p>
                     </div>
                     <div class="SpotIntro">
                         <p class="text ticketSpotIntro">自己戰鬥。</p>
@@ -185,13 +195,16 @@
                                         <p class="type">全票</p>
                                     </td>
                                     <td>
-                                        <div class="price_wrap">TWD<input type="text" value="550" class="fullFarePrice price form-control" disabled>/每人</div>
+                                        <div class="price_wrap">TWD<input type="text" value="550"
+                                                class="fullFarePrice price form-control" disabled>/每人</div>
                                     </td>
                                     <td>
                                         <div class="button-container">
-                                            <button class="cart-qty-minus" type="button" value="-"><i class="bi bi-dash-circle-fill"></i></button>
-                                            <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
-                                            <button class="cart-qty-plus" type="button" value="+"><i class="bi bi-plus-circle-fill"></i></button>
+                                            <button class="cart-qty-minus" type="button" value="-"><i
+                                                    class="bi bi-dash-circle-fill"></i></button>
+                                            <input type="text" name="qty" min="0" class="qty form-control" id="fullqty" value="0" />
+                                            <button class="cart-qty-plus" type="button" value="+"><i
+                                                    class="bi bi-plus-circle-fill"></i></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -200,13 +213,16 @@
                                         <p class="type">半票</p>
                                     </td>
                                     <td>
-                                        <div class="price_wrap">TWD<input type="text" value="350" class="halfFarePrice price form-control" disabled>/每人</div>
+                                        <div class="price_wrap">TWD<input type="text" value="350"
+                                                class="halfFarePrice price form-control" disabled>/每人</div>
                                     </td>
                                     <td>
                                         <div class="button-container">
-                                            <button class="cart-qty-minus" type="button" value="-"><i class="bi bi-dash-circle-fill"></i></button>
-                                            <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
-                                            <button class="cart-qty-plus" type="button" value="+"><i class="bi bi-plus-circle-fill"></i></button>
+                                            <button class="cart-qty-minus" type="button" value="-"><i
+                                                    class="bi bi-dash-circle-fill"></i></button>
+                                            <input type="text" name="qty" min="0" class="qty form-control" id="halfqty" value="0" />
+                                            <button class="cart-qty-plus" type="button" value="+"><i
+                                                    class="bi bi-plus-circle-fill"></i></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -215,84 +231,91 @@
                                         <p class="type">優待票</p>
                                     </td>
                                     <td>
-                                        <div class="price_wrap">TWD<input type="text" value="150" class="conTicketPrice price form-control" disabled>/每人</div>
+                                        <div class="price_wrap">TWD<input type="text" value="150"
+                                                class="conTicketPrice price form-control" disabled>/每人</div>
                                     </td>
                                     <td>
                                         <div class="button-container">
-                                            <button class="cart-qty-minus" type="button" value="-"><i class="bi bi-dash-circle-fill"></i></button>
-                                            <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
-                                            <button class="cart-qty-plus" type="button" value="+"><i class="bi bi-plus-circle-fill"></i></button>
+                                            <button class="cart-qty-minus" type="button" value="-"><i
+                                                    class="bi bi-dash-circle-fill"></i></button>
+                                            <input type="text" name="qty" min="0" class="qty form-control" id="conqty" value="0" />
+                                            <button class="cart-qty-plus" type="button" value="+"><i
+                                                    class="bi bi-plus-circle-fill"></i></button>
                                         </div>
                                     </td>
                                 </tr>
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="4"><strong>總金額 = TWD  <span id="total" class="total">0</span>元</strong></td>
+                                    <td colspan="4"><strong>總金額 = TWD <span id="total" class="total">0</span>元</strong>
+                                    </td>
                                 </tr>
                             </tfoot>
                         </table>
 
                         <div class="subbtn">
                             <button class="btn btn--cancel tocart">加入購物車</button>
-                            <a href="shoppay.html"><button class="btn btn--cart topay">立即訂購</button></a>  
+                            <a href="shoppay.html"><button class="btn btn--cart topay">立即訂購</button></a>
                         </div>
                     </div>
                 </div>
-            </div>     
+            </div>
         </section>
 
         <section class="l-full shopspotOverview">
             <div class="shopspotContent_wrap">
                 <div class="row">
                     <div class="shopspotDescription col-12 col-lg-9">
-                        <div class="shopspotFeature_wrap"  id="shopspotFeature">
+                        <div class="shopspotFeature_wrap" id="shopspotFeature">
                             <div class="shopspotFeature">
                                 <div class="spot_mark">
                                     <i class="bi bi-building"></i>
                                     <h2 class="spot_title">景點特色</h2>
                                 </div>
                                 <div class="feature">
-                                    <div class="upderImg"><img class="underImgSrc1" src="https://picsum.photos/600/350/?random=10"></div>
+                                    <div class="upderImg"><img class="underImgSrc1"
+                                            src="https://picsum.photos/600/350/?random=10"></div>
                                     <p class="underImgDesc1"><i class="bi bi-caret-right-fill"></i>填寫經理講話回家。</p>
                                 </div>
                                 <div class="feature">
-                                    <div class="underImg"><img class="underImgSrc2" src="https://picsum.photos/600/350/?random=10"></div>
+                                    <div class="underImg"><img class="underImgSrc2"
+                                            src="https://picsum.photos/600/350/?random=10"></div>
                                     <p class="underImgDesc2"><i class="bi bi-caret-right-fill"></i>填寫經理講話回家。</p>
                                 </div>
                                 <div class="feature">
-                                    <div class="underImg"><img class="underImgSrc3" src="https://picsum.photos/600/350/?random=10"></div>
+                                    <div class="underImg"><img class="underImgSrc3"
+                                            src="https://picsum.photos/600/350/?random=10"></div>
                                     <p class="underImgDesc3"><i class="bi bi-caret-right-fill"></i>填寫經理講話回家。</p>
                                 </div>
                             </div>
                         </div>
-                
+
                         <div class="shopspotDetail_wrap" id="shopspotDetail">
                             <div class="shopspotDetail">
                                 <div class="spot_mark">
                                     <i class="bi bi-ticket-perforated"></i>
                                     <h2 class="spot_title">票券說明</h2>
                                 </div>
-                               <div class="shopspotText">
-                                   <p class="ticketDesc">分析做法便利商店。</p>
-                               </div>
+                                <div class="shopspotText">
+                                    <p class="ticketDesc">分析做法便利商店。</p>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="shopspotGuide_wrap"  id="shopspotGuide">
+                        <div class="shopspotGuide_wrap" id="shopspotGuide">
                             <div class="shopspotGuide">
                                 <div class="spot_mark">
                                     <i class="bi bi-cart3"></i>
                                     <h2 class="spot_title">購買須知</h2>
                                 </div>
-                               <div class="shopspotText">
-                                   <ul>
-                                       <li>‧未滿 3 歲的兒童免費入場（須出示證件及家長陪同）。</li>
-                                       <li>‧若需購買兒童票、幼童票、敬老票、仁愛票之旅客，可於現場售票亭購買。</li>
-                                       <li>‧本憑證不得與其他優惠合併使用，且恕無法兌換現金。</li>
-                                       <li>‧此票券為散客專案，團客不適用，如需購買團體票請洽原售票單位</li>
-                                   </ul>
-                               </div>
+                                <div class="shopspotText">
+                                    <ul>
+                                        <li>‧未滿 3 歲的兒童免費入場（須出示證件及家長陪同）。</li>
+                                        <li>‧若需購買兒童票、幼童票、敬老票、仁愛票之旅客，可於現場售票亭購買。</li>
+                                        <li>‧本憑證不得與其他優惠合併使用，且恕無法兌換現金。</li>
+                                        <li>‧此票券為散客專案，團客不適用，如需購買團體票請洽原售票單位</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 
@@ -302,16 +325,16 @@
                                     <i class="bi bi-question-octagon"></i>
                                     <h2 class="spot_title">使用方法</h2>
                                 </div>
-                               <div class="shopspotText">
-                                   <ul>
-                                       <li>‧購買後會將電子票券寄至您的帳戶信箱</li>
-                                       <li>‧現場請出示電子票券</li>
-                                       <li>‧遊客如需出園後再入園，請由 ( 入口處 ) 服務人員於手背上加蓋園章。</li>
-                                   </ul>
-                               </div>
+                                <div class="shopspotText">
+                                    <ul>
+                                        <li>‧購買後會將電子票券寄至您的帳戶信箱</li>
+                                        <li>‧現場請出示電子票券</li>
+                                        <li>‧遊客如需出園後再入園，請由 ( 入口處 ) 服務人員於手背上加蓋園章。</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                
+
                         <div class="shopspotNotice_wrap" id="shopspotNotice">
                             <div class="shopspotNotice">
                                 <div class="spot_mark">
@@ -326,7 +349,7 @@
                                     <li>‧疫情期間需確實撙手防疫規定方可入場
                                         。</li>
                                 </ul>
-                             </div>
+                            </div>
                         </div>
                     </div>
 
@@ -338,20 +361,27 @@
                             <li><a href="#shopspotDirection">使用方法</a></li>
                             <li><a href="#shopspotNotice">注意事項</a></li>
                         </ul>
-                        <img class="select_bear" src="images/mascot/bear02.png" alt="">
+                        <img class="select_bear" src="images/shop/dancebear.gif" alt="">
                     </div>
                 </div>
-            </div>           
+            </div>
         </section>
     </main>
 
     <footer class="footer_Wrap">
         <section class="footerBlock">
             <ul class="footerMedia">
-                <a href=""><li><i class="bi bi-facebook"></i></li></a>
-                <a href=""><li><i class="bi bi-instagram"></i></li></a>
-                <a href=""><li><i class="bi bi-line"></i>
-                </ion-icon></li></a>
+                <a href="">
+                    <li><i class="bi bi-facebook"></i></li>
+                </a>
+                <a href="">
+                    <li><i class="bi bi-instagram"></i></li>
+                </a>
+                <a href="">
+                    <li><i class="bi bi-line"></i>
+                        </ion-icon>
+                    </li>
+                </a>
             </ul>
             <ul class="footerContect">
                 <li><i class="bi bi-telephone"></i>電話:03-1234567</li>
@@ -360,213 +390,276 @@
                 <li><i class="bi bi-pin-map"></i>地址:桃園市桃園區中正路99999號</li>
             </ul>
             <ul class="footerTerms">
-                <a href=""><li>服務條款</li></a><a href=""><li>購物條款</li></a><a href=""><li>付款方式</li></a>
+                <a href="">
+                    <li>服務條款</li>
+                </a><a href="">
+                    <li>購物條款</li>
+                </a><a href="">
+                    <li>付款方式</li>
+                </a>
             </ul>
-            <p class="footerCopyRight">&copy;本網站為緯育TibaMe_前端設計工程師班第73期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[緯育TibaMe]，後續會由專人協助處理。</p>
+            <p class="footerCopyRight">
+                &copy;本網站為緯育TibaMe_前端設計工程師班第73期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[緯育TibaMe]，後續會由專人協助處理。
+            </p>
         </section>
     </footer>
 
     <script src="js/burger.js"></script>
     <script src="js/forlogin.js"></script>
-    <script src="js/owl.carousel.js"></script>
-        
+    
+
     <script>
-        //-------------------slide---------------------
-        $(document).ready(function(){
-         var shopspotSlide = $("#shopspotSlide");
+        //---------存-------------
+        // let id = location.search.split('?')[1].split('=')[1];
+        //     console.log(id);
+
+            let id = location.search.split('?')[1].split('&')[0].split('=')[1];
+            console.log(location.href.search('&'));
+            if(location.href.search('&') != -1){
+                let full = location.search.split('?')[1].split('&')[1].split('=')[1];
+                console.log(full);
+                let half = location.search.split('?')[1].split('&')[2].split('=')[1];
+                console.log(half);
+                let con = location.search.split('?')[1].split('&')[3].split('=')[1];
+                console.log(con);
+
+                $('#fullqty').val(full)
+                $('#halfqty').val(half)
+                $('#conqty').val(con)
+            }
 
 
-        function isMobileDevice(){ 
-            let mobileDevices = ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone']
-            let isMobileDevice=false
-            for(let i=0;i<mobileDevices.length;i++){
-                if(navigator.userAgent.match(mobileDevices[i])){
-                    isMobileDevice=true
+        function setItem() {
+            let tocart = document.querySelector('.tocart');
+            let topay = document.querySelector('.topay');
+
+            tocart.addEventListener('click',save)
+            topay.addEventListener('click',save)
+
+        };
+        setItem();
+
+        function save(){
+            let item = {    //要存的("key","value")
+                id: id,
+                name: $('.ticketSpotName').text(),
+                qty: [$('.qty')[0].value, $('.qty')[1].value, $('.qty')[2].value],
+                amount: $('#total').text(),
+                spotImg:$('.upperImg1').attr("src"),
+            };
+            console.log(item)
+            let cart = localStorage.getItem('cart');    //拿到localstorage
+            cart = cart ? JSON.parse(cart) : [];    //轉JSON格式
+            let found = false;
+            for(let i=0; i<cart.length; i++){
+                if(cart[i].id === item.id){
+                    cart[i] = item;
+                    found = true;
+                    break;
                 }
             }
-            return isMobileDevice
+            if(found === false){
+                cart.push(item);    //新的都要往後加
+            }
+            console.log(cart)
+            //cart = JSON.stringify(cart);    //轉成字串
+            localStorage.setItem('cart', JSON.stringify(cart));    //傳到localstorage
         }
 
-        if(isMobileDevice() != true){
-            // 桌機的話執行
-            shopspotSlide.owlCarousel({
-            center: true,
-            items:1.5,
-            loop:true,
-            margin:10,
-            nav:true,
-            
+        //-----------------------sql----------------------
+        getDetail();
+        getBottom();
+        function getDetail() {
+            $.ajax({
+                type: 'GET',
+                url: `./phps/shopcon.php?id=${id}`,
+                dataType: 'json',
+                success: function (res) {
+                let upperImg1;
+                upperImg1 = $(".upperImg1");
+                upperImg1.attr("src",`${res[0].upperImg1}`);
 
-        });
-        }else{
-            //手機的話執行
-            shopspotSlide.owlCarousel({
-            items: 1,
-            autoplay: true,
-            loop:true,
-            nav:true,
-            
+                let upperImg2;
+                upperImg2 = $(".upperImg2");
+                upperImg2.attr("src",`${res[0].upperImg2}`);
 
-          });
-        };
+                let upperImg3;
+                upperImg3 = $(".upperImg3");
+                upperImg3.attr("src",`${res[0].upperImg3}`);
+
+                let ticketSpotName;
+                ticketSpotName = $(".ticketSpotName");
+                ticketSpotName.text(res[0].ticketSpotName);
+
+                let cityName;
+                cityName = $(".cityName");
+                cityName.text(res[0].cityName);
+
+                let ticketSpotIntro;
+                ticketSpotIntro = $(".ticketSpotIntro");
+                ticketSpotIntro.text(res[0].ticketSpotIntro);
 
 
+                let fullFarePrice;
+                fullFarePrice = $(".fullFarePrice")
+                fullFarePrice.val(res[0].fullFarePrice)
 
-        //  ----------------Shopping-cart-------------
-        $(document).ready(function(){
-             update_amounts();
-            $('.qty, .price').on('keyup keypress blur change', function(e) {    //在事件發生時執行
-              update_amounts();
+                let halfFarePrice;
+                halfFarePrice = $(".halfFarePrice")
+                halfFarePrice.val(res[0].halfFarePrice)
+
+                let conTicketPrice;
+                conTicketPrice = $(".conTicketPrice")
+                conTicketPrice.val(res[0].conTicketPrice)
+
+                let ticketDesc;
+               ticketDesc = $(".ticketDesc")
+               ticketDesc.text(res[0].ticketDesc)
+          //   console.log(res);
+                },
             });
-        });
-        function update_amounts(){
-        var sum = 0.0;
-            $('#myTable > tbody  > tr').each(function() {
-            var qty = $(this).find('.qty').val();   //找到class qty的值
-              var price = $(this).find('.price').val(); //找到class price的值
-              var amount = (qty*price)      //計算
-              sum+=amount;
-              $(this).find('.amount').text(''+amount);  //在 amount 顯示計算後的金額
+        }
+        
+        function getBottom() {
+            $.ajax({
+                type: 'GET',
+                url: `./phps/shopdown.php?id=${id}`,
+                dataType: 'json',
+                success: function (res) {
+                console.log(res);
+               let underImgSrc1;
+               underImgSrc1 = $(".underImgSrc1")
+               underImgSrc1.attr("src",`${res[0].imgSrc}`);
+
+               let underImgDesc1;
+               underImgDesc1 = $(".underImgDesc1")
+               underImgDesc1.text(res[0].imgDesc)
+
+               let underImgSrc2;
+               underImgSrc2 = $(".underImgSrc2")
+               underImgSrc2.attr("src",`${res[1].imgSrc}`);
+
+               let underImgDesc2;
+               underImgDesc2 = $(".underImgDesc2")
+               underImgDesc2.text(res[1].imgDesc)
+
+               let underImgSrc3;
+               underImgSrc3 = $(".underImgSrc3")
+               underImgSrc3.attr("src",`${res[2].imgSrc}`);
+
+               let underImgDesc3;
+               underImgDesc3 = $(".underImgDesc3")
+               underImgDesc3.text(res[2].imgDesc)
+
+               
+                }, 
+            });
+        }
+
+        //-------------------slide---------------------
+        $(document).ready(function () {
+            var shopspotSlide = $("#shopspotSlide");
+
+
+            function isMobileDevice() {
+                let mobileDevices = ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone']
+                let isMobileDevice = false
+                for (let i = 0; i < mobileDevices.length; i++) {
+                    if (navigator.userAgent.match(mobileDevices[i])) {
+                        isMobileDevice = true
+                    }
+                }
+                return isMobileDevice
+            }
+
+            if (isMobileDevice() != true) {
+                // 桌機的話執行
+                shopspotSlide.owlCarousel({
+                    center: true,
+                    items: 1.5,
+                    loop: true,
+                    autoplay: true,
+                    margin: 10,
+                    nav: true,
+
+
+                });
+            } else {
+                //手機的話執行
+                shopspotSlide.owlCarousel({
+                    items: 1,
+                    autoplay: true,
+                    loop: true,
+                    nav: true,
+
+
+                });
+            };
+
+
+
+            //  ----------------Shopping-cart-------------
+            $(document).ready(function () {
+                update_amounts();
+                $('.qty, .price').on('keyup keypress blur change', function (e) {    //在事件發生時執行
+                    update_amounts();
+                });
+            });
+            function update_amounts() {
+                var sum = 0.0;
+                $('#myTable > tbody  > tr').each(function () {
+                    var qty = $(this).find('.qty').val();   //找到class qty的值
+                    var price = $(this).find('.price').val(); //找到class price的值
+                    var amount = (qty * price)      //計算
+                    sum += amount;
+                    $(this).find('.amount').text('' + amount);  //在 amount 顯示計算後的金額
+                });
+
+                $('.total').text(sum);
+            }
+
+            //for quantity-increment-or-decrement
+            var incrementQty;
+            var decrementQty;
+            var plusBtn = $(".cart-qty-plus");
+            var minusBtn = $(".cart-qty-minus");
+            var incrementQty = plusBtn.click(function () {
+                var $n = $(this)
+                    .parent(".button-container")
+                    .find(".qty");
+                $n.val(Number($n.val()) + 1);
+                update_amounts();
             });
 
-        $('.total').text(sum);
-        }
-
-        //for quantity-increment-or-decrement
-        var incrementQty;
-        var decrementQty;
-        var plusBtn  = $(".cart-qty-plus");
-        var minusBtn = $(".cart-qty-minus");
-        var incrementQty = plusBtn.click(function() {      
-        var $n = $(this)
-          .parent(".button-container")
-          .find(".qty");
-        $n.val(Number($n.val())+1 );
-        update_amounts();
-        });
-
-        var decrementQty = minusBtn.click(function() {
-          var $n = $(this)
-          .parent(".button-container")
-          .find(".qty");
-        var QtyVal = Number($n.val());
-        if (QtyVal > 0) {
-          $n.val(QtyVal-1);
-        }
-        update_amounts();
-        });
+            var decrementQty = minusBtn.click(function () {
+                var $n = $(this)
+                    .parent(".button-container")
+                    .find(".qty");
+                var QtyVal = Number($n.val());
+                if (QtyVal > 0) {
+                    $n.val(QtyVal - 1);
+                }
+                update_amounts();
+            });
 
         });
 
         //指定按鈕被點擊時，指定之class裡的值做+或-，並執行更新總金額
 
         //-------------Select click color---------------
-        $(document).ready(function (){
-            $("li").each(function(index){
-                $(this).click(function(){  //點選觸發事件
+        $(document).ready(function () {
+            $("li").each(function (index) {
+                $(this).click(function () {  //點選觸發事件
                     $("li").removeClass("active");  //刪除當前元素的樣式
                     $("li").eq(index).addClass("active");  //添加當前元素的樣式
                 });
             });
         });
 
-    //---------------------------sql------------------------------------    
-        $(document).ready(function(){
-            // let cityName;
-            // cityName = $(".cityName");
-            // cityName.text("123");
-            $.ajax({
-                type:'GET',
-                   url: './phps/shopcon.php',
-                   dataType: 'json',
-                   success: function(res){     
-            let upperImg1;
-            upperImg1 = $(".upperImg1");
-            upperImg1.attr("src",`${res[0].upperImg1}`);
-
-            let upperImg2;
-            upperImg2 = $(".upperImg2");
-            upperImg2.attr("src",`${res[0].upperImg2}`);
-
-            let upperImg3;
-            upperImg3 = $(".upperImg3");
-            upperImg3.attr("src",`${res[0].upperImg3}`);
-
-            let ticketSpotName;
-            ticketSpotName = $(".ticketSpotName");
-            ticketSpotName.text(res[0].ticketSpotName);
-
-             let cityName;
-            cityName = $(".cityName");
-            cityName.text(res[0].cityName);
-
-            let ticketSpotIntro;
-           ticketSpotIntro = $(".ticketSpotIntro");
-           ticketSpotIntro.text(res[0].ticketSpotIntro);
-
-
-           let fullFarePrice;
-           fullFarePrice = $(".fullFarePrice")
-           fullFarePrice.val(res[0].fullFarePrice)
-
-           let halfFarePrice;
-           halfFarePrice = $(".halfFarePrice")
-           halfFarePrice.val(res[0].halfFarePrice)
-
-           let conTicketPrice;
-           conTicketPrice = $(".conTicketPrice")
-           conTicketPrice.val(res[0].conTicketPrice)
-
-
-        //    let underImgSrc1;
-        //    underImgSrc1 = $(".underImgSrc1");
-        //    underImgSrc1.attr("src",`${res[0].underImgSrc1}`);
-
-        //    let underImgDesc1;
-        //    underImgDesc1 = $(".underImgDesc1");
-        //    underImgDesc1.text(res[0].underImgDesc1);
-
-        //    let underImgSrc2;
-        //    underImgSrc2 = $(".underImgSrc2");
-        //    underImgSrc2.attr("src",`${res[0].underImgSrc2}`);
-
-        //    let underImgDesc2;
-        //    underImgDesc2 = $(".underImgDesc2");
-        //    underImgDesc2.text(res[0].underImgDesc2);
-
-        //    let underImgSrc3;
-        //    underImgSrc3 = $(".underImgSrc3");
-        //    underImgSrc3.attr("src",`${res[0].underImgSrc3}`);
-
-        //    let underImgDesc3;
-        //    underImgDesc3 = $(".underImgDesc3");
-        //    underImgDesc3.text(res[0].underImgDesc3);
-
-           let ticketDesc;
-           ticketDesc = $(".ticketDesc");
-           ticketDesc.text(res[0].ticketDesc);
-
-                },
-                });   
-       
-       
-            
-            });
-            
     
-    function get(){
-        $.ajax({
-                type:'GET',
-                   url: './phps/shopdown.php',
-                   dataType: 'json',
-                   success: function(res){ 
-                    console.log(res.data);
-                   }
-                })
-            
-    }
-    get()
     </script>
-    
+    <script src="js/owl.carousel.js"></script>
+
 </body>
+
 </html>

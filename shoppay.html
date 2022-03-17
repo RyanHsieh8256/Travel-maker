@@ -215,54 +215,17 @@
                 <div class="detail">
                     <h2>消費明細</h2>
                     <hr>
-                    <div class="shoplist">
-                        <div class="pro_img">
-                            <img src="images/shop/shopType_north.jpg">
-                        </div>
-                        <div class="shoplist_text">
-                            <h3>商品名稱</h3>
-                            <div class="content_wrap">
-                                <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
-                                <span class="sub">$1234</span>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="shoplist">
-                        <div class="pro_img">
-                            <img src="images/shop/shopType_north.jpg">
-                        </div>
-                        <div class="shoplist_text">
-                            <h3>商品名稱</h3>
-                            <div class="content_wrap">
-                                <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
-                                <span class="sub">$1234</span>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="shoplist">
-                        <div class="pro_img">
-                            <img src="images/shop/shopType_north.jpg">
-                        </div>
-                        <div class="shoplist_text">
-                            <h3>商品名稱</h3>
-                            <div class="content_wrap">
-                                <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
-                                <span class="sub">$1234</span>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="shoplist_wrap"></div>
                     <hr>
                         <div class="shoplist_total">
                             <p >有效期限<span class="deadline"></span></p>
-                            <p class="shoptotal">總金額 TWD &emsp;<span id="shoptotal">$12345</span> </p>
+                            <p class="shoptotal">總金額 TWD$ &emsp;<span id="shoptotal">$</span> </p>
                         </div>
                 </div>
             </section>
 
             <section class="l-full shoppayconfirm">
-                <a href="#"><button class="btn btn--cart confirm">確認付款</button></a>
+               <button class="btn btn--cart confirm">確認付款</button>
             </section>
         </div>
     </main>
@@ -383,10 +346,102 @@
             })
         }
     },false);
+//----------------------------------
+let cart = localStorage.getItem('cart');
+        cart = JSON.parse(cart);
 
-    
-            
+        // console.log(cart.length)
+
+        for (let i = 0;i<cart.length;i++){
+
+            let shoplist = document.createElement('div');
+            shoplist.classList.add('shoplist');
+
+            let pro_img = document.createElement('div');
+            pro_img.classList.add('pro_img');
+
+            let spotImg = document.createElement('img');
+            spotImg.classList.add('spotImg');
+            spotImg.setAttribute("src", cart[i].spotImg);
+
+            let shoplist_text = document.createElement('div');
+            shoplist_text.classList.add('shoplist_text');
+
+            let spotName = document.createElement('h3');
+            spotName.classList.add('spotName');
+            spotName.innerText = cart[i].name
+
+            let content_wrap = document.createElement('div');
+            content_wrap.classList.add('content_wrap');
+
+            let content = document.createElement('p');
+            content.classList.add('content');
+
+            let fullFare = document.createElement('span');
+            fullFare.classList.add('fullFare');
+            fullFare.innerHTML = `全票*${cart[i].qty[0]}&nbsp`
+
+            let halfFare = document.createElement('span');
+            halfFare.classList.add('halfFare');
+            halfFare.innerHTML = `半票*${cart[i].qty[1]}&nbsp`
+
+            let conTicket = document.createElement('span');
+            conTicket.classList.add('conTicket');
+            conTicket.innerHTML = `優待票*${cart[i].qty[2]}&nbsp`
+
+            let sub_box = document.createElement('p');
+            sub_box.classList.add('sub_box');
+
+            let sub = document.createElement('p');
+            sub.classList.add('sub');
+            sub.innerHTML = `$<span>${cart[i].amount}</span>`
+
+            document.querySelector('.shoplist_wrap').appendChild(shoplist);
+            shoplist.appendChild(pro_img);
+            pro_img.appendChild(spotImg);
+            shoplist.appendChild(shoplist_text);
+            shoplist_text.appendChild(spotName);
+            shoplist_text.appendChild(content_wrap);
+            content_wrap.appendChild(content);
+            content.appendChild(fullFare);
+            content.appendChild(halfFare);
+            content.appendChild(conTicket);
+
+            content_wrap.appendChild(sub_box);
+            sub_box.appendChild(sub);
+
+
+        }
+
+        //--------------amount----------------
+        
+
+        window.addEventListener('load',function(){
+            let total = 0;
+            let sub = document.getElementsByClassName('sub');
+            for(let i = 0; i<cart.length; i++){
+                total = total + parseInt(sub[i].innerText.split('$')[1]);
+            }
+
+            let shoptotal = document.getElementById("shoptotal")
+            shoptotal.innerText = total;
+        })
+
+    //--------------------------------
+    let confirm = document.querySelector('.confirm');
+    // 點擊確認結帳後要做的事
+    function cearLocal(){
+
+        localStorage.removeItem('cart');
+        location.href = './travel_maker/home.html';
+    };
+    confirm.addEventListener('click',cearLocal);
+
+
+
     </script>
+
+
     
 </body>
 </html>

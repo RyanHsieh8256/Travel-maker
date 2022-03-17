@@ -255,7 +255,7 @@
                        card.classList.add('card','col-12', 'col-lg-6', 'col-xl-3');
                       
                        let ticketSpotLink = document.createElement('a');
-                       ticketSpotLink.setAttribute('href', "shopspot.html");
+                       ticketSpotLink.setAttribute('href', `shopspot.html?id=${res[i].ticketSpotNo}`);
 
                        let card_content =  document.createElement('div');
                        card_content.classList.add('card_content');
@@ -304,11 +304,13 @@
                        card_footer.appendChild(card_shopping)
                        card_shopping.appendChild(card_count)
                       
-                       console.log(res[i])
+                    //    console.log(res[i])
                    }
    
                    },
                 });   
+
+                
        });
    </script>
 </body>
