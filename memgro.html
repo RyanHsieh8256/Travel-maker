@@ -329,7 +329,7 @@
         $.ajax({
             type: "post",
             url: "./phps/memgro.php",
-            data: `memName=${memData.memName}`,
+            data: `memNo=${memData.memNo}`,
             dataType: "text",
             success: function (res) {
                 if(res == 'noData'){

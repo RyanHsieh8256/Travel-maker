@@ -1,97 +1,105 @@
-.shopType h2{
-    text-align: center;
-    font-family: 'Caveat',serif;
-    font-weight: 600;
-    padding: 10px;
-    font-size: 30px;
-    line-height: 1.5;
-    color: #007183;
-   
-}
-
-
-
 .shopType{
     margin-top: 50px;
 
+    .col-6{
+        padding: .1rem .1rem;
+        margin: 0;
+
+    }
+
+    .col-md-3{
+        @media screen and (min-width:768px){
+            padding: 0rem;
+            margin: 0;
+            overflow: hidden;
+        }
+    }
+
+    .item{
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size:cover;
+
+        @media screen and (min-width:768px){
+        transition: all .5s ease-out;
+
+        }
+        .parttxt{
+        padding: 40%;
+        
+        }
+
+        h2{
+            text-align: center;
+            font-family: 'Caveat',serif;
+            font-weight: 600;
+            padding: 10px;
+            font-size: 30px;
+            line-height: 1.5;
+            color: white;
+            border: 1px solid white;
+            border-radius: 50% 0;
+            padding: 5px;
+            display: inline-block;
+
+            @media screen and (min-width:768px){
+                padding: 60% 40%;
+            }
+        }
+        &:hover{
+            @media screen and (min-width:768px){
+            transform:scale(1.05,1.05);
+            }
+        }
+    }    
+   
 }
-
-.shopType .col-6{
-    padding: .1rem .1rem;
-    margin: 0;
-    
-}
-
-.shopType .item{
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size:cover;
-
-}
-
-.shopType .item .parttxt{
-    padding: 40%;
-    
-}
-
-.shopType .item h2{
-    color: white;
-    border: 1px solid white;
-    border-radius: 50% 0;
-    padding: 5px;
-    display: inline-block;
-    
-}
-
 
 
 .shopSearch{
     text-align: center;
     margin: 30px 0;
     
+    &_wrap{
+        margin: auto;
+        width: 80%;
+        position: relative;
+
+    }
+
+    input{
+        width: 100%;
+        padding: 0 10px;
+        height: 30px ;
+        border-radius: 50px;
+        border: 2px solid #3BAFE5;
+
+        &:focus{
+        color: rgb(240, 105, 42);
+        outline: 0;
+        border: 3px solid #3BAFE5;
+
+        }
+    }
+
+    .shopSearchBtn{
+        width: 60px;
+        height: 30px;
+        background-color: #007183;
+        border: none;
+        border-radius:  20px 0px 20px 0px;;
+        position: absolute;
+        right: 0px;
+        cursor: pointer;
+
+    }
+
+    .bi.bi-search{
+        color: aliceblue;
+        font-size: 20px;  
+
+    }
 }
-
-.shopSearch_wrap{
-    margin: auto;
-    width: 80%;
-    position: relative;
-
-}
-
-.shopSearch input{
-    width: 100%;
-    padding: 0 10px;
-    height: 30px ;
-    border-radius: 50px;
-    border: 2px solid #3BAFE5;
-    
-}
-
-.shopSearch input:focus{
-    color: rgb(240, 105, 42);
-    outline: 0;
-    border: 3px solid #3BAFE5;
-
-}
-
-.shopSearchBtn{
-    width: 60px;
-    height: 30px;
-    background-color: #007183;
-    border: none;
-    border-radius:  20px 0px 20px 0px;;
-    position: absolute;
-    right: 0px;
-    cursor: pointer;
-
-}
-
-.shopSearch .bi.bi-search{
-    color: aliceblue;
-    font-size: 20px;  
-
-}
-
 
 
 .shopProduct{
@@ -99,78 +107,44 @@
 
 }
 
-.shopProduct .card_content{
-    margin: 0 15px;
+.card{
+    a{
+        color: black;
 
-}
-
-.shopProduct .card_content{
-    width: 100%;
-
-}
-
-.shopSort_wrap .card_tag{
-    z-index: 5;
-
-}
-
-.shopProduct .card_count{
-    width: 100%;
-    text-align:right;
-}
-
-.shopProduct .card a{
-    color: black;
-
-}
-
-.shopSort_wrap .card_img{
-    overflow: hidden;
-    position: relative;
-
-    img{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: auto;
-        height: 100%;
-        
     }
-}
+    &_content{
+         margin: 0 15px;
+        width: 100%;
 
+    }
 
+    &_tag{
+        z-index: 5;
 
-.shopSort_wrap .card_img:before{
-content: "";
-display: block;
-position: relative;
-width: 100%;
-height: 0;
-padding-bottom: 75%;
-}
+    }
 
+    &_count{
+        width: 100%;
+        text-align:right;
+    }
 
-@media screen and (min-width:768px){
-    .shopType .col-md-3{
-        padding: 0rem;
-        margin: 0;
+    &_img{
         overflow: hidden;
-
-    }
-
-    .shopType .item{
-        transition: all .5s ease-out;
-        
-    }
-
-    .shopType .item:hover{
-        transform:scale(1.05,1.05);
-        
-    }
-
-    .shopType .item h2{
-        padding: 60% 40%;
-
-    }
+        position: relative;
+        img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: auto;
+            height: 100%;
+        }
+        &::before{
+        content: "";
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 75%;
+        }
+    }      
 }
-

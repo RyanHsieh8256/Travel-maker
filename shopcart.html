@@ -13,203 +13,175 @@
  </head>
  <body>
     <header>
-        <!-- 宸哥的導覽列 -->
-        <nav class="nav_Wrap">
-            <section class="navBlock">
-                <a href="home.html">
-                    <h1 class="navLogo">
-                        <img src="images/logo/logo_84x50.png" alt="TravelMaker">
-                    </h1>
-                </a>
-                <ul class="mainNav">
-                    <a href="tour.html"><li>行程規劃</li></a>
-                    <a href="group.html"><li>揪團旅行</li></a>
-                    <a href="shop.html"><li>景點門票</li></a>
-                    <a href="postcard.html"><li>客製明信片</li></a>
-                </ul>
-                <ul class="navMember">
-                    <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
-                    <li>
-                        <i class="bi bi-person-circle" id="loginBoxBtn"><span>登入/註冊</span></i>
-                        <!-- 登入後的會員選單-->
-                        <ul class="navDropdownMenu">
-                            <li class="navDropdownMenuItem navMemProfile">
-                                <div class="navDropdownMenuPhoto">
-                                    <img src="https://picsum.photos/200/200/?random=10">
-                                </div>
-                                <div class="navDropdownMenuTitle">
-                                    <span>張小明</span>
-                                </div>
-                            </li>
-                            <li class="navDropdownMenuItem"><i class="bi bi-gear"></i> 帳號設定</li>
-                            <li class="navDropdownMenuItem"><i class="bi bi-calendar2"></i> 我的行程</li>
-                            <li class="navDropdownMenuItem"><i class="bi bi-bookmark-heart"></i> 我的收藏</li>
-                            <li class="navDropdownMenuItem"><i class="bi bi-file-person"></i> 我的揪團</li>
-                            <li class="navDropdownMenuItem"><i class="bi bi-bag"></i> 我的訂單</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="burger-toggle">
-                            <i class="bi bi-list"></i>
-                        </div>
-                    </li>
-                </ul>
-            </section>          
-        </nav>
-        <!-- 漢堡 -->
-        <div class="navPage">
-            <button class="navPage--close">
-                <span class="close_line"></span>
-                <span class="close_line"></span>
-            </button>
-            <div class="navPage_wrap">
-            <!--     <div class="navPage_header"></div> -->
-                <div class="navPage_content">
-            <!--       <div class="navPage_logo"></div> -->
-                    <div class="navPage_box">
-                        <nav class="navPage_nav">
-                            <ul class="navPage_list">
-                                <li class="navPage_item">
-                                    <div class="navPage_header">
-                                    <span class="navPage_header--num">01</span>
-                                    <span class="navPage_header--line"></span>
-                                    </div>
-                                    <div class="navPage_text">
-                                    <span class="navPage_text--en">Plan journey</span>
-                                    <span class="navPage_text--ch">行程規劃</span>
-                                    </div>
-                                    <a href="tour.html" class="navPage_link"></a>
-                                </li>
-                                <li class="navPage_item">
-                                    <div class="navPage_header">
-                                    <span class="navPage_header--num">02</span>
-                                    <span class="navPage_header--line"></span>
-                                    </div>
-                                    <div class="navPage_text">
-                                    <span class="navPage_text--en">All together</span>
-                                    <span class="navPage_text--ch">揪團旅行</span>
-                                    </div>
-                                    <a href="group.html" class="navPage_link"></a>
-                                </li>
-                                <li class="navPage_item">
-                                    <div class="navPage_header">
-                                    <span class="navPage_header--num">03</span>
-                                    <span class="navPage_header--line"></span>
-                                    </div>
-                                    <div class="navPage_text">
-                                    <span class="navPage_text--en">Shop</span>
-                                    <span class="navPage_text--ch">景點門票</span>
-                                    </div>
-                                    <a href="shop.html" class="navPage_link"></a>
-                                </li>
-                                <li class="navPage_item">
-                                    <div class="navPage_header">
-                                    <span class="navPage_header--num">04</span>
-                                    <span class="navPage_header--line"></span>
-                                    </div>
-                                    <div class="navPage_text">
-                                    <span class="navPage_text--en">Postcard</span>
-                                    <span class="navPage_text--ch">客製明信片</span>
-                                    </div>
-                                    <a href="postcard.html" class="navPage_link"></a>
-                                </li>
-                            </ul>
-                        </nav>
-
+        <!-- 導覽列 -->
+<nav class="nav_Wrap">
+    <section class="navBlock">
+        <a href="home.html">
+            <h1 class="navLogo">
+                <img src="images/logo/logo_84x50.png" alt="TravelMaker">
+            </h1>
+        </a>
+        <ul class="mainNav">
+            <a href="tour.html"><li>行程規劃</li></a>
+            <a href="group.html"><li>揪團旅行</li></a>
+            <a href="shop.html"><li>景點門票</li></a>
+            <a href="postcard.html"><li>客製明信片</li></a>
+        </ul>
+        <ul class="navMember">
+            <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
+            <li>
+                <div id="loginBoxBtn" class="loginBoxBtn">
+                    <i class="bi bi-person-circle"></i><span>登入/註冊</span>
+                </div>
+                <div id="memBoxBtn" class="memBoxBtn">
+                    <div class="memIcon">
+                        <img id="memIcon" src="https://picsum.photos/50/50/?random=10">
                     </div>
-                </div>  
+                    <span id="memName"></span>
+                </div>
+                <!-- 登入後的會員選單-->
+                <ul class="navDropdownMenu">
+                    <li class="navDropdownMenuItem">
+                        <a href="mem.html">
+                            <i class="bi bi-gear"></i> 帳號設定
+                        </a>
+                    </li>
+                    <li class="navDropdownMenuItem">
+                        <a href="memtour.html">
+                            <i class="bi bi-calendar2"></i> 我的行程
+                        </a>
+                    </li>
+                    <li class="navDropdownMenuItem">
+                        <a href="memcollect.html">
+                            <i class="bi bi-bookmark-heart"></i> 我的收藏
+                        </a>
+                    </li>
+                    <li class="navDropdownMenuItem">
+                        <a href="memgro.html">
+                            <i class="bi bi-file-person"></i> 我的揪團
+                        </a>
+                    </li>
+                    <li class="navDropdownMenuItem">
+                        <a href="memorder.html">
+                            <i class="bi bi-bag"></i> 我的訂單
+                        </a>
+                    </li>
+                    <li class="navDropdownMenuItem" id="logOutBtn">
+                        <i class="bi bi-door-closed"></i> 登出
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="burger-toggle">
+                    <i class="bi bi-list"></i>
+                </div>
+            </li>
+        </ul>
+    </section>          
+    </nav>
+    <!-- 漢堡 -->
+    <div class="navPage">
+    <button class="navPage--close">
+        <span class="close_line"></span>
+        <span class="close_line"></span>
+        </button>
+    <div class="navPage_wrap">
+    <!--     <div class="navPage_header"></div> -->
+        <div class="navPage_content">
+    <!--       <div class="navPage_logo"></div> -->
+            <div class="navPage_box">
+                <nav class="navPage_nav">
+                    <ul class="navPage_list">
+                        <li class="navPage_item">
+                            <div class="navPage_header">
+                            <span class="navPage_header--num">01</span>
+                            <span class="navPage_header--line"></span>
+                            </div>
+                            <div class="navPage_text">
+                            <span class="navPage_text--en">Plan journey</span>
+                            <span class="navPage_text--ch">行程規劃</span>
+                            </div>
+                            <a href="tour.html" class="navPage_link"></a>
+                        </li>
+                        <li class="navPage_item">
+                            <div class="navPage_header">
+                            <span class="navPage_header--num">02</span>
+                            <span class="navPage_header--line"></span>
+                            </div>
+                            <div class="navPage_text">
+                            <span class="navPage_text--en">All together</span>
+                            <span class="navPage_text--ch">揪團旅行</span>
+                            </div>
+                            <a href="group.html" class="navPage_link"></a>
+                        </li>
+                        <li class="navPage_item">
+                            <div class="navPage_header">
+                            <span class="navPage_header--num">03</span>
+                            <span class="navPage_header--line"></span>
+                            </div>
+                            <div class="navPage_text">
+                            <span class="navPage_text--en">Shop</span>
+                            <span class="navPage_text--ch">景點門票</span>
+                            </div>
+                            <a href="shop.html" class="navPage_link"></a>
+                        </li>
+                        <li class="navPage_item">
+                            <div class="navPage_header">
+                            <span class="navPage_header--num">04</span>
+                            <span class="navPage_header--line"></span>
+                            </div>
+                            <div class="navPage_text">
+                            <span class="navPage_text--en">Postcard</span>
+                            <span class="navPage_text--ch">客製明信片</span>
+                            </div>
+                            <a href="postcard.html" class="navPage_link"></a>
+                        </li>
+                    </ul>
+                </nav>
+
             </div>
+        </div>  
+    </div>
+    </div>
+    <!-- 登入表單 -->
+    <div class="froLoginBG" id="froLoginBG">
+    <section class="froLoginBlock" id="froLoginBlock">
+        <!-- 取消按鈕 -->
+        <div class="froLoginCancel">
+            <button><i class="bi bi-x-circle-fill"></i></button>
         </div>
-
-        <div class="froLoginBG" id="froLoginBG">
-            <section class="froLoginBlock" id="froLoginBlock">
-                <!-- 取消按鈕 -->
-                <div class="froLoginCancel">
-                    <button><i class="bi bi-x-circle-fill"></i></button>
-                </div>
-                <!-- 註冊/登入 -->
-                <div class="froLoginSwitch">
-                    <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
-                        登入
-                    </div>
-                    <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
-                        註冊
-                    </div>
-                </div> 
-                <!-- 表單區 -->
-                <div class="froLoginForm_wrap">
-                    <transition name="frologintransition" mode="out-in">
-                        <keep-alive>
-                            <component :is='content'></component>
-                        </keep-alive>
-                    </transition>
-                </div>
-                <transition name="mascottransition">
-                    <component :is='content2'></component>
-                </transition>
-            </section>
-        </div>
+        <!-- 註冊/登入 -->
+        <div class="froLoginSwitch">
+            <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
+                登入
+            </div>
+            <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
+                註冊
+            </div>
+        </div> 
+        <!-- 表單區 -->
+        <transition name="frologintransition" mode="out-in">
+            <keep-alive>
+                <component :is='content'></component>
+            </keep-alive>
+        </transition>
+        <transition name="mascottransition">
+            <component :is='content2'></component>
+        </transition>
+    </section>
+    </div>
     </header>
     <main>
         <section class="l-full shopcart">
             <div class="shopcart_wrap">
                 <h2>購物車</h2>
                 <hr>
-                <div class="shoplist">
-                    <div class="pro_img">
-                        <img src="images/shop/shopType_east.jpg">
-                    </div>
-                    <div class="shoplist_text">
-                        <h3>商品名稱</h3>
-                        <div class="content_wrap">
-                            <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
-                            <span class="sub">$1234</span>
-                            <div class="modify_icon">
-                                <button><a href="shopspot.html"><i class="bi bi-pencil-square"></i></a></button>
-                                <button><i class="bi bi-trash3"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="shoplist">
-                    <div class="pro_img">
-                        <img src="images/shop/shopType_east.jpg">
-                    </div>
-                    <div class="shoplist_text">
-                        <h3>商品名稱</h3>
-                        <div class="content_wrap">
-                            <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
-                            <span class="sub">$1234</span>
-                            <div class="modify_icon">
-                                <button><a href="shopspot.html"><i class="bi bi-pencil-square"></i></a></button>
-                                <button><i class="bi bi-trash3"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="shoplist">
-                    <div class="pro_img">
-                        <img src="images/shop/shopType_east.jpg">
-                    </div>
-                    <div class="shoplist_text">
-                        <h3>商品名稱</h3>
-                        <div class="content_wrap">
-                            <p class="content">內容 ex.全票*4 半票*1 優待票*1</p>
-                            <span class="sub">$1234</span>
-                            <div class="modify_icon">
-                                <button><a href="shopspot.html"><i class="bi bi-pencil-square"></i></a></button>
-                                <button><i class="bi bi-trash3"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="shoplist_wrap"></div>
                 <hr>
                     <div class="shoplist_total">
                         <p>使用期限: <span class="deadline"></span></p>
-                        <p class="shoptotal">總金額 TWD &emsp;<span id="shoptotal">$12345</span> </p>
-                        <a href="shoppay.html"><button class="btn btn--cart">前往結帳</button></a>
+                        <p class="shoptotal">總金額 TWD &emsp;$<span id="shoptotal">0</span> </p>
+                        <button class="btn btn--cart">前往結帳</button>
                     </div>
             </div>
             <div class="shopbtn">
@@ -248,8 +220,8 @@
         
         
         // console.log(deadline);
-        var myDate = new Date() //取得目前時間
-        myDate.setMonth(myDate.getMonth() + 3);  //月份+3個月
+        var myDate = new Date()     //取得目前時間
+        myDate.setMonth(myDate.getMonth() + 3);    //月份+3個月
         // console.log(myDate);
         let year = myDate.getFullYear();    //取得myDate的年
         let month = myDate.getMonth()+1;    //取得myDate的月(原為實月-1，需加回來)
@@ -260,6 +232,135 @@
         }
         // console.log(year, month, date);
         // console.log(`${year} / ${month}/ ${date}`);
+
+
+        //--------動態新增及取localstorage資料--------
+        
+        let cart = localStorage.getItem('cart');
+        cart = JSON.parse(cart);
+
+        // console.log(cart.length)
+        let btn_cart = document.createElement('a');
+        btn_cart.setAttribute('href',`shoppay.html?`);
+        
+        for (let i = 0;i<cart.length;i++){
+
+            let shoplist = document.createElement('div');
+            shoplist.classList.add('shoplist');
+
+            let pro_img = document.createElement('div');
+            pro_img.classList.add('pro_img');
+
+            let spotImg = document.createElement('img');
+            spotImg.classList.add('spotImg');
+            spotImg.setAttribute("src", cart[i].spotImg);
+
+            let shoplist_text = document.createElement('div');
+            shoplist_text.classList.add('shoplist_text');
+
+            let spotName = document.createElement('h3');
+            spotName.classList.add('spotName');
+            spotName.innerText = cart[i].name
+
+            let content_wrap = document.createElement('div');
+            content_wrap.classList.add('content_wrap');
+
+            let content = document.createElement('p');
+            content.classList.add('content');
+
+            let fullFare = document.createElement('span');
+            fullFare.classList.add('fullFare');
+            fullFare.innerHTML = `全票*${cart[i].qty[0]}&nbsp`
+
+            let halfFare = document.createElement('span');
+            halfFare.classList.add('halfFare');
+            halfFare.innerHTML = `半票*${cart[i].qty[1]}&nbsp`
+
+            let conTicket = document.createElement('span');
+            conTicket.classList.add('conTicket');
+            conTicket.innerHTML = `優待票*${cart[i].qty[2]}&nbsp`
+
+            let sub_box = document.createElement('p');
+            sub_box.classList.add('sub_box');
+
+            let sub = document.createElement('p');
+            sub.classList.add('sub');
+            sub.innerHTML = `$${cart[i].amount}`
+
+            let modify_icon = document.createElement('div');
+            modify_icon.classList.add('modify_icon');
+
+            let pencilbox = document.createElement('button');
+            pencilbox.classList.add('pencilbox');
+
+            let pencilboxlink = document.createElement('a');
+            pencilboxlink.classList.add('pencilboxlink');
+            pencilboxlink.setAttribute('href',`shopspot.html?id=${cart[i].id}&fullFare=${cart[i].qty[0]}&halfFare=${cart[i].qty[1]}&conTicket=${cart[i].qty[2]}`);
+
+
+            let bi_pencil= document.createElement('i');
+            bi_pencil.classList.add('bi','bi-pencil-square');
+
+            let trashbox = document.createElement('button');
+            trashbox.classList.add('trashbox');
+
+            let bi_trash= document.createElement('i');
+            bi_trash.classList.add('bi','bi-trash3');
+
+            document.querySelector('.shoplist_wrap').appendChild(shoplist);
+            shoplist.appendChild(pro_img);
+            pro_img.appendChild(spotImg);
+            shoplist.appendChild(shoplist_text);
+            shoplist_text.appendChild(spotName);
+            shoplist_text.appendChild(content_wrap);
+            content_wrap.appendChild(content);
+            content.appendChild(fullFare);
+            content.appendChild(halfFare);
+            content.appendChild(conTicket);
+
+            content_wrap.appendChild(sub_box);
+            sub_box.appendChild(sub);
+
+            content_wrap.appendChild(modify_icon);
+            modify_icon.appendChild(pencilbox);
+            pencilbox.appendChild(pencilboxlink);
+            pencilboxlink.appendChild(bi_pencil);
+            modify_icon.appendChild(trashbox);
+            trashbox.appendChild(bi_trash);
+
+        }
+
+
+        //------------------------------------
+        let trashbox = document.querySelectorAll('.bi-trash3');
+        let shoplist = document.querySelectorAll('.shoplist');
+        for(i=0; i<trashbox.length; i++){
+            trashbox[i].index = i;
+            trashbox[i].addEventListener('click',function(e){
+                shoplist[e.target.index].remove();
+                cart.splice(e.target.index,1);
+                localStorage.setItem('cart',JSON.stringify(cart));
+                cart = JSON.parse(localStorage.getItem('cart'));
+                totalSum();
+            })
+        }
+
+
+        //--------------amount---------------
+        function totalSum(){
+            let total = 0;
+            let sub = document.getElementsByClassName('sub');
+            for(let i = 0; i<cart.length; i++){
+                total = total + parseInt(sub[i].innerText.split('$')[1]);
+            }
+
+            let shoptotal = document.getElementById("shoptotal")
+            shoptotal.innerText = total;
+        }
+        window.addEventListener('load',totalSum)
+        
+        
+        
     </script>
     
 </body>

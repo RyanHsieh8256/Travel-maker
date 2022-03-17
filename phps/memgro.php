@@ -1,9 +1,9 @@
 <?php
 try{
   require_once("connectdatabase.php");
-  $sql = "SELECT `groNo`,`groName`,`groContent`,`groStartDate`,`groEndDate`,`groImg`,`groLimit-applyNum`as groApplyNum FROM `groupdetail_title` WHERE memName=:memName"; 
+  $sql = "SELECT `groNo`,`groName`,`groContent`,`groStartDate`,`groEndDate`,`groImg`,`groLimit-applyNum`as groApplyNum FROM `groupdetail_title` WHERE memNo=:memNo"; 
   $groDate = $pdo->prepare($sql);
-  $groDate->bindValue(":memName", $_POST["memName"]);
+  $groDate->bindValue(":memNo", $_POST["memNo"]);
   $groDate->execute();
 
   if($groDate->rowCount()==0){ 
