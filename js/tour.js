@@ -103,6 +103,8 @@ function displayCityBtn(data) {
 function sortTour() {
     sorts = document.querySelectorAll('.sort_item');
     main = document.querySelector('.tour_main');
+
+    // 先抓到一開始預設的城市
     let cityActive = document.querySelector('.sort_item--active').dataset['sort'];
     fetchTour('city',cityActive);
     
@@ -167,17 +169,21 @@ async function displayTour(data) {
 
 // 呈現該行程 tour_side
 function displaySide(no,num) {
-    let tourContent = document.querySelector('.tour_side--active .tour_content');
     let timelineBox = document.querySelector('.timeline_box');
+    let timelineList = document.querySelector('.timeline_list');
+    let oldPages = timelineList.children;
+    [...oldPages].forEach(page => page.remove());
 
     let tabs = '';
 
     for(let i = 1; i <= num; i++) {
         let dayData = JSON.parse(sessionStorage.getItem(`day${i}`));
 
-        let timelinePage = document.querySelector(`.timeline_page--${i}`);
+        let timelinePage = document.createElement('div');
+        timelinePage.className = `timeline_page timeline_page--${i} ${i == 1 ? 'timeline_page--active' : ''}`;
+        timelineList.append(timelinePage);
 
-        tabs += `<div class="timeline_tab timeline_tab--${i}" data-tab="${i}">第${i}天</div>`;
+        tabs += `<div class="timeline_tab timeline_tab--${i} ${i == 1 ? 'timeline_tab--active' : ''}" data-tab="${i}">第${i}天</div>`;
         
     
 
