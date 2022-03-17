@@ -1,10 +1,11 @@
 <?php
     require_once("./connectdatabase.php");
-
     try{
-        $sql = "select * from group_";
+        $sql = "select * from g3.groupdetail_title where groNo=:id";
+        
 
         $groData = $pdo -> prepare($sql);
+        $groData->bindValue(":id", $_GET["id"]);
         $groData -> execute();
 
         if($groData -> rowCount() == 0){

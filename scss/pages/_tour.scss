@@ -170,6 +170,15 @@
       justify-content: space-between;
       flex-shrink: 0;
       padding-right: 10px;
+      position: relative;
+    }
+
+    &_like {
+      position: absolute;
+      top: 5px;
+      right: 8px;
+      font-size: 20px;
+      color: #007183;
     }
     
     &_detail {

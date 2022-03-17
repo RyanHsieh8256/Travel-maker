@@ -43,15 +43,22 @@ Vue.component('login',{
                     data: `${data_info}`,
                     dataType:"text",
                     success: function (res) {
-                        localStorage.setItem('memData',res);
-                        let member = JSON.parse(res);
-                        $('#loginBoxBtn').css('display','none');
-                        $('#memBoxBtn').css('display','flex');
-                        $('#memName').text(member.memName);
-                        $('#memEmail').val('');
-                        $('#memPsw').val('');
-                        window.alert('登入成功!');
-                        froLoginBG.style.display = "none";
+                        if(res == "錯誤"){
+                            window.alert('帳號或密碼錯誤!');
+                        }else{
+                            console.log(res);
+                            localStorage.setItem('memData',res);
+                            let member = JSON.parse(res);
+                            $('#loginBoxBtn').css('display','none');
+                            $('#memBoxBtn').css('display','flex');
+                            $('#memName').text(member.memName);
+                            $('#memEmail').val('');
+                            $('#memPsw').val('');
+                            $('#memIcon').attr('src', `images/memIcon/${member.memIcon}`);
+                            window.alert('登入成功!');
+                            froLoginBG.style.display = "none";
+                        }
+
                     }
                 });
             }
@@ -69,7 +76,7 @@ Vue.component('signin',{
                 <tr class="froLoginFormItem">
                     <th>電子信箱:</th>
                     <td>
-                        <input type="email" name="memEmail" id="memEmail" required>
+                        <input type="email" name="memEmail" id="memEmail" @blur="emailCheck" required>
                     </td>
                 </tr>
                 <tr class="froLoginFormItem">
@@ -93,7 +100,7 @@ Vue.component('signin',{
                 <tr class="froLoginFormItem">
                     <th>手機號碼:</th>
                     <td>
-                        <input type="tel" id="memPhone" maxlength="10" required>
+                        <input type="tel" id="memPhone" maxlength="10"  @blur="phoneCheck" required>
                     </td>
                 </tr>
                 <tr class="froLoginFormItem">
@@ -109,10 +116,11 @@ Vue.component('signin',{
         </form>
     </div>
     `,
+    // onkeyup="this.value=this.value.replace(/^\s+|\s+$/g,'')"禁止空格
     methods: {
         signin:function(e){
             e.preventDefault();
-            let memEmail = document.getElementById('memEmail').value;
+            let memEmail = document.getElementById('memEmail').value.replace(/^\s*|\s*$/g,"");
             let memPsw = document.getElementById('memPsw').value;
             let checkPsw = document.getElementById('checkPsw').value;
             let memsigninName = document.getElementById('memsigninName').value;
@@ -128,7 +136,7 @@ Vue.component('signin',{
             let memAge = today.getFullYear() - birthDay.getFullYear();
             //創立日期
             let memCreateDate = today.toLocaleDateString();
-
+            
 
             if(memEmail.search(emailRule) == -1){//帳號驗證 是否為電子郵件
                 window.alert('電子郵件格式錯誤!');
@@ -175,7 +183,51 @@ Vue.component('signin',{
                 });
 
             };
-        }
+        },
+        emailCheck:function(){
+            let memEmail = document.getElementById('memEmail');
+            let signinBtn = document.getElementById('signinBtn');
+            if(memEmail != ""){
+                $.ajax({
+                    type: "post",
+                    url: "./phps/emailCheck.php",
+                    data: `memEmail=${memEmail.value}`,
+                    dataType:"text",
+                    success: function (res) {
+                        if(res == "error"){
+                            signinBtn.disabled = true;
+                            signinBtn.style.backgroundColor = 'grey';
+                            window.alert('此信箱已被使用!');
+                        }else{
+                            signinBtn.disabled = false;
+                            signinBtn.style.backgroundColor = '#007183'
+                        }
+                    }
+                })
+            }
+        },
+        phoneCheck:function(){
+            let memPhone = document.getElementById('memPhone').value;
+            let signinBtn = document.getElementById('signinBtn');
+            if(memPhone != ""){
+                $.ajax({
+                    type: "post",
+                    url: "./phps/phoneCheck.php",
+                    data: `memPhone=${memPhone}`,
+                    dataType:"text",
+                    success: function (res) {
+                        if(res == "error"){
+                            signinBtn.disabled=true;
+                            signinBtn.style.backgroundColor = 'grey';
+                            window.alert('此電話已有人使用!');
+                        }else{
+                            signinBtn.disabled=false;
+                            signinBtn.style.backgroundColor = '#007183'
+                        }
+                    }
+                })
+            }
+        },
     },
 });
 
@@ -220,13 +272,13 @@ let memData = localStorage.getItem('memData');
 let memBoxBtn = document.getElementById('memBoxBtn');
 let navDropdownMenu = document.querySelectorAll('.navDropdownMenu')[0];
 let logOutBtn = document.getElementById('logOutBtn');
-
 //撈取會員資料
 if(memData){
     let member = JSON.parse(memData);
     $('#loginBoxBtn').css('display','none');
     $('#memBoxBtn').css('display','flex');
     $('#memName').text(member.memName);
+    $('#memIcon').attr('src', `images/memIcon/${member.memIcon}`);
 }
 
 // 註冊事件
@@ -261,7 +313,14 @@ function logOut(){
     $('#memBoxBtn').css('display','none');
     $('#memName').text('');
     navDropdownMenu.style.display = 'none';
-    window.alert('您已登出!')
+    window.alert('您已登出!');
+    if(location.href.search('mem') == -1){
+        window.location.reload(location.href);
+        
+    }else{
+        wwindow.location = 'home.html';
+    }
+
 };
 
 // 登入/註冊顏色切換
