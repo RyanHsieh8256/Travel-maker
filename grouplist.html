@@ -206,7 +206,7 @@
                     <div class="owl-carousel grouplistOwl">
                     </div>
                 </div>
-                
+
             </div>
             <div class="l-large grouplistBuildList_wrap">
                 <div class="subtitle_wrap">
@@ -382,25 +382,27 @@
         slidePage();
     </script>
 
+    <script src="js/forlogin.js"></script>
     <!-- 從資料庫撈資料到前端 -->
     <script>
         // 如果該會員是有收藏或建立過行程的就撈出卡片資料
         let grouplistOwl = document.getElementsByClassName('grouplistOwl');
         let myTour_wrap = document.getElementsByClassName('myTour_wrap');
         let myTour = document.getElementsByClassName('myTour');
-        let memNo = localStorage.getItem('memData');
-        memNo = JSON.parse(memNo).memNo;
+        let memberData = localStorage.getItem('memData');
+        grouplistMemNo = JSON.parse(memberData).memNo;
+        console.log(grouplistMemNo);
 
         function getMemberData() {
             let allSuccess = 0;
             //我收藏的行程
             $.ajax({
                 type: 'GET',
-                url: `./phps/grouplist_collect.php?memNo=${memNo}`,
+                url: `./phps/grouplist_collect.php?memNo=${grouplistMemNo}`,
                 dataType: 'json',
                 success: function (res) {
                     if (res) {
-                        console.log(res);
+                        // console.log(res);
                         myTour[0].style.display = 'none';
                         for (let i = 0; i < res.length; i++) {
                             //創造區
@@ -460,10 +462,13 @@
                             card_footer.appendChild(chooseBtn);
                             chooseBtn.appendChild(a);
                             a.innerText = '選擇此行程';
-                            a.href = './groupform.html';
-                            // allSuccess +=1;
-                            // if(allSuccess == 1) setCarousel();
+                            a.href = `./groupform.html?journeyNo=${res[i].journeyNo}`;
                         }
+                        allSuccess +=1;
+                        if(allSuccess == 2){
+                            setCarousel();
+                        }
+
                     }
                 }
             });
@@ -471,12 +476,12 @@
             //我建立的行程
             $.ajax({
                 type: 'GET',
-                url: `./phps/grouplist_build.php?memNo=${memNo}`,
+                url: `./phps/grouplist_build.php?memNo=${grouplistMemNo}`,
                 dataType: 'json',
                 success: function (res) {
                     if (res) { //如果資料庫有資料
-                        console.log(res);
-                        console.log(res.length); //1
+                        // console.log(res);
+                        // console.log(res.length); //1
                         myTour[1].style.display = 'none';
                         for (let i = 0; i < res.length; i++) {
                             //創造區
@@ -536,18 +541,20 @@
                             card_footer.appendChild(chooseBtn);
                             chooseBtn.appendChild(a);
                             a.innerText = '選擇此行程';
-                            a.href = './groupform.html';
-
-                            allSuccess +=1;
-                            if(allSuccess == 2) setCarousel();
+                            a.href = `./groupform.html?journeyNo=${res[i].journeyNo}`;
                         }
+                        allSuccess +=1;
+                        if(allSuccess == 2){
+                            setCarousel();
+                        }
+                        
                     }
                 }
             });
         };
-        
+
         getMemberData();
-        
+
     </script>
 
     <!-- owl carousel -->
@@ -565,11 +572,13 @@
                 responsive: {
                     0: {
                         items: 1,
-                        nav: true
+                        nav: true,
+                        loop: false
                     },
                     768: {
                         items: 2,
-                        nav: true
+                        nav: true,
+                        loop: false
                     },
                     1200: {
                         items: 3,
@@ -580,8 +589,8 @@
             })
         };
     </script>
+
     <script src="js/burger.js"></script>
-    <script src="js/forlogin.js"></script>
 </body>
 
 </html>

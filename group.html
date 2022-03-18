@@ -465,7 +465,7 @@
                             // 4-1. 卡片本身a連結
                             groupCard.appendChild(a);
                             // a.href = './groupdetail.html';
-                            a.setAttribute('href', `groupdetail.html?id=${res[i].groNo}`)
+                            a.setAttribute('href', `groupdetail.html?groNo=${res[i].groNo}`)
                             // 4-2. 卡片身體
                             groupCard.appendChild(card_body);
                             card_body.appendChild(card_tag);
@@ -508,6 +508,7 @@
                 }
             });
         };
+
 
         window.addEventListener('load', getGroData);
     </script>

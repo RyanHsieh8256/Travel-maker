@@ -378,17 +378,16 @@
 
     <!-- 公開揪團判斷必填表格 -->
     <script>
-        //判斷封面照片是否有上傳
-        let coverImg = document.getElementById('coverImg');
-        
-
-        let publish = document.getElementById('publish');
-        let groupTitle = document.getElementById('groupTitle');
-        let groupDesc = document.getElementById('groupDesc');
-
         //驗證文字是否填入
         function checkTextValue() {
+            let coverImg = document.getElementById('coverImg');
+            let publish = document.getElementById('publish');
+            let groupTitle = document.getElementById('groupTitle');
+            let groupDesc = document.getElementById('groupDesc');
             if (!groupTitle.value && !groupDesc.value) { //如果沒有值
+                console.log(!groupTitle.value);
+                console.log(!groupDesc.value);
+                console.log(groupTitle.value);
                 groupTitle.placeholder = "這是必填欄位";
                 groupDesc.placeholder = "這是必填欄位";
                 groupTitle.classList.add('alertTxtMust');
@@ -405,7 +404,7 @@
             //判斷空值
             for (let i = 0; i < selectDate.length; i++) {
                 if (!selectDate[i].value) {
-                    alertMessage[i].innerText = "給我填喔白癡";
+                    alertMessage[i].innerText = "這是必填欄位";
                 } else {
                     alertMessage[i].innerText = "";
                 }
@@ -423,7 +422,8 @@
             return !!selectDate.value;
         }
 
-        function submitData() {
+        function submitData() { //判斷全部的條件包括封面照片是否有上傳
+            let coverImg = document.getElementById('coverImg');
             let textValid = checkTextValue();
             let dateValid = checkDate();
             let alertBG = document.querySelector('.alertBG');
@@ -436,14 +436,14 @@
             // console.log(dateValid);
 
             if (textValid == false || dateValid == false || !imgSrc) { //如果全部情況都false的話，出現視窗提醒畫面
-                
+
                 alertBG.style.display = "block";
                 alertBG_content.innerText = "尚有資料未填寫完整";
                 dropZone_title.innerHTML = `請選一張您喜歡的封面照片吧<i class="bi bi-exclamation-lg"></i>`;
                 dropZone_title.style.color = "#f00";
 
                 alertBG_closeBtn.addEventListener('click', close);
-                
+
             } else { //代表他資料都填寫完整
                 console.log(textValid); //true
                 console.log(dateValid); // false
@@ -453,27 +453,15 @@
 
                 alertBG_closeBtn.addEventListener('click', toGroup);
             }
-            function close(){
+            function close() {
                 alertBG.style.display = "none";
             }
 
-            function toGroup(){
-                window.location.href="./group.html"
+            function toGroup() {
+                window.location.href = "./group.html"
             }
         }
         publish.addEventListener('click', submitData);
-    </script>
-
-    <!-- 關閉提醒視窗 -->
-    <script>
-        let alertBG_closeBtn = document.querySelector('.alertBG_closeBtn');
-        let alertBG = document.querySelector('.alertBG');
-
-        function close() {
-            // window.location.href="./group.html"
-            alertBG.style.display = "none";
-        }
-        alertBG_closeBtn.addEventListener('click', close);
     </script>
 
     <!-- 使用者離開時的提醒 -->
@@ -482,6 +470,33 @@
             return "";
         })
     </script> -->
+
+    <!-- 從grouplist頁面帶資料過來-->
+    <script>
+        let journeyNo = location.search.split('?')[1].split('=')[1];
+        grouplistData();
+        function grouplistData() {
+            $.ajax({
+                type: 'GET',
+                url: `./phps/groupform.php?journeyNo=${journeyNo}`,
+                dataType: 'json',
+                success: function (res) {
+                    // console.log(res);
+                    //串接封面照片
+                    coverImg = $('#coverImg');
+                    coverImg.attr('src', `images/journeyImg/${res[0].journeyImg}`); 
+                    //串接揪團名稱
+                    groupTitle = $('#groupTitle');
+                    $('#groupTitle').val(res[0].journeyName);
+
+                    //串接揪團描述
+                    groupDesc = $('#groupDesc');
+                    groupDesc.text(res[0].journeyInfo);
+                }
+            });
+        }
+
+    </script>
 
     <!-- 按公開揪團後，將資料送到後端 -->
     <!-- <script>
