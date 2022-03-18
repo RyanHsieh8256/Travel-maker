@@ -473,7 +473,7 @@
         });
     </script>
 
-    <!-- show alertBG -->
+    <!--  -->
     <script>
         let joinBtn = document.querySelector('.joinBtn');
         let alertBG_content = document.querySelector('.alertBG_content');
@@ -524,13 +524,13 @@
 
     <!-- 從group頁面帶資料過來 -->
     <script>
-        let id = location.search.split('?')[1].split('=')[1];
+        let groNo = location.search.split('?')[1].split('=')[1];
 
-        test();
-        function test() {
+        groupData();
+        function groupData() {
             $.ajax({
                 type: 'GET',
-                url: `./phps/groupdetail.php?id=${id}`,
+                url: `./phps/groupdetailData.php?groNo=${groNo}`,
                 dataType: 'json',
                 success: function (res) {
                     console.log(res);
@@ -566,6 +566,32 @@
                 }
             });
         }
+<<<<<<< HEAD
+=======
+    </script>
+
+    <!-- 按我要參團後，把memNo和groNo插入資料庫的gromem表格裡 -->
+    <script>
+        function addData(){
+            // console.log(123);
+            let memberData = localStorage.getItem('memData');
+            let groupdetailInfo = JSON.parse(memberData).memNo;
+
+            let dataToBack = `memNo=${groupdetailInfo}&groNo=${groNo}`;
+            console.log(dataToBack);
+            $.ajax({
+                type: 'POST',
+                url: './phps/groupdetailAddData.php',
+                data: `${dataToBack}`,
+                dataType: 'text',
+                success: function (res){
+                    console.log(res);
+                }
+            });
+
+        }
+        $('.joinBtn').on('click', addData);
+>>>>>>> Julinka
     </script>
 
     <script src="js/burger.js"></script>

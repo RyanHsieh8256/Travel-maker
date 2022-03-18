@@ -19898,10 +19898,24 @@ input[type="button"] {
 .groupdetailCoverInfo .groupdetailCoverInfo_wrap .info .initiatorPic {
   margin-right: 3%;
   width: 50px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .info .initiatorPic::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  position: relative;
 }
 
 .groupdetailCoverInfo .groupdetailCoverInfo_wrap .info .initiatorPic img {
-  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /* ---團的標題--- */
