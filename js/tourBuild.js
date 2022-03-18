@@ -632,6 +632,7 @@ function getUrl() {
   return no;
 }
 
+// 處理公開揪團按鈕的連結
 function goBuildGroup() {
   let buildGroBtn = document.querySelector('#goBuildGroup a');
   buildGroBtn.href = `groupform.html?groupform=${getUrl()}`
