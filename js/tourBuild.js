@@ -13,8 +13,8 @@ window.addEventListener('load',function() {
 
     sessionStorage.clear();
 
-    
     fetchData();
+    goBuildGroup();
 
 })
 
@@ -630,4 +630,9 @@ function getUrl() {
   let no = +parseUrl.split('/')[2];
 
   return no;
+}
+
+function goBuildGroup() {
+  let buildGroBtn = document.querySelector('#goBuildGroup a');
+  buildGroBtn.href = `groupform.html?groupform=${getUrl()}`
 }
