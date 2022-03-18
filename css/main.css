@@ -12287,6 +12287,11 @@ input[type="button"] {
   color: #007183;
 }
 
+.noPro p {
+  margin: 30px;
+  color: #868585;
+}
+
 .shoplist {
   margin: 10px;
   display: -webkit-box;
@@ -12394,10 +12399,15 @@ input[type="button"] {
 
 .shoplist_total .deadline {
   margin-left: 5px;
+  display: none;
 }
 
 .shoplist_total .shoptotal {
   color: #ff7e29;
+}
+
+.shoplist_total .btn {
+  display: none;
 }
 
 .shopbtn {
@@ -12455,12 +12465,12 @@ input[type="button"] {
   margin: 20px;
 }
 
-.personal_info .name {
+.personal_info .nameBox {
   margin-bottom: 10px;
 }
 
 @media screen and (min-width: 768px) {
-  .personal_info .name {
+  .personal_info .nameBox {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -12469,13 +12479,13 @@ input[type="button"] {
   }
 }
 
-.personal_info .name > * {
+.personal_info .nameBox > * {
   margin: 10px;
   margin-right: 2rem;
 }
 
 @media screen and (min-width: 768px) {
-  .personal_info .name > * {
+  .personal_info .nameBox > * {
     width: 40%;
     margin: 5px 10px;
   }
