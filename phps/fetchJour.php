@@ -26,6 +26,8 @@
                 join spot s on j.spotNo = s.spotNo
                 join city c on c.cityNo = s.cityNo
                 where g.groNo = $group");
+                
+            break;
 
     }
 
