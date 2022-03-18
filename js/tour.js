@@ -51,7 +51,8 @@ function fetchData() {
 
 }
 
-// 揪團用抓行程景點資料
+// 揪團用
+// 抓行程景點資料
 // function fetchData() {
 //   curGroup = +id;
 //   fetch(`./phps/fetchJour.php?group=${curGroup}`).then(res => res.json())
@@ -442,5 +443,82 @@ function getMemData() {
   }
 }
 
-// 傳回資料
-// 
+// 揪團用
+// 抓行程景點資料
+// function fetchData() {
+//   curGroup = +id;
+//   fetch(`./phps/fetchJour.php?group=${curGroup}`).then(res => res.json())
+//   .then(data => {
+
+//       // 抓該行程的天數
+
+//       let dayArr = [];
+//       let dayNum = Math.max(...data.map(jour => +jour.journeySpotDay));
+    
+
+//       for(let i = 1; i <= dayNum; i++ ) {
+//           let theData = data.filter(jour => jour.journeySpotDay == i);
+//           dayArr.push(theData);
+//       }
+
+    
+//       // 寫入session storage
+//       sessionStorage.clear();
+//       dayArr.forEach((day,i) => {
+//             // 整理陣列裡物件順序
+//           day.sort((a,b) => +a.sequence - +b.sequence);
+//           sessionStorage.setItem(`day${i+1}`, JSON.stringify(day));
+//       });
+
+//       displaySide(curGroup,dayNum);
+    
+//   })
+
+// }
+// fetchData();
+
+// // 呈現該行程景點
+// function displaySide(no,num) {
+//     let timelineBox = document.querySelector('.timeline_box');
+//     let timelineList = document.querySelector('.timeline_list');
+//     let oldPages = timelineList.children;
+//     [...oldPages].forEach(page => page.remove());
+
+//     let tabs = '';
+
+//     for(let i = 1; i <= num; i++) {
+//         let dayData = JSON.parse(sessionStorage.getItem(`day${i}`));
+
+//         let timelinePage = document.createElement('div');
+//         timelinePage.className = `timeline_page timeline_page--${i} ${i == 1 ? 'timeline_page--active' : ''}`;
+//         timelineList.append(timelinePage);
+
+//         tabs += `<div class="timeline_tab timeline_tab--${i} ${i == 1 ? 'timeline_tab--active' : ''}" data-tab="${i}">第${i}天</div>`;
+        
+    
+
+//         let items = dayData.map(day => {
+//             let {spotNo,sequence,spotName,spotImg} = day;
+
+//             let spotItem = `
+//             <li class="timeline_item tourBuild_item" data-no="${spotNo}" drag-handle>
+//             <div class="timeline_text">
+//                 <div class="timeline_num">${sequence}</div>
+//                 <div class="timeline_name">${spotName}</div>
+//             </div>
+//             <div class="timeline_img">
+//                 <img src="${spotImg}" alt="">
+//             </div>
+//             </li>
+//             `
+//             return spotItem;
+//         }).join('');
+        
+
+//         timelinePage.innerHTML = items;
+//     }
+
+//     timelineBox.innerHTML = tabs;
+
+//     changeTab();
+// }
