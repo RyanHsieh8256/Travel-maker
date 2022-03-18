@@ -18,10 +18,11 @@ try {
   $shopConTicketQuan = "conTicketQuan";
   $shopOrdNo = "OrdNo";
 
-  // $sql = "INSERT INTO `ordinfo`(`PRD_NO`, `PRICE`, `AMOUNT`) VALUES ($prdNo,$prdPrice,$prdNum)";
-  // $sql = "INSERT INTO `ord`(`CUS_NO`, `CUS_NAME`, `CUS_TEL`, `CUS_ADD`, `TIME`, `SHIPPING`, `TOTAL`, `PAY_STATE`, `STATE`, `COUPON`) VALUES ($prdNo,1,1,1,'2021/12/12',1,1,1,1,null)";
-  $sql = "INSERT INTO `ord`(`memNo`, `ordDate`, `ordSum`) VALUES ($memNo,$ordDate,$ordSum)";
-  $ordDate
+  $sql = "INSERT INTO `ord`(`memNo`, `ordDate`, `ordSum`) VALUES ($shopMemNo,$shopOrdDate,$shopOrdSum)";
+
+  $sql = "INSERT INTO `orddetail`(`ordNo`, `ticketSpotNo`, `fullFarePrice`, `fullFareQuan`, `halfFarePrice`, `halfFareQuan`, `conTicketPrice`, `conTicketQuan`) VALUES ($shopOrdNo,$shopTicketSpotNo,$shopFullFarePrice,$shopFullFareQuan,$shopHalfFarePrice,$shopHalfFareQuan,$shopConTicketPrice,$shopConTicketQuan)";
+
+ 
   $allTable = $pdo->prepare($sql);
   $allTable->execute();
  };
