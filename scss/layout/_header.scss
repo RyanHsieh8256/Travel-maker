@@ -182,14 +182,14 @@ $time: 10;
     margin-top: -$ballheight/2+px;
     animation: anim#{$i} $time+s infinite alternate ease-in-out;
     animation-delay: -($i * $time/$total)+s;
-    background:radial-gradient(circle at 35% 25%,
-    #fff 0,
-    hsla($i * 1.5, 60%, 50%, 1) 20%,
-    hsla($i * 1.5, 70%, 50%, 1) 40%,
-    hsla($i * 1.5, 80%, 50%, 1) 90%,
-    hsla($i * 1.5, 90%, 50%, 1) 95%,
-    hsla($i * 1.5, 100%, 50%, 1) 100%) ;
-    // background: hsla($i * 1.5, 100%, 50%, 1);
+    // background:radial-gradient(circle at 35% 25%,
+    // #fff 0,
+    // hsla($i * 1.5, 60%, 50%, 1) 20%,
+    // hsla($i * 1.5, 70%, 50%, 1) 40%,
+    // hsla($i * 1.5, 80%, 50%, 1) 90%,
+    // hsla($i * 1.5, 90%, 50%, 1) 95%,
+    // hsla($i * 1.5, 100%, 50%, 1) 100%) ;
+    background: hsla($i * 1.5, 100%, 50%, 1);
   }
 
   @keyframes anim#{$i} {
