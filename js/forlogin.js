@@ -330,7 +330,7 @@ function loginBox_doFirst(){
     loginBoxBtn.addEventListener('click',openLoginBox);
     memBoxBtn.addEventListener('click',openMemBox);
     logOutBtn.addEventListener('click',logOut);
-    $('.loadingbox').fadeOut(2000,function(){
+    $('.loadingbox').fadeOut(1500,function(){
         $('.loadingbox').remove();
     });
     

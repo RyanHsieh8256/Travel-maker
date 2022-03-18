@@ -453,9 +453,13 @@
         setItem();
 
         function save(){
+            let fullFarePrice = document.querySelector('.fullFarePrice').value
+            let halfFarePrice = document.querySelector('.halfFarePrice').value
+            let conTicketPrice = document.querySelector('.conTicketPrice').value
             let item = {    //要存的("key","value")
                 id: id,
                 name: $('.ticketSpotName').text(),
+                ticketPrice:[fullFarePrice,halfFarePrice,conTicketPrice],
                 qty: [$('.qty')[0].value, $('.qty')[1].value, $('.qty')[2].value],
                 amount: $('#total').text(),
                 spotImg:$('.upperImg1').attr("src"),
