@@ -10,8 +10,8 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!--放在head裡-->
-    <script src="js/jquery.js"></script>
-    <script src="js/vue.js"></script>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/vue.js"></script>
 </head>
 <body>
        <header>
@@ -214,8 +214,9 @@
     <main>
         <section class="l-full shopSearch">
             <div class="l-large shopSearch_wrap">
-                <input type="search">
+                <input id="searchInput" type="search">
                 <button class="shopSearchBtn"><i class="bi bi-search"></i></button>
+                <style id="m-search"></style>
             </div>
         </section>
         <section class="l-full shopProduct">
@@ -252,87 +253,92 @@
         </section>
     </footer>
 
-    <script src="js/burger.js"></script>
-    <script src="js/forlogin.js"></script>
+    <script src="./js/burger.js"></script>
+    <script src="./js/forlogin.js"></script>
     <script>
     
-         //--------------------sql-------------------------
+    //---------------抓頁面資料(sql)---------------
         $(document).ready(function(){
-            // let ticketspot;
-            // ticketspot = $(".card_title");
-            // ticketspot.text("123");
-
-            // let card_title = document.querySelectorAll("card_title")
-        
             $.ajax({
-                   type:'GET',
-                   url: './phps/shop.php',
-                   dataType: 'json',
-                   success: function(res){
-                //    console.log(card_title);
+                type:'GET',
+                url: './phps/shop.php',
+                dataType: 'json',
+                success: function(res){
+                // console.log(res);
                    
-                   for (let i = 0;i<res.length;i++){
-                       let card = document.createElement('div');
-                       card.classList.add('card','col-12', 'col-lg-6', 'col-xl-3');
-                      
-                       let ticketSpotLink = document.createElement('a');
-                       ticketSpotLink.setAttribute('href', `shopspot.html?id=${res[i].ticketSpotNo}`);
-
-                       let card_content =  document.createElement('div');
-                       card_content.classList.add('card_content');
-
-                       let card_body =  document.createElement('div');
-                       card_body.classList.add('card_body');
-
-                       let card_tag = document.createElement('div');
-                       card_tag.classList.add('card_tag');
-                       card_tag.innerText = res[i].cityName;
-
-                       let card_img = document.createElement('div');
-                       card_img.classList.add('card_img'); 
-
-                       let spot_img = document.createElement('img');
-                       spot_img.setAttribute("src", `${res[i].mainImg}`);
-
-                       let card_title = document.createElement('h4');
-                       card_title.classList.add('card_title');
-                       card_title.innerText = res[i].ticketSpotName;
-
-                       let card_text = document.createElement('div');
-                       card_text.classList.add('card_text');
-                       card_text.innerText = res[i].ticketSpotIntro;
-
-                       let card_footer = document.createElement('div');
-                       card_footer.classList.add('card_footer');
-
-                       let card_shopping = document.createElement('div');
-                       card_shopping.classList.add('card_shopping');
-
-                       let card_count = document.createElement('div');
-                       card_count.classList.add('card_count');
-                       card_count.innerHTML = `NT$<span>${res[i].conTicketPrice}起</span>`
-
-                       document.getElementById('card_box').appendChild(card);
-                       card.appendChild(ticketSpotLink);
-                       ticketSpotLink.appendChild(card_content);
-                       card_content.appendChild(card_body);
-                       card_content.appendChild(card_footer);
-                       card_body.appendChild(card_tag)
-                       card_body.appendChild(card_img)
-                       card_img.appendChild(spot_img)
-                       card_body.appendChild(card_title)
-                       card_body.appendChild(card_text)
-                       card_footer.appendChild(card_shopping)
-                       card_shopping.appendChild(card_count)
-                      
-                    //    console.log(res[i])
-                   }
-   
-                   },
-                });   
-
-                
-       });
+                    for (let i = 0;i<res.length;i++){
+                        let card = document.createElement('div');
+                        card.classList.add('card','col-12', 'col-lg-6', 'col-xl-3');
+                        card.dataset.index = `${res[i].ticketSpotName},${res[i].cityName},${res[i].cityArea}`;
+                    
+                        let ticketSpotLink = document.createElement('a');
+                        ticketSpotLink.setAttribute('href', `shopspot.html?id=${res[i].ticketSpotNo}`);
+                        let card_content =  document.createElement('div');
+                        card_content.classList.add('card_content');
+                        let card_body =  document.createElement('div');
+                        card_body.classList.add('card_body');
+                        let card_tag = document.createElement('div');
+                        card_tag.classList.add('card_tag');
+                        card_tag.innerText = res[i].cityName;
+                        let card_img = document.createElement('div');
+                        card_img.classList.add('card_img'); 
+                        let spot_img = document.createElement('img');
+                        spot_img.setAttribute("src", `${res[i].mainImg}`);
+                        let card_title = document.createElement('h4');
+                        card_title.classList.add('card_title');
+                        card_title.innerText = res[i].ticketSpotName;
+                        let card_text = document.createElement('div');
+                        card_text.classList.add('card_text');
+                        card_text.innerText = res[i].ticketSpotIntro;
+                        let card_footer = document.createElement('div');
+                        card_footer.classList.add('card_footer');
+                        let card_shopping = document.createElement('div');
+                        card_shopping.classList.add('card_shopping');
+                        let card_count = document.createElement('div');
+                        card_count.classList.add('card_count');
+                        card_count.innerHTML = `NT$<span>${res[i].conTicketPrice}起</span>`
+                        document.getElementById('card_box').appendChild(card);
+                        card.appendChild(ticketSpotLink);
+                        ticketSpotLink.appendChild(card_content);
+                        card_content.appendChild(card_body);
+                        card_content.appendChild(card_footer);
+                        card_body.appendChild(card_tag)
+                        card_body.appendChild(card_img)
+                        card_img.appendChild(spot_img)
+                        card_body.appendChild(card_title)
+                        card_body.appendChild(card_text)
+                        card_footer.appendChild(card_shopping)
+                        card_shopping.appendChild(card_count)
+                        // console.log(res[i])
+                    }
+                },
+            }); 
+            
+    //---------------搜尋---------------
+        //(搜尋Bar-關鍵字)
+            var that = $(this);
+            var mSearch = $("#m-search");
+            $('#searchInput').bind("change paste", function(){
+              var value = $(this).val();
+              if (!value) {
+                mSearch.html("");
+                return;
+              }; 
+              mSearch.html('.card:not([data-index*="' + value.toLowerCase() + '"]) {display: none;}');
+            });
+        
+        //(typeBox搜尋)
+            var mSearch = $("#m-search");
+            $('.parttxt').bind("click", function(){
+              var value = $('h2', this).text();
+              console.log(value)
+              if (!value) {
+                mSearch.html("");
+                return;
+              }; 
+              mSearch.html('.card:not([data-index*="' + value.toLowerCase() + '"]) {display: none;}');
+            });
+                    });
    </script>
 </body>
 
