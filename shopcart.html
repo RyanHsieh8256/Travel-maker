@@ -176,12 +176,16 @@
             <div class="shopcart_wrap">
                 <h2>購物車</h2>
                 <hr>
-                <div class="shoplist_wrap"></div>
+                <div class="shoplist_wrap">
+                    <div class="noPro">
+                        <p>您的購物車是空的</p>
+                    </div>
+                </div>
                 <hr>
                     <div class="shoplist_total">
                         <p>使用期限: <span class="deadline"></span></p>
                         <p class="shoptotal">總金額 TWD &emsp;$<span id="shoptotal">0</span> </p>
-                        <button class="btn btn--cart">前往結帳</button>
+                        <a href="shoppay.html" class="btn btn--cart">前往結帳</a>
                     </div>
             </div>
             <div class="shopbtn">
@@ -232,7 +236,7 @@
         }
         // console.log(year, month, date);
         // console.log(`${year} / ${month}/ ${date}`);
-
+        
 
         //--------動態新增及取localstorage資料--------
         
@@ -342,8 +346,12 @@
                 localStorage.setItem('cart',JSON.stringify(cart));
                 cart = JSON.parse(localStorage.getItem('cart'));
                 totalSum();
+                location.reload();
+
             })
         }
+
+        
 
 
         //--------------amount---------------
@@ -356,9 +364,32 @@
 
             let shoptotal = document.getElementById("shoptotal")
             shoptotal.innerText = total;
+
         }
         window.addEventListener('load',totalSum)
+
+
+        //------------------空購物車---------------
+       if($('.shoplist').length>0){
+           $('.noPro').css('display','none')
+           $('.deadline').css('display','block')
+           $('.btn--cart').css('display','inline-block')
+       }
+    
         
+        //-------------------結帳登入驗證-------------------
+
+        let btnCart = document.querySelector('.btn--cart');
+       
+        function loginCheck(){
+            if(memData == null){
+                alert('請先登入會員')
+                btnCart.removeAttribute("href")
+            }
+
+        };
+        
+        btnCart.addEventListener('click',loginCheck)
         
         
     </script>

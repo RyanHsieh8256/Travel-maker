@@ -268,7 +268,7 @@
 
                         <div class="subbtn">
                             <button class="btn btn--cancel tocart">加入購物車</button>
-                            <a href="shoppay.html"><button class="btn btn--cart topay">立即訂購</button></a>
+                            <a href="shoppay.html" class="btn btn--cart topay">立即訂購</a>
                         </div>
                     </div>
                 </div>
@@ -422,24 +422,23 @@
     
 
     <script>
-        //---------存-------------
-        // let id = location.search.split('?')[1].split('=')[1];
-        //     console.log(id);
+        //------------------------存-------------------------------
+        let id = location.search.split('?')[1].split('&')[0].split('=')[1];
+        // console.log(location.href.search('&'));
 
-            let id = location.search.split('?')[1].split('&')[0].split('=')[1];
-            console.log(location.href.search('&'));
-            if(location.href.search('&') != -1){
-                let full = location.search.split('?')[1].split('&')[1].split('=')[1];
-                console.log(full);
-                let half = location.search.split('?')[1].split('&')[2].split('=')[1];
-                console.log(half);
-                let con = location.search.split('?')[1].split('&')[3].split('=')[1];
-                console.log(con);
+        if(location.href.search('&') != -1){
+            let full = location.search.split('?')[1].split('&')[1].split('=')[1];
+            // console.log(full);
+            let half = location.search.split('?')[1].split('&')[2].split('=')[1];
+            // console.log(half);
+            let con = location.search.split('?')[1].split('&')[3].split('=')[1];
+            // console.log(con);
+        
+            $('#fullqty').val(full)
+            $('#halfqty').val(half)
+            $('#conqty').val(con)
+        }
 
-                $('#fullqty').val(full)
-                $('#halfqty').val(half)
-                $('#conqty').val(con)
-            }
 
 
         function setItem() {
@@ -450,6 +449,7 @@
             topay.addEventListener('click',save)
 
         };
+
         setItem();
 
         function save(){
@@ -460,28 +460,55 @@
                 amount: $('#total').text(),
                 spotImg:$('.upperImg1').attr("src"),
             };
-            console.log(item)
+
+            // console.log(item)
             let cart = localStorage.getItem('cart');    //拿到localstorage
             cart = cart ? JSON.parse(cart) : [];    //轉JSON格式
             let found = false;
-            for(let i=0; i<cart.length; i++){
+
+            for(let i=0; i<cart.length; i++){    //重複景點不加購物車
                 if(cart[i].id === item.id){
                     cart[i] = item;
                     found = true;
                     break;
+                }    
+            }
+
+            let qty = document.querySelectorAll('.qty')
+
+            
+    
+
+            for(let i=0; i<qty.length; i++){
+                let fullqty = document.getElementById('fullqty').value
+                // console.log(fullqty)
+                let halfqty = document.getElementById('halfqty').value
+                let conqty = document.getElementById('conqty').value
+                
+                if(fullqty == 0 && halfqty == 0 && conqty == 0){
+                alert('您沒有選擇任何商品數量');
+                topay.removeAttribute("href")
+                found = true;
+                break;
+                }else{
+                    topay.setAttribute("href","shoppay.html")
                 }
             }
+
             if(found === false){
-                cart.push(item);    //新的都要往後加
+                cart.push(item);   //新的都要往後加
             }
-            console.log(cart)
-            //cart = JSON.stringify(cart);    //轉成字串
-            localStorage.setItem('cart', JSON.stringify(cart));    //傳到localstorage
+
+           
+
+            // console.log(cart)
+            localStorage.setItem('cart', JSON.stringify(cart));    //轉成字串，傳到localstorage
         }
 
-        //-----------------------sql----------------------
+        //-----------------------sql------------------------
         getDetail();
         getBottom();
+
         function getDetail() {
             $.ajax({
                 type: 'GET',
@@ -526,9 +553,9 @@
                 conTicketPrice.val(res[0].conTicketPrice)
 
                 let ticketDesc;
-               ticketDesc = $(".ticketDesc")
-               ticketDesc.text(res[0].ticketDesc)
-          //   console.log(res);
+                ticketDesc = $(".ticketDesc")
+                ticketDesc.text(res[0].ticketDesc)
+              //console.log(res);
                 },
             });
         }
@@ -539,40 +566,37 @@
                 url: `./phps/shopdown.php?id=${id}`,
                 dataType: 'json',
                 success: function (res) {
-                console.log(res);
-               let underImgSrc1;
-               underImgSrc1 = $(".underImgSrc1")
-               underImgSrc1.attr("src",`${res[0].imgSrc}`);
+                // console.log(res);
+                let underImgSrc1;
+                underImgSrc1 = $(".underImgSrc1")
+                underImgSrc1.attr("src",`${res[0].imgSrc}`);
 
-               let underImgDesc1;
-               underImgDesc1 = $(".underImgDesc1")
-               underImgDesc1.text(res[0].imgDesc)
+                let underImgDesc1;
+                underImgDesc1 = $(".underImgDesc1")
+                underImgDesc1.text(res[0].imgDesc)
 
-               let underImgSrc2;
-               underImgSrc2 = $(".underImgSrc2")
-               underImgSrc2.attr("src",`${res[1].imgSrc}`);
+                let underImgSrc2;
+                underImgSrc2 = $(".underImgSrc2")
+                underImgSrc2.attr("src",`${res[1].imgSrc}`);
 
-               let underImgDesc2;
-               underImgDesc2 = $(".underImgDesc2")
-               underImgDesc2.text(res[1].imgDesc)
+                let underImgDesc2;
+                underImgDesc2 = $(".underImgDesc2")
+                underImgDesc2.text(res[1].imgDesc)
 
-               let underImgSrc3;
-               underImgSrc3 = $(".underImgSrc3")
-               underImgSrc3.attr("src",`${res[2].imgSrc}`);
+                let underImgSrc3;
+                underImgSrc3 = $(".underImgSrc3")
+                underImgSrc3.attr("src",`${res[2].imgSrc}`);
 
-               let underImgDesc3;
-               underImgDesc3 = $(".underImgDesc3")
-               underImgDesc3.text(res[2].imgDesc)
-
-               
+                let underImgDesc3;
+                underImgDesc3 = $(".underImgDesc3")
+                underImgDesc3.text(res[2].imgDesc)
                 }, 
             });
         }
 
-        //-------------------slide---------------------
+        //-----------------------slide-------------------------
         $(document).ready(function () {
             var shopspotSlide = $("#shopspotSlide");
-
 
             function isMobileDevice() {
                 let mobileDevices = ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone']
@@ -594,8 +618,6 @@
                     autoplay: true,
                     margin: 10,
                     nav: true,
-
-
                 });
             } else {
                 //手機的話執行
@@ -604,20 +626,17 @@
                     autoplay: true,
                     loop: true,
                     nav: true,
-
-
                 });
             };
 
-
-
-            //  ----------------Shopping-cart-------------
+            //  --------------------Shopping-cart-------------------------
             $(document).ready(function () {
                 update_amounts();
                 $('.qty, .price').on('keyup keypress blur change', function (e) {    //在事件發生時執行
                     update_amounts();
                 });
             });
+
             function update_amounts() {
                 var sum = 0.0;
                 $('#myTable > tbody  > tr').each(function () {
@@ -631,7 +650,7 @@
                 $('.total').text(sum);
             }
 
-            //for quantity-increment-or-decrement
+            //---指定按鈕被點擊時，指定之class裡的值做+或-，並執行更新總金額---
             var incrementQty;
             var decrementQty;
             var plusBtn = $(".cart-qty-plus");
@@ -657,9 +676,9 @@
 
         });
 
-        //指定按鈕被點擊時，指定之class裡的值做+或-，並執行更新總金額
+        
 
-        //-------------Select click color---------------
+        //----------------Select click-------------------
         $(document).ready(function () {
             $("li").each(function (index) {
                 $(this).click(function () {  //點選觸發事件
@@ -668,6 +687,32 @@
                 });
             });
         });
+
+
+        //-------------------結帳登入驗證-------------------
+
+        let topay = document.querySelector('.topay');
+        let amount = document.getElementById('total').innerText
+        console.log(amount)
+       
+        function loginCheck(){
+             
+            if(memData == null){
+                alert('請先登入會員')
+                topay.removeAttribute("href")
+            }
+            // else{
+            //     topay.setAttribute('href',"shoppay.html")
+            // }
+
+        };
+        
+        topay.addEventListener('click',loginCheck)
+
+
+
+        
+
 
     
     </script>
