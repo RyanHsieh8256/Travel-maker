@@ -231,7 +231,7 @@
                                             <h4 class="horizontalcard_title">{{item.journeyName}}</h4>
                                             <p class="horizontalcard_text text_Overflow">{{item.journeyInfo}}</p>
                                             <div class="horizontalcard_footer">
-                                                <div class="horizontalcard_footerItem"><a href="groupform.html">以此行程揪團</a></div>
+                                                <div class="horizontalcard_footerItem"><a :href="'groupform.html?journeyNo=' + item.journeyNo">以此行程揪團</a></div>
                                                 <div class="horizontalcard_footerItem"><a :href="'tourbuild.html#/tour/' + item.journeyNo">編輯行程</a></div>
                                             </div>
                                         </div>

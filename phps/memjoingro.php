@@ -1,7 +1,7 @@
 <?php
 try{
   require_once("connectdatabase.php");
-  $sql = "SELECT * FROM `gro` WHERE memNo=:memNo"; 
+  $sql = "SELECT * FROM  `gro` JOIN `gromem` on gromem.groNo = gro.grono WHERE gromem.memNo=:memNo;"; 
   $groDate = $pdo->prepare($sql);
   $groDate->bindValue(":memNo", $_POST["memNo"]);
   $groDate->execute();
