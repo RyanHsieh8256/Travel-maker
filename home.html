@@ -665,127 +665,154 @@
 
     <script>
     
-    function homeAni() {
-        TweenMax.to('.first', 1.5, {
-            delay: .2,
-            left: '-100%',
-            ease: Expo.easeInOut
-        })
+        function homeAni() {
+            TweenMax.to('.first', 1.5, {
+                delay: .2,
+                left: '-100%',
+                ease: Expo.easeInOut
+            })
 
-        TweenMax.to('.second', 1.5, {
-            delay: .4,
-            left: '-100%',
-            ease: Expo.easeInOut
-        })
+            TweenMax.to('.second', 1.5, {
+                delay: .4,
+                left: '-100%',
+                ease: Expo.easeInOut
+            })
 
-        TweenMax.to('.third', 1.5, {
-            delay: .6,
-            left: '-100%',
-            ease: Expo.easeInOut
-        })
-    }
-
-    homeAni();
-    
-
-    function fillBar() {
-
-    let totalWidth = document.body.scrollWidth - window.innerWidth;
-    let widthPos = window.scrollX;
-
-    let posPercent = (widthPos / totalWidth * 100);
-
-    let bar = document.querySelector('.progress_bar .progress_barNav');
-    bar.style.width = `${posPercent}%`;
-    }
-
-    function fillBarVertical(){
-        totalSize = document.body.offsetHeight - window.innerHeight;
-        heightPosition = window.scrollY;
-        percentPosition = heightPosition / totalSize * 100;
-      
-        let bar = document.querySelector('.progress_bar .progress_barNav');
-        bar.style.height = percentPosition + '%'; 
-        bar.style.width = '2px';
-    }
-
-    window.addEventListener('wheel',(e) => {
-   
-
-    if(e.deltaY != 0 && window.innerWidth >= 1200) 
-    window.scroll(window.scrollX + e.deltaY * 1, window.scrollY);
-
-
-    fillBar();
-    })
-
-    window.addEventListener("scroll", function(e){
-  
-        if (window.innerWidth <= 1200) {
-            fillBarVertical();
+            TweenMax.to('.third', 1.5, {
+                delay: .6,
+                left: '-100%',
+                ease: Expo.easeInOut
+            })
         }
-    })
-    
-    function displayMap() {
-        var map = L.map('homeTour_map').setView([24.98921012878418, 121.31353759765625], 10);
 
-        map.scrollWheelZoom.disable()
-        map.dragging.disable();
-
-
-        let Stamen_Watercolor = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
-            // attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-            subdomains: 'abcd',
-            minZoom: 1,
-            maxZoom: 16,
-            ext: 'jpg'
-        }).addTo(map);
-
-        L.marker([24.98921012878418, 121.31353759765625]).addTo(map)
-            .bindPopup('以家為起點<br> 規畫屬於你的旅途吧')
-            .openPopup();
-    }
-
-    displayMap();
-
-    // 建立行程表單需要:
-    function popupSwitch() {
-        let closeBtn = document.querySelector('.popup_close');
-        let startBtn = document.querySelector('.homeTour_point--start');
-
-        let popup = document.querySelector('.popup');
-
-        closeBtn.addEventListener('click',() => {
-            popup.style.display = 'none';
-        })
-
-        startBtn.addEventListener('click',() => {
-            popup.style.display = 'flex';
-        })
-    }
-    popupSwitch();
-
-    function slidePage() {
-        let nextBtn = document.querySelector('#slide-next');
-        let arrowBtn = document.querySelector('#arrowBtn');
-        let box = document.querySelector('.tourForm_box');
-
-        nextBtn.addEventListener('click',() => {
-        let form = document.querySelector('.tourForm_form');
-        if(form.tourName.value) {
-            box.style.transform = `translateX(calc(-100% - 20px))`;
-        }  
+        homeAni();
         
+
+        function fillBar() {
+
+        let totalWidth = document.body.scrollWidth - window.innerWidth;
+        let widthPos = window.scrollX;
+
+        let posPercent = (widthPos / totalWidth * 100);
+
+        let bar = document.querySelector('.progress_bar .progress_barNav');
+        bar.style.width = `${posPercent}%`;
+        }
+
+        function fillBarVertical(){
+            totalSize = document.body.offsetHeight - window.innerHeight;
+            heightPosition = window.scrollY;
+            percentPosition = heightPosition / totalSize * 100;
+        
+            let bar = document.querySelector('.progress_bar .progress_barNav');
+            bar.style.height = percentPosition + '%'; 
+            bar.style.width = '2px';
+        }
+
+        window.addEventListener('wheel',(e) => {
+    
+
+        if(e.deltaY != 0 && window.innerWidth >= 1200) 
+        window.scroll(window.scrollX + e.deltaY * 1, window.scrollY);
+
+
+        fillBar();
         })
 
-        arrowBtn.addEventListener('click',() => {
-        box.style.transform = `translateX(0%)`;
+        window.addEventListener("scroll", function(e){
+    
+            if (window.innerWidth <= 1200) {
+                fillBarVertical();
+            }
         })
+        
+        function displayMap() {
+            var map = L.map('homeTour_map').setView([24.98921012878418, 121.31353759765625], 10);
 
-    }
+            map.scrollWheelZoom.disable()
+            map.dragging.disable();
 
-    slidePage();
 
+            let Stamen_Watercolor = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
+                // attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                subdomains: 'abcd',
+                minZoom: 1,
+                maxZoom: 16,
+                ext: 'jpg'
+            }).addTo(map);
+
+            L.marker([24.98921012878418, 121.31353759765625]).addTo(map)
+                .bindPopup('以家為起點<br> 規畫屬於你的旅途吧')
+                .openPopup();
+        }
+
+        displayMap();
+
+        // 建立行程表單需要:
+        function popupSwitch() {
+            let closeBtn = document.querySelector('.popup_close');
+            let startBtn = document.querySelector('.homeTour_point--start');
+
+            let popup = document.querySelector('.popup');
+
+            closeBtn.addEventListener('click',() => {
+                popup.style.display = 'none';
+            })
+
+            startBtn.addEventListener('click',() => {
+                popup.style.display = 'flex';
+            })
+        }
+        popupSwitch();
+
+        function slidePage() {
+            let nextBtn = document.querySelector('#slide-next');
+            let arrowBtn = document.querySelector('#arrowBtn');
+            let box = document.querySelector('.tourForm_box');
+
+            nextBtn.addEventListener('click',() => {
+            let form = document.querySelector('.tourForm_form');
+            if(form.tourName.value) {
+                box.style.transform = `translateX(calc(-100% - 20px))`;
+            }  
+            
+            })
+
+            arrowBtn.addEventListener('click',() => {
+            box.style.transform = `translateX(0%)`;
+            })
+
+        }
+
+        slidePage();
+
+        // 商城的連結處理
+        function shopHref() {
+            // 北部
+           for(let i = 1; i <= 3; i++) {
+               let homeRow = document.querySelector(`.homeRow_${i}b a`);
+               homeRow.href = `shop.html?area=north`;
+           }
+
+            //    中部
+           for(let i = 1; i <= 3; i++) {
+               let homeRow = document.querySelector(`.homeRow_${i}c a`);
+               homeRow.href = `shop.html?area=middle`;
+           }
+
+            //    東部
+           for(let i = 0; i <= 2; i++) {
+               let homeRow = document.querySelector(`.homeRow_${i}e a`);
+               homeRow.href = `shop.html?area=east`;
+           }
+
+            //   南部 
+           for(let i = 0; i <= 2; i++) {
+               let homeRow = document.querySelector(`.homeRow_${i}f a`);
+               homeRow.href = `shop.html?area=south`;
+           }
+        }
+        shopHref();
     </script>
 </body>
 </html>
