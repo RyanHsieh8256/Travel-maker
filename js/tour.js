@@ -136,13 +136,18 @@ function changeCity(e) {
 async function displayTour(data) {
   tourSlider = document.querySelector('.tour_slider');
   tourWrap = document.querySelector('.tour_wrap');
+  noTour = document.querySelector('.tour_noTour');
+  
 
   // 沒有行程時
-  if(data == []) {
-    tourWrap.innerHTML = `<div>沒有行程喔</div>`;
-    console.log('沒行程');
+  if(data.length == 0) {
+    noTour.style.display = 'flex';
+    tourWrap.style.display = 'none';
     
   }else {
+    noTour.style.display = 'none';
+    tourWrap.style.display = 'flex';
+
     let tours = data.map((tour,i) => {
       let {journeyImg,journeyNo,journeyName} = tour;
      
