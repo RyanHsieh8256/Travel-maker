@@ -59,6 +59,7 @@
                 position:absolute;
                 top: 0;
                 left: 0;
+                height: 100%;
             }
         }
         .memberAccountName{
@@ -142,6 +143,11 @@
             width: 100%;
             max-width: 250px;
         }
+    }
+    td.memNote{
+        font-size: 12px;
+        color: rgb(63, 63, 63);
+        text-align: right;
     }
 }
 .sendButton{

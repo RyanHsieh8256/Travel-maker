@@ -6,10 +6,10 @@ if(memData){
 }
 
 //檢查是否已登入
-// if(memData == null){
-//     window.alert('請先登入!');
-//     window.location = "home.html";
-// }
+if(memData == null){
+    window.alert('請先登入!');
+    window.location = "home.html";
+}
 
 //登出按鈕
 logOutBtn.onclick = function(){
