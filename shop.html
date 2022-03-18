@@ -178,28 +178,28 @@
                 <div class="row">
                     <div class="col-6 col-md-3">
                         <div class="item" style="background-image: url('images/shop/shopType_north.jpg');">
-                            <div class="parttxt">
+                            <div class="parttxt" data-area="north">
                                 <h2>北部</h2>
                             </div>
                         </div>
                     </div>
                     <div class="col-6 col-md-3">
                         <div class="item" style="background-image: url('images/shop/shopType_middle.jpg');">
-                            <div class="parttxt">
+                            <div class="parttxt" data-area="middle">
                                 <h2>中部</h2>
                             </div>
                         </div>
                     </div>
                     <div class="col-6 col-md-3">
                         <div class="item" style="background-image: url('images/shop/shopType_south.jpg');">
-                        <div class="parttxt">
+                        <div class="parttxt" data-area="south">
                             <h2>南部</h2>
                         </div>
                         </div>
                     </div>
                     <div class="col-6 col-md-3">
                         <div class="item" style="background-image: url('images/shop/shopType_east.jpg');">
-                        <div class="parttxt">
+                        <div class="parttxt" data-area="east">
                             <h2>東部</h2>
                         </div>
                     </div>
@@ -330,17 +330,43 @@
         //(typeBox搜尋)
             var mSearch = $("#m-search");
             $('.parttxt').bind("click", function(){
-              var value = $('h2', this).text();
-              console.log(value)
-              if (!value) {
+              var value = $(this)[0].dataset['area'];
+              typeBoxSearch(value);
+            });
+            function getArea(){
+               let typeArea = location.search.split('?')[1].split('&')[0].split('=')[1];
+               return typeArea;  
+            }
+            typeBoxSearch(getArea());
+            
+
+            function typeBoxSearch(value){
+                let sort ="";
+              switch(value){
+              case "north": 
+                sort="北部";
+                break;
+              case "middle":
+                sort="中部";
+                break;
+              case "south":
+                sort="南部";
+                break;
+              case "east":
+                sort="東部";
+                break;
+              }
+
+              console.log(sort);
+            //   console.log(value)
+              if (!sort) {
                 mSearch.html("");
                 return;
               }; 
-              mSearch.html('.card:not([data-index*="' + value.toLowerCase() + '"]) {display: none;}');
-            });
-                    });
+              
+              mSearch.html('.card:not([data-index*="' + sort.toLowerCase() + '"]) {display: none;}');
+            }
+        });
    </script>
 </body>
-
-
 </html>
