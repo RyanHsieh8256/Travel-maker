@@ -276,7 +276,7 @@
 
     <script>
 
-        //--------------------會員資料帶入---------------------
+    //--------------------會員資料帶入---------------------
         let member = localStorage.getItem('memData');
         member = JSON.parse(memData);
 
@@ -289,7 +289,7 @@
         let email = document.getElementById('checkemail');
         email.value = member.memEmail;
 
-        //------------------deadline----------------
+    //------------------deadline----------------
         let deadline = document.querySelectorAll('.deadline'); //取得class deadline
         
         
@@ -307,7 +307,7 @@
         // console.log(year, month, date);
         // console.log(`${year} / ${month}/ ${date}`);
         
-        //------------------cellphone-----------------------------
+    //------------------cellphone驗證-------------------------
         let cellphoneReg =/^09\d{2}-?\d{3}-?\d{3}$/; 
 
         function checkPhone(){
@@ -322,7 +322,7 @@
         }
 
         
-        //------------------email-----------------------------
+    //------------------email驗證--------------------------
         let emailReg = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$/ 
 
 
@@ -338,10 +338,9 @@
 
 
 
-        //-----------------credit-card-----------------------
-        //(信用卡驗證)
-        let cardReg = /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6011[0-9]{12}|622((12[6-9]|1[3-9][0-9])|([2-8][0-9][0-9])|(9(([0-1][0-9])|(2[0-5]))))[0-9]{10}|64[4-9][0-9]{13}|65[0-9]{14}|3(?:0[0-5]|[68][0-9])[0-9]{11}|3[47][0-9]{13})*$/     //信用卡驗證規則
-
+    //-----------------credit-card驗證-----------------------
+        //(卡號驗證)
+        let cardReg = /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6011[0-9]{12}|622((12[6-9]|1[3-9][0-9])|([2-8][0-9][0-9])|(9(([0-1][0-9])|(2[0-5]))))[0-9]{10}|64[4-9][0-9]{13}|65[0-9]{14}|3(?:0[0-5]|[68][0-9])[0-9]{11}|3[47][0-9]{13})*$/
 
         function checkCredit(){
             let card = document.getElementById('checknumber');   //取得id number 設變數名為card
@@ -353,7 +352,7 @@
             }
         }
 
-        //(信用卡格式)
+        //(格式驗證)
         $("#checknumber").on("input",function(e){
         var oldVal = e.delegateTarget.value;  //返回指定元素
         var newVal = oldVal.replace(/\s/g,'-').replace(/[^\d]/g,'-').replace(/(\d{4})(?=\d)/g,'$1 ');   //指定格式
@@ -361,29 +360,29 @@
         });
 
 
-        //-----------------exp-------------------------
+        //(有效日期驗證)
         document.getElementById("expcheck").addEventListener("keyup",function(e){
-        if(e.keyCode!=8 &&(e.keyCode < 37 || e.keyCode > 40)){  //不能是空白、方向鍵
-            let checknumber = this.value.replace(/\D+/g,"");  //確認使否為數字
-            let now = new Date()  //現在時間
-            let rule = (""+now.getFullYear()).slice(-2) * 100 + now.getMonth() + 1;  //取年的後兩位+月份
-           
-            this.value = checknumber.replace(/(\d{2})(\d*)/,function(d,m,y){
-                let alert = document.getElementById('experror');  
-                if(m > 12 || y && y.length == 2 && y * 100 + m * 1 < rule){  //月份不能大於12，年份不為0並且不可小於現在的年份
-                    alert.style.display="block"  
-                    return m + "/" + y;
-                }else{
-                    alert.style.display="none" 
-                    return m + "/" + y;
-                }
-            })
-        }
-    },false);
-//----------------------------------
-let cart = localStorage.getItem('cart');
-        cart = JSON.parse(cart);
+            if(e.keyCode!=8 &&(e.keyCode < 37 || e.keyCode > 40)){  //不能是空白、方向鍵
+                let checknumber = this.value.replace(/\D+/g,"");  //確認使否為數字
+                let now = new Date()  //現在時間
+                let rule = (""+now.getFullYear()).slice(-2) * 100 + now.getMonth() + 1;  //取年的後兩位+月份
+            
+                this.value = checknumber.replace(/(\d{2})(\d*)/,function(d,m,y){
+                    let alert = document.getElementById('experror');  
+                    if(m > 12 || y && y.length == 2 && y * 100 + m * 1 < rule){  //月份不能大於12，年份不為0並且不可小於現在的年份
+                        alert.style.display="block"  
+                        return m + "/" + y;
+                    }else{
+                        alert.style.display="none" 
+                        return m + "/" + y;
+                    }
+                })
+            }
+        },false);
 
+    //--------------抓取明細資料及動態新增--------------------
+        let cart = localStorage.getItem('cart');
+        cart = JSON.parse(cart);
         // console.log(cart.length)
 
         for (let i = 0;i<cart.length;i++){
@@ -440,14 +439,11 @@ let cart = localStorage.getItem('cart');
             content.appendChild(fullFare);
             content.appendChild(halfFare);
             content.appendChild(conTicket);
-
             content_wrap.appendChild(sub_box);
             sub_box.appendChild(sub);
-
-
         }
 
-        //--------------amount----------------
+    //--------------計算總金額----------------
         
         var Total = 0;
         window.addEventListener('load',function(){
@@ -461,56 +457,46 @@ let cart = localStorage.getItem('cart');
             shoptotal.innerText = total;
             console.log(total); 
             Total =total;
-        })
+        });
         
         console.log(Total);
-    //--------------------------------
-    let confirm = document.querySelector('.confirm');
-    // 點擊確認結帳後要做的事
-    function cearLocal(){
 
-        // localStorage.removeItem('cart');
+    //---------點擊確認結帳後要做的事(insert資料庫、清除cart localstorage、跳轉至shop首頁)------------
+        let confirmbtn = document.querySelector('.confirm');
 
+        function cearLocal(){
+            // localStorage.removeItem('cart');
+            // location.href = './shop.html';
+            let mem_data =localStorage.getItem('memData')
+            let cart_data = localStorage.getItem('cart')
+            let shopMemNo = JSON.parse(mem_data).memNo
+            let shopOrdDate = new Date().toLocaleDateString()
+            let shopOrdSum = document.getElementById("shoptotal").innerText;
+            let shopTicketSpotNo = cart[i].id;
+            let shopFullFarePrice = cart[i].ticketPrice[0];
+            let shopHalfFarePrice = cart[i].ticketPrice[1];
+            let shopConTicketPrice = cart[i].ticketPrice[2];
+            let shopFullFareQuan = cart[i].qty[0];
+            let shopHalfFareQuan = cart[i].qty[1];
+            let shopConTicketQuan = cart[i].qty[2];
+            // let shopOrdNo = ;
 
-        // location.href = './shop.html';
-        
-        let mem_data =localStorage.getItem('memData')
-        let cart_data = localStorage.getItem('cart')
-        let shopMemNo = JSON.parse(mem_data).memNo
-        let shopOrdDate = new Date().toLocaleDateString()
-        let shopOrdSum = document.getElementById("shoptotal").innerText;
-        // let shopOrdNo = ;
-        let shopTicketSpotNo = res[i].ticketSpotNo;
-        let shopFullFarePrice = res[0].fullFarePrice;
-        let shopHalfFarePrice = res[0].halfFarePrice;
-        let shopConTicketPrice = res[0].conTicketPrice;
-        let shopFullFareQuan = cart[i].qty[0];
-        let shopHalfFareQuan = cart[i].qty[1];
-        let shopConTicketQuan = cart[i].qty[2];
-        
-        let ordData = `memNo=${shopMemNo}&ordDate=${shopOrdDate}&OrdSum=${shopOrdSum}&ticketSpotNo=${shopTicketSpotNo}&fullFarePrice=${shopFullFarePrice}&halfFarePrice=${shopHalfFarePrice}&conTicketPrice=${shopConTicketPrice}&fullFareQuan=${shopFullFareQuan}&halfFareQuan=${shopHalfFareQuan}&conTicketQuan${shopConTicketQuan}&OrdNo=${shopOrdNo}`;
-        // $.ajax({
-        //             type:'POST',
-        //             url: './phps/shopinsert.php',
-        //             dataType: 'json',
-        //             data: `${mem_data_info},${cart_data_info}`,
-        // // saveOrder(){
-        // //             let data_info = JSON.stringify(this.cart);
-        // //             let xhr = new XMLHttpRequest();
-        // //             let url = "phps/shopinsert.php?cart=" + data_info;
-        // //             xhr.open("get", url , true);
-        // //             xhr.send(null);
-        // //         },
-        // });
-    };
-    confirm.addEventListener('click',cearLocal);
-
-
-    
-
+            let ordData = `memNo=${shopMemNo}&ordDate=${shopOrdDate}&OrdSum=${shopOrdSum}&ticketSpotNo=${shopTicketSpotNo}&fullFarePrice=${shopFullFarePrice}&halfFarePrice=${shopHalfFarePrice}&conTicketPrice=${shopConTicketPrice}&fullFareQuan=${shopFullFareQuan}&halfFareQuan=${shopHalfFareQuan}&conTicketQuan${shopConTicketQuan}&OrdNo=${shopOrdNo}`;
+            // $.ajax({
+            //             type:'POST',
+            //             url: './phps/shopinsert.php',
+            //             dataType: 'json',
+            //             data: `${mem_data_info},${cart_data_info}`,
+            // // saveOrder(){
+            // //             let data_info = JSON.stringify(this.cart);
+            // //             let xhr = new XMLHttpRequest();
+            // //             let url = "phps/shopinsert.php?cart=" + data_info;
+            // //             xhr.open("get", url , true);
+            // //             xhr.send(null);
+            // //         },
+            // });
+        };
+        confirmbtn.addEventListener('click',cearLocal);
     </script>
-
-
-    
 </body>
 </html>
