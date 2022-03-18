@@ -244,9 +244,12 @@
                                         <td><span class="memBirth"></td>
                                     </tr>
                                     <tr>
-                                        <!-- <th>大頭貼:</th>
-                                        <td><input type="file" name="memIcon"></td> -->
+                                        <th>大頭貼:</th>
+                                        <td><input type="file" name="memIcon" id="iconFile"></td>
                                         <input type="text"  name="memNo" style="display: none;" class="memNo">
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="memNote">大頭貼請上傳1mb以內jpg/png圖檔</td>
                                     </tr>
                                 </table>
                                 <div class="sendButton">
@@ -331,20 +334,48 @@
                 window.alert('請輸入姓名');
                 return false;
         }else{
+            let file_data = $('#iconFile').prop('files')[0];   //取得上傳檔案屬性
+            let form_data = new FormData();  //建構new FormData()
+            form_data.append('file', file_data);  //吧物件加到file後面
+            form_data.append('memNo', $('.memNo').val());
+            form_data.append('memName', $('.memName').val()); 
+            form_data.append('memPsw', $('.memPsw').val());                       
             $.ajax({
-                type: "post",
-                url: "./phps/memUpdata.php",
-                data: `memName=${$('.memName').val()}&memNo=${$('.memNo').val()}&memPsw=${$('.memPsw').val()}`,
-                dataType: "text",
-                success: function (res) {
-                    if(res == 'ok'){
-                        window.alert('資料變更成功');
+                url: './phps/memUpdata.php',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,     //data只能指定單一物件                 
+                type: 'post',
+                dataType:'json',
+                success: function(res){
+                    let oldMemData = JSON.parse(localStorage.getItem('memData'));
+                    
+                    if(JSON.stringify(res) == 'notImg'){
+                        window.alert('圖片格式錯誤!請上傳1mb以下jpg/png圖檔');
+                    }else if(JSON.stringify(res) == 'tooBig'){
+                        window.alert('檔案過大，請上傳1mb以下的jpg/png檔案!');
                     }else{
-                        window.alert('資料變更失敗');
+                        let newMemData = {
+                            'memBirth': oldMemData.memBirth,
+                            'memCreateDate': oldMemData.memCreateDate,
+                            'memEmail': oldMemData.memEmail,
+                            'memIcon': res.memIcon,
+                            'memName': res.memName,
+                            'memNo': oldMemData.memNo,
+                            'memPhone': oldMemData.memPhone,
+                            'memState': oldMemData.memState,
+                        };
+                        console.log(newMemData)
+                        localStorage.setItem('memData',JSON.stringify(newMemData));
+                        window.alert('更新成功~');
+                        window.location.reload()
                     }
                 }
             });
         }
     });
+
+
 </script>
 </html>

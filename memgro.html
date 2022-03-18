@@ -223,31 +223,33 @@
                             <section class="mem_sectionBG">
                                 <h3 class="memberBlockTtile">我參加的揪團</h3>
                                 <div class="row">
-                                    <div class="col-12">
-                                        <div class="horizontalcard">
+                                    <div class="col-12" id="joinGroCardBox">
+                                        <div class="horizontalcard" v-for="item in joinGroData">
                                             <div class="horizontalcard_pic" >
-                                                <img src="https://picsum.photos/800/500/?random=10">
+                                                <img :src="'./images/groImg/' + item.groImg">
                                             </div>
                                             <div class="horizontalcard_content" >
-                                                <h4 class="horizontalcard_title">揪團標題</h4>
+                                                <h4 class="horizontalcard_title">{{item.groName}}</h4>
                                                 <p class="horizontalcard_text text_Overflow">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In nemo voluptatem iusto fuga perspiciatis? Cupiditate voluptas error dignissimos. Amet impedit ea quaerat. Hic assumenda optio doloribus dignissimos culpa nulla illo!
+                                                    {{item.groContent}}
                                                 </p>
                                                 <div class="horizontalcard_date">
                                                     <p>
-                                                        出發日期: <span>2021/02/20</span><br>
-                                                        回程日期: <span>2022/02/20</span>
+                                                        出發日期: <span>{{item.groStartDate}}</span><br>
+                                                        回程日期: <span>{{item.groEndDate}}</span>
                                                     </p>
-                                                    <p>參加人數 : <span>3</span>人</p>
+                                                    <p>參加人數 : <span>{{item.applyNum}}</span>人</p>
                                                 </div>
                                                 <div class="horizontalcard_footer">
-                                                    <div class="horizontalcard_footerItem"><a href="groupdetail.html">揪團詳情</a></div>
+                                                    <div class="horizontalcard_footerItem">
+                                                        <a :href="'groupdetail.html?groNo=' + item.groNo">揪團詳情</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <div class="horizontalcard_empty">
+                                        <div class="horizontalcard_empty joinGroCardBox_empty">
                                             <p>沒有參加的揪團</p>
                                         </div>
                                     </div>
@@ -274,17 +276,17 @@
                                                         出發日期: <span>{{item.groStartDate}}</span><br>
                                                         回程日期: <span>{{item.groEndDate}}</span>
                                                     </p>
-                                                    <p>參加人數 : <span>{{item.groApplyNum}}</span>人</p>
+                                                    <p>參加人數 : <span>{{item.applyNum}}</span>人</p>
                                                 </div>
                                                 <div class="horizontalcard_footer">
-                                                    <div class="horizontalcard_footerItem"><a :href="'groupdetail.html?groNo=' + item.groNo">編輯揪團</a></div>
+                                                    <div class="horizontalcard_footerItem"><a :href="'groupdetail.html?groNo=' + item.groNo">揪團詳情</a></div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <div class="horizontalcard_empty">
-                                            <p>沒有參加的揪團</p>
+                                        <div class="horizontalcard_empty myGroCardBox_empty">
+                                            <p>沒有建立揪團</p>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -325,6 +327,28 @@
 <script>
     if(memData){
         memData = JSON.parse(memData);
+        //參加的揪團
+        $.ajax({
+            type: "post",
+            url: "./phps/memjoingro.php",
+            data: `memNo=${memData.memNo}`,
+            dataType: "text",
+            success: function (res) {
+                if(res == 'noData'){
+                    $('.joinGroCardBox_empty').css('display','block');
+                    $('#joinGroCardBox').css('display','none');
+                    window.alert('查無資料');
+                }else{
+                    res = JSON.parse(res);
+                    new Vue({
+                        el : "#joinGroCardBox",
+                        data:{
+                            joinGroData: res,
+                        } ,
+                    });
+                }
+            }
+        });
         //建立的揪團
         $.ajax({
             type: "post",
@@ -333,10 +357,11 @@
             dataType: "text",
             success: function (res) {
                 if(res == 'noData'){
-                    $('.horizontalcard_empty').css('display','block');
+                    $('.myGroCardBox_empty').css('display','block');
                     $('#myGroCardBox').css('display','none');
                 }else{
                     res = JSON.parse(res);
+                    console.log(res)
                     new Vue({
                         el : "#myGroCardBox",
                         data:{
@@ -346,28 +371,6 @@
                 }
             }
         });
-        //參加的揪團
-        // $.ajax({
-        //     type: "post",
-        //     url: "./phps/memgro.php",
-        //     data: `memName=${memData.memName}`,
-        //     dataType: "json",
-        //     success: function (res) {
-        //         console.log(res)
-        //         if(res == 'noData'){
-        //             $('.horizontalcard_empty').css('display','block');
-        //             $('#myGroCardBox').css('display','none');
-        //             window.alert('查無資料');
-        //         }else{
-        //             new Vue({
-        //                 el : "#myGroCardBox",
-        //                 data:{
-        //                     groData: res,
-        //                 } ,
-        //             });
-        //         }
-        //     }
-        // });
     }
 </script>
 </html>
