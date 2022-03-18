@@ -446,7 +446,7 @@ function getMemData() {
 // 揪團用
 // 抓行程景點資料
 // function fetchData() {
-//   curGroup = +id;
+//   curGroup = +groNo;
 //   fetch(`./phps/fetchJour.php?group=${curGroup}`).then(res => res.json())
 //   .then(data => {
 
