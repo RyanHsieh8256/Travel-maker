@@ -179,15 +179,14 @@
                 <div class="personal_info">
                     <h2>訂購人資料</h2>
                     <hr>
-                    <div class="name">
-                        <div class="first">名字<span class="required">*</span><br><input type="text" placeholder="例.大明" required></div>
-                        <div class="last">姓氏<span class="required">*</span><br><input type="text" placeholder="例.王" required></div>
+                    <div class="nameBox">
+                        <div>姓名<span class="required">*</span><br><input type="text" class="name" placeholder="例.王大明"></div>
                     </div>
                     <div class="contact">
                         <div class="phonenumber">
                             <p>電話<span class="required">*</span></p>
                             <div class="phone">
-                                <input type="text" id="checkphone" onkeyup="checkPhone()" placeholder="請輸入連絡電話" maxlength="10" required>
+                                <input type="text" id="checkphone" onkeyup="checkPhone()" placeholder="請輸入連絡電話" maxlength="10">
                                 <p id="phoneerror">電話有誤</p>
                             </div>
                         </div>
@@ -195,7 +194,7 @@
                         <div class="emailadress">
                             <p>email<span class="required">*</span></p>
                             <div class="email">
-                                <input type="text" id="checkemail" onkeyup="checkEmail()" placeholder="例. 123@mail.com" required>
+                                <input type="text" id="checkemail" onkeyup="checkEmail()" placeholder="例. 123@mail.com">
                                 <p id="emailerror">email有誤</p>
                             </div>
                         </div>
@@ -213,18 +212,18 @@
                             <div class="creditnumber">
                                 <p>卡號<span class="required">*</span></p>
                                 <div class="cardnumber">
-                                    <input type="text" id="checknumber" onkeyup="checkCredit()" placeholder="0000-0000-0000-0000" minlength="9" maxlength="19" required>
+                                    <input type="text" id="checknumber" onkeyup="checkCredit()" placeholder="0000-0000-0000-0000" minlength="9" maxlength="19">
                                     <p id="carderror">卡號有誤</p>
                                 </div>
                             </div>
                             <div class="exp">
                                 <p>有效期限<span class="required">*</span></p>
                                 <div class="expdate">
-                                    <input type="text" id="expcheck" placeholder="MM/YY" maxlength="5" required><p id="experror">日期有誤</p>
+                                    <input type="text" id="expcheck" placeholder="MM/YY" maxlength="5"><p id="experror">日期有誤</p>
                                 </div>
                             </div>
                             <div class="pass">驗證碼<span class="required">*</span><br><input type="text"  
-                               id="cvc" placeholder="CVC/CVC" maxlength="3" required></div>
+                               id="cvc" placeholder="CVC/CVC" maxlength="3"></div>
                         </form>
                         
                         
@@ -276,6 +275,20 @@
     <script src="js/forlogin.js"></script>
 
     <script>
+
+        //--------------------會員資料帶入---------------------
+        let member = localStorage.getItem('memData');
+        member = JSON.parse(memData);
+
+        let name = document.querySelector('.name');
+        name.value = member.memName; 
+
+        let phone = document.getElementById('checkphone');
+        phone.value = member.memPhone;
+
+        let email = document.getElementById('checkemail');
+        email.value = member.memEmail;
+
         //------------------deadline----------------
         let deadline = document.querySelectorAll('.deadline'); //取得class deadline
         
@@ -436,7 +449,7 @@ let cart = localStorage.getItem('cart');
 
         //--------------amount----------------
         
-
+        var Total = 0;
         window.addEventListener('load',function(){
             let total = 0;
             let sub = document.getElementsByClassName('sub');
@@ -446,19 +459,54 @@ let cart = localStorage.getItem('cart');
 
             let shoptotal = document.getElementById("shoptotal")
             shoptotal.innerText = total;
+            console.log(total); 
+            Total =total;
         })
-
+        
+        console.log(Total);
     //--------------------------------
     let confirm = document.querySelector('.confirm');
     // 點擊確認結帳後要做的事
     function cearLocal(){
 
-        localStorage.removeItem('cart');
-        location.href = './travel_maker/home.html';
+        // localStorage.removeItem('cart');
+
+
+        // location.href = './shop.html';
+        
+        let mem_data =localStorage.getItem('memData')
+        let cart_data = localStorage.getItem('cart')
+        let shopMemNo = JSON.parse(mem_data).memNo
+        let shopOrdDate = new Date().toLocaleDateString()
+        let shopOrdSum = document.getElementById("shoptotal").innerText;
+        // let shopOrdNo = ;
+        let shopTicketSpotNo = res[i].ticketSpotNo;
+        let shopFullFarePrice = res[0].fullFarePrice;
+        let shopHalfFarePrice = res[0].halfFarePrice;
+        let shopConTicketPrice = res[0].conTicketPrice;
+        let shopFullFareQuan = cart[i].qty[0];
+        let shopHalfFareQuan = cart[i].qty[1];
+        let shopConTicketQuan = cart[i].qty[2];
+        
+        let ordData = `memNo=${shopMemNo}&ordDate=${shopOrdDate}&OrdSum=${shopOrdSum}&ticketSpotNo=${shopTicketSpotNo}&fullFarePrice=${shopFullFarePrice}&halfFarePrice=${shopHalfFarePrice}&conTicketPrice=${shopConTicketPrice}&fullFareQuan=${shopFullFareQuan}&halfFareQuan=${shopHalfFareQuan}&conTicketQuan${shopConTicketQuan}&OrdNo=${shopOrdNo}`;
+        // $.ajax({
+        //             type:'POST',
+        //             url: './phps/shopinsert.php',
+        //             dataType: 'json',
+        //             data: `${mem_data_info},${cart_data_info}`,
+        // // saveOrder(){
+        // //             let data_info = JSON.stringify(this.cart);
+        // //             let xhr = new XMLHttpRequest();
+        // //             let url = "phps/shopinsert.php?cart=" + data_info;
+        // //             xhr.open("get", url , true);
+        // //             xhr.send(null);
+        // //         },
+        // });
     };
     confirm.addEventListener('click',cearLocal);
 
 
+    
 
     </script>
 

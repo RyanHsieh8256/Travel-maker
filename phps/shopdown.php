@@ -1,7 +1,6 @@
 <?php
     require_once("./connectdatabase.php");
     try{
-        
         // $sql = "select * from ticketspot join underimg_test on ticketspot.ticketSpotNo = underimg_test.ticketSpotNo join city on ticketSpot.cityNo =  city.cityNo";
         $sql = "select * from g3.underimg_tr where ticketSpotNo=:id";
         $ticketspot = $pdo->prepare($sql);

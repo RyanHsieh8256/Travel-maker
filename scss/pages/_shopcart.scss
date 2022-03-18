@@ -29,6 +29,11 @@
     } 
 }
 
+.noPro p{
+   margin: 30px;
+   color: rgb(134, 133, 133);
+
+}
 
 .shoplist{
     margin: 10px;
@@ -133,7 +138,8 @@
         }
 
         .deadline{
-            margin-left: 5px; 
+            margin-left: 5px;
+            display: none; 
 
         }
 
@@ -141,7 +147,11 @@
             color: $accentColor;
 
         }
-    }
+
+        .btn{
+            display: none;
+        }
+    }       
 }
 
 
