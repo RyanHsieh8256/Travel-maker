@@ -17,6 +17,7 @@ window.addEventListener('beforeunload',function(e) {
   e.preventDefault();
   
   // 傳新的收藏清單
+  if(localStorage.getItem("memLike" == null)) return;
   let memLikes = localStorage.getItem('memLike');
   let likeData = new FormData();
   likeData.append('like',memLikes);
