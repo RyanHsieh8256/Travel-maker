@@ -17,27 +17,6 @@ window.addEventListener('beforeunload',function(e) {
   e.preventDefault();
   
   // // 傳新的收藏清單
-  // if(localStorage.getItem("memLike" == null)) return;
-  // let memLikes = localStorage.getItem('memLike');
-  // let likeData = new FormData();
-  // likeData.append('like',memLikes);
-
-  // updateMemLike(likeData);
-
-  // // 傳要刪除的行程
-  // if(localStorage.getItem("unlike") == null) return;
-  //   let unlikes = localStorage.getItem('unlike');
-  //   console.log(unlikes);
-  //   let unLikeData = new FormData();
-  //   unLikeData.append('unlike',unlikes);
-
-  //   updateMemLike(unLikeData);
-    
-})
-
-
-document.querySelector('.tour_img').onclick = function() {
-  // 傳新的收藏清單
   if(localStorage.getItem("memLike" == null)) return;
   let memLikes = localStorage.getItem('memLike');
   let likeData = new FormData();
@@ -53,7 +32,13 @@ document.querySelector('.tour_img').onclick = function() {
     unLikeData.append('unlike',unlikes);
 
     updateMemLike(unLikeData);
-}
+    
+})
+
+
+// document.querySelector('.tour_img').onclick = function() {
+ 
+// }
 
 
   function updateMemLike(data) {

@@ -24,9 +24,6 @@ window.addEventListener('hashchange',fetchData);
 saveTour.addEventListener('click',updateTour);
 
 let curNo = [];
-
-curNo.length > 2 ? curNo.pop() : '';
-
 let insertState = 0;
 
 function updateTour() {
@@ -35,14 +32,32 @@ function updateTour() {
   let dateArr = (tourBuildDate.textContent).trim().split(' - ');                
   let re = /\./gi;
 
+    let tourSpot = [];
+    let spotsDom = document.querySelectorAll('.timeline_item');
+    spotsDom.forEach(spot => {
 
-   let tourSpot = [];
+      let journeySpotDay = +spot.parentElement.className
+                      .split(' ')[1]
+                      .split('--')[1];
+
+      let spotObj = {
+        journeyNo: +curNo[0] || 0,
+        journeySpotDay,
+        sequence: +spot.querySelector('.timeline_num').textContent,
+        spotNo: +spot.dataset['no']
+      }
+
+      tourSpot.push(spotObj);
+    })
+
+    console.log(tourSpot);
+    
 
     let tourObj = {
       journeyNo: curNo[0] || 0,
       journeyName: tourName.textContent,
       journeyImg: 'journeyImg-1.jpg',
-      journeyInfo: '測試中測試中測試中，有成功update嗎?拜託可以 > <! 要改insert id阿!',
+      journeyInfo: '到基隆-新北-台北全紀錄，個個點都好遠喔。開車開到想睡哈哈，但還蠻好玩的!',
       memNo: getMemData().memNo,
       journeyStartDay: dateArr[0].replace(re,'-'),
       journeyEndDay: dateArr[1].replace(re,'-'),
@@ -54,6 +69,12 @@ function updateTour() {
   tourData.append('tour',JSON.stringify(tour));
 
   insertTour(tourData);
+
+  if(tourSpot.length == 0) return;
+  spotData = new FormData();
+  spotData.append('spots',JSON.stringify(tourSpot));
+
+  insertTour(spotData);
 }
 
 

@@ -20,17 +20,20 @@
             }
             break;
 
-        case !empty($_POST['unlike']):
-            $datas = $_POST['unlike'];
+        case !empty($_POST['spots']):
+            $datas = $_POST['spots'];
             $array = json_decode($datas,true);
 
 
             foreach($array as $row) {
-                $sql = "DELETE FROM journeycollect WHERE memNo = ".$row['memNo']." AND journeyNo = '".$row['journeyNo']."'";
+                
+                $sql = "INSERT INTO journeyspot(journeyNo,journeySpotDay,`sequence`,spotNo) VALUES ('".$row["journeyNo"]."','".$row["journeySpotDay"]."','".$row["sequence"]."','".$row["spotNo"]."')ON DUPLICATE KEY UPDATE journeySpotDay = '".$row["journeySpotDay"]."',`sequence` = '".$row["sequence"]."', spotNo = '".$row["spotNo"]."'";
+
         
                 mysqli_query($conn,$sql);
             }
 
+            
             break;
         
     }
