@@ -14,6 +14,8 @@
         
                 mysqli_query($conn,$sql);
             }
+
+            print_r($array);
             break;
 
         case !empty($_POST['unlike']):
@@ -26,7 +28,7 @@
         
                 mysqli_query($conn,$sql);
             }
-            
+
             break;
     }
     
