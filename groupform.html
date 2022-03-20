@@ -384,7 +384,7 @@
             let publish = document.getElementById('publish');
             let groupTitle = document.getElementById('groupTitle');
             let groupDesc = document.getElementById('groupDesc');
-            if (!groupTitle.value && !groupDesc.value) { //如果沒有值
+            if (!groupTitle.value || groupTitle.value=='' && !groupDesc.value || groupDesc.value=='') { //如果沒有值
                 console.log(!groupTitle.value);
                 console.log(!groupDesc.value);
                 console.log(groupTitle.value);
@@ -398,30 +398,30 @@
 
         // 已經可以成功插入資料庫後須打開以下code: 目前共有3個地方需打開
         //1. 驗證日期
-        function checkDate() {
-            let selectDate = document.querySelectorAll('.selectDate');
-            let alertMessage = document.querySelectorAll('.alertMessage');
+        // function checkDate() {
+        //     let selectDate = document.querySelectorAll('.selectDate');
+        //     let alertMessage = document.querySelectorAll('.alertMessage');
 
-            //判斷空值
-            for (let i = 0; i < selectDate.length; i++) {
-                if (!selectDate[i].value) {
-                    alertMessage[i].innerText = "這是必填欄位";
-                } else {
-                    alertMessage[i].innerText = "";
-                }
-            }
+        //     //判斷空值
+        //     for (let i = 0; i < selectDate.length; i++) {
+        //         if (!selectDate[i].value) {
+        //             alertMessage[i].innerText = "這是必填欄位";
+        //         } else {
+        //             alertMessage[i].innerText = "";
+        //         }
+        //     }
 
-            //日期比較
-            if (selectDate[1].value > selectDate[0].value && selectDate[2].value && selectDate[0].value > selectDate[2].value) { //正確狀況
-                alertMessage.innerText = "";
-                return !selectDate.value;
-            } else if (selectDate[0].value >= selectDate[1].value && selectDate[0].value) { //如果出發日期>結束日期 
-                alertMessage[0].innerHTML = `<i class="bi bi-exclamation-circle"></i>出發日期不得大於等於結束日期`;
-            } else if (selectDate[2].value >= selectDate[0].value && selectDate[2].value) { //如果截止日期>出發日期
-                alertMessage[2].innerHTML = `<i class="bi bi-exclamation-circle"></i>截止日期不得大於出發日期`;
-            }
-            return !!selectDate.value;
-        }
+        //     //日期比較
+        //     if (selectDate[1].value > selectDate[0].value && selectDate[2].value && selectDate[0].value > selectDate[2].value) { //正確狀況
+        //         alertMessage.innerText = "";
+        //         return !selectDate.value;
+        //     } else if (selectDate[0].value >= selectDate[1].value && selectDate[0].value) { //如果出發日期>結束日期 
+        //         alertMessage[0].innerHTML = `<i class="bi bi-exclamation-circle"></i>出發日期不得大於等於結束日期`;
+        //     } else if (selectDate[2].value >= selectDate[0].value && selectDate[2].value) { //如果截止日期>出發日期
+        //         alertMessage[2].innerHTML = `<i class="bi bi-exclamation-circle"></i>截止日期不得大於出發日期`;
+        //     }
+        //     return !!selectDate.value;
+        // }
 
         function submitData() { //判斷全部的條件包括封面照片是否有上傳
             let coverImg = document.getElementById('coverImg');
@@ -436,7 +436,8 @@
             // console.log(textValid); 
             // console.log(dateValid);
 
-            if (textValid == false || !imgSrc || dateValid == false) { //如果全部情況都false的話，出現視窗提醒畫面
+            if (textValid == false || !imgSrc) { //如果全部情況都false的話，出現視窗提醒畫面
+                //2.  || dateValid == false
                 alertBG.style.display = "block";
                 alertBG_content.innerText = "尚有資料未填寫完整";
                 dropZone_title.innerHTML = `請選一張您喜歡的封面照片吧<i class="bi bi-exclamation-lg"></i>`;
@@ -445,9 +446,6 @@
                 alertBG_closeBtn.addEventListener('click', close);
 
             } else { //代表他資料都填寫完整
-                // console.log(textValid); //true
-                // console.log(dateValid); // false
-                // console.log(imgSrc); //該封面的照片路徑
                 alertBG.style.display = "block";
                 alertBG_content.innerHTML = `已成功公開揪團<i class="bi bi-exclamation-lg"></i>`;
 
@@ -461,12 +459,11 @@
             //資料皆完整了，打叉按紐按了之後回到揪團首頁
             function toGroup() {
                 //3. 以下暫時放的
-                // alertBG.style.display = "none";
-                window.location.href = "./group.html"
+                alertBG.style.display = "none";
+                // window.location.href = "./group.html";
             }
             //資料皆完整了，打叉按紐按了後插入資料庫的gro表格裡
             function addDataToGro() {
-                // console.log(123); 
                 //封面照片處理區
                 let file_data = $('#uploadBtn').prop('files')[0]; //取得上傳檔案屬性
                 let form_data = new FormData();  //建構new FormData()
@@ -488,25 +485,17 @@
                 form_data.append('journeyNo',journeyNo);
                 form_data.append('groPay',vm.selectedMethod);
                 form_data.append('groLimit',vm.total);
-                //console.log(file_data);
-                console.log(form_data.get('groPay'));
-                console.log(form_data.get('groLimit'));
-                // console.log(form_data.get('groContent'));
-                // console.log(form_data.get('groStartDate'));
-                // console.log(form_data.get('groEndDate'));
-                // console.log(form_data.get('applyDeadline'));
-                // console.log(form_data.get('journeyNo'));
-                // //console.log(form_data.get('groName'));
-                //console.log($('#applyDeadline').val());
-                // console.log(imgSrc); //抓本身預設從grouplist帶過來的資料
 
-                
-                //let groupdetailMemInfo = JSON.parse(memberData).memNo;
-                // let dataToBack = `memNo=${groupdetailMemInfo}&groName=${groName}&groStartDate=${groStartDate}`;
+                //處理行程預設圖片
+                let groDefaultImg = imgSrc.split('/')[2];
+                // console.log(imgTarget); //journeyImg-0.jpg
+                form_data.append('imgTarget',imgSrc);
+                form_data.append('groDefaultImg',groDefaultImg);
 
-                //console.log(memberData);
-                // console.log(groupdetailMemInfo); //5
-                // console.log(dataToBack);
+                // console.log(file_data);
+                // console.log(imgSrc); //images/journeyImg/journeyImg-0.jpg
+                console.log(form_data.get('groDefaultImg'));
+
                 $.ajax({
                     type: 'POST',
                     url: './phps/groupformAddData.php',
