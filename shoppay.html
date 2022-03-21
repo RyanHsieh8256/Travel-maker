@@ -459,52 +459,93 @@ let cart = localStorage.getItem('cart');
 
             let shoptotal = document.getElementById("shoptotal")
             shoptotal.innerText = total;
-            console.log(total); 
             Total =total;
         })
         
-        console.log(Total);
-    //--------------------------------
-    let confirm = document.querySelector('.confirm');
+
+    //--------------------------------建立訂單
+    let confirmBtn = document.querySelector('.confirm');
     // 點擊確認結帳後要做的事
-    function cearLocal(){
+    function cearLocal(){        
+        //訂單表 ord 需要資料 :  ordNo(php生成) memNo ordDate ordSum
+        //訂單明細 ordDetail 需要資料 : ordNo(php生成) ordDetailNo(資料庫自動新增) ticketSpotNo 全、半、優待張數、票價
 
-        // localStorage.removeItem('cart');
+        //會員編號
+        let ordMemNo = JSON.parse(localStorage.getItem('memData')).memNo
+        //訂單建立日期
+        let today = new Date();
+        let ordDate = today.toLocaleDateString();
+
+        //訂單總價
+        //使用上面有算過的 Total
+        let ordSum = Total;
+        //購物車裡的資料
+        let cart_data =  JSON.parse(localStorage.getItem('cart'))
+
+        // 第一層抓最新的訂單編號
+        $.ajax({
+            type:'POST',
+            url: './phps/shopGetOrdNo.php',
+            dataType: 'json',
+            success: function(lastOrdNo){
+                //撈到的編號+1 成為此筆訂單編號
+                lastOrdNo = lastOrdNo + 1;
+                //設定變數存放要傳送的資料
+                let ordData =`ordNo=${lastOrdNo}&memNo=${ordMemNo}&ordDate=${ordDate}&ordSum=${ordSum}`;
+                //傳送資料新增訂單
+                $.ajax({
+                    type:'POST',
+                    url: './phps/shopinsert.php',
+                    data: `${ordData}`,
+                    dataType: 'json',
+                    success: function(ordres){
+                        //訂單新增成功，開始新增訂明細
+                        let newOrdNo = ordres.ordNo;
+                        //收到shopinsert.php回傳的訂單編號，帶入insertDetail函式
+                        insertDetail(cart_data,0,newOrdNo);
+
+                    },
+                });
 
 
-        // location.href = './shop.html';
-        
-        let mem_data =localStorage.getItem('memData')
-        let cart_data = localStorage.getItem('cart')
-        let shopMemNo = JSON.parse(mem_data).memNo
-        let shopOrdDate = new Date().toLocaleDateString()
-        let shopOrdSum = document.getElementById("shoptotal").innerText;
-        // let shopOrdNo = ;
-        let shopTicketSpotNo = res[i].ticketSpotNo;
-        let shopFullFarePrice = res[0].fullFarePrice;
-        let shopHalfFarePrice = res[0].halfFarePrice;
-        let shopConTicketPrice = res[0].conTicketPrice;
-        let shopFullFareQuan = cart[i].qty[0];
-        let shopHalfFareQuan = cart[i].qty[1];
-        let shopConTicketQuan = cart[i].qty[2];
-        
-        let ordData = `memNo=${shopMemNo}&ordDate=${shopOrdDate}&OrdSum=${shopOrdSum}&ticketSpotNo=${shopTicketSpotNo}&fullFarePrice=${shopFullFarePrice}&halfFarePrice=${shopHalfFarePrice}&conTicketPrice=${shopConTicketPrice}&fullFareQuan=${shopFullFareQuan}&halfFareQuan=${shopHalfFareQuan}&conTicketQuan${shopConTicketQuan}&OrdNo=${shopOrdNo}`;
-        // $.ajax({
-        //             type:'POST',
-        //             url: './phps/shopinsert.php',
-        //             dataType: 'json',
-        //             data: `${mem_data_info},${cart_data_info}`,
-        // // saveOrder(){
-        // //             let data_info = JSON.stringify(this.cart);
-        // //             let xhr = new XMLHttpRequest();
-        // //             let url = "phps/shopinsert.php?cart=" + data_info;
-        // //             xhr.open("get", url , true);
-        // //             xhr.send(null);
-        // //         },
-        // });
+            },
+        });
+
+
+
+
+
     };
-    confirm.addEventListener('click',cearLocal);
 
+    confirmBtn.addEventListener('click',cearLocal);
+
+    //遞迴函式
+    function insertDetail(cartData,index,ordNo){
+        //以index和購物車資料筆數判斷執行次數
+        if(index<cartData.length){
+        //宣告ordItem變數 儲存購物車裡的資料
+        let ordItem = `ordNo=${ordNo}&spotNo=${cartData[index].id}&fullPrice=${cartData[index].ticketPrice[0]}&halfPrice=${cartData[index].ticketPrice[1]}&conPrice=${cartData[index].ticketPrice[2]}&fullqty=${cartData[index].qty[0]}&halfqty=${cartData[index].qty[1]}&conqty=${cartData[index].qty[2]}`;
+
+            $.ajax({
+                type:'POST',
+                url: './phps/shopdetail.php',
+                data: `${ordItem}`,
+                dataType: 'json',
+                success: function(res){
+                    console.log('index=',index)
+                    console.log(JSON.stringify(res))
+                    insertDetail(cartData,index+1,ordNo)
+                },
+            });
+        }else if(index == cartData.length){//如果購物車資料都傳給php了，執行清除購物車並轉跳商城
+            //跳訊息
+            window.alert('訂購成功!');
+            //清除購物車
+            localStorage.removeItem('cart');
+            //轉跳商城
+            location.href = './shop.html';
+        }
+    };
 
     
 

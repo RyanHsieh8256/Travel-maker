@@ -282,9 +282,10 @@
             data: `memNo=${memData.memNo}`,
             dataType: "text",
             success: function (res){
+                console.log(res)
                 if(res == 'noData'){
                     $('.horizontalcard_empty').css('display','block');
-                    $('#memJourneyBox').css('display','none');
+                    $('#memJourneyCollectBox').css('display','none');
                 }else{
                     res = JSON.parse(res);
                     console.log(res);
