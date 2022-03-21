@@ -340,11 +340,15 @@ function closeLoginBox(){
 }
 //購物車提示
 function productInCart(){
-
-    if(JSON.parse(localStorage.getItem('cart')).length > 0){
-        $('.navMember>li:first-child').addClass('productInCart');
-        $('.iconNav>li:first-child').addClass('productInCart');
-    }else if(JSON.parse(localStorage.getItem('cart')).length == 0){
+    if(localStorage.getItem('cart')){
+        if(JSON.parse(localStorage.getItem('cart')).length > 0){
+            $('.navMember>li:first-child').addClass('productInCart');
+            $('.iconNav>li:first-child').addClass('productInCart');
+        }else if(JSON.parse(localStorage.getItem('cart')).length == 0){
+            $('.navMember>li:first-child').removeClass('productInCart');
+            $('.iconNav>li:first-child').removeClass('productInCart');
+        }
+    }else{
         $('.navMember>li:first-child').removeClass('productInCart');
         $('.iconNav>li:first-child').removeClass('productInCart');
     }
