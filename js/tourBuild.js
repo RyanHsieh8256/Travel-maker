@@ -20,6 +20,97 @@ window.addEventListener('load',function() {
 
 window.addEventListener('hashchange',fetchData);
 
+// 點擊儲存將行程資料寫回資料庫
+saveTour.addEventListener('click',updateTour);
+
+let curNo = [];
+let insertState = 0;
+
+function updateTour() {
+
+  let tourBuildDate = document.querySelector('.tourBuild_date');
+  let dateArr = (tourBuildDate.textContent).trim().split(' - ');                
+  let re = /\./gi;
+
+    let tourSpot = [];
+    let spotsDom = document.querySelectorAll('.timeline_item');
+    spotsDom.forEach(spot => {
+
+      let journeySpotDay = +spot.parentElement.className
+                      .split(' ')[1]
+                      .split('--')[1];
+
+      let spotObj = {
+        journeyNo: +curNo[0] || 0,
+        journeySpotDay,
+        sequence: +spot.querySelector('.timeline_num').textContent,
+        spotNo: +spot.dataset['no']
+      }
+
+      tourSpot.push(spotObj);
+    })
+
+    console.log(tourSpot);
+    
+
+    let tourObj = {
+      journeyNo: curNo[0] || 0,
+      journeyName: tourName.textContent,
+      journeyImg: 'journeyImg-1.jpg',
+      journeyInfo: '到基隆-新北-台北全紀錄，個個點都好遠喔。開車開到想睡哈哈，但還蠻好玩的!',
+      memNo: getMemData().memNo,
+      journeyStartDay: dateArr[0].replace(re,'-'),
+      journeyEndDay: dateArr[1].replace(re,'-'),
+      journeyState: '私人'
+    }
+
+  let tour = [tourObj];
+  tourData = new FormData();
+  tourData.append('tour',JSON.stringify(tour));
+
+  insertTour(tourData);
+
+  if(tourSpot.length == 0) return;
+  spotData = new FormData();
+  spotData.append('spots',JSON.stringify(tourSpot));
+
+  insertTour(spotData);
+}
+
+
+// 在資料庫新增行程
+function insertTour(data) {
+  fetch(`./phps/insertTour.php`, {
+    method: 'POST',
+    // headers 加入 formdata 格式
+    header: {
+      'Content-Type': 'multipart/form-data' 
+    },
+    body: data
+  })
+  .then(res => res.text())
+  .then(data => getJourNo(data))
+  .then(data => history.pushState({page: 1}, "", `tourbuild.html#/tour/${curNo[0]}`))
+}
+
+function getJourNo(data) {
+  
+  if(data > 0) {
+    curNo.push(data);
+    insertState = 1;
+
+  }else {
+    insertState = 0;
+  }
+
+  console.log(curNo,insertState);
+  
+}
+
+function fetchJourNo() {
+  
+}
+
 // 進來抓到該行程的編號並撈資料渲染
     // 點擊加入行程抓到這個行程的資料
 function fetchData() {
@@ -636,4 +727,21 @@ function getUrl() {
 function goBuildGroup() {
   let buildGroBtn = document.querySelector('#goBuildGroup a');
   buildGroBtn.href = `groupform.html?groupform=${getUrl()}`
+}
+
+// 抓local storage的會員資料
+function getMemData() {
+  let loginState = JSON.parse(localStorage.getItem('memData'));
+
+  if(!loginState) return;
+
+  let {memName, memNo,memState} = loginState;
+  let loginOrNot = Boolean(loginState);
+
+  return {
+    memName,
+    memNo,
+    memState,
+    loginOrNot
+  }
 }

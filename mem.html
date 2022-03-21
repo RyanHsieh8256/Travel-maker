@@ -225,7 +225,10 @@
                                 <table class="InfoSettingForm">
                                     <tr>
                                         <th>姓名:</th>
-                                        <td><input type="text" name="memName" class="memName"></td>
+                                        <td>
+                                            <input type="text" class="memChangName">
+                                            <span class="memNameChangBtn dataChangBtn">變更姓名</span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>電子信箱:</th>
@@ -233,7 +236,7 @@
                                     </tr>
                                     <tr>
                                         <th>密碼:</th>
-                                        <td><input type="password" name="memPsw" class="memPsw" placeholder="更改密碼"></td>
+                                        <td><span class="memPswChangOpen dataChangBtn">變更密碼</span></td>
                                     </tr>
                                     <tr>
                                         <th>電話:</th>
@@ -245,17 +248,46 @@
                                     </tr>
                                     <tr>
                                         <th>大頭貼:</th>
-                                        <td><input type="file" name="memIcon" id="iconFile"></td>
-                                        <input type="text"  name="memNo" style="display: none;" class="memNo">
+                                        <td>
+                                            <input type="file" name="memIcon" id="iconFile">
+                                            <span class="memIconUpdataBtn dataChangBtn">變更大頭貼</span>
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" class="memNote">大頭貼請上傳1mb以內jpg/png圖檔</td>
+                                        <td colspan="2" class="iconChangButton">
+                                            <span>*大頭貼請上傳1mb以內jpg/png圖檔</span>
+                                        </td>
                                     </tr>
                                 </table>
-                                <div class="sendButton">
-                                    <input type="submit" class="memUpdataBtn" value="確定更改">
-                                </div>
                             </form>
+                            <!-- 密碼變更燈箱 -->
+                            <div class="memPswChang">
+                                <table>
+                                    <tr>
+                                        <th colspan="2">輸入您的新密碼</th>
+                                    </tr>
+                                    <tr>
+                                        <th>輸入新密碼:</th>
+                                        <td>
+                                            <input type="password" name="memChangPsw" class="memChangPsw" maxlength="25" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>確認密碼:</th>
+                                        <td>
+                                            <input type="password" name="memChangPswCheck" class="memChangPswCheck" maxlength="25" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">
+                                            <button class="memPswChangBtn">變更密碼</button>
+                                        </th>
+                                    </tr>
+                                    <div class="memPswChangCancel">
+                                        <button><i class="bi bi-x-circle-fill"></i></button>
+                                    </div>
+                                </table>
+                            </div>
                         </section>
                     </section>
                 </div>
@@ -311,71 +343,121 @@
 <script src="js/burger.js"></script>
 <script src="js/mem.js"></script>
 <script>
-    //資料變更-帶資料
+    //帶資料到會員資料區
     if(memData){
-        $('.memName').val(JSON.parse(memData).memName);
+        $('.memChangName').val(JSON.parse(memData).memName);
         $('.memEmail').text(JSON.parse(memData).memEmail);
         $('.memPhone').text(JSON.parse(memData).memPhone);
         $('.memBirth').text(JSON.parse(memData).memBirth);
-        $('.memNo').val(JSON.parse(memData).memNo);
-    }
-
-
-
-    //資料變更
-    $(".memUpdataBtn").click(function(e){
-        e.preventDefault();
-        let emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
-
-        if(!$('.memPsw').val().replace(/^\s*|\s*$/g,"")){
-                window.alert('請輸入密碼');
-                return false;
-        }else if(!$('.memName').val().replace(/^\s*|\s*$/g,"")){
-                window.alert('請輸入姓名');
-                return false;
+    };
+    
+    //變更姓名
+    $('.memNameChangBtn').on('click',function(){
+        if(!$('.memChangName').val().replace(/^\s*|\s*$/g,"")){
+            window.alert('請輸入姓名');
+            return false;
         }else{
-            let file_data = $('#iconFile').prop('files')[0];   //取得上傳檔案屬性
-            let form_data = new FormData();  //建構new FormData()
-            form_data.append('file', file_data);  //吧物件加到file後面
-            form_data.append('memNo', $('.memNo').val());
-            form_data.append('memName', $('.memName').val()); 
-            form_data.append('memPsw', $('.memPsw').val());                       
+            memData = JSON.parse(memData);
+            let nameChangData = `memName=${$('.memChangName').val()}&memNo=${memData.memNo}`;
             $.ajax({
-                url: './phps/memUpdata.php',
+                url: './phps/memNameChang.php',
+                data: nameChangData,             
+                type: 'post',
+                dataType:'json',
+                success: function(res){
+                    if(res.memName){
+                        let newMemData = JSON.parse(localStorage.getItem('memData'));
+                        newMemData.memName = res.memName;
+                        localStorage.setItem('memData',JSON.stringify(newMemData));
+                        window.alert('更新成功~');
+                        window.location.reload()
+                    }else{
+                        window.alert('發生錯誤，請重新嘗試~');
+                        window.location.reload();
+                        $('.memPswChang').css('display','none');
+                    }
+                }
+            });
+        }
+    })
+
+
+    //開啟密碼變更燈箱
+    $('.memPswChangOpen').on('click',function(){
+        $('.memPswChang').css('display','block');
+    })
+    //關閉密碼變更燈箱
+    $('.memPswChangCancel').on('click',function(){
+        $('.memPswChang').css('display','none');
+    })
+    //變更密碼
+    $('.memPswChangBtn').on('click',function(e){
+        e.preventDefault();
+        if($('.memChangPsw').val() == "" || $('.memChangPswCheck').val() == ""){
+            window.alert('請設定密碼!');
+            return false;
+        }else if($('.memChangPsw').val() != $('.memChangPswCheck').val()){
+            window.alert('密碼驗證錯誤!');
+            return false;
+        }else {
+            memData = JSON.parse(memData);
+
+            let pswChangData = `memPsw=${$('.memChangPsw').val()}&memNo=${memData.memNo}`;
+            $.ajax({
+                url: './phps/memPswChang.php',
+                data: pswChangData,             
+                type: 'post',
+                dataType:'text',
+                success: function(res){
+                    if(res == '更新成功'){
+                        window.alert('更新成功~');
+                        window.location.reload();
+                        $('.memPswChang').css('display','none');
+                    }else{
+                        window.alert('發生錯誤，請重新嘗試~');
+                        window.location.reload();
+                        $('.memPswChang').css('display','none');
+                    }
+                }
+            });
+        }
+    });
+    //大頭貼變更
+    $(".memIconUpdataBtn").click(function(e){
+        e.preventDefault();
+        let file_data = $('#iconFile').prop('files')[0];   //取得上傳檔案屬性
+        if(file_data){
+            let form_data = new FormData();  //建構new FormData()
+            memData = JSON.parse(memData);
+
+            form_data.append('file', file_data);  //吧物件加到file後面
+            form_data.append('memNo', memData.memNo);                 
+            $.ajax({
+                url: './phps/memIconChang.php',
                 cache: false,
                 contentType: false,
                 processData: false,
                 data: form_data,     //data只能指定單一物件                 
                 type: 'post',
                 dataType:'json',
-                success: function(res){
-                    let oldMemData = JSON.parse(localStorage.getItem('memData'));
-                    
+                success: function(res){                    
                     if(JSON.stringify(res) == 'notImg'){
                         window.alert('圖片格式錯誤!請上傳1mb以下jpg/png圖檔');
                     }else if(JSON.stringify(res) == 'tooBig'){
                         window.alert('檔案過大，請上傳1mb以下的jpg/png檔案!');
                     }else{
-                        let newMemData = {
-                            'memBirth': oldMemData.memBirth,
-                            'memCreateDate': oldMemData.memCreateDate,
-                            'memEmail': oldMemData.memEmail,
-                            'memIcon': res.memIcon,
-                            'memName': res.memName,
-                            'memNo': oldMemData.memNo,
-                            'memPhone': oldMemData.memPhone,
-                            'memState': oldMemData.memState,
-                        };
-                        console.log(newMemData)
+                        let newMemData = JSON.parse(localStorage.getItem('memData'));
+                        newMemData.memIcon = res.memIcon;
                         localStorage.setItem('memData',JSON.stringify(newMemData));
                         window.alert('更新成功~');
                         window.location.reload()
                     }
                 }
             });
+        }else{
+            window.alert('請選擇檔案!')
         }
     });
-
 
 </script>
 </html>

@@ -6,19 +6,55 @@ window.addEventListener('load',function() {
 
     // 初始化
     sessionStorage.clear();
-    // localStorage.removeItem('memLike');
+    localStorage.setItem('memLike','');
     
     fetchCity();
     displayTheTour();
+    
 })
 
 window.addEventListener('beforeunload',function(e) {
   e.preventDefault();
   
-  // 讓他會將資料存回去
+  // // 傳新的收藏清單
+  if(localStorage.getItem("memLike" == null)) return;
+  let memLikes = localStorage.getItem('memLike');
+  let likeData = new FormData();
+  likeData.append('like',memLikes);
 
-  
+  updateMemLike(likeData);
+
+  // 傳要刪除的行程
+  if(localStorage.getItem("unlike") == null) return;
+    let unlikes = localStorage.getItem('unlike');
+    console.log(unlikes);
+    let unLikeData = new FormData();
+    unLikeData.append('unlike',unlikes);
+
+    updateMemLike(unLikeData);
+    
 })
+
+
+// document.querySelector('.tour_img').onclick = function() {
+ 
+// }
+
+
+  function updateMemLike(data) {
+   
+    fetch(`./phps/updateMemLike.php`, {
+      method: 'POST',
+      // headers 加入 formdata 格式
+      header: {
+        'Content-Type': 'multipart/form-data' 
+      },
+      body: data
+    })
+    .then(data => data.json());
+  }
+  
+
 
 
 // 行程用
@@ -121,7 +157,8 @@ function fetchLike() {
 
 // 儲存目前會員的收藏行程
 function takeLike(data) {
-  let likeArr = data;   
+  let likeArr = data;
+  localStorage.setItem('unlike','');   
   localStorage.setItem('memLike',JSON.stringify(likeArr));
 
 }
@@ -129,6 +166,7 @@ function takeLike(data) {
 // 在localStorage加減收藏行程資料
 function handleLike(jourNo) {
   let likes = JSON.parse(localStorage.getItem('memLike'));
+  let unlikes = [];
   let likeState = displayLike();
 
   // 找到收藏裡的這個行程索引值
@@ -139,7 +177,15 @@ function handleLike(jourNo) {
     journeyNo: jourNo
   }
 
-  likeState ? likes.push(likeObj) : likes.splice(findTour,1);
+
+  if(likeState) {
+    likes.push(likeObj);
+
+  }else {
+    likes.splice(findTour,1);
+    unlikes.push(likeObj);
+    localStorage.setItem('unlike',JSON.stringify(unlikes))
+  }
 
   
 
