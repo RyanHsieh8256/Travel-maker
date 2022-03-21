@@ -46,17 +46,22 @@ Vue.component('login',{
                         if(res == "noData"){
                             window.alert('帳號或密碼錯誤!');
                         }else{
-                            localStorage.setItem('memData',res);
-                            let member = JSON.parse(res);
-                            $('#loginBoxBtn').css('display','none');
-                            $('#memBoxBtn').css('display','flex');
-                            $('#memName').text(member.memName);
-                            $('#memEmail').val('');
-                            $('#memPsw').val('');
-                            $('#memIcon').attr('src', `images/memIcon/${member.memIcon}`);
-                            window.alert('登入成功!');
-                            froLoginBG.style.display = "none";
-                            window.location.reload();
+                            if(JSON.parse(res).memState == '停權'){
+                                window.alert('此帳號已被停權，詳細情況請洽管理人員!');
+                                window.location.reload();
+                            }else{
+                                localStorage.setItem('memData',res);
+                                let member = JSON.parse(res);
+                                $('#loginBoxBtn').css('display','none');
+                                $('#memBoxBtn').css('display','flex');
+                                $('#memName').text(member.memName);
+                                $('#memEmail').val('');
+                                $('#memPsw').val('');
+                                $('#memIcon').attr('src', `images/memIcon/${member.memIcon}`);
+                                window.alert('登入成功!');
+                                froLoginBG.style.display = "none";
+                                window.location.reload();
+                            }
                         }
 
                     }
@@ -336,9 +341,20 @@ function closeLoginBox(){
 //購物車提示
 function productInCart(){
     if(localStorage.getItem('cart')){
-        $('.navMember li:first-child').addClass('productInCart');
+        if(JSON.parse(localStorage.getItem('cart')).length > 0){
+            $('.navMember>li:first-child').addClass('productInCart');
+            $('.iconNav>li:first-child').addClass('productInCart');
+        }else if(JSON.parse(localStorage.getItem('cart')).length == 0){
+            $('.navMember>li:first-child').removeClass('productInCart');
+            $('.iconNav>li:first-child').removeClass('productInCart');
+        }
+    }else{
+        $('.navMember>li:first-child').removeClass('productInCart');
+        $('.iconNav>li:first-child').removeClass('productInCart');
     }
 }
-productInCart();
 
-window.addEventListener('load',loginBox_doFirst)
+$('.tocart').on('click',setTimeout(productInCart,100));
+
+window.addEventListener('load',productInCart);
+window.addEventListener('load',loginBox_doFirst);

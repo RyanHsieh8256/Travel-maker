@@ -452,7 +452,9 @@
 
         setItem();
 
-        function save(){
+
+
+        function save(e){
             let fullFarePrice = document.querySelector('.fullFarePrice').value
             let halfFarePrice = document.querySelector('.halfFarePrice').value
             let conTicketPrice = document.querySelector('.conTicketPrice').value
@@ -472,12 +474,12 @@
             cart = cart ? JSON.parse(cart) : [];    //轉JSON格式
             let found = false;
 
-            for(let i=0; i<cart.length; i++){    
+            for(let i=0; i<cart.length; i++){  
                 if(cart[i].id === item.id){
                     cart[i] = item;
                     found = true;
-                    break;
-                }    
+                break;
+                }     
             }
 
             let qty = document.querySelectorAll('.qty')
@@ -502,10 +504,15 @@
 
             if(found === false){
                 cart.push(item);   //新的都要往後加
+                alert('已添加至購物車')
             }
 
             // console.log(cart)
             localStorage.setItem('cart', JSON.stringify(cart));    //轉成字串，傳到localstorage
+
+            if(found == true && e.target.innerText == '加入購物車'){
+                window.alert('數量修改成功!')
+            }
         }
 
     //---------------抓頁面資料(sql)---------------
