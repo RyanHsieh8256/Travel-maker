@@ -1,3 +1,4 @@
+/* lightbox */
 /* 通用 */
 table.dataTable tbody tr{
     background-color: unset;
@@ -8,7 +9,6 @@ main .recent-orders table {
 .dataTables_length{
     margin-bottom: 10px;
 }
-
 /* 新增按鍵 */
 /* .spot-table .add-btn{
     text-align: right;
@@ -55,7 +55,7 @@ main .recent-orders .search-btn button:hover{
     z-index: 4;
     top: -12px;
     right: -10px;
-    background-color: #007183;
+    background-color: #aaa;
     border-radius: 50%;
     cursor: pointer;
     width: 2rem;
@@ -72,14 +72,14 @@ main .recent-orders .search-btn button:hover{
 /* 燈箱 */
 .lightbox,
 .spot-add-lightbox{
-    
-    width: 650px;
-    height: 200px;
+    box-sizing: border-box;
+    width: 600px;
+    /* height: 200px; */
     padding: .8rem;
 
     border-radius: 10px;
 
-    background: #f0eee7;
+    background: #ccc;
     position: absolute;
     top:50%;
     left: 50%;
@@ -119,8 +119,6 @@ main .recent-orders .search-btn button:hover{
 }
 
 .btn-area button{
-    color: #fff;
-    background: #007183;
     border-radius: 10px;
     margin-right: 5px;
     display: inline-block;
@@ -212,3 +210,4 @@ margin-top: -10px;
     box-sizing: border-box;
     width: 180px;
 }
+/* ========================================== */

@@ -1,7 +1,7 @@
 <?php
     require_once("./connectdatabase.php");
     try{
-        $sql = "select * from g3.journey where journeyNo=:journeyNo";
+        $sql = "select * from journey where journeyNo=:journeyNo";
 
         $groData = $pdo -> prepare($sql);
         $groData->bindValue(":journeyNo", $_GET["journeyNo"]);

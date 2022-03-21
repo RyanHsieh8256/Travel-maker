@@ -10,14 +10,17 @@
     <link href='//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./back_css/style.css">
     <link rel="stylesheet" href="./back_css/back_spot.css">
-    <link rel="stylesheet" href="./back_css/lightbox.css">
+    <link rel="stylesheet" href="./back_css/back_main.css">
     <!-- Material Icons Guide -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"rel="stylesheet">
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.js"></script>
     <!--link js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <!-- link js table -->
-    <script src='//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js'></script>
+    <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+
+
 </head>
 <body>
     <div class="container">
@@ -148,20 +151,20 @@
                 <div class="add-btn">
                     <button class="ticket-add-btn">新增</button>
                 </div>
-                <table class="tickettable">
+                <table class="tickettable" id="tickettable">
                     <thead>                    
                         <tr>
-                            <th>景點票卷編號</th>
-                            <th>景點票卷名稱</th>
+                            <th>編號</th>
+                            <th>票卷名稱</th>
                             <th>區域</th>
                             <th>全票票價</th>
                             <th>半票票價</th>
                             <th>優待票價</th>
                             <!-- 詳細內容有 其他資料 -->
-                            <th>詳細內容</th>
+                            <!-- <th>詳細內容</th> -->
                             <th>上架日期</th>
                             <th>狀態</th>
-                            <th>編輯</th>
+                            <!-- <th>編輯</th> -->
                         </tr>
                     </thead>
                     <tbody>             
@@ -193,11 +196,10 @@
                 <div class="profile">
                     <div class="info">
                         <!-- mgrName -->
-                        <p>HI~ <b></b>Admin</p>
-                        <!-- <small class="text-muted"></small> -->
+                        <p>HI~<span id="admin"></span></p>
                     </div>
                     <div class="profile-photo">
-                        <img src="https://picsum.photos/80/80/?random=1">
+                        <img src="">
                     </div>
                 </div>
             </div>
@@ -379,8 +381,7 @@
 
 
 
-    <script src="./back_js/back.js"></script>
-    <!-- <script src="./back_js/lightbox.js"></script> -->
+    <script src="./back_js/main.js"></script>
     <script src="./back_js/ticketspot.js"></script>
 
 </body>
