@@ -1,5 +1,5 @@
 window.addEventListener('load',function() {
-    addJour = this.document.querySelectorAll('.addJour');
+    addJour = document.querySelectorAll('.addJour');
 
     tourLike = document.querySelector('#tourLike');
     tourLike.addEventListener('click',likeClick);
@@ -235,18 +235,20 @@ function changeCity(e) {
   if(curSort == 'mine') {
     fetchTour('mem',getMemData().memNo);
     tourLike.style.display = 'none';
-    let addJour = document.querySelector('.addJour');
+    let addJour = document.querySelector('#addOrEdit');
     addJour.textContent = '';
 
+   let jourNo = addJour.parentElement.previousElementSibling.dataset['jour'];
+
     let link = document.createElement('a');
-        link.href = `tourbuild.html#/tourEdit/`;
+        link.href = `tourbuild.html#/tourEdit/${jourNo}`;
         link.textContent = '編輯行程';
         link.style.color = '#fff';
         addJour.append(link);
 
   }else {
     fetchTour('city',curSort);
-    document.querySelector('.addJour').textContent = '加入行程';
+    document.querySelector('#addOrEdit').textContent = '加入行程';
     tourLike.classList.remove('tour_Like--active');
     displayLike();
   }

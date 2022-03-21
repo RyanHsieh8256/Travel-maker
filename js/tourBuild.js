@@ -67,7 +67,20 @@ function getEditNo(num) {
 function storeHandle() {
   let no = localStorage.getItem('lastJourNo') != null ? (+localStorage.getItem('lastJourNo')+ 1 ) :+localStorage.getItem('editNum');
   console.log(no);
-  updateTour(no);
+  if(localStorage.getItem('memData') == null) {
+    let alertBG = document.querySelector('.alertBG');
+    alertBG.style.display = 'block';
+    alertBG.querySelector('.alertBG_content').textContent = '請先登入喔';
+
+    let alertClose = alertBG.querySelector('.alertBG_closeBtn');
+    alertClose.addEventListener('click',function() {
+      alertBG.style.display = 'none';
+    })
+  }else {
+    updateTour(no);
+  }
+ 
+ 
 }
 
 function updateTour(number) {
@@ -102,11 +115,12 @@ function updateTour(number) {
       journeyNo: number,
       journeyName: tourName.textContent,
       journeyImg: 'journeyImg-1.jpg',
-      journeyInfo: '到基隆-新北-台北全紀錄，個個點都好遠喔。開車開到想睡哈哈，但還蠻好玩的!',
+      journeyInfo: `有屆於基隆總是下雨，所以在此我將形成取名為總是下雨，剛好
+      呼應基隆是雨都的情況，或許我去的那天會不下雨也說不定`,
       memNo: getMemData().memNo,
       journeyStartDay: dateArr[0].replace(re,'-'),
       journeyEndDay: dateArr[1].replace(re,'-'),
-      journeyState: '私人'
+      journeyState: '公開'
     }
 
   let tour = [tourObj];
@@ -297,7 +311,9 @@ function tourForm() {
   let day = diff/(1000 * 3600 * 24) + 1;
   days.textContent = day;
 
-  // goTourBuild.href = `tourbuild.html#/tour/${journeyNo}`;
+  let tourDate = document.querySelector('.tourBuild_date');
+  let re = /-/gi;
+  tourDate.textContent = `${journeyStartDay.replace(re,'.')} - ${journeyEndDay.replace(re,'.')}`;
   
 
   return {
@@ -702,7 +718,7 @@ function closePopup() {
 
 closePopup();
 
-// 修改形成設定
+// 修改行程設定
 function reviseSet() {
     let tourName = tourForm.tourName.value;
     let startDate = tourForm["start-date"].value;
@@ -732,6 +748,7 @@ function setPopup() {
     let popup = document.querySelector('.popup');
     popup.style.display = 'flex';
   })
+  
 }
 
 setPopup();
