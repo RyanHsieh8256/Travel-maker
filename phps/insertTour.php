@@ -27,13 +27,13 @@
 
             foreach($array as $row) {
                 
-                $sql = "INSERT INTO journeyspot(journeyNo,journeySpotDay,`sequence`,spotNo) VALUES ('".$row["journeyNo"]."','".$row["journeySpotDay"]."','".$row["sequence"]."','".$row["spotNo"]."')ON DUPLICATE KEY UPDATE journeySpotDay = '".$row["journeySpotDay"]."',`sequence` = '".$row["sequence"]."', spotNo = '".$row["spotNo"]."'";
+                $sql = "INSERT INTO journeyspot_copy(journeyNo,journeySpotDay,`sequence`,spotNo) VALUES ('".$row["journeyNo"]."','".$row["journeySpotDay"]."','".$row["sequence"]."','".$row["spotNo"]."')ON DUPLICATE KEY UPDATE journeySpotDay = '".$row["journeySpotDay"]."',`sequence` = '".$row["sequence"]."', spotNo = '".$row["spotNo"]."'";
 
         
                 mysqli_query($conn,$sql);
             }
 
-            
+            print_r($array);
             break;
         
     }

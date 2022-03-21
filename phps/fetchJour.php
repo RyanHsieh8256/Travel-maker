@@ -9,7 +9,7 @@
             $find = $_GET['find'];
             // 行程用
             $sql = mysqli_query($conn, "select y.journeyName,y.journeyInfo, y.journeyImg, y.journeyStartDay, y.journeyEndDay, j.journeyNo, journeySpotDay, j.sequence, s.spotName, s.spotNo, s.spotImg,s.spotInfo,s.spotLatitude,s.spotLongitude, c.cityName
-            from journeyspot j 
+            from journeyspot_copy j 
             join journey y on j.journeyNo = y.journeyNo 
             join spot s on j.spotNo = s.spotNo
             join city c on c.cityNo = s.cityNo
