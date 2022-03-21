@@ -1,4 +1,4 @@
-
+var stateArr = [];
 window.addEventListener('load',function() {
     tourForm = document.querySelector('#tourForm');
     tourBuildName = document.querySelector('.tourBuild_name');
@@ -243,6 +243,7 @@ function displaySide(no,num) {
 // 讓popup的資料為fetch回來的資料
 function tourForm() {
   let data = JSON.parse(sessionStorage.getItem("day1"));
+  if (!data) return;
   let {journeyNo, journeyName,journeyStartDay,journeyEndDay} = data[0];
 
   tourName.textContent = journeyName;
@@ -291,7 +292,7 @@ function mainMap() {
 
 }
 
-mainMap();
+
 
  
 
@@ -376,7 +377,7 @@ slideAdd();
 
 
 // 動態新增刪除tab和page
-let stateArr = [];
+// var stateArr = [];
 function displayTab() {
   let tourBuildDay = document.querySelector('.tourBuild_days span');
   let totalDay = +tourBuildDay.textContent;
@@ -787,3 +788,5 @@ function getMemData() {
     loginOrNot
   }
 }
+
+mainMap();
