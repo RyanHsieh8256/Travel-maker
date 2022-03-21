@@ -12,21 +12,65 @@ window.addEventListener('load',function() {
     searchSpot.addEventListener('keyup',searchPlace);
 
     sessionStorage.clear();
+    localStorage.removeItem('lastJourNo');
+    localStorage.removeItem('editNum');
 
     fetchData();
     goBuildGroup();
+    getLastJour();
 
 })
 
 window.addEventListener('hashchange',fetchData);
 
 // 點擊儲存將行程資料寫回資料庫
-saveTour.addEventListener('click',updateTour);
+saveTour.addEventListener('click',storeHandle);
 
 let curNo = [];
 let insertState = 0;
 
-function updateTour() {
+
+// 先抓到最新一筆的行程編號
+function getLastJour() {
+  let parseUrl = document.location.hash.toLowerCase();
+  let states = parseUrl.split('/')[1];
+  let no = +parseUrl.split('/')[2];
+
+  if(states == 'tour') {
+    fetch(`./phps/fetchLastJour.php`)
+    .then(res => res.json())
+    .then(data => jourNoHandle(data));
+  }else {
+    getEditNo(no);
+  }
+
+}
+
+
+// 處理返回的行程編號型別
+function jourNoHandle(data) {
+
+  let lastJourNo = +data[0].journeyNo;
+  console.log(lastJourNo);
+
+  var noArr = [];
+  noArr.push(lastJourNo);
+
+  localStorage.setItem('lastJourNo', lastJourNo);
+}
+
+// 若是編輯行程就抓這個值
+function getEditNo(num) {
+  localStorage.setItem('editNum', num);
+}
+
+function storeHandle() {
+  let no = localStorage.getItem('lastJourNo') != null ? (+localStorage.getItem('lastJourNo')+ 1 ) :+localStorage.getItem('editNum');
+  console.log(no);
+  updateTour(no);
+}
+
+function updateTour(number) {
 
   let tourBuildDate = document.querySelector('.tourBuild_date');
   let dateArr = (tourBuildDate.textContent).trim().split(' - ');                
@@ -35,11 +79,6 @@ function updateTour() {
     let tourSpot = [];
     let spotsDom = document.querySelectorAll('.timeline_item');
 
-    let parseUrl = document.location.hash.toLowerCase();
-    let states = +parseUrl.split('/')[1];
-    states == 'tourEdit' ? curNo.push(getUrl()) : '';
-    console.log(curNo);
-
     spotsDom.forEach(spot => {
 
       let journeySpotDay = +spot.parentElement.className
@@ -47,7 +86,7 @@ function updateTour() {
                       .split('--')[1];
 
       let spotObj = {
-        journeyNo: +curNo[0] || 0,
+        journeyNo: number,
         journeySpotDay,
         sequence: +spot.querySelector('.timeline_num').textContent,
         spotNo: +spot.dataset['no']
@@ -60,7 +99,7 @@ function updateTour() {
     
 
     let tourObj = {
-      journeyNo: curNo[0] || 0,
+      journeyNo: number,
       journeyName: tourName.textContent,
       journeyImg: 'journeyImg-1.jpg',
       journeyInfo: '到基隆-新北-台北全紀錄，個個點都好遠喔。開車開到想睡哈哈，但還蠻好玩的!',
@@ -96,7 +135,13 @@ function insertTour(data) {
   })
   .then(res => res.text())
   .then(data => getJourNo(data))
-  .then(data => history.pushState({page: 1}, "", `tourbuild.html#/tour/${curNo[0]}`))
+  .then(data => {
+    let parseUrl = document.location.hash.toLowerCase();
+    let states = parseUrl.split('/')[1];
+    if(states == 'tour') {
+      history.pushState({page: 1}, "", `tourbuild.html#/tour/${curNo[0]}`)
+    } 
+  })
 }
 
 function getJourNo(data) {
