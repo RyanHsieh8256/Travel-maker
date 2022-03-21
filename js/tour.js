@@ -16,7 +16,7 @@ window.addEventListener('load',function() {
 window.addEventListener('beforeunload',function(e) {
   e.preventDefault();
   
-  // 傳新的收藏清單
+  // // 傳新的收藏清單
   if(localStorage.getItem("memLike" == null)) return;
   let memLikes = localStorage.getItem('memLike');
   let likeData = new FormData();
@@ -37,7 +37,7 @@ window.addEventListener('beforeunload',function(e) {
 
 
 // document.querySelector('.tour_img').onclick = function() {
-  
+ 
 // }
 
 
