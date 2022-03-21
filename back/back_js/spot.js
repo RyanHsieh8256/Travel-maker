@@ -1,125 +1,307 @@
-const spotData=[
-    {"spotNo":"1","spotName":"台北101","spotPlace":"台北市","spotImg":"spot-img-01.jpg","spotLongitude":"N12315","spotLatitude":"S123456","spotInfo":"xxxxxxxxxxx123","spoteState":"正常","spotPhone":"090512346"},
-    {"spotNo":"2","spotName":"象山","spotPlace":"台北市","spotImg":"spot-img-02.jpg","spotLongitude":"N12315","spotLatitude":"S123456","spotInfo":"xxxxxxxxxxx123zzz","spoteState":"下架","spotPhone":"090512346"},
-    {"spotNo":"3","spotName":"西門町","spotPlace":"台北市","spotImg":"spot-img-03.jpg","spotLongitude":"N12315","spotLatitude":"S123456","spotInfo":"xxxxxxxxxxx123999999","spoteState":"正常","spotPhone":"090512346"}
-    ];
+// 建立動態燈箱
 
-    // Table
-    spotData.forEach(spot => {
-        const spottr = document.createElement("tr");
-        
-        const trContent = `
-                                <td>${spot.spotNo}</td>
-                                <td>${spot.spotName}</td>
-                                <td>${spot.spotPlace}</td>
-                                <td>${spot.spotImg}</td>
-                                <td>${spot.spotLongitude}</td>
-                                <td>${spot.spotLatitude}</td>
-                                <td><button class="content-info" onclick =" fuc_spotContent('${spot.spotInfo}')">詳細內容</button >
-                                <td>${spot.spoteState}</td>
-                                <td><button class="btn btn-warning btn-sm">編輯</button></td>
-                            `;
-            spottr.innerHTML = trContent ;
-            document.querySelector(".spottable tbody").appendChild(spottr);
-    });
-
-    var editor;
-    $(function () {
-        $('.spottable').DataTable({
-            
-            language: {
-                "emptyTable": "無資料...",
-                "processing": "處理中...",
-                "loadingRecords": "載入中...",
-                "lengthMenu": "每頁 _MENU_ 筆資料",
-                "zeroRecords": "無搜尋結果",
-                "info": "_START_ 至 _END_ / 共 _TOTAL_ 筆",
-                "infoEmpty": "尚無資料",
-                "infoFiltered": "(從 _MAX_ 筆資料過濾)",
-                "infoPostFix": "",
-                "search": "關鍵字搜尋:",
-                "paginate": {
-                    "first": "首頁",
-                    "last": "末頁",
-                    "next": "下頁",
-                    "previous": "前頁"
-                },
-                "aria": {
-                    "sortAscending": ": 升冪",
-                    "sortDescending": ": 降冪"
-                }
+$(function () {
+    let res='';
+    let payload = {SelectMode:'spot',
+                   SelectWhere:'1'};
+    $('.spottable').DataTable({        
+        responsive: true,
+        "ajax": {
+            "url": "./back_php/back_select.php",
+            "type": "POST",
+            "data": payload,
+            "dataSrc": function ( data ) {
+                //Make your callback here.
+                res = data;
+                // fuc_getSpotIngo();
+                // fuc_change();
+                console.log(res);
+                return data;
             },
-            buttons:[
-            { extend: "create", editor: editor },
-            { extend: "edit",   editor: editor }] 
-        });
+            "success":CreateBox()
+
+        },
+        "columns": [ 
+            { data: 'spotNo'},
+            { data: 'spotName'},
+            { data: 'cityName'},
+            { data: 'spotImg', render: function(data){
+                data = `<td><button class="spot-img-btn" onclick="New_showImg('${data}')" src="${data}">照片</button></td>`;
+                return data;
+            } },
+            { data: 'spotInfo', render: getSpotInfo },
+            { data: 'spotState'},
+            { data: 'spotEdit', render: getSpotStaus},
+            
+        ],
+        language: {
+            "emptyTable": "無資料...",
+            "processing": "處理中...",
+            "loadingRecords": "載入中...",
+            "lengthMenu": "每頁 _MENU_ 筆資料",
+            "zeroRecords": "無搜尋結果",
+            "info": "_START_ 至 _END_ / 共 _TOTAL_ 筆",
+            "infoEmpty": "尚無資料",
+            "infoFiltered": "(從 _MAX_ 筆資料過濾)",
+            "infoPostFix": "",
+            "search": "關鍵字搜尋:",
+            "paginate": {
+                "first": "首頁",
+                "last": "末頁",
+                "next": "下頁",
+                "previous": "前頁"
+            },
+            "aria": {
+                "sortAscending": ": 升冪",
+                "sortDescending": ": 降冪"
+            }
+        },
     });
-    //============================================
+    // var rows 點擊事件並獲得該列資料
+    var table = $('.spottable').DataTable();
+    $('.spottable tbody').on( 'click', 'tr', function () {
+        // console.log(table.row(this).data());
+        getTargetInfo = table.row(this);
+        // fuc_getBoxWithInfo();
+        if ( $(this).hasClass('selected') ) {
+            $(this).removeClass('selected');
+        }
+        else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+    } );
+    // datatable set btn 景點資訊
+    function getSpotInfo(data, type, full, meta) {
+        let SpotInfo = `<td><button class="spot-info">詳細內容</button></td>`;
+        return SpotInfo;
+    };
+    // 圖片
+    // function getSpotImg(data, type, full, meta) {
+    //     let SpotImg = `<td><button class="spot-img-btn">照片</button></td>`;
+    //     return SpotImg;
+    // };
+    // 編輯狀態
+    function getSpotStaus(data, type, full, meta) {
+        let SpotStaus = `<td><button class="spot-staus">編輯</button></td>`;
+        return SpotStaus;
+    };
+    // =====================================================
+    //新增動態節點
+    let spotImgBoxDiv = document.createElement('div');
+    spotImgBoxDiv.classList.add('spot-img');
+    // 將盒子加入至 main 下裡
+    document.getElementsByTagName('main')[0].appendChild(spotImgBoxDiv);
 
-// contentbox 編輯內容按鍵之開關
+    let spotImg = document.createElement('img');
+    // img > div
+    spotImgBoxDiv.appendChild(spotImg);
+    // 宣告 <div> => closeInfo btn
+    let closeImgDiv = document.createElement('div');
+    closeImgDiv.classList.add('close-img-box-btn');
+    let closeIcon = document.createElement('span');
+    closeIcon.classList.add('material-icons-sharp');
+    closeIcon.innerHTML ='close';
+    // =====================================================
+    // spotImgBoxDiv 先將其隱藏
+    spotImgBoxDiv.setAttribute('style', 'display:none;');
+    spotImgBoxDiv.appendChild(closeImgDiv);
+    closeImgDiv.appendChild(closeIcon);
+    //close 案件
+    let closeImgBtn = document.querySelector(".close-img-box-btn");
+    let spotImgBox =document.querySelector('.spot-img');
+    // 關閉圖片內容 fuc
+    fuc_closeBtn=()=>{
+        spotImgBox.style.display ='none';
+    };
+    closeImgBtn.addEventListener('click', ()=>{ fuc_closeBtn()});
+    // =====================================================
+    // 開啟 圖片且換頁面也會有DOM事件
+    $('.spottable tbody').on( 'click', '.spot-img-btn', fuc_showImg );
+    // function fuc_change(e){
+        // let spotImgBtn = document.querySelectorAll('.spot-img-btn');
+        // for(let i=0; i< spotImgBtn.length; i++){
+        //     spotImgBtn[i].addEventListener('click', (e)=>{ clickSpotImgBtn(), fuc_showImg(e) }, false);
+        // };
+        // console.log(`spotImgBtn`);
+        // clickSpotImgBtn=()=>{
+        // spotImgBox.style.display ='block';
+        // };
+    //
+        // 點擊後秀出圖片
+    function fuc_showImg(e){
+        spotImgBox.style.display ='block';
+        //spotNo = e.target.parentNode.parentNode.childNodes[0].innerHTML;
+        spotImg.src = e.target.getAttribute('src');
+        console.log(spotImg.src);
+        // console.log(spotImg);
+    };
+        
+    // };
+    // =====================================================
+
+    // 詳細內容燈箱
+    let spotContent = document.querySelector('.spot-info-item');
+    spotContent.style.display='none';
+    // x click
+    let closeInfoBtn = document.querySelector(".close-info-box-btn");
+    fuc_spotContentCloseBtn=()=>{
+        spotContent.style.display ='none';
+    };
+    closeInfoBtn.addEventListener('click', fuc_spotContentCloseBtn);
+    // 詳細內容Button   
+    clickSpotInfoBtn=()=>spotContent.style.display ='block';
+    //
+    fuc_showInfoContent=(e)=>{
+        spotNo = e.target.parentNode.parentNode.childNodes[0].innerHTML;
+        spotNo -= 1;
+        // console.log(spotNo);
+        let dataFromLi = document.querySelectorAll('.spot-info-item ul li');
+        dataFromLi[0].innerHTML = `地點: ${res[spotNo].spotPlace}`;
+        dataFromLi[1].innerHTML = `經度: ${res[spotNo].spotLongitude}`;
+        dataFromLi[2].innerHTML = `緯度: ${res[spotNo].spotLatitude}`;
+        dataFromLi[3].innerHTML = `資訊: ${res[spotNo].spotInfo}`;
+        //console.log(`spotNo=${spotNo}`);
+        
+    };
+    $('.spottable tbody').on( 'click', '.spot-info', function (e) {
+        // setTimeout(newFunction,1000);
+        // fuc_getSpotIngo();
+        clickSpotInfoBtn();
+        fuc_showInfoContent(e);
+    });
+    // fuc_getSpotIngo=()=> {
+    //     let spotInfoBtn = document.querySelectorAll('.spot-info');
+    //     for (let i = 0; i < spotInfoBtn.length; i++) {
+    //         spotInfoBtn[i].addEventListener('click', (e) => { clickSpotInfoBtn(), fuc_showInfoContent(e); }, false);
+    //     };
+        
+    //     // console.log(spotInfoBtn.length);
+    // };
+
 // 新增登相關閉
-var spotAddLightbox = document.querySelector(".spot-add-lightbox");
-// 修改燈箱關閉
-var spotLightbox =document.querySelector(".spot-lightbox");
-// 詳細內容小視窗
-var spotInfoWindow =document.querySelector(".spot-info-item");
-// 先將燈箱關閉
-spotLightbox.style.display ='none';
-spotAddLightbox.style.display ='none';
-spotInfoWindow.style.display ='none';
-//close 
-fuc_closeBtn=()=>{
-    spotLightbox.style.display ='none';
-    spotAddLightbox.style.display='none'
-};
- //call-fuc
-let closeBoxBtn = document.querySelectorAll(".close-box-btn");
-closeBoxBtn.forEach(closebtn => {
-    closebtn.onclick = fuc_closeBtn;
+    let spotAddLightbox = document.querySelector(".spot-add-lightbox");
+    spotAddLightbox.style.display ='none';
+    //  add box btn 
+    let spotInsertBtn = document.querySelector('.spot-add-btn');
+    spotInsertBtn.addEventListener('click',()=> {spotAddLightbox.style.display='block'; 
+        boxSpotNo.value = "";
+    });
+    // -- var box
+    let boxSpotNo = document.getElementById('spotNo');
+    let boxSpotName = document.getElementById('spotName');
+    let boxSpotPlace = document.getElementById('spotPlace');
+    let boxSpotImg = document.getElementById('spotImg');
+    let boxSpotLongitude = document.getElementById('spotLongitude');
+    let boxSpotLatitude = document.getElementById('spotLatitude');
+    let boxSpotState = document.getElementById('spotState');
+    let boxSpotInfo = document.getElementById('spotInfo');
+    let boxCity = document.getElementById('spotCity');
+    // var 新增燈箱 確定按鍵
+    let insertSpotBtn = document.querySelector('.confirm-box-btn');
+    // 
+    let getInsertData;
+    let rowID;
+    fuc_getImg=()=>{
+        // 重要: FormData()
+        let form = new FormData();
+        //formData.append(name, e.target.files[0], filename);
+        //form.append("product[file][]", e.target.files[0])
+        // **
+        form.append('file', boxSpotImg.files[0]);
+        //console.log(boxSpotImg.files[0]);
+        form.append('spotName',boxSpotName.value);
+        form.append('spotPlace',boxSpotPlace.value);
+        form.append('spotLongitude',boxSpotLongitude.value);
+        form.append('spotLatitude',boxSpotLatitude.value);
+        form.append('spotInfo',boxSpotInfo.value);
+        form.append('cityNo',boxCity.value);
+        form.append('spotState',boxSpotState.value);
+        //console.log(form);
+        axios({
+            method: 'post',
+            url: './back_php/test.php',
+            data: form,
+            headers: {'Content-Type': 'multipart/form-data' }
+            })
+            //`./test_img.php`,file)
+            .then( (response) => { 
+                //console.log(response);
+                //console.log(response.data);
+                getInsertData = response.data;
+                rowID = response.data['rowNo']
+
+                
+                data = {
+                    "spotNo": rowID,
+                    "spotName": boxSpotName.value,
+                    "spotImg": boxSpotImg.value,
+                    "spotPlace": boxSpotPlace.value,
+                    "spotLongitude": boxSpotLongitude.value,
+                    "spotLatitude": boxSpotLatitude.value,
+                    "spotInfo": boxSpotInfo.value,
+                    "spotState":  boxSpotState.value,
+                    "cityName": boxCity.options[boxCity.selectedIndex].text
+                    }
+                res.push(data);
+                //console.log(data)
+                table.row.add(data).draw(false);
+                    fuc_spotCloseBtn();
+            })
+            .catch( (error) => console.log(error))
+    };
+    fuc_insertSpotInfo=()=>{
+        // if(boxSpotName.value !=='' ){}
+        fuc_getImg();
+
     
+        
+    };
+    insertSpotBtn.addEventListener('click',fuc_insertSpotInfo);
+
+    // 新增燈箱 按鍵關閉
+    let closeBoxBtn = document.getElementById('close-insert-spot-box-btn');
+    fuc_spotCloseBtn=()=>{
+        boxSpotNo.value = '';
+        boxSpotName.value = '';
+        boxSpotPlace.value = '';
+        boxSpotImg.value = '';
+        boxSpotLongitude.value = '';
+        boxSpotLatitude.value = '';
+        // boxSpotState.value = '';
+        spotAddLightbox.style.display ='none';
+    };
+    closeBoxBtn.addEventListener('click',fuc_spotCloseBtn);
+
+
+
+
+
+
+
+
 });
-// closeBoxBtn.onclick = fuc_closeBtn;
+//============================================
 
-// 新增燈箱開啟
-let spotAddBtn = document.querySelector(".spot-add-btn");
-fuc_spotAddLighth =()=>{
-    spotAddLightbox.style.display ='';
-};
-spotAddBtn.onclick = fuc_spotAddLighth;
+//let New_spotImgBox =document.querySelector('.spot-img');
+let New_spotImgBoxDiv = document.createElement('div');
+let New_spotImg = document.createElement('img');
 
-// open search-Box
-fuc_excuteBtn=()=>{
-    spotLightbox.style.display ='';
+function CreateBox(){
     
-};
-// 修改
-let editBtn =document.querySelectorAll(".btn-warning");
-editBtn.forEach(btn => {
-    btn.onclick = fuc_excuteBtn;
+    //New_spotImgBoxDiv.classList.add('spot-img');
+    // 將盒子加入至 main 下裡
+    document.getElementsByTagName('main')[0].appendChild(New_spotImgBoxDiv);
     
-});
-// 詳細內容 按鍵關閉
-fuc_spotCloseBtn=()=>{
-    spotInfoWindow.style.display ='none';
-};
-let closeInfoBtn = document.querySelector(".close-info-box-btn");
-closeInfoBtn.onclick = fuc_spotCloseBtn;
-// 詳細內容 按鍵開啟
-
-
-// 詳細內容
-let spotInfoBox = document.querySelector(".spot-info-item p");
-let spotInfoBtn = document.querySelectorAll(".content-info");
-
-fuc_spotContent =(e)=>{
-    spotInfoBox.innerHTML = e;
-    console.log(e);
-    spotInfoWindow.style.display='';
+    
+    New_spotImgBoxDiv.appendChild(New_spotImg);
 };
 
 
-
-
-// spotInfoBtn.forEach(infoBtn=>{
-//     infoBtn.onclick = fuc_spotContent;
-// });
+function New_showImg(src){
+    New_spotImgBoxDiv.style.display ='block';
+    //spotNo = e.target.parentNode.parentNode.childNodes[0].innerHTML;
+    New_spotImg.src = src;
+    //console.log(spotImg.src);
+    // console.log(spotImg);
+};

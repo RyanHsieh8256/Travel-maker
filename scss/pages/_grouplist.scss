@@ -28,7 +28,7 @@
         font-size: 20px;
     }
 }
-.grouplistContent .grouplistCollect_wrap .grouplistOwl
+.grouplistContent .grouplistOwl
 {
     /*箭頭的定位目標(父層)*/
     .owl-stage-outer{
@@ -36,7 +36,7 @@
     }
     /*箭頭本身*/
     .owl-prev,.owl-next{
-        font-size: 30px;
+        font-size: 30px !important;
         position: absolute;
         top: 50%;
         font-size: 50px;

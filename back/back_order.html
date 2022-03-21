@@ -9,11 +9,12 @@
     <link href='//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./back_css/style.css">
     <link rel="stylesheet" href="./back_css/back_spot.css">
-    <link rel="stylesheet" href="./back_css/lightbox.css">
+    <link rel="stylesheet" href="./back_css/back_main.css">
     <!-- Material Icons Guide -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"rel="stylesheet">
     
     <!--link js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <!-- link js table -->
     <script src='//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js'></script>
@@ -153,8 +154,8 @@
                             <th>訂單編號</th>
                             <th>會員編號</th>
                             <th>訂購者姓名</th>
-                            <th>訂單總價</th>
                             <th>訂單明細</th>
+                            <th>訂單總價</th>
                             <th>訂單日期</th>
                         </tr>
                     </thead>
@@ -162,12 +163,26 @@
                     </tbody>
                 </table>
                 <!-- 詳細內容 介面 -->
-                <!-- <div class="spot-info-item">
-                    <p></p>
-                    <div class="close-info-box-btn" id="mem-close-box-btn">
+                <div class="order-info-item" style="display: none;">
+                    <table id="ord-table">
+                        <thead>
+                            <tr>
+                                <th>票卷編號</th>
+                                <th>票卷名稱</th>
+                                <th>全票單價</th>
+                                <th>全票張數</th>
+                                <th>半票單價</th>
+                                <th>半票張數</th>
+                                <th>優待單價</th>
+                                <th>優待張數</th>
+                            </tr>
+                            <tbody></tbody>
+                        </thead>
+                    </table>
+                    <div class="close-info-box-btn" id="close-info-box-btn">
                         <span class="material-icons-sharp">close</span> 
                     </div>
-                </div> -->
+                </div>
                 
             </div>
         </main>
@@ -187,11 +202,10 @@
                 <div class="profile">
                     <div class="info">
                         <!-- mgrName -->
-                        <p>HI~ <b></b>Admin</p>
-                        <!-- <small class="text-muted"></small> -->
+                        <p>HI~<span id="admin"></span></p>
                     </div>
                     <div class="profile-photo">
-                        <img src="https://picsum.photos/80/80/?random=1">
+                        <img src="">
                     </div>
                 </div>
             </div>
@@ -278,8 +292,7 @@
 
 
 
-    <script src="./back_js/back.js"></script>
-    <script src="./back_js/lightbox.js"></script>
+    <script src="./back_js/main.js"></script>
     <script src="./back_js/order.js"></script>
 
 </body>

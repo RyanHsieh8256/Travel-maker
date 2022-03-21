@@ -2,10 +2,10 @@
     require_once("./connectdatabase.php");
     try{
         $sql = "select j.memNo, j.journeyNo, journeyName, journeyImg, journeyInfo ,c.cityName from  
-        g3.journey j
-        join g3.journeyspot js on js.journeyNo = j.journeyNo
-        join g3.spot s on s.spotNo = js.spotNo
-        join g3.city c on c.cityNo = s.cityNo where j.memNo =:memNo
+        journey j
+        join journeyspot js on js.journeyNo = j.journeyNo
+        join spot s on s.spotNo = js.spotNo
+        join city c on c.cityNo = s.cityNo where j.memNo =:memNo
         group by j.journeyNo";
         
 
