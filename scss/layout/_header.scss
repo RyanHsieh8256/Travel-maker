@@ -172,52 +172,52 @@ $time: 10;
   transition: 3s;
   background: #ffffff;
 }
-// @keyframes BgAnima{
-//     0%{
-//         background: #e4ffff;
-//     }
-//     100%{
-//         background: #003d3f;
-//     }
-// }
+@keyframes BgAnima{
+    0%{
+        background: #e4ffff;
+    }
+    100%{
+        background: #003d3f;
+    }
+}
 
-// .ball {
-//   width: $ballwidth+px;
-//   height: $ballheight+px;
-//   border-radius: 50%;
-//   position: absolute;
-// }
+.ball {
+  width: $ballwidth+px;
+  height: $ballheight+px;
+  border-radius: 50%;
+  position: absolute;
+}
 
 
 
-// @for $i from 1 through $total {
-//   .ball:nth-child(#{$i}){
-//     left: ($i/2 - 1)+vw;
-//     top:  50%;
-//     margin-top: -$ballheight/2+px;
-//     animation: anim#{$i} $time+s infinite alternate ease-in-out;
-//     animation-delay: -($i * $time/$total)+s;
-//     // background:radial-gradient(circle at 35% 25%,
-//     // #fff 0,
-//     // hsla($i * 1.5, 60%, 50%, 1) 20%,
-//     // hsla($i * 1.5, 70%, 50%, 1) 40%,
-//     // hsla($i * 1.5, 80%, 50%, 1) 90%,
-//     // hsla($i * 1.5, 90%, 50%, 1) 95%,
-//     // hsla($i * 1.5, 100%, 50%, 1) 100%) ;
-//     background: hsla($i * 1.5, 100%, 50%, 1);
-//   }
+@for $i from 1 through $total {
+  .ball:nth-child(#{$i}){
+    left: ($i/2 - 1)+vw;
+    top:  50%;
+    margin-top: -$ballheight/2+px;
+    animation: anim#{$i} $time+s infinite alternate ease-in-out;
+    animation-delay: -($i * $time/$total)+s;
+    // background:radial-gradient(circle at 35% 25%,
+    // #fff 0,
+    // hsla($i * 1.5, 60%, 50%, 1) 20%,
+    // hsla($i * 1.5, 70%, 50%, 1) 40%,
+    // hsla($i * 1.5, 80%, 50%, 1) 90%,
+    // hsla($i * 1.5, 90%, 50%, 1) 95%,
+    // hsla($i * 1.5, 100%, 50%, 1) 100%) ;
+    background: hsla($i * 1.5, 100%, 50%, 1);
+  }
 
-//   @keyframes anim#{$i} {
-//     0% {
-//       transform: translate3d(random(155)*randomNum()+vh, random(155)*randomNum()+vw, random(2000)*randomNum()+px);
-//     }
-//     50% {
-//       transform: translate3d(0,0,0);
-//       opacity: 0;
-//     }
-//     100% {
-//       transform: translate3d(random(155)*randomNum()+vh, random(155)*randomNum()+vw, random(2000)*randomNum()+px);
-//     }
+  @keyframes anim#{$i} {
+    0% {
+      transform: translate3d(random(155)*randomNum()+vh, random(155)*randomNum()+vw, random(2000)*randomNum()+px);
+    }
+    50% {
+      transform: translate3d(0,0,0);
+      opacity: 0;
+    }
+    100% {
+      transform: translate3d(random(155)*randomNum()+vh, random(155)*randomNum()+vw, random(2000)*randomNum()+px);
+    }
    
-//   }
-// }
+  }
+}
