@@ -55,6 +55,22 @@
             color: $black;
             cursor: pointer;
         }
+        //購物車提示
+        & .productInCart{
+            position: relative;
+        }
+        & .productInCart::before{
+            content: '';
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            right: -5px;
+            background-color: rgb(255, 115, 0);
+        }
+        
         // 登入前
         .loginBoxBtn{
             display: block;
