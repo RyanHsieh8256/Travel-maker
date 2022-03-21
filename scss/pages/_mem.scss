@@ -134,7 +134,7 @@
 .InfoSettingForm{
     width: 100%;
     th,td{
-        padding: 10px 30px;
+        padding: 10px 20px;
         border-bottom: 1px solid #3332;
         text-align: left;
         input{
@@ -143,23 +143,23 @@
             width: 100%;
             max-width: 250px;
         }
+        @media screen and (min-width:768px) {
+            input{
+                width: 70%;
+            }
+        }
+        .memName~span{
+            display: inline-block;
+            margin-top: 5px;
+        }
+        #iconFile~.dataChangBtn{
+            display: inline-block;
+            margin-top: 5px;
+        }
     }
-    td.memNote{
+    td.iconChangButton{
         font-size: 12px;
         color: rgb(63, 63, 63);
-        text-align: right;
-    }
-}
-.sendButton{
-    padding: 10px 0;
-    margin-left: auto;
-    text-align: right;
-    input{
-        padding: 10px 20px;
-        border-radius: 50px;
-        border: none;
-        background-color: $FooterSubColor;
-        color: $white;
     }
 }
 
@@ -298,5 +298,65 @@
         border-bottom: .4px solid#6663;
         display: flex;
         justify-content: space-between;
+    }
+}
+
+.dataChangBtn{
+    cursor: pointer;
+    padding: 3px 15px;
+    font-size: .9rem;
+    border-radius: 50px;
+    border: none;
+    background-color: $FooterSubColor;
+    color: $white;
+}
+
+//變更密碼
+.memPswChang{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #f0eee7;
+    box-shadow: #333 0 0 3px;
+    border-radius: 5px;
+    overflow: hidden;
+    display: none;
+
+    width: 400px;
+    table{
+        width: 100%;
+        margin: auto;
+        tr:first-child{
+            background-color: #007183;
+            color: $white;
+        }
+        th,td{
+            height: 30px;
+            padding: 10px 0;
+            input{
+                border-radius: 3px;
+                border: none;
+                outline: none;
+                padding: 5px;
+                box-shadow: inset 0px 0px 2px #333;
+            }
+        }
+    }
+    .memPswChangCancel{
+        text-align: right;
+        position: absolute;
+        top: 0;
+        right: 0;
+        button{
+            color: #fff;
+        }
+    }
+    .memPswChangBtn{
+        padding: 5px 10px;
+        border-radius: 50px;
+        border: none;
+        background-color: $FooterSubColor;
+        color: $white;
     }
 }

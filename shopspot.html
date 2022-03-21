@@ -422,7 +422,7 @@
     
 
     <script>
-        //------------------------存-------------------------------
+    //---------------存localstorage---------------
         let id = location.search.split('?')[1].split('&')[0].split('=')[1];
         // console.log(location.href.search('&'));
 
@@ -453,20 +453,26 @@
         setItem();
 
         function save(){
+            let fullFarePrice = document.querySelector('.fullFarePrice').value
+            let halfFarePrice = document.querySelector('.halfFarePrice').value
+            let conTicketPrice = document.querySelector('.conTicketPrice').value
             let item = {    //要存的("key","value")
                 id: id,
                 name: $('.ticketSpotName').text(),
+                ticketPrice:[fullFarePrice,halfFarePrice,conTicketPrice],
                 qty: [$('.qty')[0].value, $('.qty')[1].value, $('.qty')[2].value],
                 amount: $('#total').text(),
                 spotImg:$('.upperImg1').attr("src"),
             };
 
+
+            //(重複景點不加購物車)
             // console.log(item)
             let cart = localStorage.getItem('cart');    //拿到localstorage
             cart = cart ? JSON.parse(cart) : [];    //轉JSON格式
             let found = false;
 
-            for(let i=0; i<cart.length; i++){    //重複景點不加購物車
+            for(let i=0; i<cart.length; i++){    
                 if(cart[i].id === item.id){
                     cart[i] = item;
                     found = true;
@@ -476,8 +482,7 @@
 
             let qty = document.querySelectorAll('.qty')
 
-            
-    
+    //---------------驗證數量是否皆為零---------------
 
             for(let i=0; i<qty.length; i++){
                 let fullqty = document.getElementById('fullqty').value
@@ -499,13 +504,11 @@
                 cart.push(item);   //新的都要往後加
             }
 
-           
-
             // console.log(cart)
             localStorage.setItem('cart', JSON.stringify(cart));    //轉成字串，傳到localstorage
         }
 
-        //-----------------------sql------------------------
+    //---------------抓頁面資料(sql)---------------
         getDetail();
         getBottom();
 
@@ -594,7 +597,7 @@
             });
         }
 
-        //-----------------------slide-------------------------
+    //---------------slide RWD---------------
         $(document).ready(function () {
             var shopspotSlide = $("#shopspotSlide");
 
@@ -629,7 +632,7 @@
                 });
             };
 
-            //  --------------------Shopping-cart-------------------------
+    //---------------Shopping-cart---------------
             $(document).ready(function () {
                 update_amounts();
                 $('.qty, .price').on('keyup keypress blur change', function (e) {    //在事件發生時執行
@@ -650,7 +653,7 @@
                 $('.total').text(sum);
             }
 
-            //---指定按鈕被點擊時，指定之class裡的值做+或-，並執行更新總金額---
+            //(指定按鈕被點擊時，指定之class裡的值做+或-，並執行更新總金額)
             var incrementQty;
             var decrementQty;
             var plusBtn = $(".cart-qty-plus");
@@ -676,9 +679,6 @@
 
         });
 
-        
-
-        //----------------Select click-------------------
         $(document).ready(function () {
             $("li").each(function (index) {
                 $(this).click(function () {  //點選觸發事件
@@ -688,8 +688,7 @@
             });
         });
 
-
-        //-------------------結帳登入驗證-------------------
+    //---------------結帳登入驗證---------------
 
         let topay = document.querySelector('.topay');
         let amount = document.getElementById('total').innerText
@@ -701,20 +700,9 @@
                 alert('請先登入會員')
                 topay.removeAttribute("href")
             }
-            // else{
-            //     topay.setAttribute('href',"shoppay.html")
-            // }
-
         };
         
         topay.addEventListener('click',loginCheck)
-
-
-
-        
-
-
-    
     </script>
     <script src="js/owl.carousel.js"></script>
 

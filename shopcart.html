@@ -219,9 +219,8 @@
         
    
     <script>
-        //------------------deadline----------------
+    //---------------deadline---------------
         let deadline = document.querySelectorAll('.deadline'); //取得class deadline
-        
         
         // console.log(deadline);
         var myDate = new Date()     //取得目前時間
@@ -238,7 +237,7 @@
         // console.log(`${year} / ${month}/ ${date}`);
         
 
-        //--------動態新增及取localstorage資料--------
+    //---------------動態新增及取localstorage資料---------------
         
         let cart = localStorage.getItem('cart');
         cart = JSON.parse(cart);
@@ -335,7 +334,7 @@
         }
 
 
-        //------------------------------------
+    //---------------點擊刪除icon 刪除頁面顯示及單筆localstorage---------------
         let trashbox = document.querySelectorAll('.bi-trash3');
         let shoplist = document.querySelectorAll('.shoplist');
         for(i=0; i<trashbox.length; i++){
@@ -351,10 +350,7 @@
             })
         }
 
-        
-
-
-        //--------------amount---------------
+    //---------------總金額計算---------------
         function totalSum(){
             let total = 0;
             let sub = document.getElementsByClassName('sub');
@@ -369,7 +365,7 @@
         window.addEventListener('load',totalSum)
 
 
-        //------------------空購物車---------------
+    //---------------購物車為空時---------------
        if($('.shoplist').length>0){
            $('.noPro').css('display','none')
            $('.deadline').css('display','block')
@@ -377,10 +373,8 @@
        }
     
         
-        //-------------------結帳登入驗證-------------------
-
+    //---------------結帳登入驗證---------------
         let btnCart = document.querySelector('.btn--cart');
-       
         function loginCheck(){
             if(memData == null){
                 alert('請先登入會員')

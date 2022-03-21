@@ -6,10 +6,55 @@ window.addEventListener('load',function() {
 
     // 初始化
     sessionStorage.clear();
-
+    localStorage.setItem('memLike','');
+    
     fetchCity();
     displayTheTour();
+    
 })
+
+window.addEventListener('beforeunload',function(e) {
+  e.preventDefault();
+  
+  // // 傳新的收藏清單
+  if(localStorage.getItem("memLike" == null)) return;
+  let memLikes = localStorage.getItem('memLike');
+  let likeData = new FormData();
+  likeData.append('like',memLikes);
+
+  updateMemLike(likeData);
+
+  // 傳要刪除的行程
+  if(localStorage.getItem("unlike") == null) return;
+    let unlikes = localStorage.getItem('unlike');
+    console.log(unlikes);
+    let unLikeData = new FormData();
+    unLikeData.append('unlike',unlikes);
+
+    updateMemLike(unLikeData);
+    
+})
+
+
+// document.querySelector('.tour_img').onclick = function() {
+ 
+// }
+
+
+  function updateMemLike(data) {
+   
+    fetch(`./phps/updateMemLike.php`, {
+      method: 'POST',
+      // headers 加入 formdata 格式
+      header: {
+        'Content-Type': 'multipart/form-data' 
+      },
+      body: data
+    })
+    .then(data => data.json());
+  }
+  
+
 
 
 // 行程用
@@ -18,7 +63,9 @@ function fetchData() {
     let sliderItem = document.querySelector('.slider_item--active');
     if(!sliderItem) return;
     
+    // 預設的active行程會顯示收藏
     curJour = +sliderItem.dataset["jour"];
+    haveLike(curJour);
     
     fetch(`./phps/fetchJour.php?find=${curJour}`).then(res => res.json())
     .then(data => {
@@ -46,51 +93,19 @@ function fetchData() {
         displaySide(curJour,dayNum);
         tourForm();
         displayTheTour();
-        
     })
 
 }
-
-// 揪團用
-// 抓行程景點資料
-// function fetchData() {
-//   curGroup = +id;
-//   fetch(`./phps/fetchJour.php?group=${curGroup}`).then(res => res.json())
-//   .then(data => {
-
-//       // 抓該行程的天數
-
-//       let dayArr = [];
-//       let dayNum = Math.max(...data.map(jour => +jour.journeySpotDay));
-     
-
-//       for(let i = 1; i <= dayNum; i++ ) {
-//           let theData = data.filter(jour => jour.journeySpotDay == i);
-//           dayArr.push(theData);
-//       }
-
-      
-//       // 寫入session storage
-//       sessionStorage.clear();
-//       dayArr.forEach((day,i) => {
-//            // 整理陣列裡物件順序
-//           day.sort((a,b) => +a.sequence - +b.sequence);
-//           sessionStorage.setItem(`day${i+1}`, JSON.stringify(day));
-//       });
-
-//       displaySide(curGroup,dayNum);
-      
-//   })
-
-// }
-
 
 
 // 抓到所有城市
 async function fetchCity() {
   fetch(`./phps/fetchCity.php`)
   .then(res => res.json())
-  .then(data => displayCityBtn(data));
+  .then(data => {
+    displayCityBtn(data);
+    fetchLike();
+  });
 }
 
 // 抓到行程(會員的或該城市的)
@@ -98,10 +113,7 @@ function fetchTour(thing,no) {
  
   fetch(`./phps/fetchTour.php?${thing}=${no}`)
   .then(res => res.json())
-  .then(data => {
-    displayTour(data);
-  });
-
+  .then(data => displayTour(data));
 }
 
 
@@ -131,6 +143,68 @@ function displayCityBtn(data) {
 
   
 }
+
+
+// 抓會員的收藏行程
+function fetchLike() {
+
+  fetch(`./phps/fetchLike.php?like=${getMemData().memNo}`)
+  .then(res => res.json())
+  .then(data => takeLike(data));
+}
+
+
+
+// 儲存目前會員的收藏行程
+function takeLike(data) {
+  let likeArr = data;
+  localStorage.setItem('unlike','');   
+  localStorage.setItem('memLike',JSON.stringify(likeArr));
+
+}
+
+// 在localStorage加減收藏行程資料
+function handleLike(jourNo) {
+  let likes = JSON.parse(localStorage.getItem('memLike'));
+  let unlikes = [];
+  let likeState = displayLike();
+
+  // 找到收藏裡的這個行程索引值
+  let findTour =  likes.findIndex(like => like.journeyNo == jourNo);
+  
+  let likeObj = {
+    memNo: getMemData().memNo,
+    journeyNo: jourNo
+  }
+
+
+  if(likeState) {
+    likes.push(likeObj);
+
+  }else {
+    likes.splice(findTour,1);
+    unlikes.push(likeObj);
+    localStorage.setItem('unlike',JSON.stringify(unlikes))
+  }
+
+  
+
+  localStorage.setItem('memLike',JSON.stringify(likes));
+
+}
+
+
+// 取得local storage的memLike
+function getLikeArr() {
+  let likes = JSON.parse(localStorage.getItem('memLike'));
+  let arr = [];
+  likes.forEach(like => arr.push(+like.journeyNo));
+
+  return arr;
+}
+
+getLikeArr();
+
 
 
 // 篩選行程
@@ -197,7 +271,6 @@ async function displayTour(data) {
     }).join('\n');
    
     tourSlider.innerHTML = tours;
-   
     await fetchData();
     changeItem();
   }
@@ -275,19 +348,26 @@ function changeTab() {
   changeTab();
 
 // 點擊like的事件處理function
-function likeClick() {
+function likeClick(e) {
   tourLike.classList.toggle('tour_Like--active');
+  let curJour = e.currentTarget.nextElementSibling.dataset['jour'];
+  
   displayLike();
+
+  // 增加該會員收藏的行程
+  handleLike(curJour);
 }
 
 // 處理收藏icon
 function displayLike() {
+
   let likeOrNot = tourLike.classList.contains('tour_Like--active');
   let likeIcon = `<i class="bi bi-heart${likeOrNot ? '-fill' : ''}"></i>`;
 
   tourLike.children[0].remove();
   tourLike.insertAdjacentHTML('beforeend',likeIcon);
 
+  return likeOrNot;
 }
 
 
@@ -312,6 +392,7 @@ slideContent();
 
 
 // 點擊行程item就抓景點資料
+// 要加like的class
 function changeItem() {
   let sliderItem = document.querySelectorAll('.slider_item');
   
@@ -319,12 +400,22 @@ function changeItem() {
 
   function turnActive(e) {
     sliderItem.forEach(item => item.classList.remove('slider_item--active'));
-
     e.currentTarget.classList.add('slider_item--active');
+    let curJour = e.currentTarget.dataset['jour'];
 
     fetchData();
+    haveLike(curJour);
     
   }
+
+}
+
+function haveLike(jourNo) {
+  let curLikes = getLikeArr();
+  let likeOrNot = curLikes.some(like => like == +jourNo);
+
+  likeOrNot ? tourLike.className = 'tour_like tour_Like--active' : tourLike.className = 'tour_like';
+  displayLike();
 
 }
 
@@ -387,7 +478,10 @@ slidePage();
 
 // 呈現行程名稱 /圖片等內容
 function displayTheTour() {
+  if(tourForm().length == 0) return;
+
   let names = document.querySelectorAll('.tourName');
+  tourWrapper.dataset['jour'] = tourForm().journeyNo;
   names.forEach(name => name.textContent = tourForm().journeyName);
   tourInfo.textContent = tourForm().journeyInfo;
 }
@@ -442,83 +536,3 @@ function getMemData() {
     loginOrNot
   }
 }
-
-// 揪團用
-// 抓行程景點資料
-// function fetchData() {
-//   curGroup = +id;
-//   fetch(`./phps/fetchJour.php?group=${curGroup}`).then(res => res.json())
-//   .then(data => {
-
-//       // 抓該行程的天數
-
-//       let dayArr = [];
-//       let dayNum = Math.max(...data.map(jour => +jour.journeySpotDay));
-    
-
-//       for(let i = 1; i <= dayNum; i++ ) {
-//           let theData = data.filter(jour => jour.journeySpotDay == i);
-//           dayArr.push(theData);
-//       }
-
-    
-//       // 寫入session storage
-//       sessionStorage.clear();
-//       dayArr.forEach((day,i) => {
-//             // 整理陣列裡物件順序
-//           day.sort((a,b) => +a.sequence - +b.sequence);
-//           sessionStorage.setItem(`day${i+1}`, JSON.stringify(day));
-//       });
-
-//       displaySide(curGroup,dayNum);
-    
-//   })
-
-// }
-// fetchData();
-
-// // 呈現該行程景點
-// function displaySide(no,num) {
-//     let timelineBox = document.querySelector('.timeline_box');
-//     let timelineList = document.querySelector('.timeline_list');
-//     let oldPages = timelineList.children;
-//     [...oldPages].forEach(page => page.remove());
-
-//     let tabs = '';
-
-//     for(let i = 1; i <= num; i++) {
-//         let dayData = JSON.parse(sessionStorage.getItem(`day${i}`));
-
-//         let timelinePage = document.createElement('div');
-//         timelinePage.className = `timeline_page timeline_page--${i} ${i == 1 ? 'timeline_page--active' : ''}`;
-//         timelineList.append(timelinePage);
-
-//         tabs += `<div class="timeline_tab timeline_tab--${i} ${i == 1 ? 'timeline_tab--active' : ''}" data-tab="${i}">第${i}天</div>`;
-        
-    
-
-//         let items = dayData.map(day => {
-//             let {spotNo,sequence,spotName,spotImg} = day;
-
-//             let spotItem = `
-//             <li class="timeline_item tourBuild_item" data-no="${spotNo}" drag-handle>
-//             <div class="timeline_text">
-//                 <div class="timeline_num">${sequence}</div>
-//                 <div class="timeline_name">${spotName}</div>
-//             </div>
-//             <div class="timeline_img">
-//                 <img src="${spotImg}" alt="">
-//             </div>
-//             </li>
-//             `
-//             return spotItem;
-//         }).join('');
-        
-
-//         timelinePage.innerHTML = items;
-//     }
-
-//     timelineBox.innerHTML = tabs;
-
-//     changeTab();
-// }

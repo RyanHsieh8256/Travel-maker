@@ -1,43 +1,3 @@
-//loading畫面
-$(document).ready(function(){
-    let loadingbox = document.createElement('div');
-    loadingbox.classList.add('loadingbox');
-    let loading = document.createElement('div');
-    loading.classList.add('loading');
-    loadingbox.appendChild(loading);
-    for(i=0;i<200;i++){
-        let ball = document.createElement('div');
-        ball.classList.add('ball')
-        loading.appendChild(ball);
-    } 
-
-    // let froBackAnimation = document.createElement('div');
-    // froBackAnimation.classList.add('froBackAnimation');
-    // loadingbox.appendChild(froBackAnimation);
-    // for(i=6;i>0;i--){
-    //     let parallaxLayer = document.createElement('div');
-    //     parallaxLayer.classList.add('parallaxLayer');
-    //     parallaxLayer.classList.add(`layer-${i}`);
-    //     froBackAnimation.appendChild(parallaxLayer);
-    // }
-    // let bear1 = document.createElement('div');
-    // bear1.classList.add('parallaxLayer');
-    // bear1.classList.add('bear-1');
-    // froBackAnimation.insertBefore(bear1,froBackAnimation.childNodes[4]);
-    // let bear2 = document.createElement('div');
-    // bear2.classList.add('parallaxLayer');
-    // bear2.classList.add('bear-2');
-    // froBackAnimation.insertBefore(bear2,froBackAnimation.childNodes[4]);
-    // let boat = document.createElement('div');
-    // boat.classList.add('parallaxLayer');
-    // boat.classList.add('boat-1');
-    // froBackAnimation.insertBefore(boat,froBackAnimation.childNodes[7]);
-    
-    document.getElementsByTagName('body')[0].appendChild(loadingbox);
-});
-
-
-
 // 登入表單組件
 Vue.component('login',{
     template: `
@@ -329,11 +289,7 @@ function loginBox_doFirst(){
     froLoginCancel[0].addEventListener('click',closeLoginBox);
     loginBoxBtn.addEventListener('click',openLoginBox);
     memBoxBtn.addEventListener('click',openMemBox);
-    logOutBtn.addEventListener('click',logOut);
-    $('.loadingbox').fadeOut(2000,function(){
-        $('.loadingbox').remove();
-    });
-    
+    logOutBtn.addEventListener('click',logOut);   
 }
 
 
@@ -377,6 +333,12 @@ function switchBtnColor(){
 function closeLoginBox(){
     froLoginBG.style.display = 'none';
 }
-
+//購物車提示
+function productInCart(){
+    if(localStorage.getItem('cart')){
+        $('.navMember li:first-child').addClass('productInCart');
+    }
+}
+productInCart();
 
 window.addEventListener('load',loginBox_doFirst)

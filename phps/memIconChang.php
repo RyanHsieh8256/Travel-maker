@@ -9,24 +9,25 @@ try{
         $ext = image_type_to_extension($info['2']);      
 
         $file = $_FILES['file']['tmp_name'];
-        $dest = '../images/memIcon/' . 'memIcon-0' . $_REQUEST['memNo'] . $ext;
+        if($_REQUEST['memNo']<10){
+          $dest = '../images/memIcon/' . 'memIcon-00' . $_REQUEST['memNo'] . $ext;
+        }else{
+          $dest = '../images/memIcon/' . 'memIcon-0' . $_REQUEST['memNo'] . $ext;
+        };
         //新增資料夾
         // $file_path = '../images/test/'.'memNo' . $_REQUEST['memNo'].'/';//資料夾路徑
         // mkdir($file_path);
         move_uploaded_file($file, $dest);
 
-        $memName = $_REQUEST['memName'];
-        $memPsw = $_REQUEST['memPsw'];
         $memNo = $_REQUEST['memNo'];
         $memIcon = 'memIcon-0' . $_REQUEST['memNo'] . $ext;
 
-        $sql = "UPDATE `member` SET `memName`='$memName',`memPsw`='$memPsw',`memIcon`='$memIcon' WHERE `memNo`='$memNo';"; 
+        $sql = "UPDATE `member` SET `memIcon`='$memIcon' WHERE `memNo`='$memNo';"; 
 
 
         $member = $pdo->exec($sql);
 
         $result = [
-          'memName'=>$memName,
           'memIcon'=>$memIcon,
         ];
         echo json_encode($result);

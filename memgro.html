@@ -238,7 +238,7 @@
                                                         出發日期: <span>{{item.groStartDate}}</span><br>
                                                         回程日期: <span>{{item.groEndDate}}</span>
                                                     </p>
-                                                    <p>參加人數 : <span>{{item.applyNum}}</span>人</p>
+                                                    <p>剩餘名額 : <span>{{item.quote}}</span>人</p>
                                                 </div>
                                                 <div class="horizontalcard_footer">
                                                     <div class="horizontalcard_footerItem">
@@ -276,7 +276,7 @@
                                                         出發日期: <span>{{item.groStartDate}}</span><br>
                                                         回程日期: <span>{{item.groEndDate}}</span>
                                                     </p>
-                                                    <p>參加人數 : <span>{{item.applyNum}}</span>人</p>
+                                                    <p>剩餘名額 : <span>{{item.quote}}</span>人</p>
                                                 </div>
                                                 <div class="horizontalcard_footer">
                                                     <div class="horizontalcard_footerItem"><a :href="'groupdetail.html?groNo=' + item.groNo">揪團詳情</a></div>
@@ -337,7 +337,6 @@
                 if(res == 'noData'){
                     $('.joinGroCardBox_empty').css('display','block');
                     $('#joinGroCardBox').css('display','none');
-                    window.alert('查無資料');
                 }else{
                     res = JSON.parse(res);
                     new Vue({
@@ -361,7 +360,6 @@
                     $('#myGroCardBox').css('display','none');
                 }else{
                     res = JSON.parse(res);
-                    console.log(res)
                     new Vue({
                         el : "#myGroCardBox",
                         data:{

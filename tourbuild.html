@@ -296,8 +296,8 @@
             <button class="btn btn--chip toggleMap">
               <i class="bi bi-map"></i>
             </button>
-            <button class="btn btn--main">儲存</button>
-            <button class="btn btn--main">
+            <button class="btn btn--main" id="saveTour">儲存</button>
+            <button class="btn btn--main" id="goBuildGroup">
               <a href="groupform.html">公開揪團</a>
             </button>
             <button class="btn btn--main">分享</button>
@@ -331,6 +331,16 @@
               <component :is='content2'></component>
           </transition>
       </section>
+    </div>
+
+    <!-- 提醒視窗 -->
+    <div class="alertBG tourBuild_alertBG">
+      <div class="alertBG_wrap">
+          <button class="alertBG_closeBtn">
+              <i class="bi bi-x-circle-fill"></i>
+          </button>
+          <p class="alertBG_content"></p>
+      </div>
     </div>
     
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
