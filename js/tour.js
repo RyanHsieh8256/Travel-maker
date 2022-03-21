@@ -36,10 +36,6 @@ window.addEventListener('beforeunload',function(e) {
 })
 
 
-// document.querySelector('.tour_img').onclick = function() {
- 
-// }
-
 
   function updateMemLike(data) {
    
@@ -65,7 +61,10 @@ function fetchData() {
     
     // 預設的active行程會顯示收藏
     curJour = +sliderItem.dataset["jour"];
-    haveLike(curJour);
+
+    if(localStorage.getItem('memData') != null) {
+      haveLike(curJour);
+    }
     
     fetch(`./phps/fetchJour.php?find=${curJour}`).then(res => res.json())
     .then(data => {
@@ -104,6 +103,8 @@ async function fetchCity() {
   .then(res => res.json())
   .then(data => {
     displayCityBtn(data);
+
+    if(localStorage.getItem('memData') == null) return;
     fetchLike();
   });
 }
@@ -203,7 +204,10 @@ function getLikeArr() {
   return arr;
 }
 
-getLikeArr();
+if(localStorage.getItem('memData') != null) {
+  getLikeArr();
+}
+
 
 
 
@@ -230,10 +234,10 @@ function changeCity(e) {
   if(curSort == 'mine') {
     fetchTour('mem',getMemData().memNo);
     tourLike.style.display = 'none';
+    console.log('為什麼');
 
   }else {
     fetchTour('city',curSort);
-    tourLike.style.display = 'block';
     tourLike.classList.remove('tour_Like--active');
     displayLike();
   }
@@ -360,7 +364,14 @@ function likeClick(e) {
 
 // 處理收藏icon
 function displayLike() {
+  let sortActive = document.querySelector('.sort_item--active').dataset['sort'];
 
+  if(localStorage.getItem('memData') != null && sortActive != 'mine') {
+    
+    tourLike.style.display = 'block';
+  }else {
+    tourLike.style.display = 'none';
+  }
   let likeOrNot = tourLike.classList.contains('tour_Like--active');
   let likeIcon = `<i class="bi bi-heart${likeOrNot ? '-fill' : ''}"></i>`;
 
@@ -404,7 +415,11 @@ function changeItem() {
     let curJour = e.currentTarget.dataset['jour'];
 
     fetchData();
-    haveLike(curJour);
+
+    if(localStorage.getItem('memData') != null) {
+      haveLike(curJour);
+    }
+   
     
   }
 
@@ -413,7 +428,10 @@ function changeItem() {
 function haveLike(jourNo) {
   let curLikes = getLikeArr();
   let likeOrNot = curLikes.some(like => like == +jourNo);
-
+  
+  if(localStorage.getItem('memData') != null) {
+    tourLike.style.display = 'block';
+  }
   likeOrNot ? tourLike.className = 'tour_like tour_Like--active' : tourLike.className = 'tour_like';
   displayLike();
 
@@ -536,3 +554,50 @@ function getMemData() {
     loginOrNot
   }
 }
+
+
+// 共用
+// 行程天標籤的拖動
+const dragSlide = function() {
+
+  const infoList = document.querySelector('.timeline_box');
+
+  let clicked = false;
+  let startX;
+  let xoffest;
+
+
+  const end = () => {
+      clicked = false;
+      
+  }
+
+  const start = (e) => {
+      clicked = true;
+      startX = e.pageX || e.touches[0].pageX - infoList.offsetLeft;
+      xoffest = infoList.scrollLeft;	
+  }
+
+  const move = (e) => {
+      if(!clicked) return;
+      
+    e.preventDefault();
+    const x = e.pageX || e.touches[0].pageX - infoList.offsetLeft;
+    const dist = (x - startX);
+    infoList.scrollLeft = xoffest - dist;
+  }
+
+  
+  infoList.addEventListener('mousedown', start);
+  infoList.addEventListener('touchstart', start);
+
+  infoList.addEventListener('mousemove', move);
+  infoList.addEventListener('touchmove', move);
+
+  infoList.addEventListener('mouseleave', end);
+  infoList.addEventListener('mouseup', end);
+  infoList.addEventListener('touchend', end);
+  
+}
+
+dragSlide();
