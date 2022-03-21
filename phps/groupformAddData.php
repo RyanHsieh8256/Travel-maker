@@ -10,10 +10,22 @@
         $journeyNo = $_REQUEST['journeyNo'];
         $groPay = $_REQUEST['groPay'];
         $groLimit = $_REQUEST['groLimit'];
+        $imgTarget = $_REQUEST['imgTarget'];
+        $groDefaultImg = $_REQUEST['groDefaultImg'];
 
-        // 處理原本預設圖片的檔名
-        $journeyNo_pad = str_pad($journeyNo,3,"0",STR_PAD_LEFT);
-        $groImg = "journeyImg-$journeyNo_pad.jpg";
+        // 處理行程預設圖片的檔名: 
+        // 1. 檔名編碼為0的 
+        // 2. 檔名依據網址列抓取行程編號
+        echo "$imgTarget[2]";
+        if($imgTarget[2] == $groDefaultImg){
+            $groImg = "$groDefaultImg";
+        
+        }else{
+            $journeyNo_pad = str_pad($journeyNo,3,"0",STR_PAD_LEFT);
+            $groImg = "journeyImg-$journeyNo_pad.jpg";
+        }
+        
+        
         
         // 新增資料到gro表
         $sql = "INSERT INTO `gro`(`groName`, `memNo`, `groStartDate`, `groEndDate`, `applyDeadline`, `groLimit`, `groImg`, `groContent`, `groPay`, `journeyNo`, `groState`) VALUES ('$groName','$memNo','$groStartDate','$groEndDate','$applyDeadline','$groLimit','$groImg','$groContent','$groPay','$journeyNo','進行中')";
