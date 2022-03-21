@@ -246,6 +246,7 @@
                     <input type="text" class="search_input">
                     <button class="search"><i class="bi bi-search"></i></button>
                 </form>
+                <style id="m-search"></style>
             </div>
         </section>
         <!-- 篩選下拉式選單和揪團內容區 -->
@@ -513,6 +514,19 @@
         window.addEventListener('load', getGroData);
     </script>
 
+    <!-- 搜尋功能 -->
+    <script>
+        var that = $(this);
+        var mSearch = $("#m-search");
+        $('#searchInput').bind("change paste", function () {
+            var value = $(this).val();
+            if (!value) {
+                mSearch.html("");
+                return;
+            };
+            mSearch.html('.card:not([data-index*="' + value.toLowerCase() + '"]) {display: none;}');
+        });
+    </script>
 
     <script src="js/burger.js"></script>
     <script src="js/forlogin.js"></script>
