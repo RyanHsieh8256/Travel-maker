@@ -350,7 +350,7 @@ function productInCart(){
     }
 }
 
-$('.tocart').on('click',setInterval(productInCart,100));
+$('.tocart').on('click',setTimeout(productInCart,100));
 
-window.addEventListener('load',productInCart)
-window.addEventListener('load',loginBox_doFirst)
+window.addEventListener('load',productInCart);
+window.addEventListener('load',loginBox_doFirst);
