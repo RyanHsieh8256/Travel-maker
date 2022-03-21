@@ -208,21 +208,21 @@
                     <div class="date_wrap startDate_wrap">
                         <label for="startDate"><span class="must">*</span>揪團出發日期</label>
                         <div class="datepicker_wrap">
-                            <input type="date" class="selectDate">
+                            <input type="date" class="selectDate" id="groStartDate">
                         </div>
                         <div class="alertMessage"></div>
                     </div>
                     <div class="date_wrap endDate_wrap">
                         <label for="endDate"><span class="must">*</span>揪團結束日期</label>
                         <div class="datepicker_wrap">
-                            <input type="date" class="selectDate">
+                            <input type="date" class="selectDate" id="groEndDate">
                         </div>
                         <div class="alertMessage"></div>
                     </div>
                     <div class="date_wrap deadline_wrap">
                         <label for="deadline"><span class="must">*</span>報名截止日期</label>
                         <div class="datepicker_wrap">
-                            <input type="date" class="selectDate">
+                            <input type="date" class="selectDate" id="applyDeadline">
                         </div>
                         <div class="alertMessage"></div>
                     </div>
@@ -330,9 +330,9 @@
                 let coverImg = document.getElementById('coverImg');
                 let dropZone_title = document.querySelector('.dropZone_title');
                 if (fileSize > 2 * 1024 * 1024) {
+                    coverImg.src = '';
                     dropZone_title.innerText = '上傳失敗，請上傳2MB以內的照片';
                     dropZone_title.style.color = "#f00";
-                    return;
                 } else {
                     coverImg.src = readFile.result;
                     dropZone_title.style.display = "none";
@@ -354,7 +354,7 @@
 
     <!-- VUE出下拉式選單和數量加減 -->
     <script>
-        let vm = new Vue({
+        var vm = new Vue({
             el: '#groupform_wrap',
             data: {
                 total: 1,
@@ -376,7 +376,7 @@
         });
     </script>
 
-    <!-- 公開揪團判斷必填表格 -->
+    <!-- 公開揪團判斷必填表格，將資料插入資料庫的gro表格裡 -->
     <script>
         //驗證文字是否填入
         function checkTextValue() {
@@ -396,7 +396,8 @@
             return !!groupTitle.value && !!groupDesc.value;
         }
 
-        //驗證日期
+        // 已經可以成功插入資料庫後須打開以下code: 目前共有3個地方需打開
+        //1. 驗證日期
         function checkDate() {
             let selectDate = document.querySelectorAll('.selectDate');
             let alertMessage = document.querySelectorAll('.alertMessage');
@@ -425,7 +426,7 @@
         function submitData() { //判斷全部的條件包括封面照片是否有上傳
             let coverImg = document.getElementById('coverImg');
             let textValid = checkTextValue();
-            let dateValid = checkDate();
+            // let dateValid = checkDate();
             let alertBG = document.querySelector('.alertBG');
             let alertBG_content = document.querySelector('.alertBG_content');
             let dropZone_title = document.querySelector('.dropZone_title');
@@ -435,8 +436,7 @@
             // console.log(textValid); 
             // console.log(dateValid);
 
-            if (textValid == false || dateValid == false || !imgSrc) { //如果全部情況都false的話，出現視窗提醒畫面
-
+            if (textValid == false || !imgSrc || dateValid == false) { //如果全部情況都false的話，出現視窗提醒畫面
                 alertBG.style.display = "block";
                 alertBG_content.innerText = "尚有資料未填寫完整";
                 dropZone_title.innerHTML = `請選一張您喜歡的封面照片吧<i class="bi bi-exclamation-lg"></i>`;
@@ -445,20 +445,80 @@
                 alertBG_closeBtn.addEventListener('click', close);
 
             } else { //代表他資料都填寫完整
-                console.log(textValid); //true
-                console.log(dateValid); // false
-                console.log(imgSrc); //null
+                // console.log(textValid); //true
+                // console.log(dateValid); // false
+                // console.log(imgSrc); //該封面的照片路徑
                 alertBG.style.display = "block";
                 alertBG_content.innerHTML = `已成功公開揪團<i class="bi bi-exclamation-lg"></i>`;
 
                 alertBG_closeBtn.addEventListener('click', toGroup);
+                alertBG_closeBtn.addEventListener('click', addDataToGro);
             }
+            //假設資料未填寫完整，打叉按紐單純關閉提醒視窗功能
             function close() {
                 alertBG.style.display = "none";
             }
-
+            //資料皆完整了，打叉按紐按了之後回到揪團首頁
             function toGroup() {
+                //3. 以下暫時放的
+                // alertBG.style.display = "none";
                 window.location.href = "./group.html"
+            }
+            //資料皆完整了，打叉按紐按了後插入資料庫的gro表格裡
+            function addDataToGro() {
+                // console.log(123); 
+                //封面照片處理區
+                let file_data = $('#uploadBtn').prop('files')[0]; //取得上傳檔案屬性
+                let form_data = new FormData();  //建構new FormData()
+
+                let memberData = localStorage.getItem('memData');
+                let memNo = JSON.parse(memberData).memNo;
+                
+                let journeyNo = location.search.split('?')[1].split('=')[1];
+
+                // 需要傳送的變數全部包在這裡
+                form_data.append('file', file_data);  //把物件加到file後面
+                
+                form_data.append('groName', $('#groupTitle').val());
+                form_data.append('memNo',memNo);
+                form_data.append('groContent', $('#groupDesc').val());
+                form_data.append('groStartDate', $('#groStartDate').val());
+                form_data.append('groEndDate', $('#groEndDate').val());
+                form_data.append('applyDeadline', $('#applyDeadline').val());
+                form_data.append('journeyNo',journeyNo);
+                form_data.append('groPay',vm.selectedMethod);
+                form_data.append('groLimit',vm.total);
+                //console.log(file_data);
+                console.log(form_data.get('groPay'));
+                console.log(form_data.get('groLimit'));
+                // console.log(form_data.get('groContent'));
+                // console.log(form_data.get('groStartDate'));
+                // console.log(form_data.get('groEndDate'));
+                // console.log(form_data.get('applyDeadline'));
+                // console.log(form_data.get('journeyNo'));
+                // //console.log(form_data.get('groName'));
+                //console.log($('#applyDeadline').val());
+                // console.log(imgSrc); //抓本身預設從grouplist帶過來的資料
+
+                
+                //let groupdetailMemInfo = JSON.parse(memberData).memNo;
+                // let dataToBack = `memNo=${groupdetailMemInfo}&groName=${groName}&groStartDate=${groStartDate}`;
+
+                //console.log(memberData);
+                // console.log(groupdetailMemInfo); //5
+                // console.log(dataToBack);
+                $.ajax({
+                    type: 'POST',
+                    url: './phps/groupformAddData.php',
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: form_data, //data只能指定單一物件 
+                    dataType: 'json',
+                    success: function (res) {
+                        console.log(res);
+                    }
+                });
             }
         }
         publish.addEventListener('click', submitData);
@@ -484,7 +544,7 @@
                     // console.log(res);
                     //串接封面照片
                     coverImg = $('#coverImg');
-                    coverImg.attr('src', `images/journeyImg/${res[0].journeyImg}`); 
+                    coverImg.attr('src', `images/journeyImg/${res[0].journeyImg}`);
                     //串接揪團名稱
                     groupTitle = $('#groupTitle');
                     $('#groupTitle').val(res[0].journeyName);
@@ -497,24 +557,6 @@
         }
 
     </script>
-
-    <!-- 按公開揪團後，將資料送到後端 -->
-    <!-- <script>
-        function init(){
-            let uploadBtn = document.getElementById('uploadBtn');
-            uploadBtn.onchange = function(e){
-                let file = uploadBtn.files[0];
-                console.log(file);
-                getImg(e);
-            };
-        };
-        getImg=(e) => {
-            console.log(e);
-            alert();
-        };
-        
-        document.getElementById('publish').addEventListener('click', init);
-    </script> -->
 
     <script src="js/forlogin.js"></script>
     <script src="js/burger.js"></script>
