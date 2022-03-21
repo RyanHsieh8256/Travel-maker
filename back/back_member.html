@@ -5,19 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>後台管理系統</title>
+    <!-- css -->
     <link rel="stylesheet" href="./back_css/reset.css">
     <link rel="stylesheet" href="./back_css/style.css">
+    <!-- css-dataTable -->
     <link href='//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="./back_css/lightbox.css">
+    <link rel="stylesheet" href="./back_css/back_main.css">
     <!-- Material Icons Guide -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
       rel="stylesheet">
-    <!--link js -->
+    <!--link js(jquery) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <!--  js-dataTable -->
     <script src='//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js'></script>
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.js"></script>
 </head>
 <body>
     <div class="container">
+        <!-- 側邊攔 -->
         <aside>
             <div class="top">
                 <div class="logo">
@@ -63,7 +69,7 @@
                     <h3>管理人員設定</h3>
                 </a>
                 
-                <a href="./back_login.html" id="sign-out">
+                <a id="sign-out" class="sign-out">
                     <span class="material-icons-sharp">logout</span>
                     <h3>Loging Out</h3>
                 </a>
@@ -142,16 +148,7 @@
             <!-- Tabele  start-->
             <div class="recent-orders">
                 <h2>會員資料表</h2>
-                <div class="search-btn">
-                    <!-- <select name="" id="" class="filter">
-                        <option value="">從新到舊</option>
-                        <option value="">從舊到新</option>
-                        <option value="">最新20筆</option>
-                    </select> -->
-                
-                    <button class="excute-btn">進階查詢</button>
-                    
-                </div>
+                <button id="member-set-edit-btn">編輯</button>
                 <table class="membertable">
                     <thead>
                         <tr>
@@ -159,16 +156,16 @@
                             <td>會員名稱</td>
                             <td>會員信箱</td>
                             <td>電話</td>
+                            <td>生日</td>
                             <td>頭貼</td>
                             <td>創立日期</td>
-                            <td>狀態</td>
+                            <td>狀態</td>                          
                         </tr>
                     </thead>
                     <tbody>
                         
                     </tbody>
                 </table>
-                <!-- <a href="#">Show All</a> -->
             </div>
         </main>
         <!-- main end -->
@@ -187,11 +184,10 @@
                 <div class="profile">
                     <div class="info">
                         <!-- mgrName -->
-                        <p>HI~ <b></b>Admin</p>
-                        <!-- <small class="text-muted"></small> -->
+                        <p>HI~<span id="admin"></span></p>
                     </div>
                     <div class="profile-photo">
-                        <img src="https://picsum.photos/80/80/?random=1">
+                        <img src="">
                     </div>
                 </div>
             </div>
@@ -272,60 +268,58 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- 會員燈箱 -->
-    <div class="lightbox">
+        <!-- 新增燈箱 -->
+    <div class="lightbox add-lightbox">
         <div class="box-item">
             <div>
-                <label for="memId">會員ID :</label>
-                <input type="text" id="memId">
+                <label for="box-memId">會員編號 :</label>
+                <input type="text" id="box-memId" readonly="true">
             </div>
             <div>
-                <label for="memName">會員姓名 :</label>
-                <input type="text" id="memName">
+                <label for="box-memName">會員名稱 :</label>
+                <input type="text" id="box-memName" readonly="true">
+            </div>
+            <!-- <div>
+                <label for="box-memAccount">會員帳號 :</label>
+                <input type="text" id="box-memAccount" readonly="true">
+            </div> -->
+            <div>
+                <label for="box-memEmail">會員信箱 :</label>
+                <input type="text" id="box-memEmail" readonly="true">
             </div>
             <div>
-                <label for="memEmail">電子信箱 :</label>
-                <input type="text" id="memEmail">
+                <label for="box-memBirth">會員生日 :</label>
+                <input type="text" id="box-memBirth" readonly="true">
             </div>
             <div>
-                <label for="memPhone">電話 :</label>
-                <input type="text" id="memPhone">
+                <label for="box-memCreateDate">創立日期 :</label>
+                <input type="text" id="box-memCreateDate" readonly="true">
             </div>
             <div>
-                <label for="memState">會員狀態 :</label>
-                <select name="" id="">
-                    <option value="0"></option>
-                    <option value="1">正常</option>
-                    <option value="2">停權</option>
+                <label for="box-memState">會員權限 :</label>
+                <select name="" id="box-memState">                  
+                    <option value="正常" selected>正常</option>
+                    <option value="停權">停權</option>
                 </select>
-                <!-- <input type="text" id="memSate"> -->
             </div>
             
-            
         </div>
-        <!-- 燈箱裡之按鍵 -->
+         <!-- 燈箱之按鍵  -->
         <div class="btn-area">
-            <button class="clear-box-btn">清除</button>
-            <button class="search-box-btn">查詢</button>
+            <button class="clear-box-btn" type="reset">清除</button>
+            <button class="sure-box-btn" id="member-data-update-btn">確定</button>
         </div>
-        <div class="close-box-btn" id="mem-close-box-btn">
+        <div class="close-box-btn" id="close-edit-box-btn">
             <span class="material-icons-sharp">close</span> 
         </div>
+    </div>
 
+    
 
-
-
-
-
-
-
-
-
-    <script src="./back_js/back.js"></script>
-    <script src="./back_js/lightbox.js"></script>
+    <!-- <script src="./back_js/lightbox.js"></script> -->
+    <!-- <script src="./back_js/back_login.js"></script> -->
+    <script src="./back_js/main.js"></script>
     <script src="./back_js/member.js"></script>
-
 </body>
 </html>

@@ -5,15 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>後台管理系統</title>
+    <!-- link css -->
     <link rel="stylesheet" href="./back_css/reset.css">
     <link href='//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./back_css/style.css">
     <link rel="stylesheet" href="./back_css/back_spot.css">
-    <link rel="stylesheet" href="./back_css/lightbox.css">
+    <link rel="stylesheet" href="./back_css/back_main.css">
     <!-- Material Icons Guide -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"rel="stylesheet">
     
     <!--link js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <!-- link js table -->
     <script src='//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js'></script>
@@ -54,11 +56,6 @@
                     <span class="material-icons-sharp">person_outline</span>
                     <h3>會員管理</h3>
                 </a>
-
-                <!-- <a href="#">
-                    <span class="material-icons-sharp">question_answer</span>
-                    <h3>Q&A管理</h3>
-                </a> -->
         
                 <a href="./back_manager.html" id="manager">
                     <span class="material-icons-sharp">manage_accounts</span>
@@ -150,13 +147,11 @@
                 <table class="spottable">
                     <thead>                    
                         <tr>
-                            <th>景點編號</th>
+                            <th>編號</th>
                             <th>景點名稱</th>
-                            <th>景點地點</th>
+                            <th>地點</th>
                             <th>景點圖片</th>
-                            <th>景點經度</th>
-                            <th>景點緯度</th>
-                            <th>詳細景點資訊</th>
+                            <th>景點資訊</th>
                             <th>狀態</th>
                             <th>編輯</th>
                         </tr>
@@ -164,14 +159,19 @@
                     <tbody>             
                     </tbody>
                 </table>
-                <!-- 詳細內容 介面 -->
-                <div class="spot-info-item">
-                    <p></p>
-                    <div class="close-info-box-btn" id="mem-close-box-btn">
-                        <span class="material-icons-sharp">close</span> 
-                    </div>
+            </div>
+            <!-- 詳細內容 介面 -->
+            <div class="spot-info-item">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <div class="close-info-box-btn" id="mem-close-box-btn">
+                    <span class="material-icons-sharp">close</span> 
                 </div>
-                
             </div>
         </main>
         <!-- main end -->
@@ -190,11 +190,10 @@
                 <div class="profile">
                     <div class="info">
                         <!-- mgrName -->
-                        <p>HI~ <b></b>Admin</p>
-                        <!-- <small class="text-muted"></small> -->
+                        <p>HI~<span id="admin"></span></p>
                     </div>
                     <div class="profile-photo">
-                        <img src="https://picsum.photos/80/80/?random=1">
+                        <img src="">
                     </div>
                 </div>
             </div>
@@ -227,57 +226,12 @@
             </div>
             <!-- end updates -->
 
-            <div class="sales-analytics">
-                <h2>近期銷售分析</h2>
-                <div class="item offline">
-                    <div class="icon">
-                        <span class="material-icons-sharp">local_mall</span>
-                    </div>
-                    
-                    <div class="right">
-                        <div class="info">
-                            <h3>OFFLINE ORDERS</h3>
-                            <small class="text-muted">Last 24 Hours</small>
-                        </div>
-                        <h5 class="success">+30%</h5>
-                        <h3>3849</h3>
-                    </div>
-                </div>
-                <!--  -->
-                <div class="item online">
-                    <div class="icon">
-                        <span class="material-icons-sharp">shopping_cart</span>
-                    </div>
-
-                    <div class="right">
-                        <div class="info">
-                            <h3>ONLINE ORDERS</h3>
-                            <small class="text-muted">Last 24 Hours</small>
-                        </div>
-                        <h5 class="danger">+35%</h5>
-                        <h3>3849</h3>
-                    </div>
-                </div>
-                <!--  -->
-                <div class="item customers">
-                    <div class="icon">
-                        <span class="material-icons-sharp">person</span>
-                    </div>
-
-                    <div class="right">
-                        <div class="info">
-                            <h3>New CUSSTOMERS</h3>
-                            <small class="text-muted">Last 24 Hours</small>
-                        </div>
-                        <h5 class="success">+38%</h5>
-                        <h3>384</h3>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
 
     <!-- 景點修改燈箱 -->
+    <!--  
     <div class="lightbox spot-lightbox">
         <div class="box-item">
             <div>
@@ -318,7 +272,7 @@
             </div>
             
         </div>
-        <!-- 燈箱裡之按鍵 -->
+        < 燈箱裡之按鍵
         <div class="btn-area">
             <button class="clear-box-btn">清除</button>
             <button class="confirm-box-btn">確定</button>
@@ -328,7 +282,7 @@
         </div>
             
     </div>
-    
+     -->
     <!-- 景點新增燈箱 -->
     <div class="spot-add-lightbox">
         <div class="box-item">
@@ -358,10 +312,34 @@
                 <input type="text" id="spotLatitude">
             </div>
             <div>
+                <label for="spotCity">景點城市 :</label>
+                <select id="spotCity">      
+                    <option value="1" selected="selected">基隆市</option>
+                    <option value="2">台北市</option>
+                    <option value="3">新北市</option>
+                    <option value="4">桃園市</option>
+                    <option value="5">新竹縣</option>
+                    <option value="6">新竹市</option>
+                    <option value="7">苗栗縣</option>
+                    <option value="8">台中市</option>
+                    <option value="9">彰化縣</option>
+                    <option value="10">雲林縣</option>
+                    <option value="11">南投縣</option>
+                    <option value="12">嘉義市</option>
+                    <option value="13">嘉義縣</option>
+                    <option value="14">台南市</option>
+                    <option value="15">高雄市</option>
+                    <option value="16">屏東縣</option>
+                    <option value="17">台東縣</option>
+                    <option value="18">花蓮縣</option>
+                    <option value="19">宜蘭縣</option>
+                </select>              
+            </div>
+            <div>
                 <label for="spotState">景點狀態 :</label>
-                <select>      
-                    <option value="1" selected="selected">正常</option>
-                    <option value="2">下架</option>
+                <select id="spotState">      
+                    <option value="正常">正常</option>
+                    <option value="下架">下架</option>
                 </select>
             </div>
             <div>
@@ -372,10 +350,10 @@
         </div>
         <!-- 燈箱裡之按鍵 -->
         <div class="btn-area">
-            <button class="clear-box-btn">清除</button>
+            <button class="clear-box-btn" id="">清除</button>
             <button class="confirm-box-btn">確定</button>
         </div>  
-        <div class="close-box-btn" id="mem-close-box-btn">
+        <div class="close-box-btn" id="close-insert-spot-box-btn">
             <span class="material-icons-sharp">close</span> 
         </div>
             
@@ -384,9 +362,9 @@
 
 
 
-    <script src="./back_js/back.js"></script>
+    <script src="./back_js/main.js"></script>
     <!-- <script src="./back_js/lightbox.js"></script> -->
     <script src="./back_js/spot.js"></script>
-
+    
 </body>
 </html>

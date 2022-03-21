@@ -9,11 +9,12 @@
     <link href='//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./back_css/style.css">
     <link rel="stylesheet" href="./back_css/back_spot.css">
-    <link rel="stylesheet" href="./back_css/lightbox.css">
+    <link rel="stylesheet" href="./back_css/back_main.css">
     <!-- Material Icons Guide -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"rel="stylesheet">
     
     <!--link js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <!-- link js table -->
     <script src='//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js'></script>
@@ -54,11 +55,6 @@
                     <span class="material-icons-sharp">person_outline</span>
                     <h3>會員管理</h3>
                 </a>
-
-                <!-- <a href="#">
-                    <span class="material-icons-sharp">question_answer</span>
-                    <h3>Q&A管理</h3>
-                </a> -->
         
                 <a href="./back_manager.html" id="manager">
                     <span class="material-icons-sharp">manage_accounts</span>
@@ -76,7 +72,7 @@
         <main>
             <h1>後台管理系統</h1>
             <div class="date">
-                <span>此處呈現日期</span>
+                <span></span>
             </div>
             <!-- 方塊數據 start-->
             <div class="insights">
@@ -153,11 +149,8 @@
                             <th>揪團編號</th>
                             <th>揪團名稱</th>
                             <th>建立者</th>
-                            <th>報名開始日期</th>
                             <th>報名截止日期</th>
-                            <th>出發日期</th>
-                            <th>目前報名參團人數</th>
-                            <th>人數限制</th>
+                            <th>參團人數</th>
                             <th>詳細內容</th>
                             <th>揪團狀態</th>
                         </tr>
@@ -166,13 +159,34 @@
                     </tbody>
                 </table>
                 <!-- 詳細內容 介面 -->
-                <!-- <div class="spot-info-item">
-                    <p></p>
-                    <div class="close-info-box-btn" id="mem-close-box-btn">
+                <div class="gro-info-item">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <div class="close-info-box-btn">
                         <span class="material-icons-sharp">close</span> 
                     </div>
-                </div> -->
-                
+                </div>
+                <!-- 成員介面 -->
+                <div class="gro-member-item">
+                    <table id="gromem-table">
+                        <thead>
+                            <tr>
+                                <!-- <th>編號</th> -->
+                                <th>會員編號</th>
+                                <th>會員名稱</th>
+                            </tr>
+                            <tbody></tbody>
+                        </thead>
+                    </table>
+                    <div class="close-gromem-box-btn" id="close-info-box-btn">
+                        <span class="material-icons-sharp">close</span> 
+                    </div>
+                </div>
             </div>
         </main>
         <!-- main end -->
@@ -191,11 +205,10 @@
                 <div class="profile">
                     <div class="info">
                         <!-- mgrName -->
-                        <p>HI~ <b></b>Admin</p>
-                        <!-- <small class="text-muted"></small> -->
+                        <p>HI~<span id="admin"></span></p>
                     </div>
                     <div class="profile-photo">
-                        <img src="https://picsum.photos/80/80/?random=1">
+                        <img src="">
                     </div>
                 </div>
             </div>
@@ -279,11 +292,7 @@
     </div>
 
 
-
-
-
-    <script src="./back_js/back.js"></script>
-    <!-- <script src="./back_js/lightbox.js"></script> -->
+    <script src="./back_js/main.js"></script>
     <script src="./back_js/gro.js"></script>
 
 </body>
