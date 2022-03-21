@@ -59,22 +59,22 @@
                                 </a>
                             </li>
                             <li class="navDropdownMenuItem">
-                                <a href="mem.html">
+                                <a href="memtour.html">
                                     <i class="bi bi-calendar2"></i> 我的行程
                                 </a>
                             </li>
                             <li class="navDropdownMenuItem">
-                                <a href="mem.html">
+                                <a href="memcollect.html">
                                     <i class="bi bi-bookmark-heart"></i> 我的收藏
                                 </a>
                             </li>
                             <li class="navDropdownMenuItem">
-                                <a href="mem.html">
+                                <a href="memgro.html">
                                     <i class="bi bi-file-person"></i> 我的揪團
                                 </a>
                             </li>
                             <li class="navDropdownMenuItem">
-                                <a href="mem.html">
+                                <a href="memorder.html">
                                     <i class="bi bi-bag"></i> 我的訂單
                                 </a>
                             </li>
@@ -242,10 +242,11 @@
         <!-- 搜尋欄 -->
         <section class="l-full groupSearchBar">
             <div class="l-large groupSearchBar_wrap">
-                <form action="" class="search_wrap">
-                    <input type="text" class="search_input">
+                <div class="search_wrap">
+                    <input type="text" class="search_input" id="searchInput">
                     <button class="search"><i class="bi bi-search"></i></button>
-                </form>
+                </div>
+                <style id="m-search"></style>
             </div>
         </section>
         <!-- 篩選下拉式選單和揪團內容區 -->
@@ -378,6 +379,7 @@
                             //1. 創造卡片
                             let card = document.createElement('div');
                             card.classList.add('card', 'col-12', 'col-md-4');
+                            card.dataset.index = `${res[i].cityName},${res[i].groName} `;
 
                             //2. 創造卡片頭部和卡片內容
                             let card_header = document.createElement('div');
@@ -507,15 +509,35 @@
                     }
                 }
             });
+            var that = $(this);
+            var mSearch = $("#m-search");
+            // 搜尋列
+            $('#searchInput').bind("change paste", function () {
+                var value = $(this).val();
+                if (!value) {
+                    mSearch.html("");
+                    return;
+                };
+                mSearch.html('.card:not([data-index*="' + value.toLowerCase() + '"]) {display: none;}');
+            });
+            // 下拉式選單搜尋
+            $('.dropdownMenu').bind("click", function () {
+                var value = $(this).val();
+                if (!value) {
+                    mSearch.html("");
+                    return;
+                };
+                mSearch.html('.card:not([data-index*="' + value.toLowerCase() + '"]) {display: none;}');
+            });
         };
 
 
         window.addEventListener('load', getGroData);
     </script>
 
-
     <script src="js/burger.js"></script>
     <script src="js/forlogin.js"></script>
+    <script src="js/loading.js"></script>
 </body>
 
 </html>

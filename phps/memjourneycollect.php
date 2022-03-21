@@ -1,7 +1,7 @@
 <?php
 try{
   require_once("connectdatabase.php");
-  $sql = "SELECT * FROM `journeycollect` INNER join `journey` on journeycollect.memNo = journey.memNo WHERE journey.memNo=:memNo;"; 
+  $sql = "SELECT * FROM `journeycollect` INNER join `journey` on journeycollect.journeyNo = journey.journeyNo WHERE journeycollect.memNo=:memNo;"; 
   $journeyDate = $pdo->prepare($sql);
   $journeyDate->bindValue(":memNo", $_POST["memNo"]);
   $journeyDate->execute();

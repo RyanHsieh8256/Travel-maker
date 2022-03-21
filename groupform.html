@@ -56,22 +56,22 @@
                                 </a>
                             </li>
                             <li class="navDropdownMenuItem">
-                                <a href="mem.html">
+                                <a href="memtour.html">
                                     <i class="bi bi-calendar2"></i> 我的行程
                                 </a>
                             </li>
                             <li class="navDropdownMenuItem">
-                                <a href="mem.html">
+                                <a href="memcollect.html">
                                     <i class="bi bi-bookmark-heart"></i> 我的收藏
                                 </a>
                             </li>
                             <li class="navDropdownMenuItem">
-                                <a href="mem.html">
+                                <a href="memgro.html">
                                     <i class="bi bi-file-person"></i> 我的揪團
                                 </a>
                             </li>
                             <li class="navDropdownMenuItem">
-                                <a href="mem.html">
+                                <a href="memorder.html">
                                     <i class="bi bi-bag"></i> 我的訂單
                                 </a>
                             </li>
@@ -384,7 +384,7 @@
             let publish = document.getElementById('publish');
             let groupTitle = document.getElementById('groupTitle');
             let groupDesc = document.getElementById('groupDesc');
-            if (!groupTitle.value || groupTitle.value=='' && !groupDesc.value || groupDesc.value=='') { //如果沒有值
+            if (!groupTitle.value || groupTitle.value == '' && !groupDesc.value || groupDesc.value == '') { //如果沒有值
                 console.log(!groupTitle.value);
                 console.log(!groupDesc.value);
                 console.log(groupTitle.value);
@@ -470,27 +470,27 @@
 
                 let memberData = localStorage.getItem('memData');
                 let memNo = JSON.parse(memberData).memNo;
-                
+
                 let journeyNo = location.search.split('?')[1].split('=')[1];
 
                 // 需要傳送的變數全部包在這裡
                 form_data.append('file', file_data);  //把物件加到file後面
-                
+
                 form_data.append('groName', $('#groupTitle').val());
-                form_data.append('memNo',memNo);
+                form_data.append('memNo', memNo);
                 form_data.append('groContent', $('#groupDesc').val());
                 form_data.append('groStartDate', $('#groStartDate').val());
                 form_data.append('groEndDate', $('#groEndDate').val());
                 form_data.append('applyDeadline', $('#applyDeadline').val());
-                form_data.append('journeyNo',journeyNo);
-                form_data.append('groPay',vm.selectedMethod);
-                form_data.append('groLimit',vm.total);
+                form_data.append('journeyNo', journeyNo);
+                form_data.append('groPay', vm.selectedMethod);
+                form_data.append('groLimit', vm.total);
 
                 //處理行程預設圖片
                 let groDefaultImg = imgSrc.split('/')[2];
                 // console.log(imgTarget); //journeyImg-0.jpg
-                form_data.append('imgTarget',imgSrc);
-                form_data.append('groDefaultImg',groDefaultImg);
+                form_data.append('imgTarget', imgSrc);
+                form_data.append('groDefaultImg', groDefaultImg);
 
                 // console.log(file_data);
                 // console.log(imgSrc); //images/journeyImg/journeyImg-0.jpg
@@ -549,6 +549,7 @@
 
     <script src="js/forlogin.js"></script>
     <script src="js/burger.js"></script>
+    <script src="js/loading.js"></script>
 </body>
 
 </html>
