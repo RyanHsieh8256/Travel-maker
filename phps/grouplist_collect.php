@@ -1,13 +1,13 @@
 <?php
     require_once("./connectdatabase.php");
     try{
-        $sql = "select jc.memNo, j.journeyNo, journeyName, journeyImg, journeyInfo ,c.cityName from g3.journeycollect jc
-        join g3.journey j on j.journeyNo = jc.journeyNo
-        left join g3.journeyspot js on js.journeyNo = j.journeyNo
-        left join g3.spot s on s.spotNo = js.spotNo
-        left join g3.city c on c.cityNo = s.cityNo
-        where jc.memNo=:memNo group by jc.memNo;";
-        
+        $sql = "select jc.memNo, j.journeyNo, journeyName, journeyImg, journeyInfo ,c.cityName from journeycollect jc
+        join journey j on j.journeyNo = jc.journeyNo
+        left join journeyspot js on js.journeyNo = j.journeyNo
+        left join spot s on s.spotNo = js.spotNo
+        left join city c on c.cityNo = s.cityNo
+        where jc.memNo=:memNo group by j.journeyNo;";
+
 
         $groData = $pdo -> prepare($sql);
         $groData->bindValue(":memNo", $_GET["memNo"]);

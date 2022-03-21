@@ -1,7 +1,7 @@
 <?php
     require_once("./connectdatabase.php");
     try{
-        $sql = "select * from g3.groupdetail_title where groNo=:groNo";
+        $sql = "select * from groupdetail_title where groNo=:groNo";
         
 
         $groData = $pdo -> prepare($sql);

@@ -11595,27 +11595,27 @@ input[type="button"] {
   font-size: 20px;
 }
 
-.grouplistContent .grouplistCollect_wrap .grouplistOwl {
+.grouplistContent .grouplistOwl {
   /*箭頭的定位目標(父層)*/
   /*箭頭本身*/
 }
 
-.grouplistContent .grouplistCollect_wrap .grouplistOwl .owl-stage-outer {
+.grouplistContent .grouplistOwl .owl-stage-outer {
   position: relative;
 }
 
-.grouplistContent .grouplistCollect_wrap .grouplistOwl .owl-prev, .grouplistContent .grouplistCollect_wrap .grouplistOwl .owl-next {
-  font-size: 30px;
+.grouplistContent .grouplistOwl .owl-prev, .grouplistContent .grouplistOwl .owl-next {
+  font-size: 30px !important;
   position: absolute;
   top: 50%;
   font-size: 50px;
 }
 
-.grouplistContent .grouplistCollect_wrap .grouplistOwl .owl-prev {
+.grouplistContent .grouplistOwl .owl-prev {
   left: 0;
 }
 
-.grouplistContent .grouplistCollect_wrap .grouplistOwl .owl-next {
+.grouplistContent .grouplistOwl .owl-next {
   right: 0;
 }
 
