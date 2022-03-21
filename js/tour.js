@@ -11,6 +11,7 @@ window.addEventListener('load',function() {
     fetchCity();
     displayTheTour();
     
+    
 })
 
 window.addEventListener('beforeunload',function(e) {
@@ -234,10 +235,18 @@ function changeCity(e) {
   if(curSort == 'mine') {
     fetchTour('mem',getMemData().memNo);
     tourLike.style.display = 'none';
-    console.log('為什麼');
+    let addJour = document.querySelector('.addJour');
+    addJour.textContent = '';
+
+    let link = document.createElement('a');
+        link.href = `tourbuild.html#/tourEdit/`;
+        link.textContent = '編輯行程';
+        link.style.color = '#fff';
+        addJour.append(link);
 
   }else {
     fetchTour('city',curSort);
+    document.querySelector('.addJour').textContent = '加入行程';
     tourLike.classList.remove('tour_Like--active');
     displayLike();
   }
@@ -414,6 +423,12 @@ function changeItem() {
     e.currentTarget.classList.add('slider_item--active');
     let curJour = e.currentTarget.dataset['jour'];
 
+    let addJour = document.querySelector('.addJour a');
+
+    if(addJour) {
+      addJour.href = `tourbuild.html#/tourEdit/${curJour}`;
+    }
+
     fetchData();
 
     if(localStorage.getItem('memData') != null) {
@@ -428,6 +443,7 @@ function changeItem() {
 function haveLike(jourNo) {
   let curLikes = getLikeArr();
   let likeOrNot = curLikes.some(like => like == +jourNo);
+  console.log(curLikes);
   
   if(localStorage.getItem('memData') != null) {
     tourLike.style.display = 'block';
@@ -466,7 +482,9 @@ function popupSwitch() {
     })
 
     addBtn.forEach(btn => btn.addEventListener('click',() => {
-      popup.style.display = 'flex';
+      if(btn.textContent == '加入行程') {
+        popup.style.display = 'flex'; 
+      }
     }));
 
     

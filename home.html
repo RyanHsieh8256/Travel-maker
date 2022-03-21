@@ -551,7 +551,7 @@
                         <form action="##" class="tourForm_form">
                             <div class="tourForm_group">
                             <label for="tourName" class="tourForm_label">行程名稱</label>
-                            <input type="text" class="tourForm_input" name="tourName" placeholder="給你的行程取一個名字吧!">
+                            <input type="text" class="tourForm_input" name="tourName" id="tourName" placeholder="給你的行程取一個名字吧!">
                             <div class="tourForm_clear">
                                 <i class="bi bi-x"></i>
                             </div>
@@ -586,17 +586,17 @@
                     <div class="popup_inner popup_date">
                         <div class="tourform_group">
                             <label for="start-date" class="tourform_label">出發日</label>
-                            <input type="date" name="start-date" id="start-date">
+                            <input type="date" name="start-date" id="startDate">
                         </div>
                         <div class="tourform_group">
                             <label for="end-date" class="tourform_label">返回日</label>
-                            <input type="date" name="end-date" id="end-date">
+                            <input type="date" name="end-date" id="endDate">
                         </div>
                     </div>
                     <div class="popup_btnBox">
                         <button class="btn btn--cancel">略過</button>
-                        <button class="btn btn--main">
-                            <a href="tourbuild.html" class="popup_link">
+                        <button class="btn btn--main" id="checkadd">
+                            <a href="tourbuild.html#/tour/" class="popup_link">
                                 確定
                             </a>
                         </button> 
@@ -960,6 +960,32 @@
         };
 
         getGroData();
+
+        let checkadd = document.querySelector('#checkadd');
+        checkadd.addEventListener('click',storagePopup);
+
+        // 建立行程的表單，將資料存回localStorage
+        function storagePopup(e) {
+            e.preventDefault();
+            
+            if(tourName.value && startDate.value && endDate.value) {
+                location.href=`tourbuild.html#/tour/`;
+
+                let tourObj = {
+                    tourName: tourName.value,
+                    startDate: startDate.value,
+                    endDate: endDate.value
+                };
+
+                let newTourArr = [tourObj];
+
+                localStorage.setItem('newTour',JSON.stringify(newTourArr));
+
+            }else {
+                e.currentTarget.disabled = true;
+            }
+        }
+        
     </script>
 </body>
 </html>
