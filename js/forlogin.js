@@ -333,6 +333,12 @@ function switchBtnColor(){
 function closeLoginBox(){
     froLoginBG.style.display = 'none';
 }
-
+//購物車提示
+function productInCart(){
+    if(localStorage.getItem('cart')){
+        $('.navMember li:first-child').addClass('productInCart');
+    }
+}
+productInCart();
 
 window.addEventListener('load',loginBox_doFirst)

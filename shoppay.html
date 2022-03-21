@@ -461,7 +461,6 @@
             Total =total;
         });
         
-<<<<<<< HEAD
 
     //--------------------------------建立訂單
     let confirmBtn = document.querySelector('.confirm');
@@ -510,34 +509,6 @@
 
             },
         });
-
-
-
-=======
-        console.log(Total);
-
-    //---------------點擊確認結帳後要做的事(insert資料庫、清除cart localstorage、跳轉至shop首頁)---------------
-        let confirmbtn = document.querySelector('.confirm');
->>>>>>> dev
-
-        function cearLocal(){
-            // localStorage.removeItem('cart');
-            // location.href = './shop.html';
-            let mem_data =localStorage.getItem('memData')
-            let cart_data = localStorage.getItem('cart')
-            let shopMemNo = JSON.parse(mem_data).memNo
-            let shopOrdDate = new Date().toLocaleDateString()
-            let shopOrdSum = document.getElementById("shoptotal").innerText;
-            let shopTicketSpotNo = cart[i].id;
-            let shopFullFarePrice = cart[i].ticketPrice[0];
-            let shopHalfFarePrice = cart[i].ticketPrice[1];
-            let shopConTicketPrice = cart[i].ticketPrice[2];
-            let shopFullFareQuan = cart[i].qty[0];
-            let shopHalfFareQuan = cart[i].qty[1];
-            let shopConTicketQuan = cart[i].qty[2];
-            // let shopOrdNo = ;
-
-<<<<<<< HEAD
     };
 
     confirmBtn.addEventListener('click',cearLocal);
@@ -572,24 +543,6 @@
 
     
 
-=======
-            let ordData = `memNo=${shopMemNo}&ordDate=${shopOrdDate}&OrdSum=${shopOrdSum}&ticketSpotNo=${shopTicketSpotNo}&fullFarePrice=${shopFullFarePrice}&halfFarePrice=${shopHalfFarePrice}&conTicketPrice=${shopConTicketPrice}&fullFareQuan=${shopFullFareQuan}&halfFareQuan=${shopHalfFareQuan}&conTicketQuan${shopConTicketQuan}&OrdNo=${shopOrdNo}`;
-            // $.ajax({
-            //             type:'POST',
-            //             url: './phps/shopinsert.php',
-            //             dataType: 'json',
-            //             data: `${mem_data_info},${cart_data_info}`,
-            // // saveOrder(){
-            // //             let data_info = JSON.stringify(this.cart);
-            // //             let xhr = new XMLHttpRequest();
-            // //             let url = "phps/shopinsert.php?cart=" + data_info;
-            // //             xhr.open("get", url , true);
-            // //             xhr.send(null);
-            // //         },
-            // });
-        };
-        confirmbtn.addEventListener('click',cearLocal);
->>>>>>> dev
     </script>
 </body>
 </html>

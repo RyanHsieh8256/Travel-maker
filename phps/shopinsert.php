@@ -8,7 +8,6 @@ try {
    $ordNo = $_POST['ordNo'];
 
 
-<<<<<<< HEAD
    //將ord表欄位資料寫入資料庫(ordNo要改成隨機生成號碼)
    $sql = "INSERT INTO `ord`(`ordNo`,`memNo`, `ordDate`, `ordSum`) VALUES ('$ordNo','$memNo','$ordDate','$ordSum');";
 
@@ -17,22 +16,6 @@ try {
    $echoData = ["ordNo" => $ordNo];
    echo json_encode($echoData);
 
-=======
-  $sql = "INSERT INTO `ord`(`memNo`, `ordDate`, `ordSum`) VALUES ($shopMemNo,$shopOrdDate,$shopOrdSum)";
-
-  $sql = "INSERT INTO `orddetail`(`ordNo`, `ticketSpotNo`, `fullFarePrice`, `fullFareQuan`, `halfFarePrice`, `halfFareQuan`, `conTicketPrice`, `conTicketQuan`) VALUES ($shopOrdNo,$shopTicketSpotNo,$shopFullFarePrice,$shopFullFareQuan,$shopHalfFarePrice,$shopHalfFareQuan,$shopConTicketPrice,$shopConTicketQuan)";
-
- 
-  $allTable = $pdo->prepare($sql);
-  $allTable->execute();
- };
-    // insert 1 records into ord
-    // // insert many records into ord    
- 
- // $allTable = $pdo->query($sql);
- // $Rows = $allTable->fetchAll(PDO::FETCH_ASSOC);
- // echo json_encode($Rows);
->>>>>>> dev
 } catch (PDOException $e) {
    // $error = ['error'=>'發生錯誤'];
    // echo json_encode($error);
