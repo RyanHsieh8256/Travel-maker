@@ -575,22 +575,22 @@
                     <div class="tourForm_duration">
                         <div class="tourForm_dateBox">
                         <h4 class="tourForm_theText">出發日期</h4>
-                        <p class="tourForm_theDate">2022.2.22</p>
+                        <p class="tourForm_theDate">2022.3.24</p>
                         </div>
                         <div class="tourForm_days">1天</div>  
                         <div class="tourForm_dateBox">
                         <h4 class="tourForm_theText">返回日期</h4>
-                        <p class="tourForm_theDate">2022.2.22</p>
+                        <p class="tourForm_theDate">2022.3.24</p>
                         </div>
                     </div>
                     <div class="popup_inner popup_date">
                         <div class="tourform_group">
                             <label for="start-date" class="tourform_label">出發日</label>
-                            <input type="date" name="start-date" id="startDate">
+                            <input type="date" name="start-date" id="startDate" value="2022-03-24">
                         </div>
                         <div class="tourform_group">
                             <label for="end-date" class="tourform_label">返回日</label>
-                            <input type="date" name="end-date" id="endDate">
+                            <input type="date" name="end-date" id="endDate" value="2022-03-24">
                         </div>
                     </div>
                     <div class="popup_btnBox">
@@ -984,6 +984,15 @@
             }else {
                 e.currentTarget.disabled = true;
             }
+        }
+
+        chipBtn = document.querySelectorAll('.btn--chip');
+        chipBtn.forEach(btn => btn.addEventListener('click',autofillWord));
+
+        function autofillWord(e) {
+            let curBtn = e.currentTarget.textContent;
+            tourName.value = curBtn;
+            
         }
         
     </script>

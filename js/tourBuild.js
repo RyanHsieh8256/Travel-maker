@@ -1,9 +1,14 @@
-var stateArr = [];
+
 window.addEventListener('load',function() {
+   stateArr = [];
     tourForm = document.querySelector('#tourForm');
     tourBuildName = document.querySelector('.tourBuild_name');
     tourBuildDay = document.querySelector('.tourBuild_days span');
     tourBuildDate = document.querySelector('.tourBuild_date');
+    alertBG = document.querySelector('.alertBG');
+    alertClose = alertBG.querySelector('.alertBG_closeBtn');
+    chipBtn = document.querySelectorAll('.btn--chip');
+    chipBtn.forEach(btn => btn.addEventListener('click',autofillWord));
 
     setBtn = document.querySelector('#checkSet');
     setBtn.addEventListener('click',reviseSet);
@@ -18,7 +23,8 @@ window.addEventListener('load',function() {
     fetchData();
     goBuildGroup();
     getLastJour();
-
+    displayTourForm();
+    setTourForm();
 })
 
 window.addEventListener('hashchange',fetchData);
@@ -28,6 +34,15 @@ saveTour.addEventListener('click',storeHandle);
 
 let curNo = [];
 let insertState = 0;
+
+
+// 點擊預設給的程式快速查詢
+function autofillWord(e) {
+  let curBtn = e.currentTarget.textContent;
+  searchSpot.value = curBtn;
+  
+  
+}
 
 
 // 先抓到最新一筆的行程編號
@@ -68,11 +83,8 @@ function storeHandle() {
   let no = localStorage.getItem('lastJourNo') != null ? (+localStorage.getItem('lastJourNo')+ 1 ) :+localStorage.getItem('editNum');
   console.log(no);
   if(localStorage.getItem('memData') == null) {
-    let alertBG = document.querySelector('.alertBG');
     alertBG.style.display = 'block';
     alertBG.querySelector('.alertBG_content').textContent = '請先登入喔';
-
-    let alertClose = alertBG.querySelector('.alertBG_closeBtn');
     alertClose.addEventListener('click',function() {
       alertBG.style.display = 'none';
     })
@@ -115,8 +127,7 @@ function updateTour(number) {
       journeyNo: number,
       journeyName: tourName.textContent,
       journeyImg: 'journeyImg-1.jpg',
-      journeyInfo: `有屆於基隆總是下雨，所以在此我將形成取名為總是下雨，剛好
-      呼應基隆是雨都的情況，或許我去的那天會不下雨也說不定`,
+      journeyInfo: tourForm.tourInfo.value,
       memNo: getMemData().memNo,
       journeyStartDay: dateArr[0].replace(re,'-'),
       journeyEndDay: dateArr[1].replace(re,'-'),
@@ -154,6 +165,9 @@ function insertTour(data) {
     let states = parseUrl.split('/')[1];
     if(states == 'tour') {
       history.pushState({page: 1}, "", `tourbuild.html#/tour/${curNo[0]}`)
+      alertBG.querySelector('.alertBG_content').textContent = '已儲存行程';
+      alertBG.style.display = 'block';
+      setTimeout(() => alertBG.style.display = 'none',1500);
     } 
   })
 }
@@ -214,9 +228,8 @@ function fetchData() {
           displaySide(curJour,dayNum);
           displayTab();
           displayContent();
-          // tourForm();
-          // displayTheTour();
-          
+          displayTourForm();
+          setTourForm();
       })
 
   }else {
@@ -307,10 +320,10 @@ function displaySide(no,num) {
 }
 
 // 讓popup的資料為fetch回來的資料
-function tourForm() {
+function displayTourForm() {
   let data = JSON.parse(sessionStorage.getItem("day1"));
-  if (!data) return;
-  let {journeyNo, journeyName,journeyStartDay,journeyEndDay} = data[0];
+  if (data == null) return;
+  let {journeyNo, journeyName,journeyStartDay,journeyEndDay, journeyInfo} = data[0];
 
   tourName.textContent = journeyName;
 
@@ -327,12 +340,26 @@ function tourForm() {
     journeyNo,
     journeyName,
     journeyStartDay,
-    journeyEndDay
+    journeyEndDay,
+    journeyInfo
   }
 
 }
 
-tourForm();
+displayTourForm();
+
+function setTourForm() {
+  let tourdates = document.querySelector('.tourBuild_date').textContent.trim().split(' - ');
+  let re = /\./gi;
+  tourForm.tourInfo.value = displayTourForm()?.journeyInfo || '';
+  formName.value = displayTourForm()?.journeyName || tourName.textContent.trim();
+  tourForm['start-date'].value = displayTourForm()?.journeyStartDay || tourdates[0].trim().replace(re,'-');
+  tourForm['end-date'].value = displayTourForm()?.journeyEndDay || tourdates[1].trim().replace(re,'-');
+
+  console.log( tourName.textContent, tourdates[0], tourdates[1]);
+}
+
+setTourForm();
 
 
 // // 地圖呈現

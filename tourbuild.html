@@ -242,11 +242,10 @@
                     </div>
                     <div class="popup_inner">
                         <form action="##" class="tourForm_form" id="tourForm">
-                            <div class="cover-img" for="coverImg">
-                              <img src="https://picsum.photos/300/200/?random=10">
-                              <span class="cover-text">更改行程圖片</span>
-                            </div>
-                            <input id="coverImg" type="file" accept="image/*" style="display: none;">
+
+                            <label for="tourInfo" class="tourForm_label">行程描述</label>
+                            <textarea class="tour-info" id="tourInfo" placeholder="請輸入您對這個行程的描述">  
+                            </textarea>
                             <div class="tourForm_group">
                               <label for="tourName" class="tourForm_label">行程名稱</label>
                               <input type="text" class="tourForm_input" name="tourName" id="formName" value="美好幸福之旅">
