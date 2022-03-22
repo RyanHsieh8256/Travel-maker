@@ -5,7 +5,7 @@
 		//先判斷模式為 login
 		if($_POST["loginMod"] == 'login'){ 
 			//載入link SQL PHP 檔案位置
-			require_once("./db_login.php"); 
+			require_once("../../phps/connectdatabase.php"); 
 			$sql = "select mgrNo,mgrAccount,mgrName,mgrAuz,mgrImg from `manager` where mgrAccount=:mgrAccount and mgrPsw=:mgrPsw";
 			$manager = $pdo->prepare($sql);
 			$manager->bindValue(":mgrAccount", $_POST["mgrAccount"]);
