@@ -213,6 +213,7 @@ function fetchData() {
 
           displaySide(curJour,dayNum);
           displayTab();
+          displayContent();
           // tourForm();
           // displayTheTour();
           
@@ -264,7 +265,7 @@ function displaySide(no,num) {
         
     
         let items = dayData.map(day => {
-            let {spotNo,sequence,spotName,spotImg} = day;
+            let {spotNo,sequence,spotName,spotImg,spotInfo, spotPlace} = day;
 
             let spotItem = `
             <li class="timeline_item tourBuild_item" data-no="${spotNo}" drag-handle>
@@ -274,6 +275,12 @@ function displaySide(no,num) {
             </div>
             <div class="timeline_img">
                 <img src="${spotImg}" alt="">
+            </div>
+            <div class="timeline_info" style="display: none;">
+              ${spotInfo}
+            </div>
+            <div class="timeline_place" style="display: none;">
+              ${spotPlace}
             </div>
             </li>
             `
@@ -393,9 +400,6 @@ function displayMaker(data) {
                 ${data[i].spotPlace}
               </p>
             </div>
-          </div>
-          <div class="tourSearch_btnBox">
-            <button class="btn btn--main addSpot">加入景點</button>
           </div>
       </div>`,
         L.popup(
@@ -555,7 +559,8 @@ dragSlide();
   
 // 景點資訊卡
 function displayContent() {
-  let tourBuildItems = document.querySelectorAll('.timeline_page--active .tourBuild_item');
+  tourBuildItems = document.querySelectorAll('.timeline_page .timeline_item');
+  console.log(tourBuildItems);
   let toggleMap = document.querySelector('.toggleMap');
   let tourBuildBox = document.querySelector('.tourBuild_box');
 
@@ -571,15 +576,18 @@ function displayContent() {
 }
 
 
+// 景點資訊卡
 function clickHandler(e) {
+  let timelineItem = document.querySelectorAll('.tourBuild_item');
+
+  timelineItem.forEach(item => item.style.background = '');
+  e.currentTarget.style.background = '#A7DFD8';
   let spot = document.querySelector('.tourSpot');
   let curPoint = +e.currentTarget.dataset["no"];
-     
-  let data = [...getData()];
-  let [curData] = data.filter(spot => +spot.spotNo == curPoint);
-
-  let {spotName,spotImg,spotPlace,spotInfo} = curData;
-
+  let curImg = e.currentTarget.querySelector('.timeline_img img').src;
+  let curName = e.currentTarget.querySelector('.timeline_name').textContent;
+  let curInfo = e.currentTarget.querySelector('.timeline_info').textContent;
+  let curPlace = e.currentTarget.querySelector('.timeline_place').textContent;
   
       
   let spotHtml = `
@@ -588,27 +596,28 @@ function clickHandler(e) {
       <i class="bi bi-x"></i>
     </button>
     <div class="tourSpot_img">
-      <img src="${spotImg}" alt="">
+      <img src="${curImg}" alt="">
     </div>
     <div class="tourSpot_text">
-      <h3 class="third-title">${spotName}</h3>
+      <h3 class="third-title">${curName}</h3>
       <div class="tourSpot_info">
-        <div class="tourSpot_btnBox">
-          <button class="btn btn--main">加入景點</button>   
-          <button class="btn btn--cancel">取消加入</button>
-        </div>
         <p class="p-text tourSpot_addr">
-          ${spotPlace}
+          ${curPlace}
         </p>
       </div>
       <p class="p-text tourSpot_bewrite">
-        ${spotInfo}
+        ${curInfo}
       </p>
     </div>
   </div>
   `
     spot.innerHTML = spotHtml;
     spot.style.display = 'block';
+
+    spotClose = document.querySelector('.tourSpot_close');
+    spotClose.addEventListener('click', function() {
+      spot.style.display = 'none';
+    })
 }
 
 
@@ -627,9 +636,7 @@ function displaytimeline(e) {
   let data = [...getData()];
   let [curData] = data.filter(spot => +spot.spotNo == curSpot);
 
-  let {spotNo,spotName,spotImg,cityName} = curData;
-
-  // console.log(curSpot,curData);
+  let {spotNo,spotName,spotImg,cityName,spotInfo,spotPlace} = curData;
  
   
   // 抓到這是第幾個景點
@@ -644,6 +651,12 @@ function displaytimeline(e) {
       <div class="timeline_img">
         <img src="${spotImg}" alt="">
       </div>
+      <div class="timeline_info" style="display: none;">
+        ${spotInfo}
+      </div>
+      <div class="timeline_place" style="display: none;">
+        ${spotPlace}
+      </div>
     </li>
   `
   
@@ -652,6 +665,7 @@ function displaytimeline(e) {
   displayContent();
 }
 
+displayContent();
 // 更改行程景點的順序
 // function dragSpot() {
 //   const pages = document.querySelectorAll('.timeline_page');
@@ -743,10 +757,15 @@ function reviseSet() {
 // 行程設定燈箱
 function setPopup() {
   let setBtn = document.querySelector('#setBtn');
+  let popupClose = document.querySelector('.popup_close');
+  let popup = document.querySelector('.popup');
   
-  setBtn.addEventListener('click',() => {
-    let popup = document.querySelector('.popup');
+  setBtn.addEventListener('click',() => {  
     popup.style.display = 'flex';
+  })
+
+  popupClose.addEventListener('click',() => {
+    popup.style.display = 'none';
   })
   
 }
