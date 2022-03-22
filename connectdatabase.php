@@ -1,11 +1,4 @@
 <?php
-	// tibame資料庫
-	// $host = "localhost";
-	// $dbname = "tibamefe_cfd104g3";
-	// $user = "tibamefe_since2021";
-	// $password = "vwRBSb.j&K#E";
-
-	// 思蘋資料庫
 	$host = "cfd104g5.asuscomm.com";
 	$dbname = "g3";
 	$user = "g3-1";
@@ -16,5 +9,16 @@
 	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION, PDO::ATTR_CASE=>PDO::CASE_NATURAL);
 	
 	$pdo = new PDO($dsn, $user, $password, $options);
+
+//老師資料庫
+	// $dbname = "books";
+	// $user = "root";
+	// $password = "Cfd10423";
+
+	// $dsn = "mysql:host=localhost;port=3306;dbname=$dbname;charset=utf8";
+
+	// $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION, PDO::ATTR_CASE=>PDO::CASE_NATURAL);
+	
+	// $pdo = new PDO($dsn, $user, $password, $options);	
 		
 ?>

@@ -11,8 +11,10 @@ try{
         $file = $_FILES['file']['tmp_name'];
         if($_REQUEST['memNo']<10){
           $dest = '../images/memIcon/' . 'memIcon-00' . $_REQUEST['memNo'] . $ext;
+          $memIcon = 'memIcon-00' . $_REQUEST['memNo'] . $ext;
         }else{
           $dest = '../images/memIcon/' . 'memIcon-0' . $_REQUEST['memNo'] . $ext;
+          $memIcon = 'memIcon-0' . $_REQUEST['memNo'] . $ext;
         };
         //新增資料夾
         // $file_path = '../images/test/'.'memNo' . $_REQUEST['memNo'].'/';//資料夾路徑
@@ -20,7 +22,6 @@ try{
         move_uploaded_file($file, $dest);
 
         $memNo = $_REQUEST['memNo'];
-        $memIcon = 'memIcon-0' . $_REQUEST['memNo'] . $ext;
 
         $sql = "UPDATE `member` SET `memIcon`='$memIcon' WHERE `memNo`='$memNo';"; 
 
