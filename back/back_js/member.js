@@ -77,7 +77,7 @@ fuc_getMemberData=()=>{
 // 從 dataTable col get img
 function getImg(data, type, full, meta) {
     var orderType = data.OrderType;
-    orderType = '<img src="./back_img/member_img/' + data +'" style=" width: 30px; height: 30px;border-radius: 50%;vertical-align: middle;"/>';
+    orderType = '<img src="../images/memIcon/' + data +'" style=" width: 30px; height: 30px;border-radius: 50%;vertical-align: middle;"/>';
     return orderType;
 };
 // ============================================

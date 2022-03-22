@@ -18,7 +18,7 @@ $(function () {
                 console.log(res);
                 return data;
             },
-            "success":CreateBox()
+            // "success":CreateBox()
 
         },
         "columns": [ 

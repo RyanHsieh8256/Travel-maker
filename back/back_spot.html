@@ -230,59 +230,73 @@
         </div>
     </div>
 
-    <!-- 景點修改燈箱 -->
-    <!--  
+    <!-- 景點修改燈箱 -->  
     <div class="lightbox spot-lightbox">
         <div class="box-item">
             <div>
-                <label for="spotNo">景點編號 :</label>
-                <input type="text" id="spotNo" readonly="true">
+                <label for="updateSpotNo">景點編號 :</label>
+                <input type="text" id="updateSpotNo" readonly="true">
             </div>
             <div>
-                <label for="spotName">景點名稱 :</label>
-                <input type="text" id="spotName">
+                <label for="updateSpotName">景點名稱 :</label>
+                <input type="text" id="updateSpotName">
             </div>
             <div>
-                <label for="spotPlace">景點地點 :</label>
-                <input type="text" id="spotPlace">
+                <label for="updateSpotPlace">景點地點 :</label>
+                <input type="text" id="updateSpotPlace">
             </div>
             <div>
-                <label for="spotImg">景點圖片 :</label>
-                <input type="file" id="spotImg">
+                <label for="updateSpotImg">景點圖片 :</label>
+                <input type="file" id="updateSpotImg">
                 <p class="spot-img-name"></p>
             </div>
             <div>
-                <label for="spotLongitude">景點經度 :</label>
-                <input type="text" id="spotLongitude">
+                <label for="updateSpotLongitude">景點經度 :</label>
+                <input type="text" id="updateSpotLongitude">
             </div>
             <div>
-                <label for="spotLatitude">景點緯度 :</label>
-                <input type="text" id="spotLatitude">
+                <label for="updateSpotLatitude">景點緯度 :</label>
+                <input type="text" id="updateSpotLatitude">
             </div>
             <div>
-                <label for="spotState">景點狀態 :</label>
+                <label for="updateSpotCity">景點城市 :</label>
+                <select id="updateSpotCity">      
+                    <option value="1" selected="selected">基隆市</option>
+                    <option value="2">台北市</option>
+                    <option value="3">新北市</option>
+                    <option value="4">桃園市</option>
+                    <option value="5">新竹縣</option>
+                    <option value="6">新竹市</option>
+                    <option value="7">苗栗縣</option>
+                    <option value="8">台中市</option>
+                    <option value="9">彰化縣</option>
+                    <option value="10">雲林縣</option>
+                    <option value="11">南投縣</option>
+                    <option value="12">嘉義市</option>
+                    <option value="13">嘉義縣</option>
+                    <option value="14">台南市</option>
+                    <option value="15">高雄市</option>
+                    <option value="16">屏東縣</option>
+                    <option value="17">台東縣</option>
+                    <option value="18">花蓮縣</option>
+                    <option value="19">宜蘭縣</option>
+                </select>              
+            </div>
+            <div>
+                <label for="updateSpotState">景點狀態 :</label>
                 <select>      
                     <option value="1" selected="selected">正常</option>
                     <option value="2">下架</option>
                 </select>
             </div>
             <div>
-                <label for="spotInfo">景點資訊 :</label>
-                <textarea name="" id="spotInfo" cols="30" rows="5"></textarea>
+                <label for="updateSpotInfo">景點資訊 :</label>
+                <textarea name="" id="updateSpotInfo" cols="30" rows="5"></textarea>
             </div>
             
-        </div>
-        < 燈箱裡之按鍵
-        <div class="btn-area">
-            <button class="clear-box-btn">清除</button>
-            <button class="confirm-box-btn">確定</button>
-        </div>  
-        <div class="close-box-btn" id="mem-close-box-btn">
-            <span class="material-icons-sharp">close</span> 
-        </div>
-            
+        </div>            
     </div>
-     -->
+     
     <!-- 景點新增燈箱 -->
     <div class="spot-add-lightbox">
         <div class="box-item">

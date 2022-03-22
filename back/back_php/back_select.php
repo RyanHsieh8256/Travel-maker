@@ -2,7 +2,7 @@
 
 	try{
         //載入 DataBase Link 
-        require_once("./db_login.php");
+        require_once("../../phps/connectdatabase.php"); 
         // header 格式 (要加此行 不然會亂碼)
         header('Content-Type: application/x-www-form-urlencoded; charset=utf-8');
         // 參數 ==>要 POST/GET 所代參數
