@@ -194,7 +194,7 @@
             </div>
         </section>
     </header>
-    <main>
+    <main id="filter_wrap">
         <!-- 熱門揪團城市區 -->
         <section class="l-full groupCities">
             <div class="l-large groupCities_wrap">
@@ -246,7 +246,7 @@
                     <input type="text" class="search_input" id="searchInput" @change="clickHandler" v-model="searchText">
                     <button class="search" @click="clickHandler"><i class="bi bi-search"></i></button>
                 </div>
-                <style id="m-search"></style>
+                <!-- <style id="m-search"></style> -->
             </div>
         </section>
         <!-- 篩選下拉式選單和揪團內容區 -->
@@ -255,25 +255,20 @@
                 <div class="filterMobile" id="filterMobile">篩選</div>
                 <div class="row">
                     <div class="col-12 col-md-3 filter">
-                        <div class="filter_wrap" id="filter_wrap">
-                            <!-- <div class="city"> -->
+                        <div class="filter_wrap">
+                            <!--id="filter_wrap" -->
                             <select v-model="selectedCity" class="dropdownMenu">
                                 <option value="" disabled>旅遊地區</option>
                                 <option v-for="city in cities">{{city}}</option>
                             </select>
-                            <!-- </div> -->
-                            <!-- <div class="spot"> -->
                             <select v-model="selectedSpot" class="dropdownMenu">
                                 <option value="" disabled>剩餘名額</option>
                                 <option v-for="spot in spots">{{spot}}</option>
                             </select>
-                            <!-- </div> -->
-                            <!-- <div class="departureDate"> -->
                             <select v-model="selectedDate" class="dropdownMenu">
                                 <option value="" disabled>出發日期</option>
                                 <option v-for="date in dates">{{date}}</option>
                             </select>
-                            <!-- </div> -->
                             <button class="filterBtn" id="filterBtn" @click="clickHandler">篩選</button>
                         </div>
                     </div>
@@ -337,9 +332,9 @@
         });
     </script>
 
-    <!-- vue出下拉式選單 -->
+    <!-- vue出下拉式選單 --> 
     <script>
-        new Vue({
+    new Vue({
             el: '#filter_wrap',
             data: {
                 selectedCity: '',
@@ -348,228 +343,204 @@
                 cities: ['北部', '中部', '南部', '東部'],
                 spots: ['5位內', '10位內', '不限名額'],
                 dates: ['3天內', '7天內', '10天內'],
-                list: [],
+                list: [], //16
                 searchText: "",
             },
             computed: {
                 cityName() {
-                    switch(this.selectedCity) {
+                    switch (this.selectedCity) {
                         case "北部":
-                        return ['台北市'];
+                            return ['基隆市', '台北市', '新北市', '桃園市', '新竹縣', '新竹市', '苗栗縣'];
                         case "中部":
-                        return ['台北市'];
+                            return ['台中市', '彰化縣', '雲林縣', '南投縣'];
                         case "南部":
-                        return ['台北市'];
+                            return ['嘉義市', '嘉義縣', '台南市', '高雄市', '屏東縣'];
                         case "東部":
-                        return ['台北市'];
-                        default: 
-                        return ['台北市'];
-                        
+                            return ['台東縣', '花蓮縣', '宜蘭縣'];
+                        default:
+                            return this.list;
+
                     };
                 },
-                filterCities() {
-                    return this.list.filter(v =>{
-                        return this.cityName.indexOf(v.cityName) > -1 || this.selectedCity =='';
+                filterCities() { //1. 先抓取只篩選城市的卡片
+                    return this.list.filter(v => {
+                        return this.cityName.indexOf(v.cityName) > -1 || this.selectedCity == '';
                     })
                 },
-                filterSpots() {
+                filterSpots() { //2. 抓取篩選完城市和名額的卡片
                     return this.filterCities.filter(v => v.spots == this.selectedSpot)
                 },
-                filterDate() {
+                filterDate() { //3. 抓取篩選完城市、名額和日期的卡片(最終我要的結果)
                     return this.filterSpots.filter(v => v.date == this.selectedDate)
                 },
                 filterSearch() {
-                    this.list.filter(v => {
-                        if ('IN THE STR') {
-                            return true
-                        }
+                    return this.list.filter(v => {
+                        return (v.cityName.indexOf(this.searchText)>-1 || v.groName.indexOf(this.searchText)>-1 || this.searchText == '') ;
+                        // console.log(v.searchText);
                     })
                 },
             },
             methods: {
-                clickHandler(){
+                clickHandler() {
                     console.log(this.filterCities)
                     if (this.searchText) { //如果搜尋列有字，做以下事情
                         this.setCard(this.filterSearch);
                     } else { //如果搜尋列沒有字，就做下拉式選單
-                    this.setCard(this.filterCities);
-                }
+                        this.setCard(this.filterCities);
+                    }
                 },
                 setCard(res) {
                     document.getElementById('gro').innerHTML = "";
                     for (let i = 0; i < res.length; i++) {
-                        console.log(res)
-                                    //創造區
-                                    //1. 創造卡片
-                                    let card = document.createElement('div');
-                                    card.classList.add('card', 'col-12', 'col-md-4');
-                                    card.dataset.index = `${res[i].cityName},${res[i].groName} `;
+                        console.log(res);
+                        //創造區
+                        //1. 創造卡片
+                        let card = document.createElement('div');
+                        card.classList.add('card', 'col-12', 'col-md-4');
+                        card.dataset.index = `${res[i].cityName},${res[i].groName} `;
 
-                                    //2. 創造卡片頭部和卡片內容
-                                    let card_header = document.createElement('div');
-                                    let groupCard = document.createElement('div');
-                                    groupCard.classList.add('groupCard', 'card_content', 'card_content--corner');
-                                    card_header.classList.add('card_header');
+                        //2. 創造卡片頭部和卡片內容
+                        let card_header = document.createElement('div');
+                        let groupCard = document.createElement('div');
+                        groupCard.classList.add('groupCard', 'card_content', 'card_content--corner');
+                        card_header.classList.add('card_header');
 
-                                    //3. 創造卡片頭部裡面的內容
-                                    //3-1. 團主照片和名字
-                                    let card_person = document.createElement('div');
-                                    let card_photo = document.createElement('div');
-                                    let card_name = document.createElement('div');
-                                    let initiatorPic = document.createElement('img');
-                                    card_person.classList.add('card_person');
-                                    card_photo.classList.add('card_photo');
-                                    card_name.classList.add('card_name');
+                        //3. 創造卡片頭部裡面的內容
+                        //3-1. 團主照片和名字
+                        let card_person = document.createElement('div');
+                        let card_photo = document.createElement('div');
+                        let card_name = document.createElement('div');
+                        let initiatorPic = document.createElement('img');
+                        card_person.classList.add('card_person');
+                        card_photo.classList.add('card_photo');
+                        card_name.classList.add('card_name');
 
-                                    //3-2. 點擊次數固定
-                                    let card_hit = document.createElement('div');
-                                    let hitSpan = document.createElement('span');
-                                    card_hit.classList.add('card_hit');
+                        //3-2. 點擊次數固定
+                        let card_hit = document.createElement('div');
+                        let hitSpan = document.createElement('span');
+                        card_hit.classList.add('card_hit');
 
-                                    //4. 創造卡片內容裡的東西
-                                    // 4-1. 卡片本身a連結
-                                    let a = document.createElement('a');
-                                    a.classList.add('link');
-                                    // 4-2. 卡片身體
-                                    let card_body = document.createElement('div');
-                                    let card_footer = document.createElement('div');
-                                    let card_tag = document.createElement('span');
-                                    let card_img = document.createElement('div');
-                                    let groImg = document.createElement('img');
-                                    let card_date = document.createElement('div');
-                                    let card_title = document.createElement('h3');
-                                    let card_text = document.createElement('p');
-                                    let cardTimeStart = document.createElement('p');
-                                    let cardTimeEnd = document.createElement('p');
-                                    let groStartDateTxt = document.createElement('span');
-                                    let groStartDate = document.createElement('span');
-                                    let groEndDateTxt = document.createElement('span');
-                                    let groEndDate = document.createElement('span');
+                        //4. 創造卡片內容裡的東西
+                        // 4-1. 卡片本身a連結
+                        let a = document.createElement('a');
+                        a.classList.add('link');
+                        // 4-2. 卡片身體
+                        let card_body = document.createElement('div');
+                        let card_footer = document.createElement('div');
+                        let card_tag = document.createElement('span');
+                        let card_img = document.createElement('div');
+                        let groImg = document.createElement('img');
+                        let card_date = document.createElement('div');
+                        let card_title = document.createElement('h3');
+                        let card_text = document.createElement('p');
+                        let cardTimeStart = document.createElement('p');
+                        let cardTimeEnd = document.createElement('p');
+                        let groStartDateTxt = document.createElement('span');
+                        let groStartDate = document.createElement('span');
+                        let groEndDateTxt = document.createElement('span');
+                        let groEndDate = document.createElement('span');
 
-                                    card_body.classList.add('card_body');
-                                    card_footer.classList.add('card_footer');
-                                    card_tag.classList.add('card_tag');
-                                    card_img.classList.add('card_img');
-                                    card_date.classList.add('card_date');
-                                    card_title.classList.add('card_title');
-                                    card_text.classList.add('card_text');
-                                    cardTimeStart.classList.add('card_time', 'card_time--start');
-                                    cardTimeEnd.classList.add('card_time', 'card_time--end');
-                                    groStartDate.classList.add('groStartDate');
-                                    groEndDate.classList.add('groEndDate');
-                                    // 4-3. 卡片尾部
-                                    let cardTimeDeadline = document.createElement('div');
-                                    let applyDeadlineTxt = document.createElement('span');
-                                    cardTimeDeadline.classList.add('card_time', 'card_time--deadline');
+                        card_body.classList.add('card_body');
+                        card_footer.classList.add('card_footer');
+                        card_tag.classList.add('card_tag');
+                        card_img.classList.add('card_img');
+                        card_date.classList.add('card_date');
+                        card_title.classList.add('card_title');
+                        card_text.classList.add('card_text');
+                        cardTimeStart.classList.add('card_time', 'card_time--start');
+                        cardTimeEnd.classList.add('card_time', 'card_time--end');
+                        groStartDate.classList.add('groStartDate');
+                        groEndDate.classList.add('groEndDate');
+                        // 4-3. 卡片尾部
+                        let cardTimeDeadline = document.createElement('div');
+                        let applyDeadlineTxt = document.createElement('span');
+                        cardTimeDeadline.classList.add('card_time', 'card_time--deadline');
 
-                                    //插入結構和資料區
-                                    //1. 把卡片本身插入目的地
-                                    gro.appendChild(card);
+                        //插入結構和資料區
+                        //1. 把卡片本身插入目的地
+                        gro.appendChild(card);
 
-                                    //2. 把卡片頭部和卡片內容一起插入卡片裡
-                                    card.appendChild(card_header);
-                                    card.appendChild(groupCard);
+                        //2. 把卡片頭部和卡片內容一起插入卡片裡
+                        card.appendChild(card_header);
+                        card.appendChild(groupCard);
 
-                                    //3. 把卡片頭部裡面的內容插入卡片頭裡面
-                                    //3-1. 團主照片和名字
-                                    card_header.appendChild(card_person);
-                                    card_person.appendChild(card_photo);
-                                    card_person.appendChild(card_name);
-                                    card_photo.appendChild(initiatorPic);
-                                    //***這裡串接團主大頭貼
-                                    initiatorPic.src = `images/memIcon/${res[i].memIcon}`;
-                                    //***這裡串接團主的名字
-                                    card_name.textContent = res[i].memName;
-                                    //3-2. 點擊次數固定
-                                    card_header.appendChild(card_hit);
-                                    card_hit.appendChild(hitSpan);
-                                    hitSpan.textContent = '199999';
-                                    let hitTextNode = document.createTextNode(" 點擊");
-                                    card_hit.appendChild(hitTextNode);
+                        //3. 把卡片頭部裡面的內容插入卡片頭裡面
+                        //3-1. 團主照片和名字
+                        card_header.appendChild(card_person);
+                        card_person.appendChild(card_photo);
+                        card_person.appendChild(card_name);
+                        card_photo.appendChild(initiatorPic);
+                        //***這裡串接團主大頭貼
+                        initiatorPic.src = `images/memIcon/${res[i].memIcon}`;
+                        //***這裡串接團主的名字
+                        card_name.textContent = res[i].memName;
+                        //3-2. 點擊次數固定
+                        card_header.appendChild(card_hit);
+                        card_hit.appendChild(hitSpan);
+                        hitSpan.textContent = '199999';
+                        let hitTextNode = document.createTextNode(" 點擊");
+                        card_hit.appendChild(hitTextNode);
 
-                                    //4. 把卡片內容裡的小朋友們插入卡片內容
-                                    // 4-1. 卡片本身a連結
-                                    groupCard.appendChild(a);
-                                    // a.href = './groupdetail.html';
-                                    a.setAttribute('href', `groupdetail.html?groNo=${res[i].groNo}`)
-                                    // 4-2. 卡片身體
-                                    groupCard.appendChild(card_body);
-                                    card_body.appendChild(card_tag);
-                                    //***這裡串接城市
-                                    card_tag.textContent = res[i].cityName;
-                                    //***這裡串接揪團圖片
-                                    groupCard.appendChild(card_img);
-                                    groImg.src = `images/groImg/${res[i].groImg}`;
-                                    card_img.appendChild(groImg);
-                                    //***這裡串接出發和回程日期
-                                    groupCard.appendChild(card_date);
-                                    card_date.appendChild(cardTimeStart);
-                                    card_date.appendChild(cardTimeEnd);
-                                    cardTimeStart.appendChild(groStartDateTxt);
-                                    cardTimeStart.appendChild(groStartDate);
-                                    groStartDateTxt.textContent = '出發日期: ';
-                                    groStartDate.innerText = res[i].groStartDate;
-                                    cardTimeEnd.appendChild(groEndDateTxt);
-                                    cardTimeEnd.appendChild(groEndDate);
-                                    groEndDateTxt.textContent = '回程日期: ';
-                                    groEndDate.innerText = res[i].groEndDate;
-                                    //***這裡串接揪團名稱
-                                    groupCard.appendChild(card_title);
-                                    card_title.innerText = res[i].groName;
-                                    //***這裡串接揪團內容
-                                    groupCard.appendChild(card_text);
-                                    card_text.innerText = res[i].groContent;
-                                    // 4-3. 卡片尾部
-                                    groupCard.appendChild(card_footer);
-                                    card_footer.appendChild(cardTimeDeadline);
-                                    cardTimeDeadline.appendChild(applyDeadlineTxt);
-                                    applyDeadlineTxt.textContent = '報名截止';
-                                    let textNode = document.createTextNode(`${res[i].applyDeadline}`);
-                                    cardTimeDeadline.appendChild(textNode);
+                        //4. 把卡片內容裡的小朋友們插入卡片內容
+                        // 4-1. 卡片本身a連結
+                        groupCard.appendChild(a);
+                        // a.href = './groupdetail.html';
+                        a.setAttribute('href', `groupdetail.html?groNo=${res[i].groNo}`)
+                        // 4-2. 卡片身體
+                        groupCard.appendChild(card_body);
+                        card_body.appendChild(card_tag);
+                        //***這裡串接城市
+                        card_tag.textContent = res[i].cityName;
+                        //***這裡串接揪團圖片
+                        groupCard.appendChild(card_img);
+                        groImg.src = `images/groImg/${res[i].groImg}`;
+                        card_img.appendChild(groImg);
+                        //***這裡串接出發和回程日期
+                        groupCard.appendChild(card_date);
+                        card_date.appendChild(cardTimeStart);
+                        card_date.appendChild(cardTimeEnd);
+                        cardTimeStart.appendChild(groStartDateTxt);
+                        cardTimeStart.appendChild(groStartDate);
+                        groStartDateTxt.textContent = '出發日期: ';
+                        groStartDate.innerText = res[i].groStartDate;
+                        cardTimeEnd.appendChild(groEndDateTxt);
+                        cardTimeEnd.appendChild(groEndDate);
+                        groEndDateTxt.textContent = '回程日期: ';
+                        groEndDate.innerText = res[i].groEndDate;
+                        //***這裡串接揪團名稱
+                        groupCard.appendChild(card_title);
+                        card_title.innerText = res[i].groName;
+                        //***這裡串接揪團內容
+                        groupCard.appendChild(card_text);
+                        card_text.innerText = res[i].groContent;
+                        // 4-3. 卡片尾部
+                        groupCard.appendChild(card_footer);
+                        card_footer.appendChild(cardTimeDeadline);
+                        cardTimeDeadline.appendChild(applyDeadlineTxt);
+                        applyDeadlineTxt.textContent = '報名截止';
+                        let textNode = document.createTextNode(`${res[i].applyDeadline}`);
+                        cardTimeDeadline.appendChild(textNode);
 
-                                    // console.log(res[i]);
-                                    console.log(res.length);
-                                }
-                            
+                        // console.log(res[i]);
+                        console.log(res.length);
+                    }
+
                 },
                 getGroData() {
                     $.ajax({
                         type: 'GET',
                         url: './phps/gro.php',
                         dataType: 'json',
-                        success: (res)=> {
+                        success: (res) => {
                             if (res !== false) { //如果資料庫是有資料的
                                 this.list = res;
                             }
                         }
                     });
                 },
-                setSearch() {
-                    var that = $(this);
-                    var mSearch = $("#m-search");
-                    // 搜尋列
-                    $('#searchInput').bind("change paste", function () {
-                        var value = $(this).val();
-                        if (!value) {
-                            mSearch.html("");
-                            return;
-                        };
-                        mSearch.html('.card:not([data-index*="' + value.toLowerCase() + '"]) {display: none;}');
-                    });
-                    // 下拉式選單搜尋
-                    $('.dropdownMenu').bind("click", function () {
-                        var value = $(this).val();
-                        if (!value) {
-                            mSearch.html("");
-                            return;
-                        };
-                        mSearch.html('.card:not([data-index*="' + value.toLowerCase() + '"]) {display: none;}');
-                    });
-                },
             },
             mounted() {
                 this.getGroData();
-                this.setSearch();
             },
         });
     </script>

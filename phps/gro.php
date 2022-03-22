@@ -2,7 +2,8 @@
     require_once("./connectdatabase.php");
 
     try{
-        $sql = "select * from group_";
+        // $sql = "select * from group_ ";
+        $sql = "SELECT group_.*,groupdetail_title.quota FROM `group_` join `groupdetail_title` on group_.groNo = groupdetail_title.groNo;";
 
         $groData = $pdo -> prepare($sql);
         $groData -> execute();
