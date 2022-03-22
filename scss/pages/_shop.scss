@@ -105,13 +105,12 @@
 .shopProduct{
     margin-bottom: 60px;
 
-
-
     .card{
         a{
             color: black;
 
         }
+
         &_content{
             width: 100%;
 
@@ -130,6 +129,7 @@
         &_img{
             overflow: hidden;
             position: relative;
+
             img{
                 position: absolute;
                 top: 0;
@@ -137,6 +137,7 @@
                 width: auto;
                 height: 100%;
             }
+
             &::before{
             content: "";
             display: block;
@@ -144,6 +145,7 @@
             width: 100%;
             height: 0;
             padding-bottom: 75%;
+            
             }
         }      
     }
