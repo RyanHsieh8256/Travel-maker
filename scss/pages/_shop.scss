@@ -105,45 +105,46 @@
 .shopProduct{
     margin-bottom: 60px;
 
-}
 
-.card{
-    a{
-        color: black;
 
-    }
-    &_content{
-        width: 100%;
+    .card{
+        a{
+            color: black;
 
-    }
-
-    &_tag{
-        z-index: 5;
-
-    }
-
-    &_count{
-        width: 100%;
-        text-align:right;
-    }
-
-    &_img{
-        overflow: hidden;
-        position: relative;
-        img{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: auto;
-            height: 100%;
         }
-        &::before{
-        content: "";
-        display: block;
-        position: relative;
-        width: 100%;
-        height: 0;
-        padding-bottom: 75%;
+        &_content{
+            width: 100%;
+
         }
-    }      
+
+        &_tag{
+            z-index: 5;
+
+        }
+
+        &_count{
+            width: 100%;
+            text-align:right;
+        }
+
+        &_img{
+            overflow: hidden;
+            position: relative;
+            img{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: auto;
+                height: 100%;
+            }
+            &::before{
+            content: "";
+            display: block;
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 75%;
+            }
+        }      
+    }
 }
