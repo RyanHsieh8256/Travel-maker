@@ -152,11 +152,12 @@
     }
 
     .price{
-      width: 30px;
+      width: 35px;
       border: none;
       text-align: center;
       background-color: none;
-
+      background: none;
+      
     }
 
     .bi.bi-plus-circle-fill,& .bi.bi-dash-circle-fill{
@@ -210,6 +211,7 @@
 
   .tocart{
    margin-right: 20px;
+   color: black;
    cursor: pointer;
 
   }
@@ -223,6 +225,8 @@
 
 
 .shopspotOverview{
+  margin-bottom: 50px;
+
   &__wrap{
   width: 90%;
   margin: auto;
