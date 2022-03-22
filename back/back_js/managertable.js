@@ -39,3 +39,28 @@ printData=(arr)=>{
         document.querySelector(".managertable tbody").appendChild(mgrtr);
     });
 };
+var lightbox =document.querySelector(".lightbox");
+
+// 先將燈箱關閉
+lightbox.style.display ='none';
+
+//close 
+fuc_closeBtn=()=>{
+    lightbox.style.display ='none';
+};
+ //call-fuc
+let closeBoxBtn = document.querySelector(".close-box-btn");
+closeBoxBtn.onclick = fuc_closeBtn;
+let updateBtn = document.querySelector('.update-btn');
+
+// open search-Box
+fuc_excuteBtn=()=>{
+    lightbox.style.display ='';
+    
+};
+
+let searchBtn =document.querySelectorAll(".excute-btn");
+searchBtn.forEach(btn => {
+    btn.onclick = fuc_excuteBtn;
+    
+});

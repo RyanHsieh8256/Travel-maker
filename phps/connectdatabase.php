@@ -1,5 +1,6 @@
 <?php
 	// tibame資料庫
+	// $host = "https://tibamef2e.com/";
 	// $host = "localhost";
 	// $dbname = "tibamefe_cfd104g3";
 	// $user = "tibamefe_since2021";

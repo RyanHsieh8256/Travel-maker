@@ -2,7 +2,7 @@
     require_once("./connectdatabase.php");
     try{
         // $sql = "select * from ticketspot join underimg_test on ticketspot.ticketSpotNo = underimg_test.ticketSpotNo join city on ticketSpot.cityNo =  city.cityNo";
-        $sql = "select * from g3.shopspot_title where ticketSpotNo=:id";
+        $sql = "select * from shopspot_title where ticketSpotNo=:id";
         $ticketspot = $pdo->prepare($sql);
         $ticketspot->bindValue(":id", $_GET['id']);
         $ticketspot->execute();
