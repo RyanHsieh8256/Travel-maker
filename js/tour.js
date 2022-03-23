@@ -444,6 +444,7 @@ function changeItem() {
 }
 
 function haveLike(jourNo) {
+  if(!getLikeArr()) return;
   let curLikes = getLikeArr();
   let likeOrNot = curLikes.some(like => like == +jourNo);
   console.log(curLikes);
