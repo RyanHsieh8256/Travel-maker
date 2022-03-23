@@ -590,11 +590,11 @@
                         </div>
                         <div class="tourform_group">
                             <label for="end-date" class="tourform_label">返回日</label>
-                            <input type="date" name="end-date" id="endDate" value="2022-0 3-24">
+                            <input type="date" name="end-date" id="endDate" value="2022-03-24">
                         </div>
                     </div>
                     <div class="popup_btnBox">
-                        <button class="btn btn--cancel">略過</button>
+                        <!-- <button class="btn btn--cancel">略過</button> -->
                         <button class="btn btn--main" id="checkadd">
                             <a href="tourbuild.html#/tour/" class="popup_link">
                                 確定
@@ -986,14 +986,20 @@
             }
         }
 
-        chipBtn = document.querySelectorAll('.btn--chip');
-        chipBtn.forEach(btn => btn.addEventListener('click',autofillWord));
+        function autofillWord() {
+            chipBtn = document.querySelectorAll('.btn--chip');
+            chipBtn.forEach(btn => btn.addEventListener('click',autofillWord));
 
-        function autofillWord(e) {
-            let curBtn = e.currentTarget.textContent;
-            tourName.value = curBtn;
-            
+            function autofillWord(e) {
+                let curBtn = e.currentTarget.textContent;
+                tourName.value = curBtn;
+            }
         }
+
+
+        autofillWord();
+            
+    
         
     </script>
 </body>

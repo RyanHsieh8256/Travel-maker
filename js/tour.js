@@ -622,3 +622,38 @@ const dragSlide = function() {
 }
 
 dragSlide();
+
+function slidePage() {
+  let nextBtn = document.querySelector('#slide-next');
+  let arrowBtn = document.querySelector('#arrowBtn2');
+  let box = document.querySelector('.tourForm_box');
+
+  nextBtn.addEventListener('click',() => {
+  let form = document.querySelector('.tourForm_form');
+  if(form.tourName.value) {
+      box.style.transform = `translateX(calc(-100% - 20px))`;
+  }  
+  
+  })
+
+  arrowBtn.addEventListener('click',() => {
+  box.style.transform = `translateX(0%)`;
+  })
+
+}
+
+slidePage();
+
+function autofillWord() {
+  chipBtn = document.querySelectorAll('.btn--chip');
+  chipBtn.forEach(btn => btn.addEventListener('click',autofillWord));
+
+  function autofillWord(e) {
+      let curBtn = e.currentTarget.textContent;
+      tourName.value = curBtn;
+  }
+}
+
+
+autofillWord();
+  
