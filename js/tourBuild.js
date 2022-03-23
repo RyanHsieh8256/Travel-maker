@@ -66,7 +66,7 @@ function getLastJour() {
 function jourNoHandle(data) {
 
   let lastJourNo = +data[0].journeyNo;
-  console.log(lastJourNo);
+  // console.log(lastJourNo);
 
   var noArr = [];
   noArr.push(lastJourNo);
@@ -81,7 +81,7 @@ function getEditNo(num) {
 
 function storeHandle() {
   let no = localStorage.getItem('lastJourNo') != null ? (+localStorage.getItem('lastJourNo')+ 1 ) :+localStorage.getItem('editNum');
-  console.log(no);
+  // console.log(no);
   if(localStorage.getItem('memData') == null) {
     alertBG.style.display = 'block';
     alertBG.querySelector('.alertBG_content').textContent = '請先登入喔';
@@ -101,11 +101,14 @@ function updateTour(number) {
   let dateArr = (tourBuildDate.textContent).trim().split(' - ');                
   let re = /\./gi;
 
+  let jourdiff = Math.abs(new Date(dateArr[1]) - new Date(dateArr[0]));
+  let day = jourdiff/(1000 * 3600 * 24) + 1;
+
+
     let tourSpot = [];
     let spotsDom = document.querySelectorAll('.timeline_item');
 
     spotsDom.forEach(spot => {
-
       let journeySpotDay = +spot.parentElement.className
                       .split(' ')[1]
                       .split('--')[1];
@@ -120,7 +123,7 @@ function updateTour(number) {
       tourSpot.push(spotObj);
     })
 
-    console.log(tourSpot);
+    // console.log(tourSpot);
     
 
     let tourObj = {
@@ -143,8 +146,19 @@ function updateTour(number) {
   if(tourSpot.length == 0) return;
   spotData = new FormData();
   spotData.append('spots',JSON.stringify(tourSpot));
+  
+  deleteSpot(number,spotData);
+}
 
-  insertTour(spotData);
+
+// 刪除這個行程的景點
+function deleteSpot(data,spotdata) {
+  fetch(`./phps/deleteSpot.php?no=${data}`)
+  .then(res => {
+    insertTour(spotdata);
+    return res.text();
+  })
+  
 }
 
 
@@ -182,7 +196,7 @@ function getJourNo(data) {
     insertState = 0;
   }
 
-  console.log(curNo,insertState);
+  // console.log(curNo,insertState);
   
 }
 
@@ -196,7 +210,7 @@ function fetchData() {
   
   let parseUrl = document.location.hash.toLowerCase().split('/');
   let [,states,no] = parseUrl;
-  console.log(states);
+  // console.log(states);
 
   // 如果為編輯行程或以舊行程新增行程
   if(states == 'touredit' || (states == 'tour' && no)) {
@@ -356,7 +370,7 @@ function setTourForm() {
   tourForm['start-date'].value = displayTourForm()?.journeyStartDay || tourdates[0].trim().replace(re,'-');
   tourForm['end-date'].value = displayTourForm()?.journeyEndDay || tourdates[1].trim().replace(re,'-');
 
-  console.log( tourName.textContent, tourdates[0], tourdates[1]);
+  // console.log( tourName.textContent, tourdates[0], tourdates[1]);
 }
 
 setTourForm();
@@ -377,7 +391,7 @@ function mainMap() {
 
 
     map = L.map('map');
-    map.setView([24.98921012878418, 121.31353759765625], 14);
+    map.setView([24.98921012878418, 121.31353759765625], 11);
 
 
     var Stadia_AlidadeSmooth = L.tileLayer('https://api.mapbox.com/styles/v1/joyce44528/cl0jxpac0001m14pkbomag45u/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoiam95Y2U0NDUyOCIsImEiOiJja3o0YnN0NWgwZjdpMm9uZjJ4NmptZzB0In0.DYwJjf7K_EZu08ajfWqW0w', {
@@ -486,7 +500,8 @@ function displayTab() {
 
   let timelineBox = document.querySelector('.timeline_box');
   let timelineList = document.querySelector('.timeline_list');
-  
+
+  // 增加天數的狀況
   if(diff >= 1) {
     let innHtml = '';
     let innPage = '';
@@ -505,9 +520,13 @@ function displayTab() {
 
   if(diff < 0) {
     let tabs = document.querySelectorAll('.timeline_tab');
+    let page = document.querySelectorAll('.timeline_page');
+
     let sliceArr = [...tabs].slice(cur);
+    let pageArr = [...page].slice(cur);
 
     sliceArr.forEach(tab => tab.remove());
+    pageArr.forEach(page => page.remove());
   }
 
 }
@@ -587,20 +606,20 @@ dragSlide();
 // 景點資訊卡
 function displayContent() {
   tourBuildItems = document.querySelectorAll('.timeline_page .timeline_item');
-  console.log(tourBuildItems);
-  let toggleMap = document.querySelector('.toggleMap');
-  let tourBuildBox = document.querySelector('.tourBuild_box');
-
+  // console.log(tourBuildItems);
 
   tourBuildItems.forEach(item => item.removeEventListener('click', clickHandler));
   tourBuildItems.forEach(item => item.addEventListener('click', clickHandler)); 
-  
-
-  toggleMap.addEventListener('click',() => {
-    tourBuildBox.classList.toggle('is_active');
-  })
-
 }
+
+let toggleMap = document.querySelector('.toggleMap');
+let tourBuildBox = document.querySelector('.tourBuild_box');
+
+toggleMap.addEventListener('click',() => {
+  console.log('嗨嗨');
+  tourBuildBox.classList.toggle('is_active');
+})
+
 
 
 // 景點資訊卡
@@ -732,7 +751,6 @@ function displaySpot(data) {
         </div>
         <div class="tourSearch_btnBox">
           <button class="btn btn--main addSpot">加入景點</button>
-          <button class="btn btn--cancel">取消加入</button>
         </div>
       </div>
         `
@@ -752,7 +770,7 @@ function closePopup() {
   let box = document.querySelector('.tourSpot');
 
   closeBtn.addEventListener('click',(e) => {
-    console.log(e.currentTarget);
+   
   })
     
 }
@@ -776,6 +794,9 @@ function reviseSet() {
     tourBuildDay.textContent = days;   
 
     popup.style.display = "none";
+
+    // 和原先的天數做比較
+
 
     // 更新這裡的天數
     displayTab();
