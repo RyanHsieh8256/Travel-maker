@@ -11,7 +11,6 @@ window.addEventListener('load',function() {
     fetchCity();
     displayTheTour();
     
-    
 })
 
 window.addEventListener('beforeunload',function(e) {
@@ -198,6 +197,7 @@ function handleLike(jourNo) {
 
 // 取得local storage的memLike
 function getLikeArr() {
+  if(localStorage.getItem('memLike') == null) return;
   let likes = JSON.parse(localStorage.getItem('memLike'));
   let arr = [];
   likes.forEach(like => arr.push(+like.journeyNo));
@@ -516,7 +516,7 @@ slidePage();
 
 // 呈現行程名稱 /圖片等內容
 function displayTheTour() {
-  if(tourForm().length == 0) return;
+  if(tourForm()?.length == 0 || sessionStorage.getItem("day1") == null) return;
 
   let names = document.querySelectorAll('.tourName');
   tourWrapper.dataset['jour'] = tourForm().journeyNo;
@@ -527,6 +527,7 @@ displayTheTour();
 
 // 讓popup的資料為fetch回來的資料
 function tourForm() {
+  if(sessionStorage.getItem("day1") == null) return;
     let data = JSON.parse(sessionStorage.getItem("day1"));
     let {journeyNo, journeyName,journeyInfo,journeyStartDay,journeyEndDay} = data[0];
 
