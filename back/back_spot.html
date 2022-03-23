@@ -231,7 +231,7 @@
     </div>
 
     <!-- 景點修改燈箱 -->  
-    <div class="lightbox spot-lightbox">
+    <div class="lightbox spot-lightbox" id="updateSpotBox">
         <div class="box-item">
             <div>
                 <label for="updateSpotNo">景點編號 :</label>
@@ -252,16 +252,17 @@
             </div>
             <div>
                 <label for="updateSpotLongitude">景點經度 :</label>
-                <input type="text" id="updateSpotLongitude">
+                <input type="text" id="updateSpotLongitude" readonly="true">
             </div>
             <div>
                 <label for="updateSpotLatitude">景點緯度 :</label>
-                <input type="text" id="updateSpotLatitude">
+                <input type="text" id="updateSpotLatitude" readonly="true">
             </div>
             <div>
                 <label for="updateSpotCity">景點城市 :</label>
-                <select id="updateSpotCity">      
-                    <option value="1" selected="selected">基隆市</option>
+                <input id="updateSpotCity" readonly="true">
+                <!-- <select id="updateSpotCity">      
+                    <option value="1" >基隆市</option>
                     <option value="2">台北市</option>
                     <option value="3">新北市</option>
                     <option value="4">桃園市</option>
@@ -280,13 +281,13 @@
                     <option value="17">台東縣</option>
                     <option value="18">花蓮縣</option>
                     <option value="19">宜蘭縣</option>
-                </select>              
+                </select>               -->
             </div>
             <div>
                 <label for="updateSpotState">景點狀態 :</label>
-                <select>      
-                    <option value="1" selected="selected">正常</option>
-                    <option value="2">下架</option>
+                <select id="updateSpotState">      
+                    <option value="正常" selected="selected">正常</option>
+                    <option value="下架">下架</option>
                 </select>
             </div>
             <div>
@@ -294,8 +295,17 @@
                 <textarea name="" id="updateSpotInfo" cols="30" rows="5"></textarea>
             </div>
             
-        </div>            
+        </div> 
+        <!-- 燈箱裡之按鍵 -->
+        <div class="btn-area">
+            <button class="clear-box-btn" id="">清除</button>
+            <button class="confirm-box-btn" id="update-confirm-box-btn">確定</button>
+        </div>  
+        <div class="close-box-btn" id="close-update-spot-box-btn">
+            <span class="material-icons-sharp">close</span> 
+        </div>           
     </div>
+    
      
     <!-- 景點新增燈箱 -->
     <div class="spot-add-lightbox">
@@ -365,7 +375,7 @@
         <!-- 燈箱裡之按鍵 -->
         <div class="btn-area">
             <button class="clear-box-btn" id="">清除</button>
-            <button class="confirm-box-btn">確定</button>
+            <button class="confirm-box-btn" id="insert-confirm-box-btn">確定</button>
         </div>  
         <div class="close-box-btn" id="close-insert-spot-box-btn">
             <span class="material-icons-sharp">close</span> 
