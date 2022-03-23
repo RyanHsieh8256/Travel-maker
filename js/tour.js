@@ -197,8 +197,9 @@ function handleLike(jourNo) {
 
 // 取得local storage的memLike
 function getLikeArr() {
-  if(localStorage.getItem('memLike') == null) return;
+  if(localStorage.getItem('memLike') == null || !localStorage.getItem('memLike')) return;
   let likes = JSON.parse(localStorage.getItem('memLike'));
+  console.log(likes);
   let arr = [];
   likes.forEach(like => arr.push(+like.journeyNo));
 
