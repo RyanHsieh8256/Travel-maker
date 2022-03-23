@@ -60,7 +60,9 @@ Vue.component('login',{
                                 $('#memIcon').attr('src', `images/memIcon/${member.memIcon}`);
                                 window.alert('登入成功!');
                                 froLoginBG.style.display = "none";
-                                window.location.reload();
+                                if(document.getElementsByTagName('title')[0].innerText != '建立行程'){
+                                    window.location.reload();
+                                }
                             }
                         }
 
@@ -354,7 +356,7 @@ function productInCart(){
     }
 }
 
-$('.tocart').on('click',setTimeout(productInCart,100));
+$('.tocart').on('click',setTimeout(productInCart,500));
 
 window.addEventListener('load',productInCart);
 window.addEventListener('load',loginBox_doFirst);
