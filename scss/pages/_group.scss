@@ -164,6 +164,11 @@
         z-index: 2;
     }
 }
+//我要建團
+.joinBtnLink{
+    position: fixed;
+    z-index: 5;
+}
 /* only for width above 768px */
 @media screen and (min-width: 768px) {
     /* 圓圓的篩選器消失 */
