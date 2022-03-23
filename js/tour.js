@@ -519,9 +519,12 @@ function displayTheTour() {
   if(tourForm()?.length == 0 || sessionStorage.getItem("day1") == null) return;
 
   let names = document.querySelectorAll('.tourName');
+  tourImg.src = `images/journeyImg/${tourForm().journeyImg}`;
   tourWrapper.dataset['jour'] = tourForm().journeyNo;
   names.forEach(name => name.textContent = tourForm().journeyName);
   tourInfo.textContent = tourForm().journeyInfo;
+  memImg.src = `images/memIcon/${tourForm().memIcon}`;
+  mem.textContent = `${tourForm().memName}`;
 }
 displayTheTour();
 
@@ -529,7 +532,7 @@ displayTheTour();
 function tourForm() {
   if(sessionStorage.getItem("day1") == null) return;
     let data = JSON.parse(sessionStorage.getItem("day1"));
-    let {journeyNo, journeyName,journeyInfo,journeyStartDay,journeyEndDay} = data[0];
+    let {journeyNo,journeyImg,journeyName,journeyInfo,journeyStartDay,journeyEndDay,memName, memIcon} = data[0];
 
     let goTourBuild = document.querySelector('#goBuildTour a');
 
@@ -549,10 +552,13 @@ function tourForm() {
 
     return {
       journeyNo,
+      journeyImg,
       journeyName,
       journeyInfo,
       journeyStartDay,
-      journeyEndDay
+      journeyEndDay,
+      memName,
+      memIcon
     }
 
 }
