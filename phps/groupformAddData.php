@@ -33,14 +33,14 @@ try {
         $groImg = "groImg_$groNo_pad.jpg";
         move_uploaded_file($_FILES["file"]["tmp_name"], "../images/groImg/" . $groImg);
 
-        $sql = "update g3.gro set groImg = \"$groImg\" where groNo = '$id'";
+        $sql = "update gro set groImg = \"$groImg\" where groNo = '$id'";
 
         $groData = $pdo->query($sql);
         //$id = $pdo->lastInsertId();
     }else{ //如果是預設圖片，複製該圖片搬移到groImg資料夾
         copy("../" . $imgTarget,"../images/groImg/" . $groDefaultImg);
 
-        $sql = "update g3.gro set groImg = \"$groDefaultImg\" where groNo = '$id'";
+        $sql = "update gro set groImg = \"$groDefaultImg\" where groNo = '$id'";
 
         $groData = $pdo->query($sql);
     }
