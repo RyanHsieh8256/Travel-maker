@@ -297,27 +297,27 @@
                     <div class="tourForm_duration">
                         <div class="tourForm_dateBox">
                             <h4 class="tourForm_theText">出發日期</h4>
-                            <p class="tourForm_theDate">2022.3.24</p>
+                            <p class="tourForm_theDate" id="goDay">2022.3.24</p>
                         </div>
-                        <div class="tourForm_days">1天</div>
+                        <div class="tourForm_days" id="days">1天</div>
                         <div class="tourForm_dateBox">
                             <h4 class="tourForm_theText">返回日期</h4>
-                            <p class="tourForm_theDate">2022.3.24</p>
+                            <p class="tourForm_theDate" id="backDay">2022.3.24</p>
                         </div>
                     </div>
                     <div class="popup_inner popup_date">
                         <div class="tourform_group">
                             <label for="start-date" class="tourform_label">出發日</label>
-                            <input type="date" name="start-date" id="start-date" value="2022-03-24">
+                            <input type="date" name="start-date" id="startDate" value="2022-03-24">
                         </div>
                         <div class="tourform_group">
                             <label for="end-date" class="tourform_label">返回日</label>
-                            <input type="date" name="end-date" id="end-date" value="2022-03-24">
+                            <input type="date" name="end-date" id="endDate" value="2022-03-24">
                         </div>
                     </div>
                     <div class="popup_btnBox">
                         <button class="btn btn--main">
-                            <a href="tourbuild.html#/tour/" class="popup_link">
+                            <a href="tourbuild.html#/tour/" class="popup_link" id="checkadd">
                                 確定
                             </a>
                         </button>
@@ -380,17 +380,67 @@
 
         slidePage();
 
+        let checkadd = document.querySelector('#checkadd');
+        checkadd.addEventListener('click',storagePopup);
+
+        // 建立行程的表單，將資料存回localStorage
+        function storagePopup(e) {
+            e.preventDefault();
+            
+            if(tourName.value && startDate.value && endDate.value) {
+                location.href=`tourbuild.html#/tour/`;
+
+                let tourObj = {
+                    tourName: tourName.value,
+                    startDate: startDate.value,
+                    endDate: endDate.value
+                };
+
+                let newTourArr = [tourObj];
+
+                localStorage.setItem('newTour',JSON.stringify(newTourArr));
+
+            }else {
+                e.currentTarget.disabled = true;
+            }
+        }
+
         function autofillWord() {
             chipBtn = document.querySelectorAll('.btn--chip');
             chipBtn.forEach(btn => btn.addEventListener('click',autofillWord));
 
             function autofillWord(e) {
+                chipBtn.forEach(btn => btn.classList.remove('is_active'));
+                e.currentTarget.classList.add('is_active');
                 let curBtn = e.currentTarget.textContent;
                 tourName.value = curBtn;
             }
         }
 
-        autofillWord();       
+        autofillWord();
+        
+        // 調整popup行程日期的呈現
+        startDate.addEventListener('change',(e,i) => changeDate(e,goDay));
+        endDate.addEventListener('change',(e,i) => changeDate(e,backDay));
+
+        function changeDate(e,day) {
+            console.log(day);
+            let re = /-/gi;
+            console.log(e.currentTarget.value.replace(re,'.'));
+            day.textContent = e.currentTarget.value.replace(re,'.');
+
+            displayDay();
+        }
+
+        function displayDay() {
+            let diff = Math.abs(new Date(backDay.textContent) - new Date(goDay.textContent));
+            let day = diff/(1000 * 3600 * 24) + 1;
+
+            console.log(backDay.textContent,goDay.textContent,day);
+
+            days.textContent = `${day}天`;
+        }
+        
     </script>
 
     <script src="js/forlogin.js"></script>

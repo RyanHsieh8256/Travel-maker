@@ -644,16 +644,38 @@ function slidePage() {
 
 slidePage();
 
+// 點擊填字
 function autofillWord() {
   chipBtn = document.querySelectorAll('.btn--chip');
   chipBtn.forEach(btn => btn.addEventListener('click',autofillWord));
 
   function autofillWord(e) {
-      let curBtn = e.currentTarget.textContent;
-      tourName.value = curBtn;
+    chipBtn.forEach(btn => btn.classList.remove('is_active'));
+
+    e.currentTarget.classList.add('is_active');
+    let curBtn = e.currentTarget.textContent;
+    tourName.value = curBtn;
   }
 }
 
-
 autofillWord();
-  
+
+
+// 調整popup行程日期的呈現
+startDate.addEventListener('change',(e,i) => changeDate(e,tourStart));
+endDate.addEventListener('change',(e,i) => changeDate(e,tourEnd));
+
+function changeDate(e,day) {
+    let re = /-/gi;
+    console.log(e.currentTarget.value.replace(re,'.'));
+    day.textContent = e.currentTarget.value.replace(re,'.');
+
+    displayDay();
+}
+
+function displayDay() {
+    let diff = Math.abs(new Date(tourEnd.textContent) - new Date(tourStart.textContent));
+    let day = Math.ceil(diff/(1000 * 3600 * 24) + 1);
+
+    days.textContent = `${day}`;
+}
