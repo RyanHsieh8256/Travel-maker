@@ -44,18 +44,22 @@ function creatMessage(res){
 }
 //留言寫入資料庫
 function messageInsert(){
-    $.ajax({
-        type: "post",
-        url: "./phps/messageinsert.php",
-        data: `groNo=${location.search.split('?')[1].split('=')[1]}&memNo=${JSON.parse(memData).memNo}&msgContent=${$('#inputBox').val()}`,
-        dataType: "text",
-        success: function (res) {
-            if(res == 'success'){
-                $('#inputBox').val('');
-                getMessage();
+    if(memData){
+        $.ajax({
+            type: "post",
+            url: "./phps/messageinsert.php",
+            data: `groNo=${location.search.split('?')[1].split('=')[1]}&memNo=${JSON.parse(memData).memNo}&msgContent=${$('#inputBox').val()}`,
+            dataType: "text",
+            success: function (res) {
+                if(res == 'success'){
+                    $('#inputBox').val('');
+                    getMessage();
+                }
             }
-        }
-    });
+        });
+    }else{
+        window.alert('請先登入!');
+    }
 }
 $("#leaveMessageBtn").on('click',messageInsert);
 window.addEventListener('load',getMessage);
