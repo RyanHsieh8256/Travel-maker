@@ -26,13 +26,13 @@ $(function () {
             { data: 'spotName'},
             { data: 'cityName'},
             { data: 'spotImg', render: function(data){
-                data = `<td><button class="spot-img-btn" onclick="New_showImg('${data}')" src="${data}">照片</button></td>`;
+                data = `<td><button class="spot-img-btn" onclick="New_showImg('${data}')"<img src="${data}" alt="img"></img>照片</button></td>`;
                 return data;
             } },
             { data: 'spotInfo', render: getSpotInfo },
             { data: 'spotState'},
             { data: 'spotEdit', render: getSpotStaus},
-            
+            // <img src="./back_img/spot_img/sportImg_192.jpg" alt=""></img>
         ],
         language: {
             "emptyTable": "無資料...",
