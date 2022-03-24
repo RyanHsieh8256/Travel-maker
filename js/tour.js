@@ -199,7 +199,6 @@ function handleLike(jourNo) {
 function getLikeArr() {
   if(localStorage.getItem('memLike') == null || !localStorage.getItem('memLike')) return;
   let likes = JSON.parse(localStorage.getItem('memLike'));
-  console.log(likes);
   let arr = [];
   likes.forEach(like => arr.push(+like.journeyNo));
 
@@ -447,7 +446,6 @@ function haveLike(jourNo) {
   if(!getLikeArr()) return;
   let curLikes = getLikeArr();
   let likeOrNot = curLikes.some(like => like == +jourNo);
-  console.log(curLikes);
   
   if(localStorage.getItem('memData') != null) {
     tourLike.style.display = 'block';
