@@ -50,22 +50,22 @@
                                 </a>
                             </li>
                             <li class="navDropdownMenuItem">
-                                <a href="mem.html">
+                                <a href="memtour.html">
                                     <i class="bi bi-calendar2"></i> 我的行程
                                 </a>
                             </li>
                             <li class="navDropdownMenuItem">
-                                <a href="mem.html">
+                                <a href="memcollect.html">
                                     <i class="bi bi-bookmark-heart"></i> 我的收藏
                                 </a>
                             </li>
                             <li class="navDropdownMenuItem">
-                                <a href="mem.html">
+                                <a href="memgro.html">
                                     <i class="bi bi-file-person"></i> 我的揪團
                                 </a>
                             </li>
                             <li class="navDropdownMenuItem">
-                                <a href="mem.html">
+                                <a href="memorder.html">
                                     <i class="bi bi-bag"></i> 我的訂單
                                 </a>
                             </li>
@@ -575,12 +575,12 @@
                     <div class="tourForm_duration">
                         <div class="tourForm_dateBox">
                         <h4 class="tourForm_theText">出發日期</h4>
-                        <p class="tourForm_theDate">2022.3.24</p>
+                        <p class="tourForm_theDate" id="goDay">2022.03.24</p>
                         </div>
-                        <div class="tourForm_days">1天</div>  
+                        <div class="tourForm_days" id="days">1天</div>  
                         <div class="tourForm_dateBox">
                         <h4 class="tourForm_theText">返回日期</h4>
-                        <p class="tourForm_theDate">2022.3.24</p>
+                        <p class="tourForm_theDate" id="backDay">2022.03.24</p>
                         </div>
                     </div>
                     <div class="popup_inner popup_date">
@@ -594,7 +594,7 @@
                         </div>
                     </div>
                     <div class="popup_btnBox">
-                        <button class="btn btn--cancel">略過</button>
+                        <!-- <button class="btn btn--cancel">略過</button> -->
                         <button class="btn btn--main" id="checkadd">
                             <a href="tourbuild.html#/tour/" class="popup_link">
                                 確定
@@ -947,7 +947,7 @@
                             groupCard.appendChild(card_footer);
                             card_footer.appendChild(cardTimeDeadline);
                             cardTimeDeadline.appendChild(applyDeadlineTxt);
-                            applyDeadlineTxt.textContent = '報名截止';
+                            applyDeadlineTxt.textContent = '報名截止日期';
                             let textNode = document.createTextNode(`${res[i].applyDeadline}`);
                             cardTimeDeadline.appendChild(textNode);
 
@@ -986,14 +986,45 @@
             }
         }
 
-        chipBtn = document.querySelectorAll('.btn--chip');
-        chipBtn.forEach(btn => btn.addEventListener('click',autofillWord));
+        function autofillWord() {
+            chipBtn = document.querySelectorAll('.btn--chip');
+            chipBtn.forEach(btn => btn.addEventListener('click',autofillWord));
 
-        function autofillWord(e) {
-            let curBtn = e.currentTarget.textContent;
-            tourName.value = curBtn;
-            
+            function autofillWord(e) {
+                chipBtn.forEach(btn => btn.classList.remove('is_active'));
+
+                e.currentTarget.classList.add('is_active');
+                let curBtn = e.currentTarget.textContent;
+                tourName.value = curBtn;
+            }
         }
+
+
+        autofillWord();
+
+
+        // 調整popup行程日期的呈現
+        startDate.addEventListener('change',(e,i) => changeDate(e,goDay));
+        endDate.addEventListener('change',(e,i) => changeDate(e,backDay));
+
+        function changeDate(e,day) {
+            console.log(day);
+            let re = /-/gi;
+            console.log(e.currentTarget.value.replace(re,'.'));
+            day.textContent = e.currentTarget.value.replace(re,'.');
+
+            displayDay();
+        }
+
+        function displayDay() {
+            let diff = Math.abs(new Date(backDay.textContent) - new Date(goDay.textContent));
+            let day = diff/(1000 * 3600 * 24) + 1;
+
+            console.log(backDay.textContent,goDay.textContent,day);
+
+            days.textContent = `${day}天`;
+        }
+        
         
     </script>
 </body>

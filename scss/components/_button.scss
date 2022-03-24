@@ -46,11 +46,23 @@
     &--chip {
         background-color: #E3DCD4;
         color: #463828;
+        margin-top: 5px;
+
+        &.is_active {
+            background-color: #83D8D1;
+            color: #007183;
+        }
     }
 
     &--arrow {
         font-size: 30px;
         color: $FooterSubColor;
+    }
+
+    &--see {
+        background-color: #E3DCD4;
+        color: #463828;
+        margin-top: 5px;
     }
 
 }

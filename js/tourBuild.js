@@ -9,6 +9,7 @@ window.addEventListener('load',function() {
     alertClose = alertBG.querySelector('.alertBG_closeBtn');
     chipBtn = document.querySelectorAll('.btn--chip');
     chipBtn.forEach(btn => btn.addEventListener('click',autofillWord));
+    chipBtn.forEach(btn => btn.addEventListener('click',autoSearch));
 
     setBtn = document.querySelector('#checkSet');
     setBtn.addEventListener('click',reviseSet);
@@ -40,8 +41,13 @@ let insertState = 0;
 function autofillWord(e) {
   let curBtn = e.currentTarget.textContent;
   searchSpot.value = curBtn;
-  
-  
+
+}
+
+function autoSearch(e) {
+  let searchVal = e.currentTarget.textContent.trim();
+
+  fetchSearch(searchVal);
 }
 
 
@@ -177,12 +183,15 @@ function insertTour(data) {
   .then(data => {
     let parseUrl = document.location.hash.toLowerCase();
     let states = parseUrl.split('/')[1];
+    alertBG.style.display = 'block';
+    setTimeout(() => alertBG.style.display = 'none',1500);
+
     if(states == 'tour') {
       history.pushState({page: 1}, "", `tourbuild.html#/tour/${curNo[0]}`)
-      alertBG.querySelector('.alertBG_content').textContent = '已儲存行程';
-      alertBG.style.display = 'block';
-      setTimeout(() => alertBG.style.display = 'none',1500);
-    } 
+      alertBG.querySelector('.alertBG_content').textContent = '已儲存行程';  
+    }else {
+      alertBG.querySelector('.alertBG_content').textContent = '已更新行程';  
+    }
   })
 }
 
@@ -823,9 +832,14 @@ setPopup();
 // 搜尋後撈資料
 function searchPlace(e) {
   if(e.key != 'Enter') return;
-  let searchVal = e.currentTarget;
+  let searchVal = e.currentTarget.value;
   
-  fetch(`./phps/tourBuild.php?search=${searchVal.value}`).then(res => res.json())
+  fetchSearch(searchVal);
+ 
+}
+
+function fetchSearch(searchVal) {
+  fetch(`./phps/tourBuild.php?search=${searchVal}`).then(res => res.json())
   .then(response => {
 
     displaySpot(response);
@@ -839,19 +853,18 @@ function searchPlace(e) {
 
   
   displayClearBtn(searchVal);
- 
-  
 }
+
 
 // 清除搜尋內容按鈕的呈現
 function displayClearBtn(search) {
   let clearBtn = document.querySelector('.tourForm_clear');
   
-  if(search.value) {
+  if(search) {
     clearBtn.style.display = 'block';
 
     clearBtn.addEventListener('click',(e) => {
-      search.value = '';
+      searchSpot.value = '';
       searchInfo(search);
       e.currentTarget.style.display = 'none';
       
@@ -869,10 +882,10 @@ function displayClearBtn(search) {
 function searchInfo(search) {
   let searchInfo = document.querySelector('.tourSearch_info');
   
-  infoPlace.textContent = search.value;
+  infoPlace.textContent = search;
   infoNum.textContent = [...getData()].length;
 
-  if(search.value) {
+  if(searchSpot.value) {
     searchInfo.style.opacity = 1;
   }else {
     searchInfo.style.opacity = 0;

@@ -356,8 +356,6 @@ function productInCart(){
     }
 }
 
-$('.tocart').on('click',setTimeout(productInCart,500));
-
 window.addEventListener('load',productInCart);
 window.addEventListener('load',loginBox_doFirst);
 $('.footerCopyRight').text('本網站為緯育TibaMe_前端設計工程師班第73期第五組學員專題成果作品，本平台僅供學習、展示之用。若有牴觸有關著作權，或有第三人主張侵害智慧財產權等情事，若有侵權疑慮，請私訊 [TibaMe-前端設計工程師養成班]，後續由專人協助處理。');

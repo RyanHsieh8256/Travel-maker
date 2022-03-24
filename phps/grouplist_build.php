@@ -3,7 +3,7 @@
     try{
         $sql = "select j.memNo, j.journeyNo, journeyName, journeyImg, journeyInfo ,c.cityName from  
         journey j
-        join journeyspot js on js.journeyNo = j.journeyNo
+        join journeyspot_copy js on js.journeyNo = j.journeyNo
         join spot s on s.spotNo = js.spotNo
         join city c on c.cityNo = s.cityNo where j.memNo =:memNo
         group by j.journeyNo";
