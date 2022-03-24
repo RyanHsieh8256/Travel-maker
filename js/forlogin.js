@@ -325,7 +325,7 @@ function logOut(){
         window.location.reload();
         
     }else{
-        wwindow.location = 'home.html';
+        window.location = 'home.html';
     }
 
 };

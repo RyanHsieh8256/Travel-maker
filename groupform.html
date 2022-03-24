@@ -448,7 +448,7 @@
                 alertBG.style.display = "block";
                 alertBG_content.innerHTML = `已成功公開揪團<i class="bi bi-exclamation-lg"></i>`;
 
-                alertBG_closeBtn.addEventListener('click', toGroup);
+                // alertBG_closeBtn.addEventListener('click', toGroup);
                 alertBG_closeBtn.addEventListener('click', addDataToGro);
             }
             //假設資料未填寫完整，打叉按紐單純關閉提醒視窗功能
@@ -501,11 +501,13 @@
                     contentType: false,
                     processData: false,
                     data: form_data, //data只能指定單一物件 
-                    dataType: 'json',
+                    dataType: 'text',
                     success: function (res) {
                         console.log(res);
+                        window.location.href = "./group.html";
                     }
                 });
+
             }
         }
         publish.addEventListener('click', submitData);

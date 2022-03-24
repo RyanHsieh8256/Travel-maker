@@ -35,7 +35,7 @@ checkPageTitle();
 //loading畫面
 $(document).ready(function(){
     let loadingbox = document.createElement('div');
-    loadingbox.classList.add('loadingbox');
+    loadingbox.setAttribute('id','loadingbox');
     let loading = document.createElement('div');
     loading.classList.add('loading');
     loadingbox.appendChild(loading);
@@ -48,8 +48,8 @@ $(document).ready(function(){
 });
 
 window.addEventListener('load',function(){
-    $('.loadingbox').fadeOut(1500,function(){
-        $('.loadingbox').remove();
+    $('#loadingbox').fadeOut(1500,function(){
+        $('#loadingbox').remove();
     });
 });
 
