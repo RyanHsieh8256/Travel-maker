@@ -135,7 +135,7 @@ function updateTour(number) {
     let tourObj = {
       journeyNo: number,
       journeyName: tourName.textContent,
-      journeyImg: 'journeyImg-1.jpg',
+      journeyImg: number <= 40 ? `journeyImg-${number}.jpg` : 'journeyImg-0.jpg',
       journeyInfo: tourForm.tourInfo.value,
       memNo: getMemData().memNo,
       journeyStartDay: dateArr[0].replace(re,'-'),
