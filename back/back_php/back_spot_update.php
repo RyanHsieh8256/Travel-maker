@@ -91,7 +91,7 @@
             $spotImg = "sportImg_$spotNo_pad.jpg";
             echo $spotImg;
             // =--
-            move_uploaded_file($_FILES["file"]["tmp_name"],"../back_img/spot_img/".$spotImg);
+            move_uploaded_file($_FILES["file"]["tmp_name"],"../".$spotImg);
             // upadte 資料到spot表
             $sql = "update spot set  spotName=:spotName , spotImg='$spotImg' , spotPlace=:spotPlace, spotLongitude=:spotLongitude, spotLatitude=:spotLatitude, spotInfo=:spotInfo, spotState=:spotState where spotNo=:spotNo";
             getD();

@@ -37,7 +37,7 @@
                 $spotNo_pad = str_pad($id,3,"0",STR_PAD_LEFT);
 
                 $spotImg = "sportImg_$spotNo_pad.jpg";
-                move_uploaded_file($_FILES["file"]["tmp_name"],"../back_img/spot_img/".$spotImg);
+                move_uploaded_file($_FILES["file"]["tmp_name"],"../".$spotImg);
 
                 $sql = "update g3.spot set spotImg = \"$spotImg\" where spotNo = '$id'";
                 
