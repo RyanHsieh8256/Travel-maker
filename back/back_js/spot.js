@@ -215,7 +215,7 @@ $(function () {
         //console.log(form);
         axios({
             method: 'post',
-            url: './back_php/back_insert.php',
+            url: './back_php/back_spot_insert.php',
             data: form,
             headers: {'Content-Type': 'multipart/form-data' }
             })
