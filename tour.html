@@ -44,22 +44,22 @@
                         </a>
                     </li>
                     <li class="navDropdownMenuItem">
-                        <a href="mem.html">
+                        <a href="memtour.html">
                             <i class="bi bi-calendar2"></i> 我的行程
                         </a>
                     </li>
                     <li class="navDropdownMenuItem">
-                        <a href="mem.html">
+                        <a href="memcollect.html">
                             <i class="bi bi-bookmark-heart"></i> 我的收藏
                         </a>
                     </li>
                     <li class="navDropdownMenuItem">
-                        <a href="mem.html">
+                        <a href="memgro.html">
                             <i class="bi bi-file-person"></i> 我的揪團
                         </a>
                     </li>
                     <li class="navDropdownMenuItem">
-                        <a href="mem.html">
+                        <a href="memorder.html">
                             <i class="bi bi-bag"></i> 我的訂單
                         </a>
                     </li>
@@ -158,15 +158,14 @@
         </div>
         <div class="tour_noTour">
           <div class="tour_massage">
-            <h3 class="tour_title">目前這個城市沒有公開行程喔!</h3>
-            <button class="btn btn--main btn--add addJour">新增行程</button>
+            <p class="tour_empty">目前這個城市沒有公開行程喔!</p>
           </div>
         </div>
         <div class="l-large tour_wrap">
           <div class="tour_main tour_main--active">
             <div class="tour_header">
-              <div class="tour_img">
-                <img src="https://images.pexels.com/photos/2215380/pexels-photo-2215380.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+              <div class="tour_img rwdNone">
+                <img id="tourImg">
               </div>
               <div class="tour_title tourName">
                 <span># 台北市</span>
@@ -193,12 +192,12 @@
                     <div class="tour_name tourName"></div>
                     <p class="p-text" id="tourInfo">
                     </p>
-                    <!-- <div class="tour_person">
+                    <div class="tour_person">
                       <div class="tour_img tour_img--person">
-                        <img src="https://images.pexels.com/photos/2785021/pexels-photo-2785021.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                        <img id="memImg" src="https://images.pexels.com/photos/2785021/pexels-photo-2785021.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
                       </div>
-                      <p class="p-text">人才丁丁</p>
-                    </div> -->
+                      <p class="p-text" id="mem">人才丁丁</p>
+                    </div>
                   </div>
                   <div class="btn_box">
                     <button class="btn btn--chip" id="seeDetail">觀看詳細內容</button>
@@ -262,7 +261,7 @@
         </div>
         <div class="tourForm_selectDate">
             <div class="popup_header">
-            <button class="btn--arrow" id="arrowBtn">
+            <button class="btn--arrow" id="arrowBtn2">
                 <i class="bi bi-arrow-left-short"></i>       
             </button>
             <h3 class="third-title">選擇日期</h3>
@@ -270,7 +269,7 @@
             <div class="tourForm_duration">
                 <div class="tourForm_dateBox">
                 <h4 class="tourForm_theText">出發日期</h4>
-                <p class="tourForm_theDate" id="tourStart">2022.2.22</p>
+                <p class="tourForm_theDate" id="tourStart">2022.3.24</p>
                 </div>
                 <div class="tourForm_days">
                   <span id="days"></span>
@@ -278,7 +277,7 @@
                 </div>  
                 <div class="tourForm_dateBox">
                 <h4 class="tourForm_theText">返回日期</h4>
-                <p class="tourForm_theDate" id="tourEnd">2022.2.22</p>
+                <p class="tourForm_theDate" id="tourEnd">2022.3.24</p>
                 </div>
             </div>
             <div class="popup_inner popup_date">
@@ -292,7 +291,7 @@
                 </div>
             </div>
             <div class="popup_btnBox">
-                <button class="btn btn--cancel">略過</button>
+                <!-- <button class="btn btn--cancel">略過</button> -->
                 <button class="btn btn--main" id="goBuildTour">
                     <a href="tourbuild.html" class="popup_link">
                         確定
@@ -361,140 +360,5 @@
   <script src="js/burger.js"></script>
   <script src="js/forlogin.js"></script>
   <script src="js/tour.js"></script>
-  
-  <script>
-
-    // function sortTour() {
-    //     sorts = document.querySelectorAll('.sort_item');
-    //     mains = document.querySelectorAll('.tour_main');
-    //     sorts.forEach(sort => sort.addEventListener('click',changeCity));
-        
-        
-    //       function changeCity(e) {
-    //         if(!e.target.classList.contains('sort_item')) return;
-    //       sorts.forEach(tab => tab.classList.remove('sort_item--active'));
-    //       mains.forEach(page => page.classList.remove('tour_main--active'));
-
-    //       let curCity = e.target.dataset['sort'];
-    //       let sort = document.querySelector(`.tour_side--${curCity}`);
-    //       let mainPage = document.querySelector(`.tour_main--${curCity}`);
-          
-         
-    //       e.target.classList.add('sort_item--active');
-    //       mainPage.classList.add('tour_main--active');
-          
-    //   }
-    // }
-    // sortTour();
-
-    // function slideContent() {
-    //   let seeDetailBtn = document.querySelector('#seeDetail');
-    //   let box = document.querySelector('.tour_box');
-
-    //   seeDetailBtn.addEventListener('click',() => {
-        
-    //     box.style.transform = `translateX(calc(-100% + 15px))`;
-    //   })
-
-    //   let arrowBtn = document.querySelector('#arrowBtn');
-    //   arrowBtn.addEventListener('click',() => {
-    //     box.style.transform = `translateX(0%)`;
-    //   })
-    // }
-    // slideContent();
-
-    // function changeTab() {
-    // tabs = document.querySelectorAll('.timeline_tab');
-    // pages = document.querySelectorAll('.timeline_page');
-    // tabs.forEach(tab => tab.addEventListener('click',changePage));
-
-    //     function changePage(e) {
-    //     tabs.forEach(tab => tab.classList.remove('timeline_tab--active'));
-    //     pages.forEach(page => page.classList.remove('timeline_page--active'));
-
-    //     let curPage = Number(e.target.dataset['tab']);
-    //     let tab = document.querySelector(`.timeline_tab--${curPage}`);
-    //     let page = document.querySelector(`.timeline_page--${curPage}`);
-
-    //     if(!tab || !page) return;
-    //     tab.classList.add('timeline_tab--active');
-    //     page.classList.add('timeline_page--active');
-    //     }
-    // }
-
-    // changeTab();
-
-    // function changeItem() {
-    //   let sliderItem = document.querySelectorAll('.slider_item');
-      
-    //   sliderItem.forEach(item => item.addEventListener('click', turnActive));
-
-    //   function turnActive(e) {
-    //     sliderItem.forEach(item => item.classList.remove('slider_item--active'));
-
-    //     if(!e.target.classList.contains('slider_item')) return;
-    //     e.target.classList.add('slider_item--active');
-    //   }
-    
-    // }
-
-    // changeItem();
-
-    // function closePopup() {
-    //       let closeBtn = document.querySelector('.btn--close');
-    //       let tourBtn = document.querySelector('.tour_btn');
-    //       let box = document.querySelector('.tour_side');
-
-    //       closeBtn.addEventListener('click',(e) => {
-    //         box.style.display = 'none';
-    //       })
-
-    //       tourBtn.addEventListener('click',() => {
-    //         box.style.display = 'block';
-    //       })
-    // }
-
-    // closePopup();
-
-    // // 建立行程表單需要:
-    // function popupSwitch() {
-    //     let closeBtn = document.querySelector('.popup_close');
-    //     let addBtn = document.querySelectorAll('.btn--add');
-
-    //     let popup = document.querySelector('.popup');
-
-    //     closeBtn.addEventListener('click',() => {
-    //         popup.style.display = 'none';
-    //     })
-
-    //     addBtn.forEach(btn => btn.addEventListener('click',() => {
-    //       popup.style.display = 'flex';
-    //     }));
-
-        
-    // }
-    // popupSwitch();
-
-    // function slidePage() {
-    //     let nextBtn = document.querySelector('#slide-next');
-    //     let arrowBtn = document.querySelector('#arrowBtn');
-    //     let box = document.querySelector('.tourForm_box');
-
-    //     nextBtn.addEventListener('click',() => {
-    //     let form = document.querySelector('.tourForm_form');
-    //     if(form.tourName.value) {
-    //         box.style.transform = `translateX(calc(-100% - 20px))`;
-    //     }  
-        
-    //     })
-
-    //     arrowBtn.addEventListener('click',() => {
-    //     box.style.transform = `translateX(0%)`;
-    //     })
-
-    // }
-    // slidePage();
-
-  </script>
 </body>
 </html>

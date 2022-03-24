@@ -177,12 +177,15 @@ function insertTour(data) {
   .then(data => {
     let parseUrl = document.location.hash.toLowerCase();
     let states = parseUrl.split('/')[1];
+    alertBG.style.display = 'block';
+    setTimeout(() => alertBG.style.display = 'none',1500);
+
     if(states == 'tour') {
       history.pushState({page: 1}, "", `tourbuild.html#/tour/${curNo[0]}`)
-      alertBG.querySelector('.alertBG_content').textContent = '已儲存行程';
-      alertBG.style.display = 'block';
-      setTimeout(() => alertBG.style.display = 'none',1500);
-    } 
+      alertBG.querySelector('.alertBG_content').textContent = '已儲存行程';  
+    }else {
+      alertBG.querySelector('.alertBG_content').textContent = '已更新行程';  
+    }
   })
 }
 

@@ -11,7 +11,6 @@ window.addEventListener('load',function() {
     fetchCity();
     displayTheTour();
     
-    
 })
 
 window.addEventListener('beforeunload',function(e) {
@@ -198,7 +197,9 @@ function handleLike(jourNo) {
 
 // 取得local storage的memLike
 function getLikeArr() {
+  if(localStorage.getItem('memLike') == null || !localStorage.getItem('memLike')) return;
   let likes = JSON.parse(localStorage.getItem('memLike'));
+  console.log(likes);
   let arr = [];
   likes.forEach(like => arr.push(+like.journeyNo));
 
@@ -443,6 +444,7 @@ function changeItem() {
 }
 
 function haveLike(jourNo) {
+  if(!getLikeArr()) return;
   let curLikes = getLikeArr();
   let likeOrNot = curLikes.some(like => like == +jourNo);
   console.log(curLikes);
@@ -516,19 +518,23 @@ slidePage();
 
 // 呈現行程名稱 /圖片等內容
 function displayTheTour() {
-  if(tourForm().length == 0) return;
+  if(tourForm()?.length == 0 || sessionStorage.getItem("day1") == null) return;
 
   let names = document.querySelectorAll('.tourName');
+  tourImg.src = `images/journeyImg/${tourForm().journeyImg}`;
   tourWrapper.dataset['jour'] = tourForm().journeyNo;
   names.forEach(name => name.textContent = tourForm().journeyName);
   tourInfo.textContent = tourForm().journeyInfo;
+  memImg.src = `images/memIcon/${tourForm().memIcon}`;
+  mem.textContent = `${tourForm().memName}`;
 }
 displayTheTour();
 
 // 讓popup的資料為fetch回來的資料
 function tourForm() {
+  if(sessionStorage.getItem("day1") == null) return;
     let data = JSON.parse(sessionStorage.getItem("day1"));
-    let {journeyNo, journeyName,journeyInfo,journeyStartDay,journeyEndDay} = data[0];
+    let {journeyNo,journeyImg,journeyName,journeyInfo,journeyStartDay,journeyEndDay,memName, memIcon} = data[0];
 
     let goTourBuild = document.querySelector('#goBuildTour a');
 
@@ -548,10 +554,13 @@ function tourForm() {
 
     return {
       journeyNo,
+      journeyImg,
       journeyName,
       journeyInfo,
       journeyStartDay,
-      journeyEndDay
+      journeyEndDay,
+      memName,
+      memIcon
     }
 
 }
@@ -621,3 +630,60 @@ const dragSlide = function() {
 }
 
 dragSlide();
+
+function slidePage() {
+  let nextBtn = document.querySelector('#slide-next');
+  let arrowBtn = document.querySelector('#arrowBtn2');
+  let box = document.querySelector('.tourForm_box');
+
+  nextBtn.addEventListener('click',() => {
+  let form = document.querySelector('.tourForm_form');
+  if(form.tourName.value) {
+      box.style.transform = `translateX(calc(-100% - 20px))`;
+  }  
+  
+  })
+
+  arrowBtn.addEventListener('click',() => {
+  box.style.transform = `translateX(0%)`;
+  })
+
+}
+
+slidePage();
+
+// 點擊填字
+function autofillWord() {
+  chipBtn = document.querySelectorAll('.btn--chip');
+  chipBtn.forEach(btn => btn.addEventListener('click',autofillWord));
+
+  function autofillWord(e) {
+    chipBtn.forEach(btn => btn.classList.remove('is_active'));
+
+    e.currentTarget.classList.add('is_active');
+    let curBtn = e.currentTarget.textContent;
+    tourName.value = curBtn;
+  }
+}
+
+autofillWord();
+
+
+// 調整popup行程日期的呈現
+startDate.addEventListener('change',(e,i) => changeDate(e,tourStart));
+endDate.addEventListener('change',(e,i) => changeDate(e,tourEnd));
+
+function changeDate(e,day) {
+    let re = /-/gi;
+    console.log(e.currentTarget.value.replace(re,'.'));
+    day.textContent = e.currentTarget.value.replace(re,'.');
+
+    displayDay();
+}
+
+function displayDay() {
+    let diff = Math.abs(new Date(tourEnd.textContent) - new Date(tourStart.textContent));
+    let day = Math.ceil(diff/(1000 * 3600 * 24) + 1);
+
+    days.textContent = `${day}`;
+}
