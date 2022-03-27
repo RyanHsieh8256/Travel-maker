@@ -415,10 +415,6 @@
                         card_photo.classList.add('card_photo');
                         card_name.classList.add('card_name');
 
-                        //3-2. 點擊次數固定
-                        let card_hit = document.createElement('div');
-                        let hitSpan = document.createElement('span');
-                        card_hit.classList.add('card_hit');
 
                         //4. 創造卡片內容裡的東西
                         // 4-1. 卡片本身a連結
@@ -474,12 +470,6 @@
                         initiatorPic.src = `images/memIcon/${res[i].memIcon}`;
                         //***這裡串接團主的名字
                         card_name.textContent = res[i].memName;
-                        //3-2. 點擊次數固定
-                        card_header.appendChild(card_hit);
-                        card_hit.appendChild(hitSpan);
-                        hitSpan.textContent = '199999';
-                        let hitTextNode = document.createTextNode(" 點擊");
-                        card_hit.appendChild(hitTextNode);
 
                         //4. 把卡片內容裡的小朋友們插入卡片內容
                         // 4-1. 卡片本身a連結
@@ -591,11 +581,6 @@
                             card_photo.classList.add('card_photo');
                             card_name.classList.add('card_name');
 
-                            //3-2. 點擊次數固定
-                            let card_hit = document.createElement('div');
-                            let hitSpan = document.createElement('span');
-                            card_hit.classList.add('card_hit');
-
                             //4. 創造卡片內容裡的東西
                             // 4-1. 卡片本身a連結
                             let a = document.createElement('a');
@@ -650,12 +635,6 @@
                             initiatorPic.src = `images/memIcon/${res[i].memIcon}`;
                             //***這裡串接團主的名字
                             card_name.textContent = res[i].memName;
-                            //3-2. 點擊次數固定
-                            card_header.appendChild(card_hit);
-                            card_hit.appendChild(hitSpan);
-                            hitSpan.textContent = '199999';
-                            let hitTextNode = document.createTextNode(" 點擊");
-                            card_hit.appendChild(hitTextNode);
 
                             //4. 把卡片內容裡的小朋友們插入卡片內容
                             // 4-1. 卡片本身a連結
